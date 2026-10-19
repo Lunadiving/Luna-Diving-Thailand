@@ -4,7 +4,7 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
 import Layout from '../../layouts/Layout.astro';
 
 const vesselName = "Seascape 2";
-const tagline = "A nineteen metre flybridge, refitted in 2022, berthed twenty minutes from open water.";
+const tagline = "A 19.6m Sunseeker flybridge for private day trips for up to 20 guests and overnight charters from Royal Phuket Marina";
 
 const slideshow = [
   { 
@@ -53,26 +53,23 @@ const slideshow = [
   },
   { 
     img: '/images/yacht/seascape-2/seascape-2-sunset-swim-platform-relax.webp', 
-    text: 'Guest relaxing with a glass of wine on the hydraulic swim platform of the Seascape 2 during sunset' 
+    text: 'Guest relaxing with a glass of wine on the swim platform of the Seascape 2 during sunset' 
   }
 ];
 
 const technicalSpecs = [
   { label: 'Builder', value: 'Sunseeker' },
-  { label: 'Type', value: 'Motor yacht, flybridge' },
+  { label: 'Type', value: 'Flybridge Motor Yacht' },
   { label: 'Built / Refitted', value: '2009 / 2022' },
-  { label: 'Length Overall', value: '19.61 m' },
+  { label: 'Length Overall', value: '19.61 m / 64 ft' },
   { label: 'Beam', value: '5.00 m' },
   { label: 'Engines', value: '2 x Caterpillar 900 hp' },
-  { label: 'Cruising Speed', value: '17 knots' },
-  { label: 'Maximum Speed', value: '25 knots' },
-  { label: 'Cabins', value: '3 (All Ensuite)' },
-  { label: 'Berths', value: '6' },
-  { label: 'Day Charter', value: '20 Guests' },
-  { label: 'Overnight', value: '6 Guests' },
-  { label: 'Crew', value: '3' },
-  { label: 'Fuel Capacity', value: '2,950 L' },
-  { label: 'Water Capacity', value: '700 L' },
+  { label: 'Cruising / Max Speed', value: '17 / 25 Knots' },
+  { label: 'Fuel / Water', value: '2,950 L / 700 L' },
+  { label: 'Cabins', value: '3, All En Suite' },
+  { label: 'Berths / Bathrooms', value: '6 / 3' },
+  { label: 'Guests', value: '20 Day / 6 Overnight' },
+  { label: 'Crew', value: '3 (Captain, Deckhand, Hostess)' },
   { label: 'Home Port', value: 'Royal Phuket Marina' }
 ];
 
@@ -81,7 +78,7 @@ const dayCharterRates = [
   { destination: 'Khai and Naka', lowTHB: '125,000 ฿', highTHB: '136,000 ฿' },
   { destination: 'Phang Nga Bay', lowTHB: '136,000 ฿', highTHB: '146,000 ฿' },
   { destination: 'Koh Maiton and Khai Island', lowTHB: '136,000 ฿', highTHB: '146,000 ฿' },
-  { destination: 'Koh Hong, Krabi', lowTHB: '146,000 ฿', highTHB: '157,000 ฿' },
+  { destination: 'Krabi 4 Islands', lowTHB: '146,000 ฿', highTHB: '157,000 ฿' },
   { destination: 'Phi Phi', lowTHB: '146,000 ฿', highTHB: '157,000 ฿' },
   { destination: 'Racha Islands', lowTHB: '146,000 ฿', highTHB: '157,000 ฿' }
 ];
@@ -117,36 +114,85 @@ const includedItems = [
 ];
 
 const notIncludedItems = [
-  { text: 'Alcoholic beverages beyond the wine and beer included', highlight: 'Extra' },
-  { text: 'National park fees, where applicable', highlight: 'Direct payment' },
-  { text: 'Crew gratuities, at the guests’ discretion', highlight: 'Discretionary' }
+  { text: 'Alcoholic beverages beyond the wine and beer included', highlight: 'On request' },
+  { text: 'National park fees, where applicable', highlight: 'Payable locally' },
+  { text: 'Crew gratuities', highlight: "At the guests' discretion" }
 ];
 
 const cruisingDestinations = [
-  "Naka Yai",
-  "Khai Islands",
-  "Koh Maiton",
-  "Racha Islands",
-  "Phang Nga Bay (National Park)",
-  "Koh Hong, Krabi (National Park)",
-  "Phi Phi Islands"
+  { name: "Naka Yai", type: "Half day (4 hours)" },
+  { name: "Khai Islands", type: "Day charter" },
+  { name: "Koh Maiton", type: "Day charter" },
+  { name: "Racha Islands", type: "Day charter" },
+  { name: "Phang Nga Bay", type: "National park" },
+  { name: "Koh Hong, Krabi", type: "National park" },
+  { name: "Phi Phi Islands", type: "National park" }
 ];
 
 const waterToys = [
   "Tender",
-  "Stand up paddleboard (SUP)",
+  "Stand-up paddleboard (SUP)",
   "Kayak",
   "Snorkelling equipment",
   "Kayak rental at Phang Nga Bay"
 ];
+
+const onBoard = [
+  "Air conditioning throughout",
+  "Wi-Fi",
+  "Indoor and outdoor sound system",
+  "BBQ grill",
+  "Towels"
+];
+
+const faqs = [
+  {
+    q: 'How much does a Seascape 2 day charter cost?',
+    a: 'Private day charters start from THB 94,000 for a 4-hour trip to Naka Yai, and from THB 125,000 for a full day to the Khai and Naka Islands in low season (May to November). Phang Nga Bay is THB 136,000, and Phi Phi, the Racha Islands and the Krabi 4 Islands are THB 146,000. High season rates (December to April) are slightly higher. Prices are per boat, not per person.'
+  },
+  {
+    q: 'How many guests can join the charter?',
+    a: 'Up to 20 guests on a day charter, which makes Seascape 2 a good choice for families and larger groups. The rate covers up to 10 guests; each additional guest is THB 2,000. Overnight, the yacht sleeps 6 guests in 3 en-suite cabins.'
+  },
+  {
+    q: 'Are hotel transfers included?',
+    a: 'Yes. Return transfers from your Phuket hotel or from Phuket airport to Royal Phuket Marina are included in the charter price.'
+  },
+  {
+    q: 'Which islands can we visit?',
+    a: 'Day charters go to Naka Yai, the Khai Islands, Koh Maiton, the Racha Islands, Phang Nga Bay, Koh Hong and the Krabi 4 Islands, or Phi Phi. With a cruising speed of 17 knots and a top speed of 25 knots, even Phi Phi is a comfortable day trip. National park fees are paid locally.'
+  },
+  {
+    q: 'How much does an overnight charter cost?',
+    a: 'Overnight charters for up to 6 guests start from THB 283,000 (about USD 8,600) for 2 days and 1 night in low season, up to THB 986,000 (about USD 29,900) for 7 days and 6 nights in high season. Breakfast, lunch and dinner are included.'
+  },
+  {
+    q: 'What is included in the price?',
+    a: 'The yacht with captain, deckhand and hostess, lunch on day charters or all meals overnight, fruit, snacks, soft drinks, ice, 24 local beers, a bottle of wine, tender, paddleboard, kayak, snorkelling gear, kayak rental at Phang Nga Bay, towels, Wi-Fi, air conditioning, travel insurance and return transfers.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a }
+  }))
+};
 ---
 
-<Layout title={`Seascape 2 Motor Yacht Charter Phuket | Luna Diving`}>
+<Layout
+  title="Seascape 2 Yacht Charter Phuket | Sunseeker Flybridge"
+  description="Private yacht charter in Phuket on Seascape 2, a 19.6m Sunseeker flybridge for up to 20 guests: Phang Nga Bay, Phi Phi and Racha day trips with hotel transfers included."
+  image="/images/yacht/seascape-2/seascape-2-motor-yacht-stern-profile.webp"
+>
   <main class="pcom-wrapper">
     
     <section class="pcom-hero">
-      <span class="pcom-subtitle">Luxury Flybridge Motor Yacht</span>
-      <h1 class="pcom-title">{vesselName}</h1>
+      <span class="pcom-subtitle">Sunseeker 19.6m Flybridge Motor Yacht</span>
+      <h1 class="pcom-title">{vesselName} Yacht Charter Phuket</h1>
       <div class="pcom-divider"></div>
       <p class="pcom-tagline">{tagline}</p>
     </section>
@@ -193,63 +239,61 @@ const waterToys = [
 
     <section class="pcom-content-grid">
       <div class="content-main">
-        <h2 class="content-heading">A nineteen metre flybridge, refitted in 2022, berthed twenty minutes from open water.</h2>
+        <h2 class="content-heading">Sunseeker Yacht Charter in Phuket for Up to 20 Guests</h2>
         <div class="heading-line"></div>
         <p class="paragraph">
-          Three ensuite cabins, a crew of three, and the whole of the Andaman Sea inside a day’s run. Seascape 2 carries twenty guests on a Phang Nga day charter and sleeps six on passage.
+          <strong>Seascape 2</strong> is a <strong>19.6-metre Sunseeker flybridge motor yacht</strong> based at <strong>Royal Phuket Marina</strong>, available for <strong>private day trips for up to 20 guests</strong> and <strong>overnight charters for up to 6 guests</strong> in three en-suite cabins. With a crew of three and return hotel transfers included, she is a natural choice in Phuket for families and larger groups of friends.
+        </p>
+        <p class="paragraph">
+          Launched in 2009 and refitted in 2022, she is moored only twenty minutes from open water, so the islands of the Andaman Sea are all within an easy day's cruise.
         </p>
 
-        <h3 class="sub-heading">Seascape 2</h3>
+        <h3 class="sub-heading">A Sunseeker Layout Designed for Guests</h3>
         <p class="paragraph">
-          Seascape 2 is a Sunseeker flybridge of 19.61 metres, launched in 2009 and refitted in 2022. She is a three cabin boat with the galley set on the lower deck, which is the arrangement that matters most at this size: it leaves the whole of the main deck to the saloon and its wraparound glazing, and it keeps service out of sight of the guests.
-        </p>
-        <p class="paragraph">
-          Below, the master sits amidships, a VIP cabin takes the bow, and a twin cabin lies to starboard opposite the galley. All three have their own ensuite. The twin ensuite doubles as the day head, so guests on deck never pass through a cabin.
-        </p>
-        <p class="paragraph">
-          The crew quarters aft under the transom bulkhead are fully self contained and air conditioned, with their own shower and head.
+          On Seascape 2 the galley is on the lower deck, which is the key to her layout. It leaves the entire main deck free for the saloon and its wraparound windows, and keeps the crew's work out of sight. The crew has its own air-conditioned quarters aft, with a private shower and toilet.
         </p>
 
-        <h3 class="sub-heading">Twin Caterpillars, 1,800 horsepower</h3>
+        <h3 class="sub-heading">Twin Caterpillar Engines: 17 to 25 Knots</h3>
         <p class="paragraph">
-          Two Caterpillar engines of 900 horsepower each give a settled seventeen knot cruise and twenty five knots when the sea allows, on 2,950 litres of fuel. On the Andaman that margin decides whether Phi Phi is a comfortable day out or a long one.
+          Two 900 hp Caterpillar engines, 1,800 hp in total, give her a steady cruising speed of 17 knots and up to 25 knots in good conditions, with 2,950 litres of fuel on board. That extra speed is what turns a trip to Phi Phi into a relaxed day out instead of a long one.
         </p>
 
-        <h3 class="sub-heading">The flybridge</h3>
+        <h3 class="sub-heading">Flybridge Lounge with Bimini Shade</h3>
         <p class="paragraph">
-          Wide, gently sloping stairs lead up from the aft cockpit to a flybridge sheltered by a bimini top. The upper helm repeats the lower station instrument for instrument, so the boat can be run from either. A sunpad sits beside the helm and the lounge seats the whole party topside. A second sunpad is on the foredeck when this one fills.
+          Wide, gently sloping stairs lead from the aft cockpit up to the flybridge, shaded by a bimini top. A U-shaped lounge seats the whole group, and there is a sunpad next to the upper helm, which has the same instruments as the lower station. When the flybridge is full, a second sunpad on the foredeck offers more space to relax.
         </p>
 
-        <h3 class="sub-heading">The aft cockpit</h3>
+        <h3 class="sub-heading">Aft Cockpit Dining and BBQ</h3>
         <p class="paragraph">
-          The cockpit table is where a charter day actually happens. Lunch is served at anchor, the swim platform is one step down, and the islands sit close enough to read. All meals are cooked on board and served here or on the flybridge. The grill comes out for evening charters at anchor.
+          The aft cockpit table is the centre of the day. Lunch is cooked on board and served at anchor here or on the flybridge, with the swim platform just one step away. On evening charters at anchor, the BBQ grill comes out too.
         </p>
 
-        <h3 class="sub-heading">The saloon</h3>
+        <h3 class="sub-heading">Bright Main Saloon</h3>
         <p class="paragraph">
-          The saloon runs the full width of the main deck with large windows either side, so it holds natural light from morning through to sunset. Pale leather, contemporary joinery, and a dining table aft with the cockpit doors open behind it. With the galley on the lower deck the main deck stays one uninterrupted space for entertaining.
+          The saloon spans the full width of the main deck, with large windows on both sides that let in natural light from morning to sunset. Pale leather seating, modern joinery and a dining table at the aft end, next to the cockpit doors, make it one continuous space for entertaining.
         </p>
 
-        <h3 class="sub-heading">The master cabin</h3>
+        <h3 class="sub-heading">Three En-Suite Cabins</h3>
         <p class="paragraph">
-          The master sits amidships on the lower deck, on the widest part of the beam, with hull windows to both sides and its own ensuite. Amidships is the quietest berth on board and the one that moves least at anchor.
+          The master cabin sits amidships, the widest and quietest part of the yacht and the one that moves least at anchor, with hull windows on both sides and a private en-suite bathroom. The VIP cabin at the bow has a double berth and its own en-suite, while the twin cabin on the starboard side has two single berths and an en-suite that also serves as the day toilet, so guests on deck never need to pass through a cabin.
         </p>
 
-        <h3 class="sub-heading">Guest cabins</h3>
+        <h3 class="sub-heading">Water Toys and Amenities</h3>
         <p class="paragraph">
-          A VIP cabin takes the bow with a double berth and its own ensuite. A twin cabin lies to starboard opposite the galley, with two single berths and an ensuite that also serves as the day head. Three cabins and six berths for six guests overnight, and twenty guests on a day charter.
+          Everything listed below is carried on board and included in the charter price, including kayak rental when you visit Phang Nga Bay.
         </p>
-
-        <h3 class="sub-heading">Water Toys & Amenities</h3>
         <ul class="toy-list">
           {waterToys.map(toy => <li>{toy}</li>)}
+        </ul>
+        <ul class="toy-list">
+          {onBoard.map(item => <li>{item}</li>)}
         </ul>
       </div>
 
       <div class="content-sidebar">
         <div class="booking-sticky-box">
           <h3 class="sidebar-heading">Inquire for Seascape 2</h3>
-          <p class="sidebar-text">Charter this magnificent 19m Sunseeker flybridge yacht out of Royal Phuket Marina.</p>
+          <p class="sidebar-text">Check availability for a private day trip for up to 20 guests or an overnight charter on the Sunseeker Seascape 2, from Royal Phuket Marina.</p>
           <a href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20interested%20in%20chartering%20Seascape%202." target="_blank" rel="noopener noreferrer" class="pcom-btn-primary">
             Inquire via WhatsApp
           </a>
@@ -260,8 +304,8 @@ const waterToys = [
     <!-- Day Charter Pricing Section -->
     <section class="pcom-schedule-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Day Charters</h2>
-        <p class="paragraph" style="margin-bottom: 8px;">Sunseeker flybridge · 19.61 m · Three ensuite cabins · Crew of three</p>
+        <h2 class="content-heading">Seascape 2 Day Charter Rates 2026</h2>
+        <p class="paragraph" style="margin-bottom: 8px;">Per charter in Thai baht for up to 10 guests, with return hotel or airport transfers included.</p>
         <div class="heading-line"></div>
       </div>
 
@@ -301,8 +345,8 @@ const waterToys = [
     <!-- Overnight Charter Pricing Section -->
     <section class="pcom-schedule-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Overnight Charters</h2>
-        <p class="paragraph" style="margin-bottom: 8px;">Sunseeker flybridge · 19.61 m · Three ensuite cabins · Crew of three</p>
+        <h2 class="content-heading">Seascape 2 Overnight Charter Rates 2026</h2>
+        <p class="paragraph" style="margin-bottom: 8px;">Per charter for up to 6 guests in 3 en-suite cabins, all meals included.</p>
         <div class="heading-line"></div>
       </div>
 
@@ -340,7 +384,7 @@ const waterToys = [
       </div>
       <p class="table-note-text" style="margin-top: 12px; font-size: 12px; color: #4f5059; line-height: 1.5;">
         * Overnight rates include all meals on board. Six guests in 3 ensuite cabins, each with its own bathroom.<br/>
-        * US dollar figures are indicative, converted at 33 baht to the dollar.
+        * US dollar figures are indicative, converted at 33 baht to the dollar, and are not a contractual rate. All rates are subject to availability.
       </p>
     </section>
 
@@ -389,8 +433,8 @@ const waterToys = [
     <!-- Cruising Destinations List Section -->
     <section class="pcom-schedule-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Cruising Grounds</h2>
-        <p class="paragraph" style="margin-bottom: 12px;">Day charters and overnight passages through the Andaman Sea, tailored to guests.</p>
+        <h2 class="content-heading">Cruising Grounds from Royal Phuket Marina</h2>
+        <p class="paragraph" style="margin-bottom: 12px;">Day charters and overnight trips through the Andaman Sea, planned around the guests rather than a fixed route. Running times are confirmed at the time of quotation; national park fees are not included.</p>
         <div class="heading-line"></div>
       </div>
 
@@ -405,14 +449,31 @@ const waterToys = [
           <tbody>
             {cruisingDestinations.map((dest) => (
               <tr>
-                <td class="td-dates">{dest}</td>
-                <td class="td-itinerary"><span class="itinerary-text">Available for Charter</span></td>
+                <td class="td-dates">{dest.name}</td>
+                <td class="td-itinerary"><span class="itinerary-text">{dest.type}</span></td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
     </section>
+
+    <section class="pcom-schedule-section">
+      <div class="pricing-header">
+        <h2 class="content-heading">Seascape 2 Charter: Frequently Asked Questions</h2>
+        <div class="heading-line"></div>
+      </div>
+      <div class="faq-list">
+        {faqs.map((item) => (
+          <details class="faq-item">
+            <summary class="faq-question">{item.q}</summary>
+            <p class="paragraph faq-answer">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
     <a 
       href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20interested%20in%20booking%20the%20Seascape%202%20Yacht." 
@@ -1016,5 +1077,27 @@ const waterToys = [
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid var(--pcom-color-surface);
+    padding: 14px 0;
+  }
+
+  .faq-question {
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--pcom-color-primary);
+  }
+
+  .faq-question:focus-visible {
+    outline: 2px solid var(--pcom-color-accent);
+    outline-offset: 4px;
+  }
+
+  .faq-answer {
+    margin: 10px 0 0;
   }
 </style>
