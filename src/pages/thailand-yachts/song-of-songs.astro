@@ -4,7 +4,7 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
 import Layout from '../../layouts/Layout.astro';
 
 const vesselName = "Song of Songs";
-const tagline = "A 42-metre motor yacht built for the long way between anchorages.";
+const tagline = "A 42m Heysea superyacht for all-inclusive day charters and private cruises from Phuket across Thailand, Mergui and Southeast Asia";
 
 const slideshow = [
   { 
@@ -13,7 +13,7 @@ const slideshow = [
   },
   { 
     img: '/images/yacht/song-of-songs/song-of-songs-superyacht-profile-sunset-phuket.webp', 
-    text: 'Side profile view of the 116ft Song of Songs luxury superyacht cruising at sunset off Phuket with water toys alongside' 
+    text: 'Side profile view of the 139ft Song of Songs luxury superyacht cruising at sunset off Phuket with water toys alongside' 
   },
   { 
     img: '/images/yacht/song-of-songs/song-of-songs-aft-deck-beach-club-dusk.webp', 
@@ -58,20 +58,18 @@ const slideshow = [
 ];
 
 const technicalSpecs = [
-  { label: 'Builder', value: 'Heysea Yachts (Asteria 142)' },
+  { label: 'Builder / Model', value: 'Heysea Yachts / Asteria 142' },
   { label: 'Year Built', value: '2022' },
-  { label: 'Length Overall', value: '42.27 m' },
-  { label: 'Beam', value: '8.50 m' },
-  { label: 'Draft', value: '1.97 m' },
+  { label: 'Type', value: 'Motor Yacht' },
+  { label: 'Length Overall', value: '42.27 m / 139 ft' },
+  { label: 'Beam / Draft', value: '8.50 m / 1.97 m' },
   { label: 'Engines', value: '2 x Caterpillar C-32' },
-  { label: 'Cruising Speed', value: '10 knots' },
-  { label: 'Maximum Speed', value: '15 knots' },
-  { label: 'Cruising Range', value: '2,000+ Nautical Miles' },
-  { label: 'Cabins', value: '6 (1 Master, 2 VIP, 3 Guest)' },
-  { label: 'Guests Overnight', value: '12 Guests' },
-  { label: 'Guests Day Charter', value: '20 Guests Max' },
-  { label: 'Fuel Capacity', value: '26,300 L' },
-  { label: 'Fresh Water', value: '5,000 L' },
+  { label: 'Cruising / Max Speed', value: '10 / 15 Knots' },
+  { label: 'Range', value: '2,000+ Nautical Miles' },
+  { label: 'Fuel / Water', value: '26,300 L / 5,000 L' },
+  { label: 'Cabins', value: '6 (Master, 2 VIP, 3 Guest)' },
+  { label: 'Guests', value: '12 Overnight / 20 Day' },
+  { label: 'Crew', value: '10, plus Captain Gordon Ross' },
   { label: 'Home Port', value: 'Ao Po Grand Marina, Phuket' }
 ];
 
@@ -105,57 +103,107 @@ const includedInPackage = [
 ];
 
 const includedInNightly = [
-  'Captain, engineer and full professional crew',
-  'Use of the vessel and of all water toys carried aboard',
-  'Full access to all decks, Jacuzzi, and guest staterooms'
+  'Captain, engineer and crew',
+  'Use of the vessel and of all water toys carried aboard'
 ];
 
 const metFromApa = [
-  'All meals, snacks, and requested beverages',
-  'Fuel for the duration of the charter and generators',
-  'Excursions, local guide fees, and park permits',
+  'All meals, snacks and beverages',
+  'Fuel for the duration of the charter',
+  'Excursions, guide fees and park permits',
   'Clearances and conservation fees',
   'Airport transfers',
   'Satellite communications and Wi-Fi',
-  'Marina dockage and berthing fees'
+  'Dockage'
 ];
 
 const chargedSeparately = [
   { text: 'International and domestic airfares', highlight: 'Excluded' },
   { text: 'Excess baggage and airport taxes', highlight: 'Excluded' },
   { text: 'Travel insurance and personal expenses', highlight: 'Excluded' },
-  { text: 'Spa and massage treatments on board or ashore', highlight: 'On Request' },
+  { text: 'Spa and massage treatments', highlight: 'On request' },
   { text: 'Crew gratuities (discretionary, typically 10% to 15%)', highlight: 'Discretionary' },
-  { text: 'Unscheduled excursions & drone usage fees', highlight: 'Extra' },
-  { text: 'Seabobs, e-foils & additional water sports equipment rental', highlight: 'On Request' },
-  { text: 'Scuba diving, dive gear, tank rental and instruction', highlight: 'On Request' }
+  { text: 'Unscheduled excursions & drone usage fees', highlight: 'Where applicable' },
+  { text: 'Seabobs, e-foils & additional water sports equipment', highlight: 'Not aboard' },
+  { text: 'Scuba diving, dive gear, tank rental and instruction', highlight: 'On request' }
 ];
 
 const cruisingGrounds = [
-  { destination: 'Phang Nga Bay', country: 'Thailand', type: 'Day & Overnight' },
-  { destination: 'Phi Phi Islands', country: 'Thailand', type: 'Day & Overnight' },
-  { destination: 'Krabi and Koh Lanta', country: 'Thailand', type: 'Overnight' },
-  { destination: 'Similan and Surin Islands', country: 'Thailand', type: 'Overnight' },
-  { destination: 'Mergui Archipelago', country: 'Myanmar', type: 'Expedition Passage' },
-  { destination: 'Langkawi', country: 'Malaysia', type: 'Cross-Border Charter' }
+  { destination: 'Phang Nga Bay, Krabi and Phi Phi', country: 'Thailand', type: 'Day charter & overnight' },
+  { destination: 'Similan and Surin Islands', country: 'Thailand', type: 'Nightly charter' },
+  { destination: 'Mergui Archipelago', country: 'Myanmar', type: 'Cross-border charter' },
+  { destination: 'Andaman Islands', country: 'India', type: 'Expedition' },
+  { destination: 'East Coast of Malaysia', country: 'Malaysia', type: 'Green season (May to October)' },
+  { destination: 'The Philippines and Japan', country: 'Asia', type: 'Green season (May to October)' }
 ];
 
 const waterToysList = [
-  "Two Sea-Doo Jet Skis",
+  "Two jet skis",
   "Tender",
-  "Three Stand-Up Paddleboards (SUP)",
-  "Floating Sea Platform",
-  "Wakeboard & Waterskis",
-  "Snorkelling Equipment"
+  "Stand-up paddleboards (SUP)",
+  "Floating swim platform",
+  "Wakeboard & waterskis",
+  "Towables and inflatables",
+  "Snorkelling and fishing equipment"
 ];
+
+const onBoard = [
+  "Forward deck Jacuzzi",
+  "Sun deck wet bar and BBQ grill",
+  "Air conditioning throughout",
+  "Satellite communications and Wi-Fi",
+  "Bluetooth speakers and board games",
+  "Safety and medical equipment"
+];
+
+const faqs = [
+  {
+    q: 'How much does a Song of Songs day charter cost?',
+    a: 'An 8-hour all-inclusive day charter costs USD 37,500 for up to 12 guests, all year. Crew, meals, Champagne and beverages, fuel, water sports, national park fees and airport transfers are included. Each additional guest above 12 is USD 600, up to a maximum of 20.'
+  },
+  {
+    q: 'How much does an overnight superyacht charter cost?',
+    a: 'The all-inclusive two-day, one-night package is USD 46,000 for up to 12 guests. Longer charters run on standard superyacht terms: USD 25,000 per night, plus 15% tax in Thai waters and a 25% advance provisioning allowance. A seven-night charter totals USD 245,000 payable before departure.'
+  },
+  {
+    q: 'What is the advance provisioning allowance (APA)?',
+    a: 'On nightly charters, the APA is a prepayment of around 25% of the charter fee that covers running costs such as food, drinks, fuel, park permits, dockage and transfers. The captain provides an expense report at the end of the charter, and any balance is refunded.'
+  },
+  {
+    q: 'How many guests can Song of Songs take?',
+    a: 'Up to 12 guests overnight in six cabins, a master suite, two VIP suites and three guest cabins, all with private bathrooms. Day charters can welcome up to 20 guests, which makes her ideal for birthdays, weddings at sea and corporate events.'
+  },
+  {
+    q: 'Where does the yacht depart from?',
+    a: 'Song of Songs is based at Ao Po Grand Marina on the north-east coast of Phuket. From November to April she cruises Thailand, including Phang Nga Bay and the Similan Islands, and can travel to the Mergui Archipelago in Myanmar. Bookings require at least 48 hours notice.'
+  },
+  {
+    q: 'Which water toys are on board?',
+    a: 'Two jet skis, a tender, stand-up paddleboards, a wakeboard, waterskis, towables, a floating swim platform and snorkelling and fishing gear. Scuba diving can be arranged on request at extra cost; Seabobs and e-foils are not available on this yacht.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a }
+  }))
+};
 ---
 
-<Layout title={`Song of Songs 42m Superyacht Charter Phuket | Luna Diving`}>
+<Layout
+  title="Song of Songs Superyacht Charter Phuket | 42m Heysea"
+  description="Charter Song of Songs, a 42m Heysea superyacht in Phuket: all-inclusive day charters for up to 12 guests from USD 37,500, Jacuzzi, jet skis and crew of 10."
+  image="/images/yacht/song-of-songs/song-of-songs-luxury-superyacht-stern-twilight.webp"
+>
   <main class="pcom-wrapper">
     
     <section class="pcom-hero">
       <span class="pcom-subtitle">Heysea Asteria 142 Superyacht</span>
-      <h1 class="pcom-title">{vesselName}</h1>
+      <h1 class="pcom-title">{vesselName} Superyacht Charter Phuket</h1>
       <div class="pcom-divider"></div>
       <p class="pcom-tagline">{tagline}</p>
     </section>
@@ -202,58 +250,73 @@ const waterToysList = [
 
     <section class="pcom-content-grid">
       <div class="content-main">
-        <h2 class="content-heading">A 42-metre motor yacht built for the long way between anchorages.</h2>
+        <h2 class="content-heading">Luxury Superyacht Charter in Phuket</h2>
         <div class="heading-line"></div>
         <p class="paragraph">
-          Delivered by Heysea in 2022, Song of Songs carries twelve guests in six cabins over three decks, with an upper-deck master, two VIP suites and three guest cabins. Two Caterpillar C-32s and 26,300 litres of fuel give her better than two thousand nautical miles between fuel stops, which is what it takes to cruise this part of the world properly.
+          <strong>Song of Songs</strong> is a <strong>42-metre Heysea Asteria 142 superyacht</strong>, launched in 2022 and based at <strong>Ao Po Grand Marina, Phuket</strong>. She welcomes <strong>up to 12 guests overnight in six cabins</strong> and <strong>up to 20 guests on day charters</strong>, with a crew of ten led by Captain Gordon Ross, who has been at the helm since she left the shipyard.
+        </p>
+        <p class="paragraph">
+          She is the largest yacht in our fleet, and her day charter is sold as an <strong>all-inclusive superyacht package</strong>: one fixed price covers crew, meals, Champagne, fuel, jet skis, national park fees and airport transfers. For longer voyages she sails on standard superyacht terms, as far as the Mergui Archipelago and beyond.
         </p>
 
-        <h3 class="sub-heading">Under Way & Performance</h3>
+        <h3 class="sub-heading">Built by Heysea Yachts</h3>
         <p class="paragraph">
-          Two Caterpillar C-32s, ten knots of cruising speed and fuel for better than two thousand nautical miles. Song of Songs is built to leave the marina behind for a fortnight and think nothing of it.
+          Heysea, founded in 2007 in Guangdong, China, is one of Asia's leading luxury yacht builders, known for combining European design with Asian engineering. Its range runs from 55-foot cruisers to 150-foot superyachts, and Song of Songs, an Asteria 142, sits near the top of it.
         </p>
 
-        <h3 class="sub-heading">The Sun Deck</h3>
+        <h3 class="sub-heading">Long-Range Cruising: 2,000+ Nautical Miles</h3>
         <p class="paragraph">
-          The top deck belongs to the guests: a shaded table long enough for the whole party, loungers in the open, and the best view aboard. Dinner is served up here more often than below. The hardtop holds the sun off through the afternoon and the table seats twelve.
+          Twin Caterpillar C-32 engines, 26,300 litres of fuel and 5,000 litres of fresh water give her a range of more than 2,000 nautical miles. From November to April she is based in Thailand; during the green season, May to October, she cruises further afield in Southeast Asia, from the east coast of Malaysia to the Philippines.
         </p>
 
-        <h3 class="sub-heading">The Aft Deck & Swim Platform</h3>
+        <h3 class="sub-heading">Sun Deck with Wet Bar and Dining</h3>
         <p class="paragraph">
-          Two tables, a long sofa and the wake running out behind, with the swim platform a flight of steps below. The garage opens at the stern, so the tender and the jet skis come out onto the platform without anyone crossing the deck.
+          With no helm station on the top deck, the whole sun deck is given over to guests: sun loungers in the open, a long dining table under the hardtop, a full-service wet bar and uninterrupted views. It is the place for sunrise yoga, sunset aperitifs and dinner with the limestone islands of Phang Nga Bay on the horizon.
         </p>
 
-        <h3 class="sub-heading">The Upper Deck & Jacuzzi</h3>
+        <h3 class="sub-heading">Forward Deck Jacuzzi</h3>
         <p class="paragraph">
-          A jacuzzi set flush into the deck forward of the master suite, and a private terrace aft of it with the sunset on it. Nothing sits forward of the jacuzzi but the bow, which makes it the best seat aboard at anchor.
+          At the bow, a Jacuzzi is surrounded by large sunpads, lounge seating and alfresco tables, with shade covers when needed. It is the guests' favourite spot on board, whether for a swim break in the afternoon or a glass of Champagne under the stars.
         </p>
 
-        <h3 class="sub-heading">The Main Saloon & Dining Room</h3>
+        <h3 class="sub-heading">Aft Deck, Beach Platform and Water Toys</h3>
         <p class="paragraph">
-          The saloon runs most of the beam, pale and low-lit, with the sea alongside it through full-height glass. The bar sits at the aft end, beside the doors, so nobody crosses the room with a tray.
-        </p>
-        <p class="paragraph">
-          In the dining room, a marble table sits under a glass chandelier, laid alongside full-height windows, with the deck doors open when the evening allows. The professional galley is separate and clear of guest routes, making seamless service for twelve possible at anchor.
+          The aft deck is where guests step aboard and where the day often starts and ends, with comfortable seating, breakfast in the shade and direct access to the swim platform. At anchor, the tender, two jet skis, paddleboards and a floating platform are launched from the stern, ready for the water.
         </p>
 
-        <h3 class="sub-heading">The Master Suite & Guest Accommodation</h3>
+        <h3 class="sub-heading">Main Saloon and Formal Dining</h3>
         <p class="paragraph">
-          The master suite commands the upper deck: a private terrace aft, a sitting area, and glass on three sides of the berth. Marble bathrooms feature twin basins and a walk-in shower in the principal suites.
-        </p>
-        <p class="paragraph">
-          Five cabins beyond the master are arranged so that nobody in the party ends up with the difficult one. Two VIP suites and three guest cabins take the balance of twelve guests, each with its own ensuite bathroom and natural light.
+          The main deck saloon is bright and spacious, with large panoramic windows, neutral tones, custom furniture, curated artworks and fine wood finishes. Forward of it, the dining room seats the whole party around a marble table under a crystal chandelier, with the bar close at hand.
         </p>
 
-        <h3 class="sub-heading">Toys & On-Board Amenities</h3>
+        <h3 class="sub-heading">Master Suite and Five Guest Cabins</h3>
+        <p class="paragraph">
+          The master suite occupies its own space on the upper deck, with a king-size bed, a private lounge, a dressing area, a marble en-suite bathroom with bathtub and a private terrace at the stern. Two VIP suites and three further double and twin cabins complete the accommodation, each with its own bathroom and high-end finishes.
+        </p>
+
+        <h3 class="sub-heading">Private Chef and Fine Dining</h3>
+        <p class="paragraph">
+          A private chef designs every menu around the guests' tastes, from fresh seafood and lobster to wagyu beef and caviar, served with wines chosen to match. On the all-inclusive packages, Champagne, Prosecco, house wines and a classic bar are included, with a premium upgrade available.
+        </p>
+
+        <h3 class="sub-heading">Birthdays, Weddings and Corporate Events</h3>
+        <p class="paragraph">
+          With space for up to 20 guests by day, Song of Songs is made for celebrations: milestone birthdays, intimate weddings at sea, honeymoons, anniversaries and private corporate retreats. The crew personalises every event, and massage treatments can be added on request.
+        </p>
+
+        <h3 class="sub-heading">Water Toys and Amenities</h3>
         <ul class="toy-list">
           {waterToysList.map(toy => <li>{toy}</li>)}
+        </ul>
+        <ul class="toy-list">
+          {onBoard.map(item => <li>{item}</li>)}
         </ul>
       </div>
 
       <div class="content-sidebar">
         <div class="booking-sticky-box">
           <h3 class="sidebar-heading">Inquire for Song of Songs</h3>
-          <p class="sidebar-text">Experience ultimate 42-metre luxury charter out of Ao Po Grand Marina, Phuket.</p>
+          <p class="sidebar-text">Check availability for an all-inclusive day charter or a private cruise on the 42m superyacht Song of Songs, from Ao Po Grand Marina, Phuket. Minimum 48 hours notice.</p>
           <a href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20interested%20in%20chartering%20Song%20of%20Songs." target="_blank" rel="noopener noreferrer" class="pcom-btn-primary">
             Inquire via WhatsApp
           </a>
@@ -264,7 +327,7 @@ const waterToysList = [
     <!-- Pricing Structure 1: All Inclusive Packages -->
     <section class="pcom-schedule-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Structure 1: All Inclusive Packages</h2>
+        <h2 class="content-heading">All-Inclusive Superyacht Packages 2026</h2>
         <p class="paragraph" style="margin-bottom: 8px;">Single fixed price. Up to 12 guests. Includes crew, meals, beverages, fuel, water sports, park fees & airport transfers.</p>
         <div class="heading-line"></div>
       </div>
@@ -326,7 +389,7 @@ const waterToysList = [
     <!-- Pricing Structure 2: Nightly Charter & APA -->
     <section class="pcom-schedule-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Structure 2: Nightly Charter (Superyacht Terms)</h2>
+        <h2 class="content-heading">Nightly Superyacht Charter Rates 2026</h2>
         <p class="paragraph" style="margin-bottom: 8px;">Per 24 hours (Noon to Noon) · $25,000 USD / night for up to 12 guests + Tax + APA.</p>
         <div class="heading-line"></div>
       </div>
@@ -430,8 +493,8 @@ const waterToysList = [
     <!-- Cruising Grounds Section -->
     <section class="pcom-schedule-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Cruising Grounds & Ranges</h2>
-        <p class="paragraph" style="margin-bottom: 12px;">Operating out of Ao Po Grand Marina across Thailand, Myanmar & Malaysia.</p>
+        <h2 class="content-heading">Cruising Grounds in Thailand and Southeast Asia</h2>
+        <p class="paragraph" style="margin-bottom: 12px;">Based in Thailand from November to April and cruising further across Southeast Asia from May to October. Destinations, water toys and crew may change with season and access restrictions such as national park closures.</p>
         <div class="heading-line"></div>
       </div>
 
@@ -456,6 +519,23 @@ const waterToysList = [
         </table>
       </div>
     </section>
+
+    <section class="pcom-schedule-section">
+      <div class="pricing-header">
+        <h2 class="content-heading">Song of Songs Charter: Frequently Asked Questions</h2>
+        <div class="heading-line"></div>
+      </div>
+      <div class="faq-list">
+        {faqs.map((item) => (
+          <details class="faq-item">
+            <summary class="faq-question">{item.q}</summary>
+            <p class="paragraph faq-answer">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
     <a 
       href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20interested%20in%20booking%20the%20Song%20of%20Songs%20Superyacht." 
@@ -1048,5 +1128,27 @@ const waterToysList = [
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid var(--pcom-color-surface);
+    padding: 14px 0;
+  }
+
+  .faq-question {
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--pcom-color-primary);
+  }
+
+  .faq-question:focus-visible {
+    outline: 2px solid var(--pcom-color-accent);
+    outline-offset: 4px;
+  }
+
+  .faq-answer {
+    margin: 10px 0 0;
   }
 </style>
