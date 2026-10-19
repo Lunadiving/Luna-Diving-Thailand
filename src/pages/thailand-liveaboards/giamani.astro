@@ -4,41 +4,47 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
 import Layout from '../../layouts/Layout.astro';
 
 const vesselName = "MV Giamani";
-const tagline = "Exclusive Full-Charter Liveaboard to the Best Andaman Dive Sites";
+const tagline = "A private 24m liveaboard for up to 10 guests, chartered as a whole boat to the Similan Islands, Koh Bon and Richelieu Rock";
 
 const slideshow = [
   { img: '/images/liveaboard/giamani/mv-giamani-liveaboard-phuket-thailand.webp', text: 'MV Giamani liveaboard vessel cruising in the Andaman Sea Thailand.' },
-  { img: '/images/liveaboard/giamani/mv-giamani-liveaboard-dive-deck-platform.webp', text: 'Rear view of MV Giamani liveaboard showing the dive platform and upper deck.' },
+  { img: '/images/liveaboard/giamani/mv-giamani-liveaboard-dive-deck-platform.webp', text: 'Dive deck on MV Giamani looking aft, with tank racks, benches and the stairs down to the dive platform.' },
   { img: '/images/liveaboard/giamani/mv-giamani-dive-deck-gear-storage.webp', text: 'Spacious dive deck on MV Giamani liveaboard with tank racks and gear storage.' },
-  { img: '/images/liveaboard/giamani/mv-giamani-scuba-diving-platform.webp', text: 'Dive platform and entry stairs on MV Giamani liveaboard.' },
+  { img: '/images/liveaboard/giamani/mv-giamani-scuba-diving-platform.webp', text: 'Rear view of MV Giamani at anchor, showing the dive platform, entry ladders and the shaded upper deck.' },
   { img: '/images/liveaboard/giamani/mv-giamani-indoor-aircon-salon.webp', text: 'Air-conditioned indoor salon and dining area on MV Giamani liveaboard.' },
   { img: '/images/liveaboard/giamani/mv-giamani-lounge-marine-library.webp', text: 'Indoor lounge area with seating and marine library on MV Giamani.' },
   { img: '/images/liveaboard/giamani/mv-giamani-master-cabin-double-bed.webp', text: 'Spacious master cabin accommodation on MV Giamani liveaboard with double bed.' },
-  { img: '/images/liveaboard/giamani/mv-giamani-deluxe-cabin-twin-bunk.webp', text: 'Deluxe cabin accommodation on MV Giamani liveaboard with double bed and bunk.' },
+  { img: '/images/liveaboard/giamani/mv-giamani-deluxe-cabin-twin-bunk.webp', text: 'Deluxe cabin on MV Giamani with a double bed, a single bunk above and wooden wardrobe.' },
   { img: '/images/liveaboard/giamani/mv-giamani-upper-deck-dining-area.webp', text: 'Shaded outdoor dining table and lounge deck on MV Giamani.' },
   { img: '/images/liveaboard/giamani/mv-giamani-upper-deck-buffet-lounge.webp', text: 'Buffet setup and outdoor seating area on the upper deck of MV Giamani.' },
-  { img: '/images/liveaboard/giamani/mv-giamani-top-sundeck-loungers.webp', text: 'Sundeck with sun mattresses on MV Giamani liveaboard.' },
+  { img: '/images/liveaboard/giamani/mv-giamani-top-sundeck-loungers.webp', text: 'Open top sun deck on MV Giamani, the quietest spot on board for sunbathing between dives.' },
   { img: '/images/liveaboard/giamani/mv-giamani-thai-food-buffet-catering.webp', text: 'Fresh buffet meals and dining service on the upper deck of MV Giamani liveaboard Thailand.' },
 ];
 
 const technicalSpecs = [
+  { label: 'Type', value: 'Dive Liveaboard, Full Charter' },
+  { label: 'Year Built', value: '1998' },
   { label: 'Length Overall', value: '24 Meters' },
-  { label: 'Max Capacity', value: '10 Guests / 5 Cabins' }, 
+  { label: 'Hull', value: 'Steel (Iron) Motor Boat' },
   { label: 'Cruising Speed', value: '10-12 Knots' },
-  { label: 'Hull Material', value: 'Iron Motor Boat' }
+  { label: 'Guests', value: '10 Divers or Non-Divers' },
+  { label: 'Cabins', value: '5, All En Suite' },
+  { label: 'Departure Port', value: 'Chalong Pier, Phuket' },
+  { label: 'Destinations', value: 'Similan, Koh Bon, Surin, Richelieu Rock' },
+  { label: 'Nitrox', value: 'Available, 300 THB / Tank' }
 ];
 
 const cabins = [
   {
     name: 'Master Cabin',
-    price: 'Full Charter',
+    price: 'Included',
     location: 'Upper Deck – 1 Cabin',
     details: 'Double Bed – Private En-suite Bathroom – Hot Shower – Air Conditioning – Panoramic View',
     trip: 'North Andaman Sea & Similan Islands'
   },
   {
     name: 'Deluxe Cabins',
-    price: 'Full Charter',
+    price: 'Included',
     location: 'Main / Lower Deck – 4 Cabins',
     details: 'Double OR Twin Bunk Beds – Private En-suite Bathroom – Hot Shower – Air Conditioning',
     trip: 'North Andaman Sea & Similan Islands'
@@ -64,18 +70,61 @@ const notIncludedItems = [
 ];
 
 const schedule = [
-  { dates: "Season Charter", itinerary: "6D/7N North Andaman Sea", route: "Chalong Pier / Chalong Pier", type: "Similan" },
+  { dates: "Season Charter", itinerary: "North Andaman Sea Expedition", route: "Chalong Pier / Chalong Pier", type: "Similan" },
   { dates: "Custom Dates", itinerary: "Similan, Koh Bon, Richelieu Rock", route: "Chalong Pier / Chalong Pier", type: "Similan" },
   { dates: "Day / Short Trips", itinerary: "Phi Phi or Racha Islands", route: "Chalong Pier / Chalong Pier", type: "Racha-PhiPhi" }
 ];
+
+const faqs = [
+  {
+    q: 'Can I book a single cabin on MV Giamani?',
+    a: 'No. MV Giamani is chartered only as a whole boat, for a private group of up to 10 guests. This makes her ideal for families, groups of friends, dive clubs and underwater photographers who want the boat, the crew and the itinerary to themselves.'
+  },
+  {
+    q: 'Can non-divers join the charter?',
+    a: 'Yes. The charter price covers up to 10 guests, divers or non-divers, so partners and friends can snorkel, relax on the sun deck or explore the islands while the rest of the group dives.'
+  },
+  {
+    q: 'Where does MV Giamani depart from?',
+    a: 'All trips depart from Chalong Pier in the south of Phuket. Departures to the North or South Andaman Sea are suggested between 15:30 and 16:30, while trips to Phi Phi or the Racha Islands can leave any time between 07:00 and 21:00. Transfers to and from Chalong Pier are available at extra cost.'
+  },
+  {
+    q: 'Which dive sites does MV Giamani visit?',
+    a: 'Multi-day North Andaman Sea trips visit the Similan Islands, Koh Bon, known for manta rays, Koh Tachai, the Surin Islands and Richelieu Rock. Shorter trips go to Phi Phi or the Racha Islands, closer to Phuket.'
+  },
+  {
+    q: 'What is included in the charter price?',
+    a: 'Full board for up to 10 guests, soft drinks, drinking water, tea and coffee, guided dives with a professional divemaster, S80 tanks, weights and belts, and accident insurance on board. National park fees, beer, nitrox, rental equipment and transfers to Chalong Pier are extra.'
+  },
+  {
+    q: 'Is MV Giamani good for underwater photographers?',
+    a: 'Yes. The dive deck has rinse tanks and dedicated tables for camera equipment, and with only 10 guests on board there is plenty of space to prepare housings and strobes. A private charter also lets the group choose dive sites and timing around the best light.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a }
+  }))
+};
+
+const whatsappUrl = `https://wa.me/66918233120?text=${encodeURIComponent("Hi Luna Diving! I'm interested in chartering the MV Giamani liveaboard.")}`;
 ---
 
-<Layout title={`${vesselName} Liveaboard | Luna Diving Phuket`}>
+<Layout
+  title="MV Giamani Private Liveaboard Charter | Similan Islands"
+  description="Charter MV Giamani, a private 24m liveaboard for up to 10 divers or non-divers from Phuket: Similan Islands, Koh Bon mantas and Richelieu Rock. Whole-boat charter."
+  image="/images/liveaboard/giamani/mv-giamani-liveaboard-phuket-thailand.webp"
+>
   <main class="pcom-wrapper">
     
     <section class="pcom-hero">
-      <span class="pcom-subtitle">M/Y {vesselName}</span>
-      <h1 class="pcom-title">{vesselName}</h1>
+      <span class="pcom-subtitle">Private Full-Charter Dive Liveaboard</span>
+      <h1 class="pcom-title">{vesselName} Private Liveaboard Charter</h1>
       <div class="pcom-divider"></div>
       <p class="pcom-tagline">{tagline}</p>
     </section>
@@ -120,9 +169,58 @@ const schedule = [
       </div>
     </section>
 
+    <section class="pcom-content-grid">
+      <div class="content-main">
+        <h2 class="content-heading">Private Liveaboard Charter in Thailand</h2>
+        <div class="heading-line"></div>
+        <p class="paragraph">
+          <strong>MV Giamani</strong> is a <strong>24-metre dive liveaboard</strong> that is chartered only as a <strong>whole boat for a private group of up to 10 guests</strong>. Departing from Chalong Pier in Phuket, she takes your group to the best dive sites of the Andaman Sea, including the <strong>Similan Islands, Koh Bon, Koh Tachai, the Surin Islands and Richelieu Rock</strong>, on your own dates and your own schedule.
+        </p>
+        <p class="paragraph">
+          With no other passengers on board, a private liveaboard charter is the best way for families, groups of friends, dive clubs and photographers to enjoy the Similans together. Divers and non-divers can travel together, and the charter price covers the whole group.
+        </p>
+
+        <h3 class="sub-heading">A Classic Steel Motor Boat, Built in 1998</h3>
+        <p class="paragraph">
+          Built in 1998, MV Giamani is a sturdy steel motor boat with warm wooden interiors and a cruising speed of 10 to 12 knots. Her small size and limited guest numbers give every charter a relaxed, family atmosphere that larger liveaboards cannot match.
+        </p>
+
+        <h3 class="sub-heading">Dive Koh Bon, the Similans and Richelieu Rock</h3>
+        <p class="paragraph">
+          Multi-day North Andaman Sea trips cover the classic Similan route: the granite boulders of the Similan Islands, Koh Bon, well known for manta ray sightings, Koh Tachai, the Surin Islands and Richelieu Rock. For a shorter break, the boat also runs trips to Phi Phi and the Racha Islands, closer to Phuket.
+        </p>
+
+        <h3 class="sub-heading">A Dive Deck Made for Photographers</h3>
+        <p class="paragraph">
+          The spacious dive deck has tank racks, gear storage, rinse tanks and dedicated tables for cameras and housings, with stairs leading down to a large dive platform at the stern. Dives are guided by a professional divemaster, S80 tanks, weights and belts are included, and nitrox and rental equipment are available on board.
+        </p>
+
+        <h3 class="sub-heading">Indoor Lounge and Outdoor Dining Deck</h3>
+        <p class="paragraph">
+          The air-conditioned indoor lounge has comfortable sofas, a marine biology library, a stereo system and a TV. Thai and international food is served buffet-style at the shaded outdoor dining table, and the deck sofas and open top sun deck are perfect for reading or a siesta between dives.
+        </p>
+
+        <h3 class="sub-heading">Five En-Suite Cabins</h3>
+        <p class="paragraph">
+          MV Giamani has five air-conditioned cabins, all with a private bathroom and hot shower: a master cabin with a double bed on the upper deck, and four deluxe cabins on the main and lower decks with a double bed or twin bunk beds.
+        </p>
+      </div>
+
+      <div class="content-sidebar">
+        <div class="booking-sticky-box" style="background: #fafafa; border: 1px solid var(--pcom-color-surface); padding: 32px 24px; border-radius: 6px; text-align: left;">
+          <h3 class="sidebar-heading" style="font-size: 16px; font-weight: 700; text-transform: uppercase; margin: 0 0 12px 0;">Ready to Charter?</h3>
+          <p class="sidebar-text" style="font-size: 13.5px; color: var(--pcom-color-text-muted); line-height: 1.5; margin: 0 0 20px 0;">MV Giamani is priced for the whole boat, for up to 10 guests (divers or non-divers). Tell us your dates and group size for a quote.</p>
+          <a href="/contact?vessel=MV%20Giamani" class="pcom-btn-primary" style="display: block; text-align: center; background: var(--pcom-color-primary); color: #fff; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 12px; border-radius: 4px; text-decoration: none;">
+            Request a Charter Quote
+          </a>
+        </div>
+      </div>
+    </section>
+
     <section class="pcom-pricing-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Cabin Options & Rates</h2>
+        <h2 class="content-heading">Cabins and Charter Price</h2>
+        <p class="paragraph" style="margin-bottom: 12px;">All five cabins are included in the whole-boat charter. Prices depend on dates, itinerary and length of trip and are quoted on request.</p>
         <div class="heading-line"></div>
       </div>
       
@@ -137,7 +235,7 @@ const schedule = [
             </div>
             <div class="cabin-price-zone">
               <span class="price-amount">{cabin.price}</span>
-              <span class="price-label">Full Boat Charter</span>
+              <span class="price-label">In the Full Charter</span>
             </div>
           </div>
         ))}
@@ -187,7 +285,7 @@ const schedule = [
 
     <section class="pcom-schedule-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Departure Information & Schedule</h2>
+        <h2 class="content-heading">Departures from Chalong Pier, Phuket</h2>
         <div class="heading-line"></div>
       </div>
 
@@ -213,13 +311,13 @@ const schedule = [
                 <td class="td-dates">{row.dates}</td>
                 <td class="td-itinerary">
                   <span class="itinerary-text">{row.itinerary}</span>
-                  <span class={`type-badge badge-${row.type.toLowerCase().replace(' ', '-')}`}>
+                  <span class={`type-badge badge-${row.type.toLowerCase().replace(/\s+/g, '-')}`}>
                     {row.type}
                   </span>
                 </td>
                 <td class="td-route">{row.route}</td>
                 <td class="td-action">
-                  <a href={`/contact?vessel=${vesselName}&date=${encodeURIComponent(row.dates)}`} class="table-book-btn">
+                  <a href={`/contact?vessel=${encodeURIComponent(vesselName)}&date=${encodeURIComponent(row.dates)}`} class="table-book-btn" aria-label={`Inquire about ${row.itinerary}`}>
                     Inquire
                   </a>
                 </td>
@@ -230,37 +328,26 @@ const schedule = [
       </div>
     </section>
 
-    <section class="pcom-content-grid">
-      <div class="content-main">
-        <h2 class="content-heading">Vessel Profile</h2>
-        <div class="heading-line"></div>
-        <p class="paragraph">
-          <strong>MV Giamani</strong>, built in 1998, is a 24-meter long iron motor boat capable of accommodating only 10 divers, making it one of the most exclusive liveaboards in Thailand. The Giamani departs from Phuket to the best dive sites of the Andaman Sea such as Koh Bon Island, renowned worldwide for regular sightings of majestic manta rays.
-        </p>
-        <p class="paragraph">
-          The dining area is located on the main deck, serving a wonderful mix of Thai and International cuisine offered in a buffet style. In the air-conditioned indoor lounge, guests can unwind with a marine biology library, stereo sound system, and plasma TV.
-        </p>
-        <p class="paragraph">
-          MV Giamani features a total of five comfortable cabins, including 1 double Master cabin with private en-suite bathroom, and 4 double / twin cabins with private en-suite bathrooms. All cabins are fully air-conditioned with private hot showers.
-        </p>
-        <p class="paragraph">
-          The dedicated diving deck is spacious, equipped with rinsing tanks and specialized tables for storing photographic equipment. Guests can also enjoy a relaxing outdoor area fitted with sofas to read a book or take a siesta between dives. Giamani offers comprehensive 6 Days / 7 Nights expeditions to the North Andaman Sea, including the Similan Islands, Koh Bon, Koh Tachai, Surin Islands, and Richelieu Rock.
-        </p>
-      </div>
 
-      <div class="content-sidebar">
-        <div class="booking-sticky-box" style="background: #fafafa; border: 1px solid var(--pcom-color-surface); padding: 32px 24px; border-radius: 6px; text-align: left;">
-          <h3 class="sidebar-heading" style="font-size: 16px; font-weight: 700; text-transform: uppercase; margin: 0 0 12px 0;">Ready to Charter?</h3>
-          <p class="sidebar-text" style="font-size: 13.5px; color: var(--pcom-color-text-muted); line-height: 1.5; margin: 0 0 20px 0;">MV Giamani cruise prices are for the whole boat charter, with an occupancy at maximum 10 guests (divers or non-divers).</p>
-          <a href="/contact" class="pcom-btn-primary" style="display: block; text-align: center; background: var(--pcom-color-primary); color: #fff; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 12px; border-radius: 4px; text-decoration: none;">
-            Inquire Full Charter
-          </a>
-        </div>
+    <section class="pcom-schedule-section">
+      <div class="pricing-header">
+        <h2 class="content-heading">MV Giamani Charter: Frequently Asked Questions</h2>
+        <div class="heading-line"></div>
+      </div>
+      <div class="faq-list">
+        {faqs.map((item) => (
+          <details class="faq-item">
+            <summary class="faq-question">{item.q}</summary>
+            <p class="paragraph faq-answer">{item.a}</p>
+          </details>
+        ))}
       </div>
     </section>
 
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
     <a 
-      href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20interested%20in%20chartering%20the%20MV%20Giamani%20liveaboard." 
+      href={whatsappUrl} 
       target="_blank" 
       rel="noopener noreferrer" 
       class="pcom-whatsapp-float"
@@ -915,5 +1002,27 @@ const schedule = [
   .pcom-whatsapp-float svg {
     width: 32px;
     height: 32px;
+  }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid var(--pcom-color-surface);
+    padding: 14px 0;
+  }
+
+  .faq-question {
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--pcom-color-primary);
+  }
+
+  .faq-question:focus-visible {
+    outline: 2px solid var(--pcom-color-accent);
+    outline-offset: 4px;
+  }
+
+  .faq-answer {
+    margin: 10px 0 0;
   }
 </style>
