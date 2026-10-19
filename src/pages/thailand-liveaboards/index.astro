@@ -1,155 +1,298 @@
 ---
+// src/pages/thailand-liveaboards/index.astro
 import OptimizedImage from '../../components/OptimizedImage.astro';
 import '../../styles/global.css';
-
 import Layout from '../../layouts/Layout.astro';
 
-const fleet = [
+interface Boat {
+  slug: string;
+  name: string;
+  image: string;
+  altText: string;
+  tags: string[];
+  specs: { val: string; desc: string }[];
+  price: string;
+  priceNote: string;
+  summary: string;
+}
+
+// Dati allineati alle pagine delle singole barche
+const fleet: Boat[] = [
   {
-    slug: "deep-andaman-queen",
-    name: "Deep Andaman Queen",
-    image: "/images/liveaboard/deep-andaman-queen-liveaboard.webp",
-    altText: "Deep Andaman Queen liveaboard scuba diving boat cruising in the Andaman Sea, Thailand", 
-    tags: [" Routes", "Steel Hull", "Nitrox Available"],
+    slug: 'pawara',
+    name: 'MV Pawara',
+    image: '/images/liveaboard/pawara-liveaboard.webp',
+    altText: 'MV Pawara dive liveaboard at anchor in the Similan Islands, Thailand',
+    tags: ['Free Nitrox', 'Best Value', 'Similan Islands'],
     specs: [
-      { val: "25-Guest", desc: "Maximum Capacity, 11 Twin/Double Cabins" },
-      { val: "30 Meters", desc: "Overall Length (LOA)" },
-      { val: "10 Knots", desc: "Cruising Speed (Twin Engines)" }
+      { val: '24 Guests', desc: '12 cabins, 10 en suite' },
+      { val: '35 Meters', desc: 'Steel hull' },
+      { val: '5D / 4N', desc: '14 dives from Khao Lak' }
     ],
-    legal: "Fuel consumption and marine park fees calculated separately. Route includes Similan Islands, Surin Islands, and Richelieu Rock."
+    price: 'From THB 26,700',
+    priceNote: 'per person, 5-day trip',
+    summary: 'Free nitrox for certified divers and cabins for every budget, on 5-day trips to the Similans, Koh Bon, Koh Tachai and Richelieu Rock.'
   },
   {
-    slug: "the-junk",
-    name: "The Junk",
-    image: "/images/liveaboard/the-junk-liveaboard.webp",
-    altText: "The Junk traditional teak wood sailing vessel operating scuba diving charters",
-    tags: ["Classic Teak", "Historical", "Nitrox Available"],
+    slug: 'sawasdee-fasai',
+    name: 'MV Sawasdee Fasai',
+    image: '/images/liveaboard/sawasdee-fasai-liveaboard.webp',
+    altText: 'MV Sawasdee Fasai dive liveaboard in the Similan Islands National Park',
+    tags: ['Keel Stabilizers', 'Free Nitrox', 'Similan Islands'],
     specs: [
-      { val: "18-Guest", desc: "Maximum Capacity, Traditional Style" },
-      { val: "33 Meters", desc: "Overall Length (LOA)" },
-      { val: "9 Knots", desc: "Cruising Speed under Sail" }
+      { val: '30 Guests', desc: '15 cabins, 11 en suite' },
+      { val: '37 Meters', desc: 'Built in Phuket' },
+      { val: '5D / 4N', desc: '14 dives from Khao Lak' }
     ],
-    legal: "Heritage vessel fully refitted for modern scuba safety and comfort. Unique charm and traditional atmosphere."
+    price: 'From THB 30,700',
+    priceNote: 'per person, 5-day trip',
+    summary: 'A large, stabilised boat for a smoother ride between dive sites, with free nitrox and a choice of master, deluxe, standard and budget cabins.'
   },
   {
-    slug: "sawasdee-fasai",
-    name: "Sawasdee Fasai",
-    image: "/images/liveaboard/sawasdee-fasai-liveaboard.webp",
-    altText: "Sawasdee Fasai luxury liveaboard diving boat at Similan Islands national park", 
-    tags: ["Premium Fleet", "Stabilized", "Nitrox Available"],
+    slug: 'deep-andaman-queen',
+    name: 'Deep Andaman Queen',
+    image: '/images/liveaboard/deep-andaman-queen-liveaboard.webp',
+    altText: 'Deep Andaman Queen steel-hull dive liveaboard in the Andaman Sea, Thailand',
+    tags: ['Similan & Burma', 'All En Suite', 'Nitrox on Board'],
     specs: [
-      { val: "30-Guest", desc: "Maximum Capacity, Premium Comfort" },
-      { val: "37 Meters", desc: "Overall Length (LOA)" },
-      { val: "12 Knots", desc: "Cruising Speed" }
+      { val: '25 Guests', desc: '11 cabins, all en suite' },
+      { val: '30 Meters', desc: 'Steel hull' },
+      { val: '4 to 10 Days', desc: 'Khao Lak & Ranong' }
     ],
-    legal: "Exploring Similan Islands, Koh Bon, and Koh Tachai. Exceptional local and international cuisine served daily."
+    price: 'From THB 33,500',
+    priceNote: 'per person, 5-day trip',
+    summary: 'Similan, Surin and Richelieu Rock trips plus 10-day Similan to Burma voyages and Mergui Archipelago expeditions from Ranong.'
   },
   {
-    slug: "pawara",
-    name: "Pawara",
-    image: "/images/liveaboard/pawara-liveaboard.webp",
-    altText: "Pawara luxury liveaboard scuba diving boat in the Andaman Sea, Thailand",
-    tags: ["Budget Friendly", "Free Nitrox", "Nitrox Available"],
+    slug: 'the-junk',
+    name: 'The Junk',
+    image: '/images/liveaboard/the-junk-liveaboard.webp',
+    altText: 'The Junk, a 1962 teak sailing junk used as a dive liveaboard in Thailand',
+    tags: ['Historic 1962 Junk', 'Teak Sailing Ship', 'Small Group'],
     specs: [
-      { val: "24-Guest", desc: "Maximum Capacity, 12 Cabins" },
-      { val: "35 Meters", desc: "Overall Length (LOA)" },
-      { val: "12 Knots", desc: "Cruising Speed" }
+      { val: '18 Guests', desc: '6 cabins, all en suite' },
+      { val: '30 Meters', desc: '3 masts, 330 m² of sail' },
+      { val: '4 to 9 Days', desc: 'Khao Lak & Phuket' }
     ],
-    legal: "Free Nitrox for certified divers. Designed specifically for maximum bottom time and optimal surface intervals."
+    price: 'From USD 920',
+    priceNote: 'per person, 5-day trip',
+    summary: 'A teak sailing junk built in Penang in 1962 and seen in a James Bond film, diving the Similan Islands, Surin and Richelieu Rock.'
+  },
+  {
+    slug: 'thailand-master',
+    name: 'Thailand Master',
+    image: '/images/liveaboard/thailand-master/thailand-master-thailand-liveaboard.webp',
+    altText: 'Thailand Master, a traditional Indonesian phinisi liveaboard with red sails',
+    tags: ['Indonesian Phinisi', 'Mergui Archipelago', 'Small Group'],
+    specs: [
+      { val: '18 Guests', desc: '7 cabins, all en suite' },
+      { val: '7 to 11 Days', desc: 'Long itineraries' },
+      { val: '3 Ports', desc: 'Phuket, Khao Lak, Ranong' }
+    ],
+    price: 'Price on request',
+    priceNote: 'depends on itinerary',
+    summary: 'A red-sailed Indonesian phinisi running Best of Thailand trips and Mergui Archipelago expeditions for a small group of divers.'
+  },
+  {
+    slug: 'giamani',
+    name: 'MV Giamani',
+    image: '/images/liveaboard/giamani/mv-giamani-liveaboard-phuket-thailand.webp',
+    altText: 'MV Giamani private charter dive liveaboard in the Andaman Sea, Thailand',
+    tags: ['Private Charter Only', 'Divers & Non-Divers', 'Similan Islands'],
+    specs: [
+      { val: '10 Guests', desc: '5 cabins, all en suite' },
+      { val: '24 Meters', desc: 'Built 1998' },
+      { val: 'Full Boat', desc: 'From Chalong, Phuket' }
+    ],
+    price: 'Charter on request',
+    priceNote: 'whole boat, up to 10 guests',
+    summary: 'Chartered only as a whole boat for your own group, to the Similan Islands, Koh Bon and Richelieu Rock on your own dates.'
   }
 ];
+
+const faqs = [
+  {
+    q: 'What is the best liveaboard for the Similan Islands?',
+    a: 'It depends on what matters most to you. MV Pawara offers the lowest prices and free nitrox, MV Sawasdee Fasai is the largest and has keel stabilizers for a smoother ride, Deep Andaman Queen adds Burma and Mergui trips, while The Junk and Thailand Master are traditional sailing ships for small groups. For a private group, MV Giamani is chartered as a whole boat.'
+  },
+  {
+    q: 'How much does a Similan Islands liveaboard cost?',
+    a: 'A 5-day, 4-night Similan liveaboard with 14 dives costs from THB 26,700 per person on MV Pawara, THB 30,700 on MV Sawasdee Fasai and THB 33,500 on Deep Andaman Queen, depending on the cabin. On The Junk, 5-day trips start from USD 920 per person. Marine park fees are paid separately on board.'
+  },
+  {
+    q: 'When is the Similan Islands liveaboard season?',
+    a: 'The Similan and Surin National Parks are open from mid-October to mid-May. The best conditions are usually from December to April, which is also when departures fill up first. Mergui Archipelago trips in Myanmar run during the same season.'
+  },
+  {
+    q: 'Where do Similan liveaboards depart from?',
+    a: 'Most Similan trips depart from Tab Lamu pier in Khao Lak, north of Phuket, with hotel transfers from Phuket or Khao Lak usually included. Some trips start from Chalong in Phuket, and Mergui Archipelago trips depart from Ranong.'
+  },
+  {
+    q: 'What diving level do I need for a liveaboard?',
+    a: 'An Open Water certification is enough for most Similan dive sites. An Advanced Open Water certification is recommended for deeper sites such as Koh Bon and Richelieu Rock and for the Mergui Archipelago. Luna Diving can help you complete your PADI course before the trip.'
+  },
+  {
+    q: 'Can I book a single cabin or do I need to charter the whole boat?',
+    a: 'On MV Pawara, MV Sawasdee Fasai, Deep Andaman Queen, The Junk and Thailand Master you can book a single place or cabin, and solo divers can share a cabin. MV Giamani is only available as a private charter of the whole boat for up to 10 guests.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a }
+  }))
+};
+
+const whatsappUrl = `https://wa.me/66918233120?text=${encodeURIComponent("Hi Luna Diving! I'm browsing your liveaboard fleet and would like to check availability.")}`;
 ---
 
-<Layout title="Thailand Liveaboard Fleet | Similan Islands Diving | Luna Diving">
-  
-  <!-- Questo wrapper assicura che la pagina scenda sotto l'header fisso senza rompere i vecchi stili -->
+<Layout
+  title="Similan Islands Liveaboards Thailand | Compare 6 Dive Boats"
+  description="Compare 6 Thailand dive liveaboards to the Similan Islands, Richelieu Rock and the Mergui Archipelago. 5-day trips with 14 dives from THB 26,700, free nitrox and private charters."
+  image="/images/liveaboard/sawasdee-fasai-liveaboard.webp"
+>
   <div class="block w-full pt-24 md:pt-28">
-    
-    <header class="max-w-5xl mx-auto pt-16 px-6 text-center font-sans">
-      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-[#1A1A1A] mb-12">
-        Thailand Liveaboard Fleet
-      </h1>
-    </header>
 
     <main class="max-w-5xl mx-auto px-6 pb-16 font-sans">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-12">
-        {fleet.map((boat) => (
-          <article class="group relative flex flex-col justify-between bg-white border border-gray-200 p-6 rounded-[24px] shadow-sm transition-all duration-300 hover:shadow-md">
-            
-            <div>
-              <div class="w-full aspect-video bg-[#f8f8fa] overflow-hidden relative rounded-xl mb-6">              
-                <OptimizedImage 
-                  src={boat.image} 
-                  alt={boat.altText || boat.name} 
-                  class="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  loading="lazy"
-                  widths={[400, 800, 1200]}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                <a href={`/thailand-liveaboards/${boat.slug}`} class="absolute inset-0 z-10" aria-label={`Explore ${boat.name} in detail`}></a>
-              </div>
+      <section class="pt-16 text-center max-w-3xl mx-auto mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-[#1A1A1A] mb-6">
+          Similan Islands Liveaboards in Thailand
+        </h1>
+        <p class="text-[15px] text-[#4A4A4A] leading-relaxed">
+          Compare our six dive liveaboards to the <strong>Similan Islands</strong>, Koh Bon, Koh Tachai, the Surin Islands, <strong>Richelieu Rock</strong> and the <strong>Mergui Archipelago</strong>.
+          From budget-friendly 5-day trips with free nitrox to historic sailing ships and fully private charters,
+          every boat runs during the Similan season from mid-October to mid-May, with departures from Khao Lak, Phuket and Ranong.
+        </p>
+      </section>
 
-              <div class="space-y-3">
-                <h3 class="text-xl font-bold tracking-tight text-[#1A1A1A] transition-colors group-hover:text-[#008EA7]">
-                  {boat.name}
-                </h3>
-                
-                <div class="flex flex-wrap gap-2">
-                  {boat.tags.map((tag) => (
-                    <span class="bg-[#008EA7]/10 text-[#008EA7] text-xs font-medium px-3 py-1 rounded-md border border-[#008EA7]/20">
-                      {tag}
-                    </span>
-                  ))}
+      <section aria-labelledby="fleet-title">
+        <h2 id="fleet-title" class="sr-only">Our liveaboard fleet</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-12">
+          {fleet.map((boat) => (
+            <article class="group relative flex flex-col justify-between bg-white border border-gray-200 p-6 rounded-[24px] shadow-sm transition-all duration-300 hover:shadow-md">
+              <div>
+                <a
+                  href={`/thailand-liveaboards/${boat.slug}`}
+                  class="block w-full aspect-video bg-[#f8f8fa] overflow-hidden rounded-xl mb-6"
+                  tabindex="-1"
+                  aria-hidden="true"
+                >
+                  <OptimizedImage
+                    src={boat.image}
+                    alt={boat.altText}
+                    class="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                    loading="lazy"
+                    widths={[400, 800, 1200]}
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                </a>
+
+                <div class="space-y-3">
+                  <h3 class="text-xl font-bold tracking-tight text-[#1A1A1A]">
+                    <a href={`/thailand-liveaboards/${boat.slug}`} class="transition-colors hover:text-[#008EA7] group-hover:text-[#008EA7]">
+                      {boat.name}
+                    </a>
+                  </h3>
+
+                  <div class="flex flex-wrap gap-2">
+                    {boat.tags.map((tag) => (
+                      <span class="bg-[#008EA7]/10 text-[#008EA7] text-xs font-medium px-3 py-1 rounded-md border border-[#008EA7]/20">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
+
+                <ul class="grid grid-cols-3 gap-4 my-6 py-4 border-t border-b border-gray-100" aria-label={`${boat.name} key facts`}>
+                  {boat.specs.map((spec) => (
+                    <li class="space-y-1">
+                      <div class="text-base font-semibold text-[#1A1A1A] tracking-tight leading-none">{spec.val}</div>
+                      <div class="text-[11px] text-[#706F6F] font-normal leading-tight">{spec.desc}</div>
+                    </li>
+                  ))}
+                </ul>
+
+                <p class="text-[14px] text-[#4A4A4A] font-normal leading-relaxed mb-6">{boat.summary}</p>
               </div>
 
-              <ul class="grid grid-cols-3 gap-4 my-6 py-4 border-t border-b border-gray-100" aria-label="Technical highlights">
-                {boat.specs.map((spec) => (
-                  <li class="space-y-1">
-                    <div class="text-base font-semibold text-[#1A1A1A] tracking-tight leading-none">
-                      {spec.val}
-                    </div>
-                    <div class="text-[11px] text-[#706F6F] font-normal leading-tight">
-                      {spec.desc}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-
-              <div class="mb-6">
-                <p class="text-[14px] text-[#4A4A4A] font-normal leading-relaxed">
-                  {boat.legal}
-                </p>
+              <div class="mt-auto pt-2 flex items-center justify-between gap-4">
+                <div>
+                  <div class="text-base font-bold text-[#1A1A1A] leading-tight">{boat.price}</div>
+                  <div class="text-[11px] text-[#706F6F]">{boat.priceNote}</div>
+                </div>
+                <a
+                  href={`/thailand-liveaboards/${boat.slug}`}
+                  class="shrink-0 flex items-center justify-center bg-[#1A1A1A] text-white text-xs font-medium py-3 px-6 rounded-full hover:bg-[#008EA7] transition-colors duration-300"
+                  aria-label={`View ${boat.name} details, prices and schedule`}
+                >
+                  View Details
+                </a>
               </div>
-            </div>
+            </article>
+          ))}
+        </div>
+      </section>
 
-            <div class="mt-auto pt-2 z-20">
-              <a 
-                href={`/thailand-liveaboards/${boat.slug}`} 
-                class="flex items-center justify-center bg-[#1A1A1A] text-white text-xs font-medium py-3 w-full rounded-full hover:bg-[#008EA7] transition-colors duration-300 text-center"
-              >
-                Explore in Detail
-              </a>
-            </div>
+      <section class="max-w-3xl mx-auto mt-20 text-left" aria-labelledby="choose-title">
+        <h2 id="choose-title" class="text-2xl md:text-3xl font-bold tracking-tight text-[#1A1A1A] mb-6">
+          How to Choose Your Similan Liveaboard
+        </h2>
+        <div class="space-y-4 text-[15px] text-[#4A4A4A] leading-relaxed">
+          <p>
+            <strong>On a budget or love nitrox?</strong> MV Pawara and MV Sawasdee Fasai both include free nitrox for certified divers on 5-day, 4-night trips with 14 dives, with budget cabins from THB 26,700 and THB 30,700 per person.
+          </p>
+          <p>
+            <strong>Worried about seasickness?</strong> At 37 metres with keel stabilizers, MV Sawasdee Fasai is the largest and steadiest boat in our fleet.
+          </p>
+          <p>
+            <strong>Want to go further?</strong> Deep Andaman Queen and Thailand Master run Mergui Archipelago trips into Myanmar, where reefs and pinnacles see only a few boats each season.
+          </p>
+          <p>
+            <strong>Looking for something different?</strong> The Junk, a 1962 teak sailing junk, and Thailand Master, a red-sailed Indonesian phinisi, take just 18 guests each.
+          </p>
+          <p>
+            <strong>Travelling as a group?</strong> MV Giamani is chartered only as a whole boat for up to 10 divers or non-divers, on your own dates.
+          </p>
+        </div>
+      </section>
 
-          </article>
-        ))}
-      </div>
+      <section class="max-w-3xl mx-auto mt-20 text-left" aria-labelledby="faq-title">
+        <h2 id="faq-title" class="text-2xl md:text-3xl font-bold tracking-tight text-[#1A1A1A] mb-6">
+          Thailand Liveaboard FAQ
+        </h2>
+        <div class="divide-y divide-gray-200 border-t border-b border-gray-200">
+          {faqs.map((item) => (
+            <details class="group/faq py-4">
+              <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-semibold text-[#1A1A1A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#008EA7] focus-visible:outline-offset-4">
+                {item.q}
+                <span class="text-[#008EA7] text-xl leading-none transition-transform group-open/faq:rotate-45" aria-hidden="true">+</span>
+              </summary>
+              <p class="mt-3 text-[15px] text-[#4A4A4A] leading-relaxed">{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
     </main>
 
   </div>
-</Layout>
 
-<div class="fixed bottom-6 right-6 z-[99999] pointer-events-auto">
-  <a 
-    href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20browsing%20your%20liveaboard%20fleet%20and%20would%20like%20to%20check%20availability." 
-    target="_blank" 
-    rel="noopener noreferrer" 
-    class="flex items-center justify-center w-14 h-14 md:w-[60px] md:h-[60px] bg-[#25D366] text-white rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.25)] hover:scale-105 hover:bg-[#20ba5a] transition-all duration-300 ease-out"
-    aria-label="Chat on WhatsApp"
-  >
-    <svg class="w-7 h-7 md:w-8 md:h-8" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.454 5.709 1.455h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-  </a>
-</div>
+  <div class="fixed bottom-6 right-6 z-[99999] pointer-events-auto">
+    <a
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center justify-center w-14 h-14 md:w-[60px] md:h-[60px] bg-[#25D366] text-white rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.25)] hover:scale-105 hover:bg-[#20ba5a] transition-all duration-300 ease-out"
+      aria-label="Chat on WhatsApp"
+    >
+      <svg class="w-7 h-7 md:w-8 md:h-8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.454 5.709 1.455h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+    </a>
+  </div>
+</Layout>
