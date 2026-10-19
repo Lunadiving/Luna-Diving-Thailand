@@ -3,28 +3,34 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
 import Layout from '../../layouts/Layout.astro';
 
 const vesselName = "Deep Andaman Queen";
-const tagline = "The Ultimate Steel-Hull Cruise to Richelieu Rock";
+const tagline = "A 30m steel-hull dive liveaboard for 25 divers to the Similan Islands, Richelieu Rock and the Mergui Archipelago";
 
 const slideshow = [
-  { img: '/images/liveaboard/deep-andaman-queen/deep-andaman-queen-liveaboard.webp', text: 'Premium twin-engine steel vessel cruising the crystal waters of the Andaman Sea.' },
-  { img: '/images/liveaboard/deep-andaman-queen/deep-andaman-queen-master%20cabin.webp', text: 'State-of-the-art dive deck with individual stations, spacious briefing area, and nitrox blending.' },
-  { img: '/images/liveaboard/deep-andaman-queen/deep-andaman-queen-deluxe-double-cabin.webp', text: 'Air-conditioned main dining saloon and lounge area for delicious meals and dive briefings.' },
-  { img: '/images/liveaboard/deep-andaman-queen/deep-andaman-queen-deluxe-twin-cabin.webp', text: 'Luxury Master Cabin on the upper deck featuring a king-size bed and panoramic ocean views.' },
-  { img: '/images/liveaboard/deep-andaman-queen/deep-andaman-queen-triple-cabin.webp', text: 'Deluxe Twin Cabin layout on the main deck, optimized for companion comfort and storage.' },
-  { img: '/images/liveaboard/deep-andaman-queen/deep-andaman-queen-quad-cabin.webp', text: 'Standard Twin Cabin located on the lower deck, fully air-conditioned with private en-suite bathroom.' },
-  { img: '/images/liveaboard/deep-andaman-queen/deep-andaman-queen-bathroom.webp', text: 'Air-conditioned main dining saloon and lounge area for delicious meals and dive briefings.' },
-  { img: '/images/liveaboard/deep-andaman-queen/deep-andaman-queen-saloon.webp', text: 'Air-conditioned main dining saloon and lounge area for delicious meals and dive briefings.' },
-  { img: '/images/liveaboard/deep-andaman-queen/deep-andaman-queen-main-deck.webp', text: 'Air-conditioned main dining saloon and lounge area for delicious meals and dive briefings.' },
-  { img: '/images/liveaboard/deep-andaman-queen/deep-andaman-queen-top-deck.webp', text: 'Air-conditioned main dining saloon and lounge area for delicious meals and dive briefings.' },
-  { img: '/images/liveaboard/deep-andaman-queen/deep-andaman-queen-dive-platform.webp', text: 'Air-conditioned main dining saloon and lounge area for delicious meals and dive briefings.' },
-  { img: '/images/liveaboard/deep-andaman-queen/deep-andaman-queen-great-food.webp', text: 'Air-conditioned main dining saloon and lounge area for delicious meals and dive briefings.' },
+  { img: '/images/liveaboard/deep-andaman-queen/deep-andaman-queen-liveaboard.webp', text: 'The 30-metre steel-hull dive liveaboard Deep Andaman Queen, with three decks and a large covered top deck.' },
+  { img: '/images/liveaboard/deep-andaman-queen/deep-andaman-queen-dive-platform.webp', text: 'Dive deck with individual tank stations, gear crates and direct access to the two-level dive platform.' },
+  { img: '/images/liveaboard/deep-andaman-queen/deep-andaman-queen-saloon.webp', text: 'Air-conditioned saloon with sofas, floor cushions and a TV for dive briefings and relaxing between dives.' },
+  { img: '/images/liveaboard/deep-andaman-queen/deep-andaman-queen-main-deck.webp', text: 'Shaded outdoor dining area on the main deck, with sea views from every table.' },
+  { img: '/images/liveaboard/deep-andaman-queen/deep-andaman-queen-great-food.webp', text: 'Fresh fruit, Thai dishes and snacks served buffet-style on deck between dives.' },
+  { img: '/images/liveaboard/deep-andaman-queen/deep-andaman-queen-top-deck.webp', text: 'Covered top deck with lounge sofas and coffee tables, the best place to relax after the last dive.' },
+  { img: '/images/liveaboard/deep-andaman-queen/deep-andaman-queen-master%20cabin.webp', text: 'Master cabin with a king-size bed, portholes, wardrobe, TV and private bathroom.' },
+  { img: '/images/liveaboard/deep-andaman-queen/deep-andaman-queen-deluxe-double-cabin.webp', text: 'Deluxe double cabin with a double bed, open wardrobe and private en-suite bathroom.' },
+  { img: '/images/liveaboard/deep-andaman-queen/deep-andaman-queen-deluxe-twin-cabin.webp', text: 'Deluxe twin cabin on the lower deck with bunk beds, air conditioning and hanging space.' },
+  { img: '/images/liveaboard/deep-andaman-queen/deep-andaman-queen-triple-cabin.webp', text: 'Triple cabin with bunk beds, ideal for groups of friends or families travelling together.' },
+  { img: '/images/liveaboard/deep-andaman-queen/deep-andaman-queen-quad-cabin.webp', text: 'Quadruple cabin with two sets of bunk beds, the most budget-friendly option on board.' },
+  { img: '/images/liveaboard/deep-andaman-queen/deep-andaman-queen-bathroom.webp', text: 'Private en-suite bathroom with hot shower, washbasin and toilet.' },
 ];
 
 const technicalSpecs = [
+  { label: 'Type', value: 'Dive Liveaboard' },
   { label: 'Length Overall', value: '30 Meters' },
-  { label: 'Max Capacity', value: '25 Guests / 11 Cabins' }, 
+  { label: 'Hull', value: 'Steel' },
   { label: 'Cruising Speed', value: '12 Knots' },
-  { label: 'Hull Material', value: 'Steel Hull' }
+  { label: 'Guests', value: '25 Divers' },
+  { label: 'Cabins', value: '11, All En Suite' },
+  { label: 'Dive Guide Ratio', value: '1:4' },
+  { label: 'Nitrox', value: 'Available on Board' },
+  { label: 'Departure Ports', value: 'Tab Lamu (Khao Lak) & Ranong' },
+  { label: 'Destinations', value: 'Similan, Surin, Richelieu Rock, Mergui' }
 ];
 
 const cabins = [
@@ -78,12 +84,12 @@ const includedItems = [
 
 const notIncludedItems = [
   { text: 'Diving Accident Insurance', highlight: 'Compulsory' },
-  { text: 'Alcoholic beverages', highlight: '' },
+  { text: 'Alcoholic beverages', highlight: 'Available on board' },
   { text: 'Marine Park Fees', highlight: '2,500 THB / diver cash on board' },
   { text: 'Nitrox', highlight: 'Available at extra cost on board' },
   { text: 'Rental diving equipment', highlight: '600 THB / day' },
-  { text: 'Dive Torch Rental', highlight: '' },
-  { text: 'Dive Computer Rental', highlight: '' }
+  { text: 'Dive torch rental', highlight: 'On request' },
+  { text: 'Dive computer rental', highlight: 'On request' }
 ];
 
 const schedule = [
@@ -125,14 +131,71 @@ const schedule = [
   { dates: "05 May - 09 May 27", itinerary: "5D/4N Similan", route: "Tablamu / Tablamu", type: "Similan" },
   { dates: "10 May - 14 May 27", itinerary: "5D/4N Similan", route: "Tablamu / Tablamu", type: "Similan" }
 ];
+
+// Nasconde le partenze già passate (aggiornato a ogni build)
+const MONTHS: Record<string, number> = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11 };
+const departureDate = (dates: string) => {
+  const [start, end] = dates.split(' - ');
+  const [startDay, startMonth] = start.split(' ');
+  const [, endMonth, endYear] = end.split(' ');
+  let year = 2000 + Number(endYear);
+  if (MONTHS[startMonth] > MONTHS[endMonth]) year -= 1;
+  return new Date(year, MONTHS[startMonth], Number(startDay));
+};
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+const upcomingSchedule = schedule.filter((row) => departureDate(row.dates) >= today);
+
+const faqs = [
+  {
+    q: 'How much does a Deep Andaman Queen liveaboard cost?',
+    a: 'A 5-day, 4-night Similan Islands liveaboard with 14 dives costs from THB 33,500 per person in a quadruple cabin, THB 36,000 in a triple cabin, THB 40,000 in a deluxe twin cabin, THB 44,500 in a deluxe double cabin and THB 52,000 in a master cabin. Marine park fees of THB 2,500 per diver are paid in cash on board.'
+  },
+  {
+    q: 'Where does the liveaboard depart from?',
+    a: 'Similan trips depart from Tab Lamu pier in Khao Lak, north of Phuket, and Mergui Archipelago (Burma) trips depart from Ranong. Return transfers from your Phuket hotel to the boat are included.'
+  },
+  {
+    q: 'Which dive sites does Deep Andaman Queen visit?',
+    a: 'The boat dives the Similan Islands, Koh Bon, Koh Tachai, the Surin Islands and Richelieu Rock, famous for whale shark encounters. On longer trips she continues into the Mergui Archipelago in Myanmar, one of the least dived regions in Southeast Asia.'
+  },
+  {
+    q: 'When is the Similan Islands diving season?',
+    a: 'The Similan and Surin marine parks are open from mid-October to mid-May. Deep Andaman Queen runs 4 to 7-day Similan trips and 10-day Similan and Burma trips throughout the season.'
+  },
+  {
+    q: 'What level of diving certification do I need?',
+    a: 'An Open Water certification is enough for most Similan dive sites, while an Advanced Open Water certification is recommended for deeper sites and for the Mergui Archipelago. Dive groups have a maximum of four divers per English-speaking guide, and Luna Diving can help you complete your PADI course before the trip.'
+  },
+  {
+    q: 'What is included in the price?',
+    a: 'Hotel transfers from Phuket, a private or shared cabin with air conditioning and private bathroom, all meals, water, tea, coffee, soft drinks and snacks, towels, 14 dives on the 5-day trip, tanks, weights and belt, and an English-speaking dive guide. Dive insurance, marine park fees, nitrox and rental equipment are extra.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a }
+  }))
+};
+
+const whatsappUrl = `https://wa.me/66918233120?text=${encodeURIComponent("Hi Luna Diving! I'm interested in booking the Deep Andaman Queen liveaboard.")}`;
 ---
 
-<Layout title={`${vesselName} Liveaboard | Luna Diving Phuket`}>
+<Layout
+  title="Deep Andaman Queen Liveaboard | Similan & Richelieu Rock"
+  description="Dive the Similan Islands, Richelieu Rock and the Mergui Archipelago on Deep Andaman Queen, a 30m liveaboard for 25 divers. 5-day trips with 14 dives from THB 33,500."
+  image="/images/liveaboard/deep-andaman-queen/deep-andaman-queen-liveaboard.webp"
+>
   <main class="pcom-wrapper">
     
     <section class="pcom-hero">
-      <span class="pcom-subtitle">M/Y {vesselName}</span>
-      <h1 class="pcom-title">{vesselName}</h1>
+      <span class="pcom-subtitle">Similan Islands Dive Liveaboard</span>
+      <h1 class="pcom-title">{vesselName} Liveaboard Thailand</h1>
       <div class="pcom-divider"></div>
       <p class="pcom-tagline">{tagline}</p>
     </section>
@@ -177,9 +240,63 @@ const schedule = [
       </div>
     </section>
 
+    <section class="pcom-content-grid">
+      <div class="content-main">
+        <h2 class="content-heading">Similan Islands Liveaboard Diving on Deep Andaman Queen</h2>
+        <div class="heading-line"></div>
+        <p class="paragraph">
+          <strong>Deep Andaman Queen</strong> is a <strong>30-metre steel-hull dive liveaboard</strong> for up to <strong>25 divers in 11 en-suite cabins</strong>. From mid-October to May she runs <strong>Similan Islands liveaboard trips</strong> from Khao Lak, diving the Similans, Koh Bon, Koh Tachai, the Surin Islands and <strong>Richelieu Rock</strong>, and longer expeditions from Ranong into the remote <strong>Mergui Archipelago in Myanmar (Burma)</strong>.
+        </p>
+        <p class="paragraph">
+          With a maximum of four divers per guide, nitrox on board and five cabin categories from quadruple bunks to a king-size master cabin, she suits both budget-conscious divers and those looking for extra comfort.
+        </p>
+
+        <h3 class="sub-heading">Built for Divers: Two-Level Dive Platform</h3>
+        <p class="paragraph">
+          Diving runs from a large dive deck with individual tank stations and storage crates, leading down to a two-level dive platform. The split-level design means divers can gear up, enter and climb back aboard without queuing, even with a full boat. Tanks, weights and belts are included, rental equipment is available on board, and nitrox can be added for longer bottom times.
+        </p>
+
+        <h3 class="sub-heading">Up to 4 Dives a Day</h3>
+        <p class="paragraph">
+          The classic 5-day, 4-night trip includes 14 dives, with up to four dives a day. Every group is led by an English-speaking dive guide with a maximum ratio of one guide to four divers, and a private guide can be booked for a supplement.
+        </p>
+
+        <h3 class="sub-heading">Saloon, Dining Deck and Sun Deck</h3>
+        <p class="paragraph">
+          Between dives, guests relax in an air-conditioned saloon with sofas, floor cushions, a TV for dive briefings and a library of marine life books and diving magazines. Meals are served on the shaded main deck, and the covered top deck has lounge sofas facing the sea, the perfect spot for sunset after the last dive.
+        </p>
+
+        <h3 class="sub-heading">Thai and International Cuisine</h3>
+        <p class="paragraph">
+          The galley serves breakfast, lunch and dinner every day, with traditional Thai dishes alongside international food, plus fresh fruit, snacks, soft drinks, tea and coffee between dives, and hot drinks and towels after every dive.
+        </p>
+
+        <h3 class="sub-heading">Five Cabin Categories, All En Suite</h3>
+        <p class="paragraph">
+          All 11 cabins are air-conditioned and have a private bathroom with hot shower. Choose from two master cabins with king-size beds, five deluxe double cabins on the main deck, two deluxe twin cabins with bunk beds, a triple cabin and a quadruple cabin on the lower deck. Solo divers can book a shared cabin.
+        </p>
+
+        <h3 class="sub-heading">Similan, Surin and Mergui Itineraries</h3>
+        <p class="paragraph">
+          Most departures are 4 to 7-day Similan Islands trips starting and ending at Tab Lamu in Khao Lak. Several times a season the boat sails a 10-day Similan to Burma route ending in Ranong, followed by 6 and 7-day trips in the Mergui Archipelago, ideal for experienced divers who want empty reefs, pinnacles and sharks far from the crowds.
+        </p>
+      </div>
+
+      <div class="content-sidebar">
+        <div class="booking-sticky-box">
+          <h3 class="sidebar-heading">Ready to Dive?</h3>
+          <p class="sidebar-text">Check availability on Deep Andaman Queen. Peak season departures from December to April book up first.</p>
+          <a href="/contact?vessel=Deep%20Andaman%20Queen" class="pcom-btn-primary">
+            Check Availability
+          </a>
+        </div>
+      </div>
+    </section>
+
     <section class="pcom-pricing-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Cabin Options & Rates</h2>
+        <h2 class="content-heading">Deep Andaman Queen Prices 2026/27</h2>
+        <p class="paragraph" style="margin-bottom: 12px;">Prices per person for the 5-day, 4-night Similan Islands trip with 14 dives. Rates for 4, 6, 7 and 10-day departures are available on request.</p>
         <div class="heading-line"></div>
       </div>
       
@@ -244,7 +361,8 @@ const schedule = [
 
     <section class="pcom-schedule-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Cruise Schedule & Availability</h2>
+        <h2 class="content-heading">Liveaboard Schedule 2026/27</h2>
+        <p class="paragraph" style="margin-bottom: 12px;">Upcoming departures. Tablamu is Tab Lamu pier in Khao Lak; Burma trips start or finish in Ranong.</p>
         <div class="heading-line"></div>
       </div>
 
@@ -259,18 +377,18 @@ const schedule = [
             </tr>
           </thead>
           <tbody>
-            {schedule.map((row) => (
+            {upcomingSchedule.map((row) => (
               <tr>
                 <td class="td-dates">{row.dates}</td>
                 <td class="td-itinerary">
                   <span class="itinerary-text">{row.itinerary}</span>
-                  <span class={`type-badge badge-${row.type.toLowerCase().replace(' ', '-')}`}>
+                  <span class={`type-badge badge-${row.type.toLowerCase().replace(/\s+/g, '-')}`}>
                     {row.type}
                   </span>
                 </td>
                 <td class="td-route">{row.route}</td>
                 <td class="td-action">
-                  <a href={`/contact?vessel=${vesselName}&date=${encodeURIComponent(row.dates)}`} class="table-book-btn">
+                  <a href={`/contact?vessel=${encodeURIComponent(vesselName)}&date=${encodeURIComponent(row.dates)}`} class="table-book-btn" aria-label={`Book ${row.itinerary} departing ${row.dates}`}>
                     Book
                   </a>
                 </td>
@@ -281,34 +399,26 @@ const schedule = [
       </div>
     </section>
 
-    <section class="pcom-content-grid">
-      <div class="content-main">
-        <h2 class="content-heading">Vessel Profile</h2>
-        <div class="heading-line"></div>
-        <p class="paragraph">
-          The <strong>Deep Andaman Queen</strong> is an exceptional liveaboard cruise boat designed for passionate divers looking to explore the premier dive sites along Thailand's magnificent west coast. Hosting a maximum of <strong>25 guests across 11 finely appointed cabins</strong>, it offers a remarkably intimate and highly personalized experience. This robust vessel provides unforgettable dive cruises navigating the crystal-clear waters of the <strong>Similan Islands, Surin Islands, Richelieu Rock</strong>, and the pristine, remote waters of the <strong>Mergui Archipelago in Myanmar (Burma)</strong>.
-        </p>
-        <p class="paragraph">
-          Life on board balances high-end comfort with pure adventure. The ship's culinary team consists of **skilled cooks renowned across Phuket Island**, dedicated to preparing an exceptional variety of traditional Thai dishes and international cuisine. Between dives, guests can relax in a beautiful, fully air-conditioned saloon equipped with panoramic windows, an entertainment center, and a curated library of marine biology books and diving magazines. For sun worshippers, the expansive top deck features plush sun loungers and sofas perfect for tracking ocean sunsets.
-        </p>
-        <p class="paragraph">
-          Diving operations are meticulously organized on the massive **two-level diving platform**. Its generous size and smart, split-level engineering make entries and exits effortless for all divers, avoiding any bottlenecking during pre-dive prep. Combining robust safety, specialized dive infrastructure, and top-tier hospitality, the Deep Andaman Queen stands as an excellent choice for a premier liveaboard experience in Southeast Asia.
-        </p>
-      </div>
 
-      <div class="content-sidebar">
-        <div class="booking-sticky-box">
-          <h3 class="sidebar-heading">Ready to Dive?</h3>
-          <p class="sidebar-text">Plan your trip aboard the Deep Andaman Queen. Slots fill up quickly during the peak diving season.</p>
-          <a href="/contact" class="pcom-btn-primary">
-            Inquire This Liveaboard
-          </a>
-        </div>
+    <section class="pcom-schedule-section">
+      <div class="pricing-header">
+        <h2 class="content-heading">Deep Andaman Queen: Frequently Asked Questions</h2>
+        <div class="heading-line"></div>
+      </div>
+      <div class="faq-list">
+        {faqs.map((item) => (
+          <details class="faq-item">
+            <summary class="faq-question">{item.q}</summary>
+            <p class="paragraph faq-answer">{item.a}</p>
+          </details>
+        ))}
       </div>
     </section>
 
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
     <a 
-      href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20interested%20in%20booking%20the%20Deep%20Andaman%20Queen%20liveaboard." 
+      href={whatsappUrl} 
       target="_blank" 
       rel="noopener noreferrer" 
       class="pcom-whatsapp-float"
@@ -1021,5 +1131,27 @@ const schedule = [
       width: 28px;
       height: 28px;
     }
+  }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid var(--pcom-color-surface);
+    padding: 14px 0;
+  }
+
+  .faq-question {
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--pcom-color-primary);
+  }
+
+  .faq-question:focus-visible {
+    outline: 2px solid var(--pcom-color-accent);
+    outline-offset: 4px;
+  }
+
+  .faq-answer {
+    margin: 10px 0 0;
   }
 </style>
