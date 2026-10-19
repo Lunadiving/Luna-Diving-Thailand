@@ -4,7 +4,7 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
 import Layout from '../../layouts/Layout.astro';
 
 const vesselName = "Mami Wata";
-const tagline = "A 1954 Halvorsen, the Andaman coast, and nobody else aboard.";
+const tagline = "A classic 1954 Halvorsen timber motor yacht for private day trips, sunset cruises and romantic charters from Royal Phuket Marina";
 
 const slideshow = [
   { 
@@ -59,12 +59,16 @@ const slideshow = [
 
 const technicalSpecs = [
   { label: 'Builder', value: 'Halvorsen, Sydney' },
-  { label: 'Year of Build', value: '1954' },
-  { label: 'Refit', value: '2023' },
-  { label: 'Type', value: 'Classic timber motor cruiser' },
-  { label: 'Length Overall', value: '15.34 m' },
-  { label: 'Beam', value: '4.20 m' },
-  { label: 'Cruising Speed', value: '8 to 12 knots' },
+  { label: 'Year of Build / Refit', value: '1954 / 2023' },
+  { label: 'Type', value: 'Classic Timber Motor Cruiser' },
+  { label: 'Length Overall', value: '15.34 m / 50 ft' },
+  { label: 'Beam / Draught', value: '4.20 m / 1.20 m' },
+  { label: 'Engines', value: '2 x 220 hp Cummins' },
+  { label: 'Cruising Speed', value: '8 to 12 Knots' },
+  { label: 'Fuel / Fresh Water', value: '850 L / 2,000 L' },
+  { label: 'Cabins', value: '2' },
+  { label: 'Guests', value: '12 Day / 6 Overnight' },
+  { label: 'Crew', value: '3 (Skipper, Deckhand, Hostess)' },
   { label: 'Home Port', value: 'Royal Phuket Marina' }
 ];
 
@@ -72,7 +76,7 @@ const dayCharterRates = [
   {
     name: 'Sunset Cruise (3 Hours)',
     price: '41,000 ฿',
-    usd: 'USD 1,250 (Peak: 52,000 ฿ / USD 1,600)',
+    usd: 'USD 1,250 (Peak 22 Dec–5 Jan: 52,000 ฿ / USD 1,600)',
     location: 'Phuket East Coast',
     details: 'May to Nov / Dec to Apr: 41,000 ฿ | Peak (22 Dec - 5 Jan): 52,000 ฿. Lunch not included.',
     trip: 'Sunset'
@@ -80,7 +84,7 @@ const dayCharterRates = [
   {
     name: 'Rang Yai & Kai Islands (5 Hours)',
     price: '68,000 ฿',
-    usd: 'USD 2,100 (High: 73,000 ฿ | Peak: 83,000 ฿)',
+    usd: 'USD 2,100 (Dec–Apr: 73,000 ฿ / USD 2,250 · Peak: 83,000 ฿ / USD 2,550)',
     location: 'Local Islands',
     details: 'May-Nov: 68,000 ฿ | Dec-Apr: 73,000 ฿ | Peak: 83,000 ฿ (USD 2,550). Gourmet lunch included.',
     trip: 'Half Day'
@@ -88,7 +92,7 @@ const dayCharterRates = [
   {
     name: 'Phang Nga Bay (8 Hours)',
     price: '83,000 ฿',
-    usd: 'USD 2,550 (High: 94,000 ฿ | Peak: 104,000 ฿)',
+    usd: 'USD 2,550 (Dec–Apr: 94,000 ฿ / USD 2,850 · Peak: 104,000 ฿ / USD 3,200)',
     location: 'Limestone Karsts',
     details: 'May-Nov: 83,000 ฿ | Dec-Apr: 94,000 ฿ (USD 2,850) | Peak: 104,000 ฿ (USD 3,200). Full day charter.',
     trip: 'Full Day'
@@ -96,7 +100,7 @@ const dayCharterRates = [
   {
     name: 'Krabi, Four Islands (8 Hours)',
     price: '83,000 ฿',
-    usd: 'USD 2,550 (High: 94,000 ฿ | Peak: 104,000 ฿)',
+    usd: 'USD 2,550 (Dec–Apr: 94,000 ฿ / USD 2,850 · Peak: 104,000 ฿ / USD 3,200)',
     location: 'Andaman Sea',
     details: 'May-Nov: 83,000 ฿ | Dec-Apr: 94,000 ฿ (USD 2,850) | Peak: 104,000 ฿ (USD 3,200). Full day charter.',
     trip: 'Full Day'
@@ -172,29 +176,89 @@ const notIncludedItems = [
   { text: 'Crew gratuities', highlight: 'Discretionary' }
 ];
 
+// Durate dei charter dalla brochure (non tempi di navigazione)
 const cruisingDistances = [
-  { destination: "Phuket East Coast / Rang Yai", distance: "Approx. 8 nm", time: "1 hour" },
-  { destination: "Kai Islands", distance: "Approx. 15 nm", time: "1 h 30 min" },
-  { destination: "Phang Nga Bay", distance: "Approx. 20 nm", time: "2 hours" },
-  { destination: "Krabi Four Islands", distance: "Approx. 30 nm", time: "3 hours" },
-  { destination: "Koh Yao Noi / Yai", distance: "Approx. 12 nm", time: "1 h 15 min" }
+  { destination: "Sunset cruise, Phuket east coast", time: "3 hours" },
+  { destination: "Rang Yai and Kai Islands", time: "5 hours" },
+  { destination: "Phang Nga Bay", time: "8 hours" },
+  { destination: "Krabi, Four Islands", time: "8 hours" },
+  { destination: "Overnight itineraries", time: "2 to 7 days" }
+];
+
+// Riposizionamenti e transfer, listino 2026/27
+const relocations = [
+  { destination: "Shuttle to and from accommodation, return", thb: "THB 3,000", usd: "USD 95" },
+  { destination: "Relocation to Koh Yao", thb: "THB 10,500", usd: "USD 320" },
+  { destination: "Relocation to Ao Po Grand Marina", thb: "THB 10,500", usd: "USD 320" },
+  { destination: "Relocation to Chalong Pier", thb: "THB 15,750", usd: "USD 480" },
+  { destination: "Relocation to Krabi", thb: "THB 15,750", usd: "USD 480" }
 ];
 
 const waterToys = [
   "Snorkelling equipment",
-  "Stand up paddleboard (SUP)",
+  "Stand-up paddleboard (SUP)",
   "Kayak",
   "Fishing rods",
-  "Tender with outboard"
+  "Tender"
 ];
+
+const onBoard = [
+  "Sun parasols and beanbags",
+  "Foredeck sunpads",
+  "Welcome fruit and fresh towels",
+  "Gourmet lunch on day charters, full board overnight",
+  "Flowers, cake and celebrations (supplement)",
+  "Photographer or massage therapist on board (supplement)"
+];
+
+const faqs = [
+  {
+    q: 'How much does a sunset cruise on Mami Wata cost?',
+    a: 'A 3-hour private sunset cruise along the east coast of Phuket costs THB 41,000 (about USD 1,250) for up to 8 guests, and THB 52,000 (about USD 1,600) from 22 December to 5 January. Lunch is not included on the sunset cruise.'
+  },
+  {
+    q: 'How much does a full-day charter cost?',
+    a: 'An 8-hour day charter to Phang Nga Bay or the Four Islands of Krabi costs THB 83,000 (about USD 2,550) from May to November, THB 94,000 (about USD 2,850) from December to April and THB 104,000 (about USD 3,200) from 22 December to 5 January. Above 8 guests, each extra guest is THB 1,500 (USD 50), up to 12.'
+  },
+  {
+    q: 'Can we organise a marriage proposal or honeymoon on board?',
+    a: 'Yes. Mami Wata is popular for proposals, anniversaries and honeymoons. The crew can arrange flowers, a quiet anchorage, a photographer on board and dinner on the foredeck. Flowers, cake, celebrations and the photographer are available as supplements.'
+  },
+  {
+    q: 'How many guests can come on board?',
+    a: 'Up to 12 guests on a day charter and up to 6 guests overnight, in two cabins. The yacht is run by a crew of three: skipper, deckhand and a hostess who cooks on board.'
+  },
+  {
+    q: 'Where does Mami Wata depart from?',
+    a: 'Mami Wata is based at Royal Phuket Marina. She can also start from Koh Yao or Ao Po Grand Marina (THB 10,500 relocation) or from Chalong Pier or Krabi (THB 15,750). A return shuttle from your accommodation costs THB 3,000 (USD 95).'
+  },
+  {
+    q: 'What is included in the price?',
+    a: 'The whole yacht with crew, a gourmet lunch on day charters or full board overnight, fruit, drinking water, soft drinks, local beer, a bottle of wine, a welcome fruit plate and fresh towels, snorkelling gear, paddleboard and kayak, yacht and passenger insurance and local VAT.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a }
+  }))
+};
 ---
 
-<Layout title={`Classic Halvorsen Motor Yacht ${vesselName} Charter Phuket | Luna Diving`}>
+<Layout
+  title="Mami Wata Yacht Charter Phuket | Classic 1954 Halvorsen"
+  description="Charter Mami Wata, a classic 1954 Halvorsen wooden yacht in Phuket: sunset cruises from THB 41,000, Phang Nga Bay day trips, proposals and honeymoons."
+  image="/images/yacht/mami-wata/mami-wata-classic-motor-yacht-sunset-profile.webp"
+>
   <main class="pcom-wrapper">
     
     <section class="pcom-hero">
-      <span class="pcom-subtitle">Mami Wata · Halvorsen Cruiser 02</span>
-      <h1 class="pcom-title">{vesselName}</h1>
+      <span class="pcom-subtitle">Classic 1954 Halvorsen Motor Yacht</span>
+      <h1 class="pcom-title">{vesselName} Yacht Charter Phuket</h1>
       <div class="pcom-divider"></div>
       <p class="pcom-tagline">{tagline}</p>
     </section>
@@ -241,54 +305,64 @@ const waterToys = [
 
     <section class="pcom-content-grid">
       <div class="content-main">
-        <h2 class="content-heading">Fifteen metres of Australian timber, twin Cummins and quiet cruising.</h2>
+        <h2 class="content-heading">Classic Wooden Yacht Charter in Phuket</h2>
         <div class="heading-line"></div>
         <p class="paragraph">
-          Fifteen metres of Australian timber, twin Cummins under the floor and a crew of three who have done this a thousand times. She does not go fast and has never needed to. She leaves the marina at eight, finds the anchorage nobody else has bothered with, and comes back at dusk with the teak still warm and the candles already lit.
+          <strong>Mami Wata</strong> is a <strong>classic 1954 Halvorsen motor yacht</strong> of 15 metres, built in timber and based at <strong>Royal Phuket Marina</strong>. She is available for <strong>private sunset cruises</strong>, <strong>day trips for up to 12 guests</strong> to Phang Nga Bay and Krabi, and <strong>overnight charters for up to 6 guests</strong>, always with the whole yacht to yourselves and a crew of three.
+        </p>
+        <p class="paragraph">
+          She is not built for speed, and that is her charm. Mami Wata leaves the marina in the morning, heads for a quiet anchorage away from the crowds and comes back at dusk, with warm teak underfoot and candles lit on deck.
         </p>
 
-        <h3 class="sub-heading">The Vessel: Halvorsen, 1954</h3>
+        <h3 class="sub-heading">A 1954 Halvorsen with a 2023 Refit</h3>
         <p class="paragraph">
-          Mami Wata was built in 1954 by the Halvorsen yard, the Norwegian family firm whose timber cruisers defined Sydney Harbour for half a century. She is fifteen metres of planked hull, teak deck and varnished brightwork, and she carries her age the way good boats do, which is to say quietly.
+          Mami Wata comes from the Halvorsen yard, a family of Norwegian boatbuilders whose timber motor cruisers shaped the look of Sydney Harbour for fifty years. Her planked hull, teak deck and varnished woodwork show their age with grace.
         </p>
         <p class="paragraph">
-          A full refit completed in 2023 brought the systems up to date without touching the character. Twin Cummins diesels, renewed tankage, and a saloon that still has its buttoned leather banquette and its brass instruments on the bulkhead.
-        </p>
-        <p class="paragraph">
-          She works out of Royal Phuket Marina with a crew of three: a skipper who knows this coast in every season, a deckhand, and a hostess who cooks aboard.
+          A complete refit in 2023 brought her systems up to date, with twin Cummins diesels and renewed tanks, while keeping every detail of her character, including the buttoned leather banquette in the saloon and the original brass instruments on the bulkhead. The crew is made up of a skipper who knows this coast in every season, a deckhand and a hostess who cooks on board.
         </p>
 
-        <h3 class="sub-heading">Under Way: Eight to Twelve Knots</h3>
+        <h3 class="sub-heading">Relaxed Cruising at 8 to 12 Knots</h3>
         <p class="paragraph">
-          Twin 220 horsepower Cummins diesels give a comfortable eight to twelve knots, which is the right speed for this coast. Phang Nga Bay is a morning away and the Kai islands rather less. At anchor she sits still enough that lunch on the foredeck stays on the table.
+          Two 220 hp Cummins diesel engines give her a gentle cruising speed of 8 to 12 knots, ideal for the island waters east of Phuket. The Kai Islands are a short run from the marina and Phang Nga Bay is reached within the morning. At anchor she sits steady, so lunch on deck stays on the table.
         </p>
 
-        <h3 class="sub-heading">On Deck: The Foredeck & Wheelhouse</h3>
+        <h3 class="sub-heading">A Teak Foredeck Made for Relaxing</h3>
         <p class="paragraph">
-          The foredeck is the whole point of her: teak, four directors chairs, two long sunpads and room enough that eight people are never in each other's way. Parasols go up when the sun gets serious. The beanbags come out after lunch and rarely go away again.
+          The foredeck is her best feature: open teak with four director's chairs, two long sunpads and enough space for eight people to spread out. Parasols come up when the sun gets strong, and after lunch the beanbags come out. At the outside steering position, with its spoked wheel and original instruments, guests are welcome to take the helm with the skipper close by.
         </p>
 
-        <h3 class="sub-heading">Two Aboard: Proposals and Honeymoons</h3>
+        <h3 class="sub-heading">Vintage Saloon and Two Cabins</h3>
         <p class="paragraph">
-          There is a version of this boat that takes eight people to a beach for the day, and there is a version that takes two. The second one is quieter. The crew lay the foredeck for dinner while you are still in the water, and then they disappear.
-        </p>
-        <p class="paragraph">
-          Anniversaries, proposals and honeymoons are arranged the same way. Tell us the moment you want and the day is built backwards from it: flowers from the market that morning, an anchorage with nobody in it, a photographer aboard if you want the evidence, and dinner by lamplight on the way home.
+          Below deck, the saloon combines dark timber, buttoned leather and white cotton: cool in the middle of the day and the cosiest place on board in the evening, with fresh orchids on every charter. The two forward cabins are lined in timber, with natural light, opening portholes and storage under the berths, and are turned down before dinner with fresh towels twice a day.
         </p>
 
-        <h3 class="sub-heading">Water Toys & Amenities</h3>
+        <h3 class="sub-heading">Lunch Cooked on Board</h3>
         <p class="paragraph">
-          Fully equipped for water exploration and relaxed lounging along the Andaman coast:
+          The hostess cooks every meal on board and serves it wherever you like: on the foredeck under the parasols, in the shade of the saloon or on the aft deck at anchor. Choose Thai or Western dishes, and the crew will shop for anything you request. Bringing your own champagne? It will be chilled and waiting.
         </p>
+
+        <h3 class="sub-heading">Proposals, Honeymoons and Romantic Cruises</h3>
+        <p class="paragraph">
+          Mami Wata can take a group of friends to the beach for the day, but she is just as special with only two people on board. For a <strong>marriage proposal on a yacht in Phuket</strong>, an anniversary or a honeymoon, the day is planned around your moment: fresh flowers from the morning market, a secluded anchorage, a photographer if you want to capture it and a candlelit dinner on the way back.
+        </p>
+        <p class="paragraph">
+          The crew prepares dinner on the foredeck while you swim, then discreetly steps away. More than one proposal has already been made on this deck.
+        </p>
+
+        <h3 class="sub-heading">Water Toys and Amenities</h3>
         <ul class="toy-list">
           {waterToys.map(toy => <li>{toy}</li>)}
+        </ul>
+        <ul class="toy-list">
+          {onBoard.map(item => <li>{item}</li>)}
         </ul>
       </div>
 
       <div class="content-sidebar">
         <div class="booking-sticky-box">
           <h3 class="sidebar-heading">Inquire for Mami Wata</h3>
-          <p class="sidebar-text">Charter this classic 1954 Halvorsen cruiser out of Royal Phuket Marina for day trips or romantic overnights.</p>
+          <p class="sidebar-text">Check availability for a sunset cruise, a private day trip or a romantic overnight charter on the classic 1954 Halvorsen Mami Wata, from Royal Phuket Marina.</p>
           <a href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20interested%20in%20chartering%20Mami%20Wata." target="_blank" rel="noopener noreferrer" class="pcom-btn-primary">
             Inquire via WhatsApp
           </a>
@@ -299,8 +373,8 @@ const waterToys = [
     <!-- Day Charter Pricing Section -->
     <section class="pcom-pricing-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Day Charter Rates</h2>
-        <p class="paragraph" style="margin-bottom: 8px;">Per Charter, Thai Baht and US Dollar (Conversion at THB 33 to USD 1)</p>
+        <h2 class="content-heading">Mami Wata Day Charter Rates 2026/27</h2>
+        <p class="paragraph" style="margin-bottom: 8px;">Per charter for the whole yacht, up to 8 guests, local VAT included. US dollar amounts are indicative (THB 33 = USD 1); charters are contracted and invoiced in Thai baht.</p>
         <div class="heading-line"></div>
       </div>
       
@@ -329,8 +403,8 @@ const waterToys = [
     <!-- Overnight Charter Pricing Section -->
     <section class="pcom-pricing-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Overnight Charter Rates</h2>
-        <p class="paragraph" style="margin-bottom: 8px;">Per Charter, Thai Baht and US Dollar (May to Nov / Dec to Apr)</p>
+        <h2 class="content-heading">Mami Wata Overnight Charter Rates 2026/27</h2>
+        <p class="paragraph" style="margin-bottom: 8px;">Per charter, up to 6 guests in 2 cabins. Main price May to November; December to April rate shown below it. The crew live aboard on overnight charters.</p>
         <div class="heading-line"></div>
       </div>
       
@@ -400,8 +474,8 @@ const waterToys = [
     <!-- Cruising Grounds Table -->
     <section class="pcom-schedule-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Cruising Grounds & Passage Times</h2>
-        <p class="paragraph" style="margin-bottom: 12px;">Approximate passage times from Royal Phuket Marina (Indicative dependent on sea state and season).</p>
+        <h2 class="content-heading">Cruising Grounds from Royal Phuket Marina</h2>
+        <p class="paragraph" style="margin-bottom: 12px;">Mami Wata charters by the day or by the week along the Andaman coast. Durations below are charter lengths from the marina; passage times vary with sea state and season, and itineraries remain subject to weather and harbour clearance.</p>
         <div class="heading-line"></div>
       </div>
 
@@ -409,16 +483,14 @@ const waterToys = [
         <table class="schedule-table">
           <thead>
             <tr>
-              <th>Destination</th>
-              <th>Distance</th>
-              <th>Cruising Time</th>
+              <th>Charter</th>
+              <th>Duration</th>
             </tr>
           </thead>
           <tbody>
             {cruisingDistances.map((row) => (
               <tr>
                 <td class="td-dates">{row.destination}</td>
-                <td class="td-itinerary"><span class="itinerary-text">{row.distance}</span></td>
                 <td class="td-route">{row.time}</td>
               </tr>
             ))}
@@ -426,6 +498,51 @@ const waterToys = [
         </table>
       </div>
     </section>
+
+    <section class="pcom-schedule-section">
+      <div class="pricing-header">
+        <h2 class="content-heading">Relocation and Transfers</h2>
+        <p class="paragraph" style="margin-bottom: 12px;">Start or finish your charter away from Royal Phuket Marina, or add a return shuttle from your accommodation.</p>
+        <div class="heading-line"></div>
+      </div>
+      <div class="table-responsive-container">
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Thai Baht</th>
+              <th>US Dollar</th>
+            </tr>
+          </thead>
+          <tbody>
+            {relocations.map((row) => (
+              <tr>
+                <td class="td-dates">{row.destination}</td>
+                <td class="td-itinerary"><span class="itinerary-text">{row.thb}</span></td>
+                <td class="td-route">{row.usd}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="pcom-schedule-section">
+      <div class="pricing-header">
+        <h2 class="content-heading">Mami Wata Charter: Frequently Asked Questions</h2>
+        <div class="heading-line"></div>
+      </div>
+      <div class="faq-list">
+        {faqs.map((item) => (
+          <details class="faq-item">
+            <summary class="faq-question">{item.q}</summary>
+            <p class="paragraph faq-answer">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
     <a 
       href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20interested%20in%20booking%20Mami%20Wata." 
@@ -1135,5 +1252,27 @@ const waterToys = [
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid var(--pcom-color-surface);
+    padding: 14px 0;
+  }
+
+  .faq-question {
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--pcom-color-primary);
+  }
+
+  .faq-question:focus-visible {
+    outline: 2px solid var(--pcom-color-accent);
+    outline-offset: 4px;
+  }
+
+  .faq-answer {
+    margin: 10px 0 0;
   }
 </style>
