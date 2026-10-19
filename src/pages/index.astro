@@ -16,58 +16,155 @@ const whatsappLink = (message: string) =>
 const mainCategories = [
   {
     name: 'Liveaboard',
-    seoTitle: 'Liveaboard Cruises',
-    description: 'Multi-day diving safaris to the Similan Islands and Richelieu Rock.',
+    seoTitle: 'Similan Liveaboards',
+    description: '4 to 11-day dive trips to the Similan Islands, Richelieu Rock and the Mergui Archipelago, from THB 26,700.',
     image: '/images/hero/thailand-liveaboards.webp',
     link: '/thailand-liveaboards',
-    altText: 'Premium liveaboard diving boat navigating the Andaman Sea in Thailand',
+    altText: 'Dive liveaboard cruising the Andaman Sea on the way to the Similan Islands, Thailand',
   },
   {
     name: 'Yacht',
-    seoTitle: 'Yacht Charter',
-    description: 'Private luxury catamaran and yacht rentals for custom cruise itineraries.',
+    seoTitle: 'Yacht Charter Phuket',
+    description: 'Eight private yachts, from sunset cruises to a 42m superyacht, for Phang Nga Bay, Krabi and Phi Phi.',
     image: '/images/hero/private-dive-boat-charters-phuket.webp',
     link: '/thailand-yachts',
-    altText: 'Luxury private yacht charter anchored near a tropical island in Phuket',
+    altText: 'Private yacht charter anchored near a tropical island in Phuket',
   },
   {
     name: 'Courses',
-    seoTitle: 'Scuba Diving Courses',
-    description: 'PADI certifications from Open Water to professional divemaster levels.',
+    seoTitle: 'PADI Diving Courses',
+    description: 'Learn to dive or level up in Phuket: Discover Scuba, Open Water, Advanced and Rescue Diver.',
     image: '/images/hero/padi-scuba-diving-courses.webp',
     link: '/padi-scuba-diving-courses',
     altText: 'Scuba diving instructor teaching students open water skills in clear water',
   },
   {
     name: 'Day Trip',
-    seoTitle: 'Daily Dive Trips',
-    description: 'Daily diving excursions to local reefs, Phi Phi Islands, and Racha Islands.',
+    seoTitle: 'Diving Day Trips',
+    description: 'Daily boat diving from Phuket to Phi Phi and the Racha Islands, plus Similan day trips from Khao Lak.',
     image: '/images/hero/day-trip-phuket.webp',
     link: '/day-trip-phuket',
-    altText: 'Boat carrying scuba divers to local day trip dive sites',
+    altText: 'Dive boat taking scuba divers on a day trip from Phuket',
   },
   {
     name: 'Itinerary',
-    seoTitle: 'Cruise Itineraries',
-    description: 'Detailed schedules and dynamic routing maps for our upcoming dive seasons.',
+    seoTitle: 'Liveaboard Itineraries',
+    description: 'Compare Similan and Surin, Southern Andaman and Best of the Andaman Sea routes before you book.',
     image: '/images/hero/liveaboard-itinerary-thailand.webp',
     link: '/liveaboard-itinerary-thailand',
-    altText: 'Top view map overlay showing sailing routes across the Andaman Sea islands',
+    altText: 'Map of liveaboard routes across the Andaman Sea islands of Thailand',
   },
   {
     name: 'Dive Sites',
-    seoTitle: 'Andaman Dive Sites',
-    description: 'Explore deep-sea marine life profiles of Richelieu Rock and national parks.',
+    seoTitle: 'Andaman Sea Dive Sites',
+    description: 'Similan Islands, Richelieu Rock, Hin Daeng, Burma Banks, Shark Point and the King Cruiser wreck.',
     image: '/images/hero/dive-sites.webp',
     link: '/dive-sites-thailand',
-    altText: 'Vibrant coral reef teeming with colorful marine life at Richelieu Rock Thailand',
+    altText: 'Colourful coral reef and marine life at a Similan Islands dive site in Thailand',
   },
+];
+
+const highlights = [
+  { value: '6', label: 'Dive liveaboards', note: 'From budget trips with free nitrox to historic sailing ships' },
+  { value: '8', label: 'Private yachts', note: 'Sunset cruises, day charters and superyacht voyages' },
+  { value: 'Oct–May', label: 'Similan season', note: 'The national park opens mid-October to mid-May' },
+  { value: '1:4', label: 'Guide ratio', note: 'Small groups on our Similan liveaboards' },
+];
+
+const destinations = [
+  {
+    name: 'Similan Islands',
+    text: 'Granite boulders, white sand beaches and clear blue water in a national park 70 km off Khao Lak, the heart of Thai liveaboard diving.',
+    link: '/thailand-liveaboards',
+  },
+  {
+    name: 'Richelieu Rock',
+    text: 'A horseshoe-shaped pinnacle near the Surin Islands, famous for whale sharks, seahorses and some of the best macro life in Thailand.',
+    link: '/dive-sites-thailand',
+  },
+  {
+    name: 'Koh Bon & Koh Tachai',
+    text: 'Exposed ridges and pinnacles north of the Similans, where strong currents bring manta rays and large schools of fish.',
+    link: '/dive-sites-thailand',
+  },
+  {
+    name: 'Mergui Archipelago',
+    text: 'Hundreds of remote islands in southern Myanmar, reached on longer liveaboards from Ranong, with reefs few divers ever see.',
+    link: '/thailand-liveaboards/deep-andaman-queen',
+  },
+  {
+    name: 'Phang Nga Bay',
+    text: 'Towering limestone karsts, hidden lagoons and calm water, best explored on a private yacht charter from Phuket.',
+    link: '/thailand-yachts',
+  },
+  {
+    name: 'Phi Phi & Racha Islands',
+    text: 'Easy reef diving and snorkelling within a short boat ride of Phuket, perfect for day trips and PADI training dives.',
+    link: '/day-trip-phuket',
+  },
+];
+
+const faqs = [
+  {
+    q: 'When is the best time to dive the Similan Islands?',
+    a: 'The Similan and Surin National Parks are open from mid-October to mid-May. The calmest seas and best visibility are usually from December to April, which is also when liveaboard departures book up first.'
+  },
+  {
+    q: 'How much does a Similan Islands liveaboard cost?',
+    a: 'A 5-day, 4-night Similan Islands liveaboard with 14 dives starts from THB 26,700 per person on MV Pawara, including free nitrox and hotel transfers. Prices depend on the boat, cabin and length of the trip, and marine park fees are paid on board.'
+  },
+  {
+    q: 'Can beginners dive in Thailand?',
+    a: 'Yes. Phuket is a popular place to learn to dive, with warm water all year. You can try diving with a PADI Discover Scuba Diving experience or get certified with the PADI Open Water Diver course, then join a day trip or liveaboard.'
+  },
+  {
+    q: 'Do you offer private yacht charters in Phuket?',
+    a: 'Yes. We offer eight private yachts in Phuket, from 3-hour sunset cruises from THB 41,000 to full-day charters to Phang Nga Bay, Krabi and Phi Phi, overnight trips and all-inclusive superyacht days for up to 20 guests.'
+  },
+  {
+    q: 'Where are liveaboard departures from?',
+    a: 'Most Similan liveaboards depart from Tab Lamu pier in Khao Lak, north of Phuket, with hotel transfers from Phuket and Khao Lak usually included. Some trips start from Chalong in Phuket, and Mergui Archipelago trips depart from Ranong.'
+  },
+  {
+    q: 'How do I book with Luna Diving?',
+    a: 'Contact us on WhatsApp at +66 91 823 3120, by email at info@luna-diving-thailand.com or through our contact form. Tell us your dates, group size and experience level, and we will check availability and recommend the best boat or course for you.'
+  }
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'TravelAgency',
+    name: 'Luna Diving Thailand',
+    url: 'https://luna-diving-thailand.com/',
+    logo: 'https://luna-diving-thailand.com/favicon.ico',
+    telephone: '+66918233120',
+    email: 'info@luna-diving-thailand.com',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '27/15 Soi Pattana, Moo 4',
+      addressLocality: 'Rawai',
+      addressRegion: 'Phuket',
+      addressCountry: 'TH'
+    },
+    areaServed: ['Phuket', 'Khao Lak', 'Similan Islands', 'Andaman Sea'],
+    description: 'Liveaboard dive trips to the Similan Islands and Richelieu Rock, private yacht charters, diving day trips and PADI courses in Phuket, Thailand.'
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a }
+    }))
+  }
 ];
 ---
 
 <Layout
-  title="Luna Diving | Premium Thailand Liveaboards & Scuba Adventures"
-  description="Liveaboard cruises to the Similan Islands and Richelieu Rock, private yacht charters, daily dive trips and PADI courses in Phuket and Khao Lak, Thailand."
+  title="Luna Diving Phuket | Similan Liveaboards, Yachts & PADI Courses"
+  description="Similan Islands and Richelieu Rock liveaboards from THB 26,700, private yacht charters, diving day trips and PADI courses in Phuket and Khao Lak, Thailand."
   image="/images/hero/hero-poster.webp"
 >
   <main class="main-wrapper" id="theme-wrapper">
@@ -94,12 +191,12 @@ const mainCategories = [
 
       <div class="hero-content">
         <h1 id="hero-title" class="hero-title animated-element fade-in-second">
-          Thailand Liveaboard Cruises & Phuket Scuba Diving
+          Similan Liveaboards, Yacht Charters & Scuba Diving in Phuket
         </h1>
 
         <p class="hero-subtitle animated-element fade-in-third">
-          Explore the best of the Andaman Sea. Premium liveaboard safaris,
-          private boat charters, and PADI courses to the Similan Islands and Richelieu Rock.
+          Dive the Similan Islands and Richelieu Rock on a liveaboard, charter a private yacht
+          to Phang Nga Bay, or learn to dive with a PADI course in Phuket.
         </p>
 
         <a
@@ -110,22 +207,26 @@ const mainCategories = [
         >
           Check Availability
         </a>
+        <a href="/thailand-liveaboards" class="hero-secondary-link animated-element fade-in-fourth">
+          Compare liveaboards
+        </a>
       </div>
     </section>
 
     <section class="adventure-starts" aria-labelledby="intro-title">
-      <h2 id="intro-title">Premium Scuba Diving & Liveaboard Safaris in Thailand</h2>
+      <h2 id="intro-title">Liveaboard Diving and Yacht Charters in Thailand</h2>
 
       <p class="seo-intro-text">
-        Welcome to Luna Diving, your premier gateway to exploring the underwater wonders
-        of the Andaman Sea. Based in Phuket and Khao Lak, we organize liveaboard cruises,
-        private yacht charters, and daily diving excursions.
+        Luna Diving is a Phuket-based diving and charter specialist on the Andaman Sea coast of Thailand.
+        We book <a href="/thailand-liveaboards">Similan Islands liveaboards</a> on six different boats,
+        <a href="/thailand-yachts">private yacht charters</a> on eight yachts, <a href="/day-trip-phuket">diving day trips</a>
+        and <a href="/padi-scuba-diving-courses">PADI scuba diving courses</a>, all from one place.
       </p>
 
       <p class="seo-intro-text">
-        Dive the Similan Islands, discover Richelieu Rock, or complete your next PADI scuba
-        course with professional instructors. Every adventure is tailored for safety, comfort,
-        and unforgettable memories.
+        Whether it is your first dive or your hundredth, we match you with the right trip: a budget-friendly
+        5-day Similan liveaboard with free nitrox, an expedition to Richelieu Rock and the Mergui Archipelago,
+        a sunset cruise on a classic wooden yacht, or a relaxed day of reef diving at Phi Phi and the Racha Islands.
       </p>
     </section>
 
@@ -204,6 +305,74 @@ const mainCategories = [
         </div>
       </section>
     </section>
+
+    <section class="home-section" aria-labelledby="why-title">
+      <h2 id="why-title" class="section-title">Why Book Your Thailand Dive Trip with Luna Diving</h2>
+      <ul class="highlight-grid">
+        {highlights.map((item) => (
+          <li class="highlight-item">
+            <span class="highlight-value">{item.value}</span>
+            <span class="highlight-label">{item.label}</span>
+            <span class="highlight-note">{item.note}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="section-text">
+        Because we work with a whole fleet instead of a single boat, we can recommend the trip that really suits you:
+        the right dates, the right cabin, the right level of diving. Prices are clear, hotel transfers from Phuket and Khao Lak
+        are included on most liveaboards, and you can reach us directly on WhatsApp before, during and after your trip.
+      </p>
+    </section>
+
+    <section class="home-section" aria-labelledby="destinations-title">
+      <h2 id="destinations-title" class="section-title">Best Diving Destinations in the Andaman Sea</h2>
+      <div class="destination-grid">
+        {destinations.map((place) => (
+          <article class="destination-card">
+            <h3 class="destination-name">{place.name}</h3>
+            <p class="destination-text">{place.text}</p>
+            <a href={place.link} class="destination-link" aria-label={`Explore ${place.name}`}>Explore →</a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="home-section" aria-labelledby="season-title">
+      <h2 id="season-title" class="section-title">When to Dive in Thailand</h2>
+      <div class="season-grid">
+        <div class="season-card">
+          <h3>October to May: Similan Season</h3>
+          <p>
+            The Similan and Surin National Parks open from mid-October to mid-May. This is liveaboard season, with calm seas,
+            good visibility and the best chance of manta rays at Koh Bon and whale sharks at Richelieu Rock. December to April
+            is the busiest period, so book early.
+          </p>
+        </div>
+        <div class="season-card">
+          <h3>All Year: Phuket Day Trips and Courses</h3>
+          <p>
+            Diving around Phuket continues all year, with day trips to Phi Phi, the Racha Islands and Shark Point, and PADI courses
+            in warm water. Private yacht charters to Phang Nga Bay and Krabi also run year round.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="section-title">Diving in Thailand: Frequently Asked Questions</h2>
+      <div class="faq-list">
+        {faqs.map((item) => (
+          <details class="faq-item">
+            <summary class="faq-question">{item.q}</summary>
+            <p class="faq-answer">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    {structuredData.map((data) => (
+      <script type="application/ld+json" set:html={JSON.stringify(data)} />
+    ))}
 
     <a
       href={whatsappLink("Hi Luna Diving! I'm planning a diving trip to Thailand and would like more information.")}
@@ -560,9 +729,159 @@ const mainCategories = [
   }
 }
 
+.hero-secondary-link {
+  display: block;
+  width: fit-content;
+  margin: 1.25rem auto 0;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.seo-intro-text a {
+  color: #008ea7;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.seo-intro-text a:hover,
+.seo-intro-text a:focus-visible {
+  text-decoration: underline;
+}
+
+/* --- Sezioni SEO --- */
+.home-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem 6rem;
+  box-sizing: border-box;
+}
+
+.section-title {
+  margin: 0 0 2rem;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.section-text {
+  max-width: 760px;
+  margin: 2rem auto 0;
+  color: #555555;
+  line-height: 1.75;
+  text-align: center;
+}
+
+.highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.highlight-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1.75rem 1.25rem;
+  border: 1px solid #eeeeee;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.highlight-value { color: #008ea7; font-size: 2rem; font-weight: 800; line-height: 1.1; }
+.highlight-label { font-size: 0.95rem; font-weight: 700; }
+.highlight-note { color: #666666; font-size: 0.85rem; line-height: 1.5; }
+
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.destination-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem;
+  border-radius: 16px;
+  background: #f6f9fa;
+}
+
+.destination-name { margin: 0 0 0.6rem; font-size: 1.15rem; }
+.destination-text { flex: 1; margin: 0 0 1.25rem; color: #555555; font-size: 0.92rem; line-height: 1.65; }
+
+.destination-link {
+  color: #008ea7;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.destination-link:hover,
+.destination-link:focus-visible { text-decoration: underline; }
+
+.season-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.season-card {
+  padding: 2rem;
+  border-left: 3px solid #008ea7;
+  border-radius: 4px 16px 16px 4px;
+  background: #f6f9fa;
+}
+
+.season-card h3 { margin: 0 0 0.75rem; font-size: 1.15rem; }
+.season-card p { margin: 0; color: #555555; line-height: 1.7; }
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  border-top: 1px solid #eeeeee;
+}
+
+.faq-item {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.faq-question {
+  cursor: pointer;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.faq-question:focus-visible {
+  outline: 2px solid #008ea7;
+  outline-offset: 4px;
+}
+
+.faq-answer {
+  margin: 0.75rem 0 0;
+  color: #555555;
+  line-height: 1.75;
+}
+
 /* --- MEDIA QUERIES (RESPONSIVE) --- */
 @media (max-width: 1100px) {
   .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .highlight-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .destination-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -588,6 +907,15 @@ const mainCategories = [
 @media (max-width: 700px) {
   .liveaboard-fleet {
     padding: 0 1.5rem 4rem;
+  }
+
+  .home-section {
+    padding: 0 1.5rem 4rem;
+  }
+
+  .destination-grid,
+  .season-grid {
+    grid-template-columns: 1fr;
   }
 
   .card-grid {
