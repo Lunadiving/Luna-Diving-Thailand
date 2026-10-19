@@ -1,6 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+const WHATSAPP_NUMBER = '66918233120';
+const whatsappLink = (message: string) =>
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
 const mainCategories = [
   {
     name: 'Liveaboard',
@@ -16,7 +20,7 @@ const mainCategories = [
     description: 'Private luxury catamaran and yacht rentals for custom cruise itineraries.',
     image: '/images/hero/private-dive-boat-charters-phuket.webp',
     link: '/thailand-yachts',
-    altText: 'Luxury private yacht charter anchored near a tropical island as Phuket',
+    altText: 'Luxury private yacht charter anchored near a tropical island in Phuket',
   },
   {
     name: 'Courses',
@@ -53,7 +57,11 @@ const mainCategories = [
 ];
 ---
 
-<Layout title="Luna Diving | Premium Thailand Liveaboards & Scuba Adventures">
+<Layout
+  title="Luna Diving | Premium Thailand Liveaboards & Scuba Adventures"
+  description="Liveaboard cruises to the Similan Islands and Richelieu Rock, private yacht charters, daily dive trips and PADI courses in Phuket and Khao Lak, Thailand."
+  image="/images/hero/hero-poster.webp"
+>
   <main class="main-wrapper" id="theme-wrapper">
     <section class="hero-container" aria-labelledby="hero-title">
       <!-- Tag Picture: Carica hero-poster-mobile.webp (800x1200) su smartphone -->
@@ -61,6 +69,8 @@ const mainCategories = [
         <source
           media="(max-width: 768px)"
           srcset="/images/hero/hero-poster-mobile.webp"
+          width="800"
+          height="1200"
         />
         <img
           src="/images/hero/hero-poster.webp"
@@ -68,12 +78,11 @@ const mainCategories = [
           width="1200"
           height="650"
           fetchpriority="high"
-          decoding="async"
           class="hero-poster"
         />
       </picture>
 
-      <div class="video-overlay"></div>
+      <div class="hero-overlay"></div>
 
       <div class="hero-content">
         <h1 id="hero-title" class="hero-title animated-element fade-in-second">
@@ -86,7 +95,7 @@ const mainCategories = [
         </p>
 
         <a
-          href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'd%20like%20to%20check%20availability%20for%20a%20dive%20safari."
+          href={whatsappLink("Hi Luna Diving! I'd like to check availability for a dive safari.")}
           target="_blank"
           rel="noopener noreferrer"
           class="hero-cta-button animated-element fade-in-fourth"
@@ -96,7 +105,7 @@ const mainCategories = [
       </div>
     </section>
 
-    <section class="adventure-starts max-w-4xl mx-auto text-center px-6" aria-labelledby="intro-title">
+    <section class="adventure-starts" aria-labelledby="intro-title">
       <h2 id="intro-title">Premium Scuba Diving & Liveaboard Safaris in Thailand</h2>
 
       <p class="seo-intro-text">
@@ -138,7 +147,11 @@ const mainCategories = [
 
                   <p class="card-description">{category.description}</p>
 
-                  <a href={category.link} class="card-cta">
+                  <a
+                    href={category.link}
+                    class="card-cta"
+                    aria-label={`View details: ${category.seoTitle}`}
+                  >
                     <span>View Details</span>
                     <svg class="luna-arrow" viewBox="0 0 24 24" aria-hidden="true">
                       <path
@@ -187,7 +200,7 @@ const mainCategories = [
     </section>
 
     <a
-      href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20planning%20a%20diving%20trip%20to%20Thailand%20and%20would%20like%20more%20information."
+      href={whatsappLink("Hi Luna Diving! I'm planning a diving trip to Thailand and would like more information.")}
       target="_blank"
       rel="noopener noreferrer"
       class="luna-whatsapp-floating"
@@ -232,7 +245,7 @@ const mainCategories = [
   z-index: 0;
 }
 
-.video-overlay {
+.hero-overlay {
   position: absolute;
   inset: 0;
   z-index: 2;
@@ -281,9 +294,18 @@ const mainCategories = [
   transition: 0.25s ease;
 }
 
-.hero-cta-button:hover {
+.hero-cta-button:hover,
+.hero-cta-button:focus-visible {
   background: transparent;
   color: #ffffff;
+}
+
+.hero-cta-button:focus-visible,
+.card-cta:focus-visible,
+.banner-btn:focus-visible,
+.luna-whatsapp-floating:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
 }
 
 .adventure-starts {
@@ -317,7 +339,7 @@ const mainCategories = [
   gap: 1.5rem;
   margin-bottom: 2rem;
   content-visibility: auto;
-  contain-intrinsic-size: 900px;
+  contain-intrinsic-size: auto 900px;
 }
 
 .liveaboard-card {
@@ -405,7 +427,8 @@ const mainCategories = [
   transition: transform 0.3s ease;
 }
 
-.card-cta:hover .luna-arrow {
+.card-cta:hover .luna-arrow,
+.card-cta:focus-visible .luna-arrow {
   transform: translateX(5px);
 }
 
@@ -420,7 +443,7 @@ const mainCategories = [
   background: #0c0c0e;
   padding: 4rem;
   content-visibility: auto;
-  contain-intrinsic-size: 500px;
+  contain-intrinsic-size: auto 500px;
 }
 
 .banner-image,
@@ -544,11 +567,6 @@ const mainCategories = [
     padding: 6rem 1.25rem 3.5rem;
   }
 
-  .hero-poster {
-    object-fit: cover;
-    object-position: center center;
-  }
-
   .hero-title {
     font-size: clamp(1.8rem, 5.5vw, 2.4rem);
     letter-spacing: 1px;
@@ -605,6 +623,7 @@ const mainCategories = [
   *::after {
     scroll-behavior: auto !important;
     animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }

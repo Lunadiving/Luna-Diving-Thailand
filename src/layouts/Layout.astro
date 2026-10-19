@@ -2,12 +2,20 @@
 // src/layouts/Layout.astro
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import GoogleAnalytics from '../components/GoogleAnalytics.astro'; // <-- 1. IMPORTA IL COMPONENTE
 interface Props {
   title?: string;
+  description?: string;
+  image?: string;
 }
 
-const { title = "Luna Diving | Premium Thailand Liveaboards" } = Astro.props;
+const {
+  title = "Luna Diving | Premium Thailand Liveaboards",
+  description = "Liveaboard cruises, yacht charters, day trips and PADI scuba diving courses in Phuket and the Andaman Sea, Thailand.",
+  image = "/images/hero/hero-poster.webp",
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const imageURL = new URL(image, Astro.site);
 ---
 
 <!doctype html>
@@ -19,9 +27,35 @@ const { title = "Luna Diving | Premium Thailand Liveaboards" } = Astro.props;
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
 
-    <!-- 2. INSERISCI GOOGLE ANALYTICS QUI NEL HEAD -->
-    <GoogleAnalytics />
+    <!-- Open Graph / condivisione social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Luna Diving" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={imageURL} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Font: Inter (testi) e Playfair Display corsivo (titoli delle card) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Playfair+Display:ital@1&display=swap"
+    />
+
+    <!-- Google tag (gtag.js) via Partytown -->
+    <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-JTVKL5Z7ER"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-JTVKL5Z7ER');
+    </script>
   </head>
   <body>
     <!-- L'Header viene inserito qui e rimarrà fisso in alto su tutte le pagine -->
