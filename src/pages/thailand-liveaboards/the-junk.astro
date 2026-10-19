@@ -3,28 +3,32 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
 import Layout from '../../layouts/Layout.astro';
 
 const vesselName = "The Junk";
-const tagline = "Historic Teak Sailing Junk Cruising the Andaman Sea & Similan Islands";
+const tagline = "A 1962 teak sailing junk with three masts, diving the Similan Islands, Surin and Richelieu Rock for just 18 guests";
 
 const slideshow = [
-  { img: '/images/liveaboard/the-junk/the-junk-thailand-liveaboard.webp', text: 'The historic June Hong Chian Lee traditional teak sailing junk cruising Thailand.' },
-  { img: '/images/liveaboard/the-junk/the-junk-double-cabin.webp', text: 'Comfortable Double Cabin option featuring a private en-suite bathroom and climate control.' },
-  { img: '/images/liveaboard/the-junk/the-junk-twin-cabin.webp', text: 'Flexible Twin Cabin setup on the lower deck, optimized for dive partners.' },
-  { img: '/images/liveaboard/the-junk/the-junk-triple-cabin.webp', text: 'Spacious Triple Cabin providing comfortable bedding arrangements and private ensuite.' },
-  { img: '/images/liveaboard/the-junk/the-junk-quad-cabin.webp', text: 'Quad Cabin configuration with sturdy bunk beds, perfect for groups or solo divers.' },
-  { img: '/images/liveaboard/the-junk/the-junk-saloon.webp', text: 'Air-conditioned main indoor saloon with an extensive library, CDs, and entertainment options.' },
-  { img: '/images/liveaboard/the-junk/the-junk-main-deck.webp', text: 'Spacious main deck layout designed for streamlined diving preparations and equipment storage.' },
-  { img: '/images/liveaboard/the-junk/the-junk-richelieu-rock-lveaboard.webp', text: 'Navigating towards legendary dive sites like Richelieu Rock and Koh Bon.' },
-  { img: '/images/liveaboard/the-junk/the-junk-dinning-deck.webp', text: 'Shaded outdoor dining deck where exceptional Thai and international meals are served.' },
-  { img: '/images/liveaboard/the-junk/the-junk-relax-area.webp', text: 'Cosy open-air lounge space for relaxing and unwinding between liveaboard dives.' },
-  { img: '/images/liveaboard/the-junk/the-junk-sun-deck.webp', text: 'Massive upper deck offering plenty of space for sunbathing or reading in the shade.' },
-  { img: '/images/liveaboard/the-junk/the-junk-similan-islands-liveabaord.webp', text: 'The Junk sailing majestically through the pristine waters of the Similan Islands.' }
+  { img: '/images/liveaboard/the-junk/the-junk-similan-islands-liveabaord.webp', text: 'The Junk under her three traditional junk sails, a 30-metre teak liveaboard built in Penang in 1962.' },
+  { img: '/images/liveaboard/the-junk/the-junk-thailand-liveaboard.webp', text: 'The Junk at anchor with her masts raised, showing her long teak hull and covered deck.' },
+  { img: '/images/liveaboard/the-junk/the-junk-richelieu-rock-lveaboard.webp', text: 'Carved bow bearing her original name, June Hong Chian Lee, at sunset on the way to Richelieu Rock.' },
+  { img: '/images/liveaboard/the-junk/the-junk-main-deck.webp', text: 'Main deck under a canvas awning, with a long wooden dining table and dive tanks racked along the sides.' },
+  { img: '/images/liveaboard/the-junk/the-junk-dinning-deck.webp', text: 'Outdoor teak dining tables on deck beneath the furled sails.' },
+  { img: '/images/liveaboard/the-junk/the-junk-saloon.webp', text: 'Air-conditioned saloon with wooden tables, cushioned benches and a library of books and CDs.' },
+  { img: '/images/liveaboard/the-junk/the-junk-sun-deck.webp', text: 'Upper sun deck with loungers and a shade awning, looking forward along the bowsprit.' },
+  { img: '/images/liveaboard/the-junk/the-junk-relax-area.webp', text: 'Relaxation area on the top deck with wooden sun loungers and red beanbags.' },
+  { img: '/images/liveaboard/the-junk/the-junk-double-cabin.webp', text: 'Double cabin with polished teak panelling, air conditioning and private bathroom.' },
+  { img: '/images/liveaboard/the-junk/the-junk-twin-cabin.webp', text: 'Twin cabin with two single beds and en-suite bathroom on the lower deck.' },
+  { img: '/images/liveaboard/the-junk/the-junk-triple-cabin.webp', text: 'Triple cabin with a double bed and an upper bunk, convertible to a double or twin layout.' },
+  { img: '/images/liveaboard/the-junk/the-junk-quad-cabin.webp', text: 'Quadruple cabin with two sets of bunk beds and private bathroom.' }
 ];
 
 const technicalSpecs = [
-  { label: 'Length Overall', value: '30 Meters' },
-  { label: 'Max Capacity', value: '18 Guests / 6 Cabins' }, 
-  { label: 'Vessel Type', value: 'Teak Sailing Junk' },
-  { label: 'Sail Area', value: '330 Sq. Meters' }
+  { label: 'Type', value: 'Teak Sailing Junk' },
+  { label: 'Original Name', value: 'June Hong Chian Lee' },
+  { label: 'Built', value: 'Penang, Malaysia, 1962' },
+  { label: 'Length / Weight', value: '30 m / 140 Tonnes' },
+  { label: 'Rig', value: '3 Masts, 330 m² of Sail' },
+  { label: 'Guests', value: 'Up to 18 Divers' },
+  { label: 'Cabins', value: '6, All En Suite' },
+  { label: 'Departure Ports', value: 'Tab Lamu (Khao Lak) & Chalong' }
 ];
 
 const cabins = [
@@ -65,9 +69,9 @@ const notIncludedItems = [
   { text: 'Marine Park Fees', highlight: 'Paid cash on board' },
   { text: 'Diving Accident Insurance', highlight: 'Compulsory' },
   { text: 'Full Scuba Rental Equipment', highlight: 'Available on request' },
-  { text: 'Alcoholic beverages', highlight: '' },
-  { text: 'Dive Computer & Torch Rental', highlight: '' },
-  { text: 'Crew Gratuities / Tips', highlight: '' }
+  { text: 'Alcoholic beverages', highlight: 'Available on board' },
+  { text: 'Dive computer & torch rental', highlight: 'On request' },
+  { text: 'Crew gratuities', highlight: 'Discretionary' }
 ];
 
 const schedule = [
@@ -119,14 +123,69 @@ const schedule = [
   { dates: "07 May - 11 May 27", itinerary: "5D/4N Similan & Surin", route: "Tablamu / Tablamu", type: "Similan", isSoldOut: false },
   { dates: "12 May - 16 May 27", itinerary: "5D/4N Similan & Surin", route: "Tablamu / Tablamu", type: "Similan", isSoldOut: false }
 ];
+
+// Nasconde le partenze già passate (aggiornato a ogni build)
+const MONTHS: Record<string, number> = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11 };
+const departureDate = (dates: string) => {
+  const [start, end] = dates.split(' - ');
+  const [startDay, startMonth] = start.split(' ');
+  const [, endMonth, endYear] = end.split(' ');
+  let year = 2000 + Number(endYear);
+  if (MONTHS[startMonth] > MONTHS[endMonth]) year -= 1;
+  return new Date(year, MONTHS[startMonth], Number(startDay));
+};
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+const upcomingSchedule = schedule.filter((row) => departureDate(row.dates) >= today);
+
+const faqs = [
+  {
+    q: 'Was The Junk really in a James Bond film?',
+    a: 'Yes. The Junk, originally named June Hong Chian Lee, appeared in the James Bond film The Man with the Golden Gun and in Swiss Family Robinson. Built in Penang, Malaysia, in 1962, she first worked as a coal transport boat before being converted into a diving liveaboard in Thailand after 1997.'
+  },
+  {
+    q: 'How much does a liveaboard trip on The Junk cost?',
+    a: 'A 5-day, 4-night Similan and Surin trip with up to 14 dives costs USD 920 per person in a quadruple cabin, USD 1,120 in a triple cabin and USD 1,380 in a double or twin cabin. Marine park fees are paid in cash on board. Prices for 7-day and special trips are available on request.'
+  },
+  {
+    q: 'Which dive sites does The Junk visit?',
+    a: 'Most departures are 5 and 7-day trips to the Similan Islands, Koh Bon, Koh Tachai, the Surin Islands and Richelieu Rock from Tab Lamu in Khao Lak. In the low season she runs 4-day Southern Andaman trips from Chalong in Phuket, and there is a special 9-day Shark Education trip in December.'
+  },
+  {
+    q: 'Does The Junk have real sails?',
+    a: 'She is rigged with three traditional masts and 330 square metres of junk sails, which give her an unmistakable look at anchor and under way. Sailing depends on wind and the dive schedule, so if seeing her under sail matters to you, ask us before booking.'
+  },
+  {
+    q: 'How many guests are on board?',
+    a: 'A maximum of 18 guests in 6 cabins: two double or twin cabins, two triple cabins and two quadruple cabins with bunk beds. All cabins have air conditioning and a private bathroom with hot shower.'
+  },
+  {
+    q: 'What is included in the price?',
+    a: 'Your air-conditioned cabin, all meals and snacks, drinking water, tea, coffee and soft drinks, up to 14 guided dives, tanks, weights and belt, towels and housekeeping. Dive insurance, marine park fees, alcohol, rental equipment and crew tips are extra.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a }
+  }))
+};
 ---
 
-<Layout title={`${vesselName} Liveaboard | Luna Diving Phuket`}>
+<Layout
+  title="The Junk Liveaboard | Historic Sailing Junk to the Similans"
+  description="Dive the Similan Islands, Surin and Richelieu Rock on The Junk, a 1962 teak sailing junk seen in a James Bond film. 18 guests, 6 cabins, 5-day trips from USD 920."
+  image="/images/liveaboard/the-junk/the-junk-similan-islands-liveabaord.webp"
+>
   <main class="pcom-wrapper">
     
     <section class="pcom-hero">
-      <span class="pcom-subtitle">Sailing Vessel {vesselName}</span>
-      <h1 class="pcom-title">{vesselName}</h1>
+      <span class="pcom-subtitle">Historic Teak Sailing Junk</span>
+      <h1 class="pcom-title">{vesselName} Liveaboard Thailand</h1>
       <div class="pcom-divider"></div>
       <p class="pcom-tagline">{tagline}</p>
     </section>
@@ -172,9 +231,58 @@ const schedule = [
       </div>
     </section>
 
+    <section class="pcom-content-grid">
+      <div class="content-main">
+        <h2 class="content-heading">Similan Islands Liveaboard on a Historic Sailing Junk</h2>
+        <div class="heading-line"></div>
+        <p class="paragraph">
+          <strong>The Junk</strong>, originally named <em>June Hong Chian Lee</em>, is a <strong>30-metre teak sailing junk built in Penang, Malaysia, in 1962</strong>. With three traditional masts, 330 square metres of sail and room for just <strong>18 guests in 6 en-suite cabins</strong>, she runs <strong>Similan Islands liveaboard trips</strong> to the Similans, Koh Bon, Koh Tachai, the Surin Islands and <strong>Richelieu Rock</strong>.
+        </p>
+        <p class="paragraph">
+          If you want a liveaboard with real character, this is it: a wooden ship with a history, a small group of divers and some of the best diving in Thailand.
+        </p>
+
+        <h3 class="sub-heading">From Coal Boat to James Bond Film Star</h3>
+        <p class="paragraph">
+          The Junk began her working life carrying coal along the coast. In 1997 she changed owners and was rebuilt in Thailand as a diving liveaboard. Along the way she also found fame on screen, appearing in the James Bond film <em>The Man with the Golden Gun</em> and in <em>Swiss Family Robinson</em>. Her carved bow still carries her original name.
+        </p>
+
+        <h3 class="sub-heading">Similan, Surin and Richelieu Rock Trips</h3>
+        <p class="paragraph">
+          During the Similan season she runs 5-day and 7-day trips from Tab Lamu in Khao Lak to the Similan Islands, Koh Bon, Koh Tachai, the Surin Islands and Richelieu Rock, with up to 14 dives on the 5-day trip. In the low season she offers 4-day Southern Andaman trips from Chalong in Phuket, and in December there is a special 9-day Shark Education trip.
+        </p>
+
+        <h3 class="sub-heading">Teak Decks, Sails and Shade</h3>
+        <p class="paragraph">
+          Life on board happens on deck. The main deck is covered by a canvas awning, with long teak tables where meals are served and dive tanks racked along the sides. Up top, the sun deck has wooden loungers, beanbags and a shade awning, with views along the bowsprit and up into the sails.
+        </p>
+
+        <h3 class="sub-heading">Air-Conditioned Saloon and Meals</h3>
+        <p class="paragraph">
+          Inside, the air-conditioned saloon has wooden tables, cushioned benches and a library of books and CDs. Breakfast, lunch, dinner and snacks are all included, with drinking water, tea, coffee and soft drinks available throughout the trip.
+        </p>
+
+        <h3 class="sub-heading">Six Cabins with Private Bathrooms</h3>
+        <p class="paragraph">
+          All six cabins are on the lower deck, panelled in polished teak, with air conditioning and a private bathroom with hot shower. There are two double or twin cabins, two triple cabins that can also be set up as a double or twin, and two quadruple cabins with bunk beds, a good-value choice for groups of friends.
+        </p>
+      </div>
+
+      <div class="content-sidebar">
+        <div class="booking-sticky-box">
+          <h3 class="sidebar-heading">Ready to Dive?</h3>
+          <p class="sidebar-text">With only 18 places per trip, The Junk fills up quickly in peak season. Check availability for your dates.</p>
+          <a href="/contact?vessel=The%20Junk" class="pcom-btn-primary">
+            Check Availability
+          </a>
+        </div>
+      </div>
+    </section>
+
     <section class="pcom-pricing-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Cabin Options & Rates</h2>
+        <h2 class="content-heading">The Junk Prices 2026/27</h2>
+        <p class="paragraph" style="margin-bottom: 12px;">Prices in US dollars per person for the 5-day, 4-night Similan and Surin trip with up to 14 dives. Prices for 7-day and special trips on request.</p>
         <div class="heading-line"></div>
       </div>
       
@@ -239,7 +347,8 @@ const schedule = [
 
     <section class="pcom-schedule-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Cruise Schedule & Availability</h2>
+        <h2 class="content-heading">The Junk Schedule 2026/27</h2>
+        <p class="paragraph" style="margin-bottom: 12px;">Upcoming departures. Tablamu is Tab Lamu pier in Khao Lak; Southern trips start and end at Chalong, Phuket.</p>
         <div class="heading-line"></div>
       </div>
 
@@ -254,12 +363,12 @@ const schedule = [
             </tr>
           </thead>
           <tbody>
-            {schedule.map((row) => (
+            {upcomingSchedule.map((row) => (
               <tr>
                 <td class="td-dates">{row.dates}</td>
                 <td class="td-itinerary">
                   <span class="itinerary-text">{row.itinerary}</span>
-                  <span class={`type-badge badge-${row.type.toLowerCase().replace(' ', '-')}`}>
+                  <span class={`type-badge badge-${row.type.toLowerCase().replace(/\s+/g, '-')}`}>
                     {row.type}
                   </span>
                 </td>
@@ -268,7 +377,7 @@ const schedule = [
                   {row.isSoldOut ? (
                     <span class="table-soldout-btn">Sold Out</span>
                   ) : (
-                    <a href={`/contact?vessel=${encodeURIComponent(vesselName)}&date=${encodeURIComponent(row.dates)}`} class="table-book-btn">
+                    <a href={`/contact?vessel=${encodeURIComponent(vesselName)}&date=${encodeURIComponent(row.dates)}`} class="table-book-btn" aria-label={`Book ${row.itinerary} departing ${row.dates}`}>
                       Book
                     </a>
                   )}
@@ -280,28 +389,23 @@ const schedule = [
       </div>
     </section>
 
-    <section class="pcom-content-grid">
-      <div class="content-main">
-        <h2 class="content-heading">Vessel Profile</h2>
-        <div class="heading-line"></div>
-        <p class="paragraph">
-          The <strong>{vesselName}</strong>, historically known as <em>June Hong Chian Lee</em>, was built in Penang, Malaysia, in 1962. Measuring 30 meters long with a weight of 140 tonnes, this majestic teak sailing junk features three traditional masts and a massive sail area of 330 square meters. Originally operational as a commercial coal transport boat, she changed ownership in 1997 and was meticulously refurbished into a completely customized luxury diving cruiser in Thailand. The vessel is a true cinema superstar, having appeared on the silver screen in the classic James Bond film <em>“The Man with the Golden Gun”</em> and <em>“Swiss Family Robinson”</em>.
-        </p>
-        <p class="paragraph">
-          Offering exceptional diving cruises across Thailand, {vesselName} navigates both Northern and Southern routes of the Andaman Sea, bringing divers to Phuket's elite dive spots. The boat holds 6 beautifully minimalistic and highly comfortable cabins: 2 double cabins, 2 triple cabins (convertible to double or twin layouts), and 2 quadruple cabins featuring stable bunk beds. Every cabin boasts functional air conditioning and private en-suite bathrooms equipped with hot showers. Guests can relax outside on the incredibly wide upper deck offering ample space for sunbathing or resting in the shade, or gather inside the air-conditioned saloon which presents a wide selection of books, CDs, and entertainment options.
-        </p>
-      </div>
 
-      <div class="content-sidebar">
-        <div class="booking-sticky-box">
-          <h3 class="sidebar-heading">Ready to Dive?</h3>
-          <p class="sidebar-text">Step aboard a piece of maritime cinema history. Inquire today to secure your cabin space on The Junk.</p>
-          <a href="/contact" class="pcom-btn-primary">
-            Inquire This Liveaboard
-          </a>
-        </div>
+    <section class="pcom-schedule-section">
+      <div class="pricing-header">
+        <h2 class="content-heading">The Junk: Frequently Asked Questions</h2>
+        <div class="heading-line"></div>
+      </div>
+      <div class="faq-list">
+        {faqs.map((item) => (
+          <details class="faq-item">
+            <summary class="faq-question">{item.q}</summary>
+            <p class="paragraph faq-answer">{item.a}</p>
+          </details>
+        ))}
       </div>
     </section>
+
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   </main>
 
@@ -1040,5 +1144,27 @@ const schedule = [
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid var(--pcom-color-surface);
+    padding: 14px 0;
+  }
+
+  .faq-question {
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--pcom-color-primary);
+  }
+
+  .faq-question:focus-visible {
+    outline: 2px solid var(--pcom-color-accent);
+    outline-offset: 4px;
+  }
+
+  .faq-answer {
+    margin: 10px 0 0;
   }
 </style>
