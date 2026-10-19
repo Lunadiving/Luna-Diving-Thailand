@@ -3,7 +3,7 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
 import Layout from '../../layouts/Layout.astro';
 
 const vesselName = "JAWSSS · Activa 5800";
-const tagline = "A flybridge cruiser built for the Andaman Sea, and for the way a day on it ought to unfold.";
+const tagline = "An 18.6m Activa 5800 flybridge motor yacht for private day trips and overnight charters from Royal Phuket Marina";
 
 const slideshow = [
   {
@@ -40,7 +40,7 @@ const slideshow = [
   },
   {
     img: "/images/yacht/jawsss/jawsss-yacht-vip-cabin-double-bed.webp",
-    alt: "VIP guest cabin on motor yacht Jawsss featuring a large double bed"
+    alt: "Forward guest cabin on motor yacht JAWSSS with a double berth accessible from both sides"
   },
   {
     img: "/images/yacht/jawsss/jawsss-yacht-twin-guest-cabin.webp",
@@ -50,29 +50,36 @@ const slideshow = [
 
 const technicalSpecs = [
   { label: 'Builder & Model', value: 'Activa 5800' },
-  { label: 'Length Overall', value: '18.60 Meters' },
-  { label: 'Beam', value: '5.80 Meters' },
+  { label: 'Type', value: 'Flybridge Motor Yacht' },
   { label: 'Year / Refit', value: '2013 / 2021' },
-  { label: 'Cruising Speed', value: '12 Knots (Max 15)' },
-  { label: 'Capacity', value: '12 Day / 6 Night' },
+  { label: 'Length Overall', value: '18.60 m / 61 ft' },
+  { label: 'Beam', value: '5.80 m' },
+  { label: 'Engines', value: '2 x John Deere D-12, 775 hp Each' },
+  { label: 'Cruising / Max Speed', value: '12 / 15 Knots' },
+  { label: 'Fuel / Water', value: '3,500 L / 1,000 L' },
+  { label: 'Guests', value: '12 Day / 6 Overnight' },
+  { label: 'Cabins / Berths', value: '3 Cabins / 6 Berths' },
+  { label: 'Bathrooms', value: '2' },
   { label: 'Crew', value: '3 (Skipper, Deckhand, Hostess)' },
+  { label: 'Air Conditioning', value: 'Throughout' },
   { label: 'Home Port', value: 'Royal Phuket Marina' }
 ];
 
+// Tariffe 2026 per charter (USD indicativi a 33 THB)
 const dayRates = [
-  { destination: 'Kai Nok, Khai Nak and Naka', low: '94,400 ฿', high: '99,700 ฿' },
-  { destination: 'Phang Nga Bay', low: '99,700 ฿', high: '104,900 ฿' },
-  { destination: 'Koh Maiton and Koh Kai', low: '104,900 ฿', high: '110,200 ฿' },
-  { destination: 'Koh Hong, Krabi', low: '104,900 ฿', high: '110,200 ฿' }
+  { destination: 'Kai Nok, Khai Nak and Naka', low: 'THB 94,400', lowUsd: 'USD 2,860', high: 'THB 99,700', highUsd: 'USD 3,020' },
+  { destination: 'Phang Nga Bay', low: 'THB 99,700', lowUsd: 'USD 3,020', high: 'THB 104,900', highUsd: 'USD 3,180' },
+  { destination: 'Koh Maiton and Koh Kai', low: 'THB 104,900', lowUsd: 'USD 3,180', high: 'THB 110,200', highUsd: 'USD 3,340' },
+  { destination: 'Koh Hong, Krabi', low: 'THB 104,900', lowUsd: 'USD 3,180', high: 'THB 110,200', highUsd: 'USD 3,340' }
 ];
 
 const overnightRates = [
-  { duration: '2 days, 1 night', low: '188,000 ฿', high: '205,000 ฿', similan: '—' },
-  { duration: '3 days, 2 nights', low: '280,400 ฿', high: '306,600 ฿', similan: '—' },
-  { duration: '4 days, 3 nights', low: '373,800 ฿', high: '407,400 ฿', similan: '459,900 ฿' },
-  { duration: '5 days, 4 nights', low: '467,300 ฿', high: '498,800 ฿', similan: '551,300 ฿' },
-  { duration: '6 days, 5 nights', low: '556,500 ฿', high: '593,300 ฿', similan: '645,800 ฿' },
-  { duration: '7 days, 6 nights', low: '640,500 ฿', high: '661,500 ฿', similan: '714,000 ฿' }
+  { duration: '2 days, 1 night', low: 'THB 188,000', lowUsd: 'USD 5,700', high: 'THB 205,000', highUsd: 'USD 6,210', similan: '—', similanUsd: '' },
+  { duration: '3 days, 2 nights', low: 'THB 280,400', lowUsd: 'USD 8,500', high: 'THB 306,600', highUsd: 'USD 9,290', similan: '—', similanUsd: '' },
+  { duration: '4 days, 3 nights', low: 'THB 373,800', lowUsd: 'USD 11,330', high: 'THB 407,400', highUsd: 'USD 12,350', similan: 'THB 459,900', similanUsd: 'USD 13,940' },
+  { duration: '5 days, 4 nights', low: 'THB 467,300', lowUsd: 'USD 14,160', high: 'THB 498,800', highUsd: 'USD 15,120', similan: 'THB 551,300', similanUsd: 'USD 16,710' },
+  { duration: '6 days, 5 nights', low: 'THB 556,500', lowUsd: 'USD 16,860', high: 'THB 593,300', highUsd: 'USD 17,980', similan: 'THB 645,800', similanUsd: 'USD 19,570' },
+  { duration: '7 days, 6 nights', low: 'THB 640,500', lowUsd: 'USD 19,410', high: 'THB 661,500', highUsd: 'USD 20,050', similan: 'THB 714,000', similanUsd: 'USD 21,640' }
 ];
 
 const includedItems = [
@@ -86,13 +93,13 @@ const includedItems = [
 ];
 
 const notIncludedItems = [
-  'Alcoholic beverages (other than included wine/beer)',
+  'Alcoholic beverages beyond the included beer and wine',
   'Special catering, therapist, massage, photographer',
   'National park fees where applicable',
   'Cancellation and curtailment insurance',
   'Charterer liability insurance',
   'Crew gratuities (at charterer\'s discretion)',
-  'Shuttle to and from accommodation (THB 2,500)'
+  'Shuttle to and from accommodation (THB 3,210 / USD 97)'
 ];
 
 const cruisingGrounds = [
@@ -109,14 +116,62 @@ const waterToys = [
   "Kayak",
   "Tender with outboard"
 ];
+
+const onBoard = [
+  "Air conditioning throughout",
+  "CO2 detector in every cabin",
+  "Saloon entertainment system and bar",
+  "Welcome fruit plate and fresh towels"
+];
+
+const faqs = [
+  {
+    q: 'How much does a JAWSSS day charter cost?',
+    a: 'An 8-hour private day charter costs from THB 94,400 (about USD 2,860) from May to November and from THB 99,700 (about USD 3,020) from December to April, depending on the destination. The rate covers up to 8 guests; additional guests are THB 2,000 (USD 60) each, up to 12.'
+  },
+  {
+    q: 'How many guests can come on board?',
+    a: 'Up to 12 guests on a day charter and up to 6 guests overnight, in three air-conditioned cabins with two bathrooms. JAWSSS is run by a crew of three: skipper, deckhand and hostess.'
+  },
+  {
+    q: 'Where does the yacht depart from and at what time?',
+    a: 'JAWSSS is based at Royal Phuket Marina. Day charters run for eight hours, from 09:00 to 17:00 or 10:00 to 18:00. Overnight charters check in at 10:00 on the first day and check out at 17:00 on the last. A shuttle from your accommodation is available for THB 3,210 (USD 97).'
+  },
+  {
+    q: 'Which islands can we visit on a day trip?',
+    a: 'Day charters go to Kai Nok, Khai Nak and Naka, Phang Nga Bay, Koh Maiton and Koh Kai, or Koh Hong in Krabi. Itineraries are planned around the guests rather than a fixed route.'
+  },
+  {
+    q: 'Can we go to the Similan Islands?',
+    a: 'Yes, on overnight charters of four days or more at the Similan rate, from THB 459,900 (about USD 13,940) for 4 days and 3 nights. Similan national park fees are not included.'
+  },
+  {
+    q: 'What is included in the price?',
+    a: 'The yacht with crew, a gourmet lunch on day charters or full board overnight, fruit, drinking water, soft drinks, local beer, a bottle of wine, a welcome fruit plate, fresh towels, snorkelling gear, paddleboard, kayak, tender, yacht and travel insurance and local VAT.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a }
+  }))
+};
 ---
 
-<Layout title={`M/Y ${vesselName} Yacht Charter | Luna Diving Phuket`}>
+<Layout
+  title="JAWSSS Yacht Charter Phuket | Activa 5800 Flybridge"
+  description="Private yacht charter in Phuket on JAWSSS, an 18.6m Activa 5800 flybridge: day trips for 12 guests from THB 94,400, overnight for 6, Phang Nga Bay and Similans."
+  image="/images/yacht/jawsss/luxury-motor-yacht-jawsss-phuket.webp"
+>
   <main class="pcom-wrapper">
     
     <section class="pcom-hero">
-      <span class="pcom-subtitle">M/Y JAWSSS · Activa 5800</span>
-      <h1 class="pcom-title">JAWSSS</h1>
+      <span class="pcom-subtitle">Activa 5800 · 18.6m Flybridge Motor Yacht</span>
+      <h1 class="pcom-title">JAWSSS Yacht Charter Phuket</h1>
       <div class="pcom-divider"></div>
       <p class="pcom-tagline">{tagline}</p>
     </section>
@@ -163,53 +218,58 @@ const waterToys = [
 
     <section class="pcom-content-grid">
       <div class="content-main">
-        <h2 class="content-heading">The Vessel: Activa 5800</h2>
+        <h2 class="content-heading">Private Yacht Charter in Phuket on JAWSSS</h2>
         <div class="heading-line"></div>
         <p class="paragraph">
-          Activa built the <strong>5800</strong> for owners who wanted a proper flybridge cruiser without the bulk that usually arrives with one. At 18.6 metres she is easy to move around and easy to berth, and generous where it matters: a full-beam saloon, a covered aft deck, and a flybridge that stays usable through the middle of the day.
+          <strong>JAWSSS</strong> is an <strong>Activa 5800 flybridge motor yacht</strong> of 18.6 metres, based at <strong>Royal Phuket Marina</strong>. She is available all year for <strong>private day trips for up to 12 guests</strong> and <strong>overnight charters for up to 6 guests</strong>, with a crew of three, and reaches the limestone islands of Phang Nga Bay well before lunch. With her fuel range, multi-day trips to the Similan Islands are also possible.
         </p>
         <p class="paragraph">
-          Teak is used extensively above and below. The joinery is the equal of the best available anywhere, and the small touches give away where she was finished: paua shell inlaid into the counter tops, cherry wood in the saloon, leather over a built-in settee.
-        </p>
-        <p class="paragraph">
-          Delivered in 2013 and refitted in 2021, she lies at Royal Phuket Marina and works the Andaman Sea year round with a crew of three.
+          Built in 2013 and refitted in 2021, she offers the comfort of a full flybridge cruiser in a size that stays easy to handle and to berth: a full-width saloon, a covered aft deck and a flybridge that remains pleasant even in the midday sun.
         </p>
 
-        <h3 class="sub-heading">Twin John Deere Performance</h3>
+        <h3 class="sub-heading">Fine Teak Joinery and Elegant Interiors</h3>
         <p class="paragraph">
-          Two John Deere D-12 diesels, 775 horsepower a side, give her fifteen knots at the top end and a settled twelve knot cruise. She carries 3,500 litres of fuel and 1,000 litres of water, which is what makes the four and five day itineraries practical rather than ambitious.
+          Teak is used generously both on deck and below, and the joinery is of the highest standard. Look closer and you will find paua shell inlays on the counter tops, cherry wood in the saloon and a built-in settee upholstered in leather, details that show how carefully she was finished.
         </p>
 
-        <h3 class="sub-heading">The Flybridge & Upper Helm</h3>
+        <h3 class="sub-heading">Twin John Deere Engines and Long Range</h3>
         <p class="paragraph">
-          Shaded for its full length, with a second helm, a dining table and seating for the whole party. This is where a day charter is actually spent. The upper helm sits forward with a clear view over the bow, air-conditioned below and open to the breeze above.
+          Two John Deere D-12 diesel engines of 775 hp each give JAWSSS a comfortable cruising speed of 12 knots and a top speed of 15 knots. With 3,500 litres of fuel and 1,000 litres of fresh water on board, four- and five-day itineraries in the Andaman Sea are easy to plan.
         </p>
 
-        <h3 class="sub-heading">Aft Deck & Foredeck</h3>
+        <h3 class="sub-heading">A Shaded Flybridge for the Whole Group</h3>
         <p class="paragraph">
-          A teak aft deck opens straight off the saloon and shades a table for six. The swim platform sits low and wide, making boarding, swimming, and launching the tender effortless. Forward, the sun pad takes the whole width of the foredeck.
+          The flybridge is shaded from end to end and is where most of a day charter is spent, with a dining table, seating for everyone on board and a second helm station. The upper helm sits forward with a clear view over the bow, so guests enjoy the sea breeze outside while the saloon below stays air-conditioned.
         </p>
 
-        <h3 class="sub-heading">Main Saloon & Galley</h3>
+        <h3 class="sub-heading">Aft Deck, Swim Platform and Bow Sun Pad</h3>
         <p class="paragraph">
-          Full beam, air conditioned, and lit low. A built-in settee in cream leather runs around an inlaid cherry wood table that adjusts from coffee to dining height. A bar is tucked into the corner beside the entertainment system. The galley sits forward of the saloon at the head of the companionway, open enough for the hostess to work in company.
+          Directly off the saloon, the teak aft deck has a shaded table for six. The low, wide swim platform makes it simple to get on board, go swimming or launch the tender, while at the bow a sun pad stretches across the full width of the foredeck.
         </p>
 
-        <h3 class="sub-heading">Cabins & Accommodation</h3>
+        <h3 class="sub-heading">Air-Conditioned Saloon and Galley</h3>
         <p class="paragraph">
-          The master cabin sits amidships and full beam, featuring a king berth set thwartships and its own ensuite bathroom. A forward cabin offers a double berth with access from either side, and a twin cabin to port features two single berths. Every cabin is air-conditioned and fitted with a CO2 detector. Two bathrooms serve the three cabins.
+          The full-beam saloon is air-conditioned and softly lit, with a cream leather settee wrapped around an inlaid cherry wood table that adjusts from coffee to dining height. A bar and an entertainment system sit in one corner. The galley is just forward, at the top of the companionway, so the hostess can prepare meals without being cut off from the guests. Day charters include a gourmet lunch and overnight charters are full board, all cooked on board.
         </p>
 
-        <h3 class="sub-heading">Toys and Amenities</h3>
+        <h3 class="sub-heading">Three Cabins and Two Bathrooms</h3>
+        <p class="paragraph">
+          The full-beam master cabin sits amidships with a king-size berth placed across the yacht and its own en-suite bathroom. The forward cabin has a double berth that can be reached from both sides, and the twin cabin on the port side has two single berths. A second bathroom with a separate shower serves the guest cabins, and every cabin is air-conditioned and fitted with a CO2 detector.
+        </p>
+
+        <h3 class="sub-heading">Water Toys and Amenities</h3>
         <ul class="toy-list">
           {waterToys.map(toy => <li>{toy}</li>)}
+        </ul>
+        <ul class="toy-list">
+          {onBoard.map(item => <li>{item}</li>)}
         </ul>
       </div>
 
       <div class="content-sidebar">
         <div class="booking-sticky-box">
           <h3 class="sidebar-heading">Ready to Charter JAWSSS?</h3>
-          <p class="sidebar-text">Inquire about day trips and multi-day island excursions departing from Royal Phuket Marina.</p>
+          <p class="sidebar-text">Check availability for a private day trip or a multi-day island charter on JAWSSS, departing from Royal Phuket Marina.</p>
           <a href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20interested%20in%20booking%20JAWSSS%20Activa%205800." target="_blank" rel="noopener noreferrer" class="pcom-btn-primary">
             Book via WhatsApp
           </a>
@@ -219,8 +279,8 @@ const waterToys = [
 
     <section class="pcom-pricing-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Day Charter Rates</h2>
-        <p class="paragraph" style="margin-bottom: 12px;">Eight hours on board (09:00 to 17:00 or 10:00 to 18:00) for up to twelve guests. Rates are per charter in Thai Baht (up to 8 guests included, additional guests +THB 2,000/person).</p>
+        <h2 class="content-heading">JAWSSS Day Charter Rates 2026</h2>
+        <p class="paragraph" style="margin-bottom: 12px;">Eight hours on board (09:00 to 17:00 or 10:00 to 18:00) for up to twelve guests. Rates are per charter for up to 8 guests; additional guests are THB 2,000 (USD 60) per person, up to a maximum of 12. US dollar amounts are indicative (THB 33 = USD 1); charters are quoted and paid in Thai Baht.</p>
         <div class="heading-line"></div>
       </div>
 
@@ -237,8 +297,8 @@ const waterToys = [
             {dayRates.map((row) => (
               <tr>
                 <td class="td-dates">{row.destination}</td>
-                <td class="td-itinerary"><span class="itinerary-text">{row.low}</span></td>
-                <td class="td-route">{row.high}</td>
+                <td class="td-itinerary"><span class="itinerary-text">{row.low}</span><div class="td-route">{row.lowUsd}</div></td>
+                <td class="td-itinerary"><span class="itinerary-text">{row.high}</span><div class="td-route">{row.highUsd}</div></td>
               </tr>
             ))}
           </tbody>
@@ -248,8 +308,8 @@ const waterToys = [
 
     <section class="pcom-pricing-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Overnight Charter Rates</h2>
-        <p class="paragraph" style="margin-bottom: 12px;">Check-in at 10:00 on day one, check-out at 17:00 on final day. Sleeps up to 6 guests in 3 cabins. Rates in Thai Baht.</p>
+        <h2 class="content-heading">JAWSSS Overnight Charter Rates 2026</h2>
+        <p class="paragraph" style="margin-bottom: 12px;">Check-in at 10:00 on day one, check-out at 17:00 on final day. Sleeps up to 6 guests in 3 cabins. Similan Islands itineraries are available from four days at the Similan rate; national park fees are not included.</p>
         <div class="heading-line"></div>
       </div>
 
@@ -267,9 +327,9 @@ const waterToys = [
             {overnightRates.map((row) => (
               <tr>
                 <td class="td-dates">{row.duration}</td>
-                <td class="td-itinerary"><span class="itinerary-text">{row.low}</span></td>
-                <td class="td-route">{row.high}</td>
-                <td class="td-route"><strong>{row.similan}</strong></td>
+                <td class="td-itinerary"><span class="itinerary-text">{row.low}</span><div class="td-route">{row.lowUsd}</div></td>
+                <td class="td-itinerary"><span class="itinerary-text">{row.high}</span><div class="td-route">{row.highUsd}</div></td>
+                <td class="td-itinerary"><span class="itinerary-text"><strong>{row.similan}</strong></span><div class="td-route">{row.similanUsd}</div></td>
               </tr>
             ))}
           </tbody>
@@ -279,8 +339,8 @@ const waterToys = [
 
     <section class="pcom-schedule-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Cruising Grounds</h2>
-        <p class="paragraph" style="margin-bottom: 12px;">Itineraries are built around guests rather than a fixed route.</p>
+        <h2 class="content-heading">Cruising Grounds in the Andaman Sea</h2>
+        <p class="paragraph" style="margin-bottom: 12px;">Itineraries are planned around the guests rather than a fixed route. National park fees apply at some destinations, and running times are confirmed at the time of booking.</p>
         <div class="heading-line"></div>
       </div>
 
@@ -343,6 +403,23 @@ const waterToys = [
         </div>
       </div>
     </section>
+
+    <section class="pcom-schedule-section">
+      <div class="pricing-header">
+        <h2 class="content-heading">JAWSSS Charter: Frequently Asked Questions</h2>
+        <div class="heading-line"></div>
+      </div>
+      <div class="faq-list">
+        {faqs.map((item) => (
+          <details class="faq-item">
+            <summary class="faq-question">{item.q}</summary>
+            <p class="paragraph faq-answer">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
     <a 
       href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20interested%20in%20booking%20JAWSSS%20Activa%205800." 
@@ -913,5 +990,27 @@ const waterToys = [
   .pcom-whatsapp-float svg {
     width: 32px;
     height: 32px;
+  }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid var(--pcom-color-surface);
+    padding: 14px 0;
+  }
+
+  .faq-question {
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--pcom-color-primary);
+  }
+
+  .faq-question:focus-visible {
+    outline: 2px solid var(--pcom-color-accent);
+    outline-offset: 4px;
+  }
+
+  .faq-answer {
+    margin: 10px 0 0;
   }
 </style>
