@@ -1,41 +1,123 @@
 ---
 import OptimizedImage from '../../components/OptimizedImage.astro';
-// src/pages/thailand-yacht/index.astro
+// src/pages/thailand-yachts/index.astro
 
 import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 
 const fleet = [
   {
+    slug: "song-of-songs",
+    name: "Song of Songs",
+    image: "/images/yacht/song-of-songs/song-of-songs-luxury-superyacht-stern-twilight.webp",
+    altText: "Song of Songs 42m superyacht at twilight off Phuket, Thailand",
+    tags: ["Superyacht", "6 Cabins", "Long Range"],
+    specs: [
+      { val: "12-Guest", desc: "Overnight, 20 for Day Trips" },
+      { val: "42 Meters", desc: "Overall Length (LOA)" },
+      { val: "10 Knots", desc: "Cruising Speed" }
+    ],
+    legal: "A 42-metre Heysea Asteria 142 motor yacht built for the long way between anchorages."
+  },
+  {
+    slug: "aventure",
+    name: "Aventure",
+    image: "/images/yacht/aventure/aventure-sailing-yacht-under-full-sail.webp",
+    altText: "Classic ketch Aventure under full sail in the Andaman Sea",
+    tags: ["Classic Ketch", "Sailing Yacht", "Mergui Archipelago"],
+    specs: [
+      { val: "7-Guest", desc: "Overnight, 4 Cabins" },
+      { val: "29 Meters", desc: "Overall Length (LOA)" },
+      { val: "8 Knots", desc: "Cruising Speed" }
+    ],
+    legal: "A 29-metre classic ketch by Patrick Balta for the Andaman Sea and the Mergui Archipelago."
+  },
+  {
+    slug: "maha-bhetra",
+    name: "Maha Bhetra",
+    image: "/images/yacht/maha-bhetra/maha-bhetra-luxury-yacht-phang-nga-bay-side-view.webp",
+    altText: "Classic wooden motor yacht Maha Bhetra anchored in Phang Nga Bay",
+    tags: ["Classic Motor Yacht", "Timber Hull", "Ed Tuttle Design"],
+    specs: [
+      { val: "6-Guest", desc: "Overnight, 12 for Day Trips" },
+      { val: "27.4 Meters", desc: "Overall Length (LOA)" },
+      { val: "8 Knots", desc: "Cruising Speed" }
+    ],
+    legal: "A 90ft classic motor yacht designed by Aman architect Ed Tuttle for unhurried Andaman voyages."
+  },
+  {
+    slug: "seascape-2",
+    name: "Seascape 2",
+    image: "/images/yacht/seascape-2/seascape-2-motor-yacht-stern-profile.webp",
+    altText: "Sunseeker flybridge motor yacht Seascape 2 in Phuket",
+    tags: ["Sunseeker", "Flybridge", "Refitted 2022"],
+    specs: [
+      { val: "6-Guest", desc: "Overnight, 20 for Day Trips" },
+      { val: "19.6 Meters", desc: "Overall Length (LOA)" },
+      { val: "17 Knots", desc: "Cruising Speed" }
+    ],
+    legal: "A nineteen metre flybridge, refitted in 2022, berthed twenty minutes from open water."
+  },
+  {
+    slug: "jawsss",
+    name: "JAWSSS",
+    image: "/images/yacht/jawsss/luxury-motor-yacht-jawsss-phuket.webp",
+    altText: "Activa 5800 flybridge motor yacht JAWSSS in Phuket",
+    tags: ["High Performance", "Sporty", "Speedy"],
+    specs: [
+      { val: "12-Guest", desc: "Day Trips, 6 Overnight" },
+      { val: "18.6 Meters", desc: "Overall Length (LOA)" },
+      { val: "12 Knots", desc: "Cruising Speed" }
+    ],
+    legal: "A flybridge cruiser built for the Andaman Sea, and for the way a day on it ought to unfold."
+  },
+  {
     slug: "galeon-500-fly",
     name: "Galeon 500 Fly",
     image: "/images/yacht/galeon-500-fly/galeon-500-luxury-yacht-cruising-open-water.webp",
-    altText: "Luxury motor yacht cruising in the tropical waters of Thailand", 
+    altText: "Luxury motor yacht cruising in the tropical waters of Thailand",
     tags: ["Private Charter", "Luxury", "Full Service"],
     specs: [
-      { val: "10-Guest", desc: "Maximum Capacity, Day Trips" },
-      { val: "16 Meters", desc: "Overall Length (LOA)" },
+      { val: "10-Guest", desc: "Day Trips, 6 Overnight" },
+      { val: "16.2 Meters", desc: "Overall Length (LOA)" },
       { val: "20 Knots", desc: "Cruising Speed" }
     ],
     legal: "Includes captain, crew, and fuel for standard routes. Perfect for private celebrations and island hopping."
   },
   {
-    slug: "jawsss",
-    name: "Jawss",
-    image: "/images/yacht/jawsss/luxury-motor-yacht-jawsss-phuket.webp",
-    altText: "Activa 5800 confortable yacht in Phuket",
-    tags: ["High Performance", "Sporty", "Speedy"],
+    slug: "mami-wata",
+    name: "Mami Wata",
+    image: "/images/yacht/mami-wata/mami-wata-classic-motor-yacht-aerial-anchored.webp",
+    altText: "Classic 1954 Halvorsen motor yacht Mami Wata at anchor, aerial view",
+    tags: ["Classic 1954 Halvorsen", "Timber", "Refit 2023"],
     specs: [
-      { val: "12-Guest", desc: "Maximum Capacity, Sleek Design" },
-      { val: "18 Meters", desc: "Overall Length (LOA)" },
-      { val: "12 Knots", desc: "Cruising Speed" }
+      { val: "6-Guest", desc: "Overnight, 2 Cabins" },
+      { val: "15.3 Meters", desc: "Overall Length (LOA)" },
+      { val: "8-12 Knots", desc: "Cruising Speed" }
     ],
-    legal: "A flybridge cruiser built for the Andaman Sea, and for the way a day on it ought to unfold."
+    legal: "A 1954 Halvorsen, the Andaman coast, and nobody else aboard."
+  },
+  {
+    slug: "nimbus-t11",
+    name: "Nimbus T11",
+    image: "/images/yacht/nimbus-t11/nimbus-t11-motor-yacht-cruising-andaman-sea.webp",
+    altText: "Nimbus T11 motor yacht cruising in the Andaman Sea",
+    tags: ["Day Boat", "Fast", "Modern Design"],
+    specs: [
+      { val: "10-Guest", desc: "Day Charter, Sleeps 4" },
+      { val: "11.9 Meters", desc: "Overall Length (LOA)" },
+      { val: "20-40 Knots", desc: "Speed Range" }
+    ],
+    legal: "A day boat built for the Andaman, and for the way a day at sea should actually feel."
   }
 ];
 ---
 
-<Layout title="Thailand Yacht Charters | Private Cruises | Luna Diving">
+<Layout
+  title="Thailand Yacht Charters | Private Cruises | Luna Diving"
+  description="Private yacht charters from Phuket: superyachts, classic sailing and motor yachts, flybridge cruisers and fast day boats for the Andaman Sea, Phang Nga Bay and Mergui."
+  image="/images/yacht/song-of-songs/song-of-songs-luxury-superyacht-stern-twilight.webp"
+>
   
   <div class="block w-full pt-24 md:pt-28">
     
