@@ -3,28 +3,32 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
 import Layout from '../../layouts/Layout.astro';
 
 const vesselName = "Thailand Master";
-const tagline = "Luxurious Cruises to the Best of Thailand & Myanmar (Mergui Archipelago)";
+const tagline = "A traditional Indonesian phinisi with red sails, diving the Similan Islands, Richelieu Rock and the Mergui Archipelago for just 18 guests";
 
 const slideshow = [
-  { img: '/images/liveaboard/thailand-master/thailand-master-thailand-liveaboard.webp', text: 'The Thailand Master, officially known as Cheng I Sao, cruising the Andaman Sea.' },
-  { img: '/images/liveaboard/thailand-master/thailand-master-double-cabin.webp', text: 'Luxurious Double Cabin with private en-suite bathroom and air conditioning.' },
-  { img: '/images/liveaboard/thailand-master/thailand-master-twin-cabin.webp', text: 'Comfortable Twin Cabin configuration with private bathroom and climate control.' },
-  { img: '/images/liveaboard/thailand-master/thaialnd-master-twin-double-cabin.webp', text: 'Flexible Twin/Double Cabin setup optimized for guest comfort.' },
-  { img: '/images/liveaboard/thailand-master/thailand-master-quad-cabin.webp', text: 'Spacious Quadruple Cabin, perfect for groups and families.' },
-  { img: '/images/liveaboard/thailand-master/thailand-master-saloon.webp', text: 'Air-conditioned main lounge featuring comfortable sofas and entertainment systems.' },
-  { img: '/images/liveaboard/thailand-master/thailand-master-indoor-dining-area.webp', text: 'Indoor saloon area where fresh Thai and international fusion buffet is served.' },
-  { img: '/images/liveaboard/thailand-master/the-phinisi-dining-area.webp', text: 'Beautifully designed indoor dining space.' },
-  { img: '/images/liveaboard/thailand-master/thailand-master-main-deck.webp', text: 'Spacious main deck with covered areas to enjoy the refreshing tropical sea breeze.' },
-  { img: '/images/liveaboard/thailand-master/thailand-master-dive-deck.webp', text: 'Functional and highly organized dive deck for seamless gear preparation.' },
-  { img: '/images/liveaboard/thailand-master/thailand-master-sun-deck.webp', text: 'Massive open solarium deck with loungers for sunbathing and relaxing between dives.' },
-  { img: '/images/liveaboard/thailand-master/thailand-master-similan-islands-liveaboard.webp', text: 'Thailand Master anchored in the pristine crystal waters of the Similan Islands.' }
+  { img: '/images/liveaboard/thailand-master/thailand-master-thailand-liveaboard.webp', text: 'Thailand Master, officially Cheng I Sao, a traditional Indonesian phinisi sailing under her red sails.' },
+  { img: '/images/liveaboard/thailand-master/thailand-master-similan-islands-liveaboard.webp', text: 'Aerial view of Thailand Master with red sails set over turquoise water in the Andaman Sea.' },
+  { img: '/images/liveaboard/thailand-master/thailand-master-main-deck.webp', text: 'Shaded aft dive deck with tank racks and the stairs leading down to the water.' },
+  { img: '/images/liveaboard/thailand-master/thailand-master-dive-deck.webp', text: 'Dive stations along the side deck, with each guest\'s BCD and regulator set up on its own tank.' },
+  { img: '/images/liveaboard/thailand-master/thailand-master-saloon.webp', text: 'Wooden saloon with cushioned benches, bar stools and polished teak floors.' },
+  { img: '/images/liveaboard/thailand-master/thailand-master-indoor-dining-area.webp', text: 'Indoor lounge and bar area with TV and a charging station for cameras and dive computers.' },
+  { img: '/images/liveaboard/thailand-master/the-phinisi-dining-area.webp', text: 'Outdoor dining deck with a wooden table and folding chairs under the canopy.' },
+  { img: '/images/liveaboard/thailand-master/thailand-master-sun-deck.webp', text: 'Shaded upper deck with red beanbags, tables and sun loungers for relaxing between dives.' },
+  { img: '/images/liveaboard/thailand-master/thailand-master-double-cabin.webp', text: 'Double cabin with a large bed, wooden panelling, air conditioning and private bathroom.' },
+  { img: '/images/liveaboard/thailand-master/thailand-master-twin-cabin.webp', text: 'Twin cabin with two single beds, air conditioning, fan and en-suite bathroom.' },
+  { img: '/images/liveaboard/thailand-master/thaialnd-master-twin-double-cabin.webp', text: 'Double or twin cabin with two beds that can be joined, and private bathroom.' },
+  { img: '/images/liveaboard/thailand-master/thailand-master-quad-cabin.webp', text: 'Quadruple cabin with two sets of bunk beds and private bathroom, ideal for friends diving together.' }
 ];
 
 const technicalSpecs = [
-  { label: 'Year Built / Refit', value: '2007 / 2018' },
-  { label: 'Max Capacity', value: '18 Guests / 7 Cabins' }, 
-  { label: 'Itineraries', value: '4, 6, 7 & 10 Nights' },
-  { label: 'Destinations', value: 'Thailand & Myanmar' }
+  { label: 'Type', value: 'Indonesian Phinisi Liveaboard' },
+  { label: 'Official Name', value: 'Cheng I Sao' },
+  { label: 'Built / Refit', value: 'Indonesia 2007 / 2018' },
+  { label: 'Guests', value: 'Up to 18 Divers' },
+  { label: 'Cabins', value: '7, All En Suite' },
+  { label: 'Itineraries', value: '7 to 11 Days' },
+  { label: 'Departure Ports', value: 'Chalong, Tab Lamu & Ranong' },
+  { label: 'Destinations', value: 'Similan, Surin, Richelieu Rock, Mergui' }
 ];
 
 const cabins = [
@@ -33,21 +37,21 @@ const cabins = [
     price: '1,580$',
     location: 'Lower Deck – 2 Cabins',
     details: 'Double or Twin – Private Bathroom – Hot Shower – Air Con & Fan',
-    trip: '5 Days / 4 Nights – 14 Dives'
+    trip: 'Per Person – Itinerary on Request'
   },
   {
     name: 'Twin Cabin',
     price: '1,580$',
     location: 'Lower Deck – 3 Cabins',
     details: 'Twin Bed – Private Bathroom – Hot Shower – Air Con & Fan',
-    trip: '5 Days / 4 Nights – 14 Dives'
+    trip: 'Per Person – Itinerary on Request'
   },
   {
     name: 'Quad Cabin',
     price: '1,180$',
     location: 'Lower Deck – 2 Cabins',
-    details: 'Twin Bed – Private Bathroom – Hot Shower – Air Con & Fan',
-    trip: '5 Days / 4 Nights – 14 Dives'
+    details: 'Bunk Beds – Private Bathroom – Hot Shower – Air Con & Fan',
+    trip: 'Per Person – Itinerary on Request'
   }
 ];
 
@@ -63,7 +67,7 @@ const includedItems = [
 
 const notIncludedItems = [
   { text: 'Diving Accident Insurance', highlight: 'Compulsory' },
-  { text: 'Alcoholic beverages and espresso coffees', highlight: '' },
+  { text: 'Alcoholic beverages and espresso coffees', highlight: 'Available on board' },
   { text: 'Marine Park Fees & Port Taxes', highlight: 'Cash on board' },
   { text: 'Mergui Archipelago Visa & Entry Fees (Myanmar trips)', highlight: 'Required' },
   { text: 'Rental diving equipment & Dive computer', highlight: 'Available on request' },
@@ -93,14 +97,71 @@ const schedule = [
   { dates: "24 Apr - 30 Apr 27", itinerary: "7D/6N Similan & Surin", route: "SOLD OUT", type: "Similan & Surin", isSoldOut: true },
   { dates: "30 Apr - 08 May 27", itinerary: "9D/8N Best of Thailand", route: "Chalong / Tablamu", type: "Best of Thailand", isSoldOut: false }
 ];
+
+// Nasconde le partenze già passate (aggiornato a ogni build)
+const MONTHS: Record<string, number> = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11 };
+const departureDate = (dates: string) => {
+  const [start, end] = dates.split(' - ');
+  const [startDay, startMonth] = start.split(' ');
+  const [, endMonth, endYear] = end.split(' ');
+  let year = 2000 + Number(endYear);
+  if (MONTHS[startMonth] > MONTHS[endMonth]) year -= 1;
+  return new Date(year, MONTHS[startMonth], Number(startDay));
+};
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+const upcomingSchedule = schedule.filter((row) => departureDate(row.dates) >= today);
+
+const faqs = [
+  {
+    q: 'What kind of boat is Thailand Master?',
+    a: 'Thailand Master, officially named Cheng I Sao, is a traditional Indonesian phinisi: a wooden sailing ship with red sails, built in Indonesia in 2007. She has worked in Indonesia, the Andaman Islands and the Maldives, and has been diving in Thailand and Myanmar since 2018.'
+  },
+  {
+    q: 'Which itineraries does Thailand Master offer?',
+    a: 'She runs 7-day Similan and Surin trips, 9 and 11-day Best of Thailand trips covering the Similan Islands, Koh Bon, Koh Tachai, the Surin Islands and Richelieu Rock, and 8 and 11-day Mergui Archipelago trips from Ranong into Myanmar. Private charters of the whole boat are also possible.'
+  },
+  {
+    q: 'Where does the boat depart from?',
+    a: 'Best of Thailand trips start or finish at Chalong in Phuket or Tab Lamu in Khao Lak, Similan and Surin trips depart from Tab Lamu, and Mergui Archipelago trips start and end in Ranong. Transfers from hotels in Phuket and Khao Lak to the boat are included.'
+  },
+  {
+    q: 'How many guests are on board?',
+    a: 'A maximum of 18 guests in 7 cabins: two double cabins, three twin cabins and two quadruple cabins, all with a private bathroom, hot shower, individually controlled air conditioning and a fan. The small group size means less crowded dive sites and more space on board.'
+  },
+  {
+    q: 'Do I need a visa for the Mergui Archipelago trips?',
+    a: 'Yes. Mergui Archipelago trips cross into Myanmar, and the visa and entry fees are not included in the price. We will send you the current requirements when you book, together with the marine park fees and port taxes, which are paid in cash on board.'
+  },
+  {
+    q: 'What is included in the price?',
+    a: 'Hotel transfers from Phuket or Khao Lak, your cabin, all meals served buffet-style, water, tea, coffee, snacks and soft drinks, towels and warm drinks after every dive, guided dives in small groups, tanks, weights and belt. Dive insurance, alcohol, espresso, park fees, port taxes, Myanmar fees, rental equipment and tips are extra.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a }
+  }))
+};
+
+const whatsappUrl = `https://wa.me/66918233120?text=${encodeURIComponent("Hi Luna Diving! I'm interested in booking the Thailand Master liveaboard.")}`;
 ---
 
-<Layout title={`${vesselName} Liveaboard | Luna Diving Phuket`}>
+<Layout
+  title="Thailand Master Phinisi Liveaboard | Similan & Mergui"
+  description="Dive the Similan Islands, Richelieu Rock and the Mergui Archipelago on Thailand Master, a traditional Indonesian phinisi with red sails for just 18 guests in 7 cabins."
+  image="/images/liveaboard/thailand-master/thailand-master-thailand-liveaboard.webp"
+>
   <main class="pcom-wrapper">
     
     <section class="pcom-hero">
-      <span class="pcom-subtitle">M/Y {vesselName}</span>
-      <h1 class="pcom-title">{vesselName}</h1>
+      <span class="pcom-subtitle">Traditional Phinisi Dive Liveaboard</span>
+      <h1 class="pcom-title">{vesselName} Phinisi Liveaboard</h1>
       <div class="pcom-divider"></div>
       <p class="pcom-tagline">{tagline}</p>
     </section>
@@ -146,9 +207,58 @@ const schedule = [
       </div>
     </section>
 
+    <section class="pcom-content-grid">
+      <div class="content-main">
+        <h2 class="content-heading">Phinisi Liveaboard Diving in Thailand and Myanmar</h2>
+        <div class="heading-line"></div>
+        <p class="paragraph">
+          <strong>Thailand Master</strong>, officially named <strong>Cheng I Sao</strong>, is a <strong>traditional Indonesian phinisi</strong>, a wooden sailing ship with red sails, built in Indonesia in 2007. With room for just <strong>18 guests in 7 en-suite cabins</strong>, she runs dive cruises to the <strong>Similan Islands, Koh Bon, Koh Tachai, the Surin Islands and Richelieu Rock</strong>, and expeditions into the <strong>Mergui Archipelago in Myanmar</strong>.
+        </p>
+        <p class="paragraph">
+          Before returning to Thailand in 2018, she sailed in Indonesia, the Andaman Islands and the Maldives. Today she combines the character of a classic sailing ship with a small, relaxed group of divers.
+        </p>
+
+        <h3 class="sub-heading">A Traditional Wooden Sailing Ship</h3>
+        <p class="paragraph">
+          Phinisi are the traditional cargo schooners of Sulawesi, and Thailand Master keeps their look: a wooden hull, two masts, red sails and polished wood throughout. Under sail between the islands or at anchor at sunset, she is unmistakable.
+        </p>
+
+        <h3 class="sub-heading">Best of Thailand, Similan and Mergui Itineraries</h3>
+        <p class="paragraph">
+          The season includes 7-day Similan and Surin trips, 9 and 11-day <strong>Best of Thailand</strong> trips between Phuket and Khao Lak, and 8 and 11-day <strong>Mergui Archipelago</strong> trips from Ranong, for experienced divers who want remote reefs, pinnacles and empty dive sites. Longer trips mean more time in the water and fewer hours travelling.
+        </p>
+
+        <h3 class="sub-heading">Small Groups and a Dedicated Dive Deck</h3>
+        <p class="paragraph">
+          With a maximum of 18 divers, groups stay small and dive sites never feel crowded. Each guest has a personal dive station along the side deck, the shaded aft deck leads directly down to the water, and there is a charging station inside for cameras, lights and dive computers. Towels and warm drinks are ready after every dive.
+        </p>
+
+        <h3 class="sub-heading">Wooden Saloon and Shaded Decks</h3>
+        <p class="paragraph">
+          The air-conditioned saloon has cushioned benches, an indoor bar, a TV and a stereo, all finished in warm polished wood. Outside, the shaded decks have dining tables, beanbags and loungers, and buffet meals bring together Thai recipes and international favourites.
+        </p>
+
+        <h3 class="sub-heading">7 En-Suite Cabins</h3>
+        <p class="paragraph">
+          All seven cabins are on the lower deck and have a private bathroom with hot shower, individually controlled air conditioning and a fan. There are two double or twin cabins, three twin cabins and two quadruple cabins with bunk beds, a good choice for groups of friends travelling together.
+        </p>
+      </div>
+
+      <div class="content-sidebar">
+        <div class="booking-sticky-box">
+          <h3 class="sidebar-heading">Ready to Dive?</h3>
+          <p class="sidebar-text">With only 18 places per trip, Thailand Master departures sell out early. Check availability for your dates.</p>
+          <a href="/contact?vessel=Thailand%20Master" class="pcom-btn-primary">
+            Check Availability
+          </a>
+        </div>
+      </div>
+    </section>
+
     <section class="pcom-pricing-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Cabin Options & Rates</h2>
+        <h2 class="content-heading">Thailand Master Cabins and Prices</h2>
+        <p class="paragraph" style="margin-bottom: 12px;">Prices in US dollars per person. Rates vary by itinerary and length of trip; contact us for the exact price of your departure.</p>
         <div class="heading-line"></div>
       </div>
       
@@ -213,7 +323,8 @@ const schedule = [
 
     <section class="pcom-schedule-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Cruise Schedule & Availability</h2>
+        <h2 class="content-heading">Thailand Master Schedule 2026/27</h2>
+        <p class="paragraph" style="margin-bottom: 12px;">Upcoming departures. Chalong is in Phuket, Tablamu is Tab Lamu pier in Khao Lak, and Mergui trips start and end in Ranong.</p>
         <div class="heading-line"></div>
       </div>
 
@@ -228,7 +339,7 @@ const schedule = [
             </tr>
           </thead>
           <tbody>
-            {schedule.map((row) => (
+            {upcomingSchedule.map((row) => (
               <tr class={row.isSoldOut ? "row-sold-out" : ""}>
                 <td class="td-dates">{row.dates}</td>
                 <td class="td-itinerary">
@@ -244,7 +355,7 @@ const schedule = [
                   {row.isSoldOut ? (
                     <span class="table-sold-btn">Sold Out</span>
                   ) : (
-                    <a href={`/contact?vessel=${vesselName}&date=${encodeURIComponent(row.dates)}`} class="table-book-btn">
+                    <a href={`/contact?vessel=${encodeURIComponent(vesselName)}&date=${encodeURIComponent(row.dates)}`} class="table-book-btn" aria-label={`Book ${row.itinerary} departing ${row.dates}`}>
                       Book
                     </a>
                   )}
@@ -256,36 +367,28 @@ const schedule = [
       </div>
     </section>
 
-    <section class="pcom-content-grid">
-      <div class="content-main">
-        <h2 class="content-heading">Vessel Profile</h2>
-        <div class="heading-line"></div>
-        <p class="paragraph">
-          The <strong>Thailand Master</strong>, officially known as <strong>“Cheng I Sao”</strong>, is a premium liveaboard vessel engineered to offer top-tier dive cruises across the best destinations in Thailand and Myanmar. Originally built in Indonesia in 2007, she has successfully worked throughout Thailand, Indonesia, the Andaman Islands, and the Maldives. In 2018, she returned to Thailand fully equipped to offer unforgettable diving adventures across 4 different itineraries ranging from 4, 6, 7, and 10 nights.
-        </p>
-        <p class="paragraph">
-          Onboard, you will find 7 luxurious cabins designed to comfortably accommodate up to 18 passengers. The layouts include two double cabins, three twin cabins, and two quadruple cabins—all fitted with private en-suite bathrooms, hot showers, individually regulated air conditioning, and a fan. 
-        </p>
-        <p class="paragraph">
-          The common areas feature a beautiful air-conditioned main lounge complete with an indoor bar, plush sofas, a television, stereo system, and a dedicated charging station for photography and video gear. Outside, guests can relax in pristine shaded social sections or lay down on the spacious solarium areas to enjoy the sea breeze. Meals are served buffet-style, presenting a high-quality fusion of authentic Thai recipes and international international favorites.
-        </p>
-      </div>
 
-      <div class="content-sidebar">
-        <div class="booking-sticky-box">
-          <h3 class="sidebar-heading">Ready to Dive?</h3>
-          <p class="sidebar-text">Plan your next scuba expedition aboard the Thailand Master. Places fill up quickly during peak Andaman season.</p>
-          <a href="/contact" class="pcom-btn-primary">
-            Inquire This Liveaboard
-          </a>
-        </div>
+    <section class="pcom-schedule-section">
+      <div class="pricing-header">
+        <h2 class="content-heading">Thailand Master: Frequently Asked Questions</h2>
+        <div class="heading-line"></div>
+      </div>
+      <div class="faq-list">
+        {faqs.map((item) => (
+          <details class="faq-item">
+            <summary class="faq-question">{item.q}</summary>
+            <p class="paragraph faq-answer">{item.a}</p>
+          </details>
+        ))}
       </div>
     </section>
+
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   </main>
 
   <a 
-    href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20interested%20in%20booking%20the%20Thailand%20Master%20liveaboard." 
+    href={whatsappUrl} 
     target="_blank" 
     rel="noopener noreferrer" 
     class="pcom-whatsapp-float"
@@ -1006,5 +1109,27 @@ const schedule = [
   .pcom-whatsapp-float svg {
     width: 32px;
     height: 32px;
+  }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid var(--pcom-color-surface);
+    padding: 14px 0;
+  }
+
+  .faq-question {
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--pcom-color-primary);
+  }
+
+  .faq-question:focus-visible {
+    outline: 2px solid var(--pcom-color-accent);
+    outline-offset: 4px;
+  }
+
+  .faq-answer {
+    margin: 10px 0 0;
   }
 </style>
