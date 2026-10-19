@@ -1,4 +1,5 @@
 ---
+import OptimizedImage from '../../components/OptimizedImage.astro';
 // src/pages/thailand-yachts/seascape-2.astro
 import Layout from '../../layouts/Layout.astro';
 
@@ -166,13 +167,12 @@ const waterToys = [
         <div id="slider" class="gallery-slider-inner no-scrollbar">
           {slideshow.map((slide, index) => (
             <div class="gallery-slide">
-              <img 
+              <OptimizedImage 
                 src={slide.img} 
-                alt={slide.text} 
-                width="1200"
-                height="675"
+                alt={slide.text}
                 loading="lazy"
-                decoding="async"
+                widths={[480, 800, 1200]}
+                sizes="(max-width: 1200px) 100vw, 1200px"
               />
               <div class="gallery-caption">
                 <span class="caption-count">Vessel Tour {index + 1} / {slideshow.length}</span>

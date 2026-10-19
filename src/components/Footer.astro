@@ -1,4 +1,5 @@
 ---
+import OptimizedImage from './OptimizedImage.astro';
 // src/components/Footer.astro
 
 const quickLinks = [
@@ -26,7 +27,7 @@ const contactInfo = {
       <!-- Logo e Descrizione -->
       <div class="footer-col brand-col">
         <a href="/" aria-label="Luna Diving Home">
-          <img src="/images/hero/logo-luna.webp" alt="Luna Diving Thailand" class="footer-logo" />
+          <OptimizedImage src={'/images/hero/logo-luna.webp'} alt="Luna Diving Thailand" class="footer-logo" />
         </a>
         <p class="footer-desc">
           Your premier scuba diving center in Phuket. We offer top-tier PADI courses, unforgettable liveaboards, and daily dive trips in the Andaman Sea.

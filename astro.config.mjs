@@ -11,6 +11,16 @@ export default defineConfig({
   build: {
     format: 'directory'
   },
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp',
+      // Qualità pari a quella delle foto originali: le versioni ridotte pesano molto meno
+      config: {
+        webp: { quality: 70 },
+        jpeg: { quality: 80, mozjpeg: true },
+      },
+    },
+  },
   integrations: [
     sitemap({
       // Impostiamo il nome base direttamente a 'sitemap' così genererà sitemap.xml

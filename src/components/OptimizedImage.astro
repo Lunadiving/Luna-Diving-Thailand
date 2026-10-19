@@ -1,0 +1,40 @@
+---
+// src/components/OptimizedImage.astro
+// Foto da src/assets/images: la versione grande è il file originale (già compresso),
+// Astro genera solo le versioni più piccole per i telefoni.
+import type { HTMLAttributes } from 'astro/types';
+import { getImage } from 'astro:assets';
+import { resolveImage, originalImageUrl } from '../utils/images';
+
+interface Props extends Omit<HTMLAttributes<'img'>, 'src' | 'srcset' | 'width' | 'height'> {
+  /** Percorso della foto, es. "/images/yacht/jawsss/foto.webp" */
+  src: string;
+  alt: string;
+  /** Larghezze delle versioni ridotte da generare */
+  widths?: number[];
+  sizes?: string;
+}
+
+const { src, alt, widths = [], sizes, loading = 'lazy', decoding = 'async', ...attrs } = Astro.props;
+
+const image = resolveImage(src);
+const original = originalImageUrl(src);
+
+const smaller = widths.filter((width) => width < image.width);
+const variants = await Promise.all(
+  smaller.map(async (width) => `${(await getImage({ src: image, width })).src} ${width}w`),
+);
+const srcset = variants.length ? [...variants, `${original} ${image.width}w`].join(', ') : undefined;
+---
+
+<img
+  src={original}
+  srcset={srcset}
+  sizes={srcset ? sizes : undefined}
+  width={image.width}
+  height={image.height}
+  alt={alt}
+  loading={loading}
+  decoding={decoding}
+  {...attrs}
+/>

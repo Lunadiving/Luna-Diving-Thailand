@@ -1,4 +1,5 @@
 ---
+import OptimizedImage from '../../components/OptimizedImage.astro';
 import '../../styles/global.css';
 
 import Layout from '../../layouts/Layout.astro';
@@ -77,12 +78,13 @@ const fleet = [
             
             <div>
               <div class="w-full aspect-video bg-[#f8f8fa] overflow-hidden relative rounded-xl mb-6">              
-                <img 
+                <OptimizedImage 
                   src={boat.image} 
                   alt={boat.altText || boat.name} 
                   class="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                   loading="lazy"
-                  decoding="async"
+                  widths={[400, 800, 1200]}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <a href={`/thailand-liveaboards/${boat.slug}`} class="absolute inset-0 z-10" aria-label={`Explore ${boat.name} in detail`}></a>
               </div>
