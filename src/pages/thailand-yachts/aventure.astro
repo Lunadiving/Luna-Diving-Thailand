@@ -4,7 +4,7 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
 import Layout from '../../layouts/Layout.astro';
 
 const vesselName = "Aventure";
-const tagline = "90ft Ed Tuttle Designed Classic Motor Yacht for Andaman Voyages";
+const tagline = "A 29-metre classic ketch for the Andaman Sea and the Mergui Archipelago";
 
 const slideshow = [
   { 
@@ -49,7 +49,7 @@ const slideshow = [
   },
   { 
     img: '/images/yacht/aventure/aventure-sailing-yacht-master-cabin.webp', 
-    text: 'Master cabin with double bed, polished teak joinery, portholes and fresh orchids.' 
+    text: 'Master cabin with double berth beneath opening skylights, polished teak joinery and fresh orchids.' 
   },
   { 
     img: '/images/yacht/aventure/aventure-sailing-yacht-guest-cabin.webp', 
@@ -58,93 +58,89 @@ const slideshow = [
 ];
 
 const technicalSpecs = [
-  { label: 'Design', value: 'Ed Tuttle (Aman Resorts Architect)' },
-  { label: 'Build', value: 'Thailand, Timber Hull' },
-  { label: 'Length Overall', value: '27.4 m / 90 ft' },
-  { label: 'Beam / Draft', value: '5.70 m / 2.50 m' },
+  { label: 'Builder', value: 'Patrick Balta, Thailand' },
+  { label: 'Year', value: '2011, freshly renovated' },
+  { label: 'Type', value: 'Classic Ketch' },
+  { label: 'Length Overall', value: '29 m / 95 ft' },
+  { label: 'Beam / Draft', value: '6.1 m / 3.1 m' },
+  { label: 'Engine', value: '1 x 400 hp MAN' },
   { label: 'Cruising Speed', value: '8 Knots' },
-  { label: 'Capacity', value: '12 Day / 6 Overnight' },
-  { label: 'Cabins', value: '3 Identical Double Suites (20 sqm)' },
-  { label: 'Crew', value: '5 (Experienced Decades Onboard)' },
-  { label: 'Interiors', value: 'Jim Thompson Silks & 18th C. Antiques' },
-  { label: 'Cruising Grounds', value: 'Andaman Sea & Mergui' },
-  { label: 'Home Port', value: 'Phuket Yacht Haven Marina' }
+  { label: 'Guests', value: '7 Overnight' },
+  { label: 'Cabins', value: '3 Double, 1 Single' },
+  { label: 'Crew', value: '4' },
+  { label: 'Fuel / Water', value: '6,500 L / 1,000 L' },
+  { label: 'Cruising Grounds', value: 'Thailand & Myanmar (Mergui)' },
+  { label: 'Home Port', value: 'Yacht Haven Marina, Phuket' }
 ];
 
-const cabins = [
-  {
-    name: 'Day Charter',
-    price: 'Inquire Rates',
-    location: 'Up to 12 Guests Included',
-    details: 'Full day charter with access to the upper open-plan teak saloon, foredeck daybed, tender, and water toys.',
-    trip: 'Day Trip'
-  },
-  {
-    name: 'Private Overnight Charter',
-    price: 'Inquire Rates',
-    location: 'Sleeps 6 Guests in 3 Equal Suites',
-    details: 'Full board accommodation across three identical 20 sqm double cabins with private bathroom and AC.',
-    trip: 'Overnight'
-  },
-  {
-    name: 'Andaman & Mergui Expedition',
-    price: 'Inquire Rates',
-    location: 'Extended Cruising Program',
-    details: 'Unhurried long passage charter exploring Phang Nga, Phi Phi, Similans, Surin, or the Mergui Archipelago.',
-    trip: 'Expedition'
-  }
+// Tariffe 2026 per charter (non a persona), valide tutto l'anno
+const rates = [
+  { duration: '2 Days / 1 Night', thb: '290,000', usd: '8,910' },
+  { duration: '3 Days / 2 Nights', thb: '430,000', usd: '13,230' },
+  { duration: '4 Days / 3 Nights', thb: '567,000', usd: '17,460' },
+  { duration: '5 Days / 4 Nights', thb: '702,000', usd: '21,600' },
+  { duration: '6 Days / 5 Nights', thb: '834,000', usd: '25,650' },
+  { duration: '7 Days / 6 Nights', thb: '962,000', usd: '29,610' },
+  { duration: '8 Days / 7 Nights', thb: '1,088,000', usd: '33,480' }
 ];
 
 const includedItems = [
-  'Full crew of 5, including experienced captain, deckhands, and private cook',
-  'Full board gourmet dining (Thai specialties & market-fresh cooking)',
-  'Snacks, fresh fruit, bottled water, tea, coffee, soft drinks & local beer',
-  '1 bottle of French Rosé wine included for each day aboard',
-  'Full air conditioning throughout all cabins and saloon',
-  'WiFi, Bluetooth speakers, board games, safety gear & medical kit',
-  'Tender, 2 kayaks, stand-up paddleboard, snorkelling gear, fishing tackle & beach games',
-  'Commissioned Jim Thompson silk linens, towels, and daily turndown service'
+  'Yacht with a crew of four, including cook',
+  'Check-in from 10:00, check-out after sunset on the final day',
+  'Full board: gourmet meals and snacks, fruit, drinking water, tea, coffee, soft drinks & local beers',
+  'House wines',
+  'Return transfers from the airport or any hotel in Phuket',
+  'Embarkation at Yacht Haven, or at Koh Rang Yai from Royal Phuket Marina',
+  'Cruising the southern and northern Andaman Sea',
+  'Fishing tackle, kayak, two stand-up paddleboards, snorkelling gear & diving equipment',
+  'National park fees, cleaning & yacht insurance',
+  'All applicable taxes and local VAT'
 ];
 
 const notIncludedItems = [
-  { text: 'Crew Gratuities', highlight: 'Discretionary' },
-  { text: 'Fine Wine, Champagne & Spirits', highlight: 'Available on request' },
-  { text: 'National Park & Port Fees', highlight: 'As applicable' },
-  { text: 'Advance Permits for Mergui (Myanmar)', highlight: 'Required supplement' }
+  { text: 'Scuba Diving Master Instructor', highlight: 'On request' },
+  { text: 'Fine Wines, Champagne & Spirits', highlight: 'On request' },
+  { text: 'Crew Gratuities', highlight: "At the guests' discretion" },
+  { text: 'Myanmar Cross-Border Relocation & Administration Fee', highlight: 'USD 6,000' },
+  { text: 'Myanmar Cruising Permits & Clearance', highlight: 'Supplement' },
+  { text: 'Any Other Requested Activities or Services', highlight: 'On request' }
 ];
 
 const schedule = [
-  { dates: "Daily Departure", itinerary: "Day Charter (12 Guests Max)", route: "Yacht Haven / Phang Nga Bay / Koh Yao", type: "Day Trip" },
-  { dates: "Custom Dates", itinerary: "Andaman Islands Overnight (6 Guests)", route: "Phang Nga / Krabi / Phi Phi / Racha", type: "Overnight" },
-  { dates: "November to April", itinerary: "Mergui Archipelago & Deep North", route: "Similans / Surin / Kawthaung / Mergui", type: "Expedition" }
+  { dates: "All Year", itinerary: "Andaman Sea Overnight (7 Guests)", route: "Southern & Northern Andaman Sea from Phuket", type: "Overnight" },
+  { dates: "November to April", itinerary: "Mergui Archipelago Expedition", route: "Similans / Surin / Kawthaung / Lampi / Northern Groups", type: "Expedition" }
 ];
 
+// Rotta verso nord dalla brochure; tempi indicativi a 8 nodi
 const cruisingDistances = [
-  { destination: "Koh Yao Noi", distance: "Approx. 16 nm", time: "2 hours" },
-  { destination: "Phang Nga Bay", distance: "Approx. 20 nm", time: "2 h 30 min" },
-  { destination: "Koh Hong, Krabi", distance: "Approx. 30 nm", time: "3 h 45 min" },
-  { destination: "Koh Phi Phi", distance: "Approx. 40 nm", time: "5 hours" },
-  { destination: "Racha Islands", distance: "Approx. 44 nm", time: "5 h 30 min" },
-  { destination: "Similan Islands", distance: "Approx. 56 nm", time: "7 hours" },
-  { destination: "Surin Islands", distance: "Approx. 88 nm", time: "11 hours" },
-  { destination: "Koh Lipe & Butangs", distance: "Approx. 152 nm", time: "19 hours" }
+  { destination: "Phuket to the Similan Islands", distance: "55 nm", time: "Approx. 7 hours" },
+  { destination: "Similan to the Surin Islands", distance: "45 nm", time: "Approx. 5 h 40 min" },
+  { destination: "Surin to Kawthaung, Myanmar", distance: "60 nm", time: "Approx. 7 h 30 min" },
+  { destination: "Kawthaung to Lampi Island", distance: "45 nm", time: "Approx. 5 h 40 min" },
+  { destination: "On into the northern groups", distance: "120 nm", time: "Approx. 15 hours" }
 ];
 
 const waterToys = [
   "Tender with outboard motor",
-  "2 Sea Kayaks",
-  "Stand-up paddleboard (SUP)",
-  "Snorkelling equipment for all guests",
-  "Fishing rods & tackle",
-  "Beach games & lounge setup"
+  "Kayak",
+  "2 Stand-up paddleboards (SUP)",
+  "Snorkelling equipment",
+  "Diving equipment & Bauer Junior air compressor",
+  "Fishing rods & tackle"
 ];
+
+const whatsappUrl = `https://wa.me/66918233120?text=${encodeURIComponent("Hi Luna Diving! I'm interested in chartering the classic ketch Aventure.")}`;
 ---
 
-<Layout title={`Luxury Motor Yacht ${vesselName} Charter | Luna Diving Phuket`}>
+<Layout
+  title={`Classic Sailing Yacht ${vesselName} Charter | Luna Diving Phuket`}
+  description="Charter Aventure, a 29 m classic ketch built by Patrick Balta: 7 guests in 4 cabins, crew of 4, cruising the Andaman Sea and the Mergui Archipelago from Phuket."
+  image="/images/yacht/aventure/aventure-sailing-yacht-under-full-sail.webp"
+>
   <main class="pcom-wrapper">
     
     <section class="pcom-hero">
-      <span class="pcom-subtitle">Classic 90ft Motor Yacht</span>
+      <span class="pcom-subtitle">Classic 29m Ketch</span>
       <h1 class="pcom-title">{vesselName}</h1>
       <div class="pcom-divider"></div>
       <p class="pcom-tagline">{tagline}</p>
@@ -192,49 +188,46 @@ const waterToys = [
 
     <section class="pcom-content-grid">
       <div class="content-main">
-        <h2 class="content-heading">The architect who drew Amanpuri drew one yacht. Then he kept her.</h2>
+        <h2 class="content-heading">Some coastlines are still worth the long passage north.</h2>
         <div class="heading-line"></div>
         <p class="paragraph">
-          <strong>Ed Tuttle</strong> designed the iconic Aman resorts. He also designed <strong>Maha Bhetra</strong>, and he owned her until his death in 2020.
+          A few days' sail from Phuket, beyond the Similans and the Surins, the <strong>Mergui Archipelago</strong> lies scattered along the Tanintharyi coast of Myanmar: eight hundred islands, closed to outsiders for half a century and still visited by only a handful of yachts each season. <strong>Aventure</strong> was built for this coast.
         </p>
         <p class="paragraph">
-          Ninety feet of Thai boatbuilding: a timber hull, three double cabins below, and an open-plan teak saloon that runs the full width of the top deck. Eight knots is her cruising speed, and that is the point of her. She was drawn for long, unhurried passages into the Andaman rather than fast hops between the same four beaches.
+          She is a classic ketch of 29 metres, launched in 2011 by <strong>Patrick Balta</strong>, the French shipwright whose Thai yard has built some of the finest traditional yachts sailing in Asia. Long overhangs, a raked transom, varnished teak and a working spread of canvas on two masts.
         </p>
         <p class="paragraph">
-          Thirty years in one family has left its mark on her. The Jim Thompson silks were specified by Tuttle himself, the eighteenth-century Southeast Asian antiques in the saloon are the originals, and the crew has been aboard for decades. She is not a reproduction of a classic yacht. She is one.
-        </p>
-
-        <h3 class="sub-heading">A wooden hull, built to wander</h3>
-        <p class="paragraph">
-          Maha Bhetra was built in Thailand to a design that borrows from the country's own working boats: a long, narrow timber hull with a fine entry, a deep forefoot and a shallow draft of two and a half metres. She carries her accommodation low and her living space high, which is the reverse of most modern charter yachts and the reason she feels like a house rather than a boat.
+          Freshly renovated and sailing year round from Phuket, she is at her best from November to April, when the northeast monsoon opens the passage into Myanmar.
         </p>
 
-        <h3 class="sub-heading">The Architect: Ed Tuttle (1945 – 2020)</h3>
+        <h3 class="sub-heading">A Proper Sea Boat</h3>
         <p class="paragraph">
-          Edward Burnham Tuttle Jr. was an American architect and interior designer whose work reset the standard for luxury hospitality. Educated at the University of Washington and shaped by Wright and Mies, he founded Design Realization in Paris in 1977 and spent four decades building the visual language of the Aman group: Amanpuri in Phuket, Amanjena in Morocco, and a long list of hotels that made restraint feel like luxury.
-        </p>
-        <p class="paragraph">
-          Maha Bhetra is the only yacht he designed. She carries the same thinking as the resorts: local craft and local materials handled with a very light touch, spaces that open to the weather, and almost no ornament that is not structural. The louvred cabinetry, the proportions of the saloon, and the way the deckhead steps down over the dining table are all his. He commissioned an exclusive Jim Thompson fabric for her cushions that remains aboard today.
+          Ketch rig, generous displacement and a single 400 hp MAN engine for the calms. She cruises at eight knots and carries 6,500 litres of fuel and 1,000 litres of water, which gives her the range for the run north to Myanmar and back.
         </p>
 
-        <h3 class="sub-heading">The Top Deck & Saloon</h3>
+        <h3 class="sub-heading">On Deck: Teak, Canvas & Shade</h3>
         <p class="paragraph">
-          The top deck is one open room. Teak underfoot, teak overhead, and louvred panels that slide back so the saloon and the aft deck become a single seamless space. A round dining table sits at the centre, while the wrapping banquette at the after end takes all six guests at once. The bow carries a teak daybed wide enough for four, under shade that lasts all day.
+          The deck is the reason to charter a boat like this one: wide side decks, a long clear foredeck to lie out on, and shade rigged wherever the sun finds you. Aft of the mizzen, the deck opens into a shaded cockpit built around the wheel. Breakfast happens here, the fishing rods live here, and this is where most guests end up staying. A full awning covers the cockpit at anchor and comes down when the wind gets up.
         </p>
 
-        <h3 class="sub-heading">Three Cabins, All the Same</h3>
+        <h3 class="sub-heading">The Saloon & Galley</h3>
         <p class="paragraph">
-          There is no master and no compromise cabin. Below are three identical double cabins of twenty square metres each, every one with a separate shower and WC, a vanity, and wardrobes built into a dressing area. Nobody gets the small room. Day charter carries twelve guests; overnight charter sleeps six.
+          Below she is quiet and cool. The saloon runs the full width of the yacht, with skylights along the coachroof, panelled bulkheads and a sole of varnished teak: dining below when the weather turns, on deck when it does not. The galley is laid out for a cook feeding seven guests three meals a day, several days from the nearest market, and the chart table is manned on every passage.
         </p>
 
-        <h3 class="sub-heading">Dining & Life Aboard</h3>
+        <h3 class="sub-heading">Four Cabins for Seven Guests</h3>
         <p class="paragraph">
-          The galley works from the market that morning. Authentic Thai food is what the crew cooks best and what most guests ask for twice, but the kitchen is equally happy with a continental breakfast or a seafood barbecue on the beach.
+          The master cabin has a double berth beneath opening skylights, hanging lockers on either side, drawers beneath the berth and a private bathroom. Two further double cabins and a single complete the accommodation, each panelled in hardwood with storage, reading lights and a bathroom. Fresh flowers, cotton linen and turndown are part of the service, not an extra.
+        </p>
+
+        <h3 class="sub-heading">Photography & Brand Shoots</h3>
+        <p class="paragraph">
+          Aventure is also a working platform for photography. Fashion houses and luxury brands charter her for campaign and editorial shoots, for the rig, the teak and the light as much as for the anchorages.
         </p>
 
         <h3 class="sub-heading">Water Toys & Exploration</h3>
         <p class="paragraph">
-          Because Maha Bhetra draws two and a half metres, she anchors close in. The tender runs the last hundred metres to beaches that day boats never reach, and the kayaks go further into mangroves and hongs.
+          In the Mergui Archipelago the tender lands you on empty white sand beaches, near Moken villages and reefs no day boat has ever reached. Diving with certified guides is available as a supplement.
         </p>
         <ul class="toy-list">
           {waterToys.map(toy => <li>{toy}</li>)}
@@ -244,8 +237,8 @@ const waterToys = [
       <div class="content-sidebar">
         <div class="booking-sticky-box">
           <h3 class="sidebar-heading">Ready to Charter?</h3>
-          <p class="sidebar-text">Inquire about availability for the classic 90ft motor yacht Maha Bhetra departing from Phuket Yacht Haven Marina.</p>
-          <a href="/contact?vessel=Maha%20Bhetra" class="pcom-btn-primary">
+          <p class="sidebar-text">Inquire about availability for the 29m classic ketch Aventure, departing from Yacht Haven Marina, Phuket.</p>
+          <a href="/contact?vessel=Aventure" class="pcom-btn-primary">
             Inquire via Email
           </a>
         </div>
@@ -254,26 +247,38 @@ const waterToys = [
 
     <section class="pcom-pricing-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Charter Rates & Packages</h2>
+        <h2 class="content-heading">Charter Rates 2026</h2>
+        <p class="paragraph" style="margin-bottom: 12px;">Private overnight charter for up to 7 guests with a crew of 4. Rates are per charter, not per person, and apply all year. Longer charters on request; confirm the contract currency at the time of booking.</p>
         <div class="heading-line"></div>
       </div>
-      
-      <div class="pcom-cabins-list">
-        {cabins.map((cabin) => (
-          <div class="cabin-rate-card">
-            <div class="cabin-main-info">
-              <h3 class="cabin-name">{cabin.name}</h3>
-              <span class="cabin-location">{cabin.location}</span>
-              <p class="cabin-details">{cabin.details}</p>
-              <span class="cabin-trip-tag">{cabin.trip}</span>
-            </div>
-            <div class="cabin-price-zone">
-              <span class="price-amount">{cabin.price}</span>
-              <span class="price-label">Custom Quote</span>
-            </div>
-          </div>
-        ))}
+
+      <div class="table-responsive-container">
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>Duration</th>
+              <th>Thai Baht</th>
+              <th>US Dollar</th>
+              <th class="table-action-header">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rates.map((row) => (
+              <tr>
+                <td class="td-dates">{row.duration}</td>
+                <td class="td-itinerary"><span class="itinerary-text">THB {row.thb}</span></td>
+                <td class="td-route">USD {row.usd}</td>
+                <td class="td-action">
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="table-book-btn">
+                    Book
+                  </a>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
+      <p class="paragraph" style="margin-top: 12px;">Cross-border charters to Myanmar carry an additional relocation and administration fee of USD 6,000.</p>
     </section>
 
     <section class="pcom-details-grid-section">
@@ -319,8 +324,8 @@ const waterToys = [
 
     <section class="pcom-schedule-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Cruising Grounds & Passage Times</h2>
-        <p class="paragraph" style="margin-bottom: 12px;">Approximate passage times at 8 knots from Phuket Yacht Haven Marina (Indicative dependent on sea state and tide).</p>
+        <h2 class="content-heading">The Passage North to Mergui</h2>
+        <p class="paragraph" style="margin-bottom: 12px;">Suggested charter: 7 nights or more, November to April. Distances are indicative, times are approximate at 8 knots, and the routing is built around the guests. Myanmar permits and clearances are arranged in advance.</p>
         <div class="heading-line"></div>
       </div>
 
@@ -328,7 +333,7 @@ const waterToys = [
         <table class="schedule-table">
           <thead>
             <tr>
-              <th>Destination</th>
+              <th>Leg</th>
               <th>Distance</th>
               <th>Cruising Time</th>
             </tr>
@@ -374,7 +379,7 @@ const waterToys = [
                 </td>
                 <td class="td-route">{row.route}</td>
                 <td class="td-action">
-                  <a href={`https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20interested%20in%20booking%20the%20Maha%20Bhetra%20Yacht.`} target="_blank" rel="noopener noreferrer" class="table-book-btn">
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="table-book-btn">
                     Book
                   </a>
                 </td>
@@ -386,7 +391,7 @@ const waterToys = [
     </section>
 
     <a 
-      href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20interested%20in%20booking%20the%20Maha%20Bhetra%20Yacht." 
+      href={whatsappUrl} 
       target="_blank" 
       rel="noopener noreferrer" 
       class="pcom-whatsapp-float"
