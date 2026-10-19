@@ -4,7 +4,7 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
 import Layout from '../../layouts/Layout.astro';
 
 const vesselName = "Maha Bhetra";
-const tagline = "Ninety feet of Thai-crafted motor yacht, designed by Aman architect Ed Tuttle for unhurried Andaman voyages";
+const tagline = "A 90ft classic wooden motor yacht for private charters from Phuket to Phang Nga Bay, Krabi and the Similan Islands";
 
 const slideshow = [
   { 
@@ -148,6 +148,43 @@ const crew = [
   { name: 'Khun Len', role: 'Engineer', note: 'Nearly twenty-five years aboard.' }
 ];
 
+const faqs = [
+  {
+    q: 'How many guests can Maha Bhetra take?',
+    a: 'Up to 12 guests on a day charter and up to 6 guests on an overnight charter, in three identical double cabins of 20 sqm, each with its own en-suite bathroom.'
+  },
+  {
+    q: 'Where does the charter start?',
+    a: 'Maha Bhetra is based at Phuket Yacht Haven Marina in the north of the island. Return transfers from any hotel in Phuket or from Phuket airport are included.'
+  },
+  {
+    q: 'How much does a Maha Bhetra day charter cost?',
+    a: 'A full-day private charter for up to 12 guests is THB 202,000 (about USD 6,100) all year, and THB 231,000 (about USD 7,000) in peak season, 20 December to 10 January. Rates are per charter, not per person, and include local VAT.'
+  },
+  {
+    q: 'Which islands can we visit?',
+    a: 'Day charters cruise to Phang Nga Bay, Koh Hong in Krabi, Kai and Naka Islands, or Koh Maiton and Koh Kai. Overnight charters can reach Koh Phi Phi, the Racha Islands and, on trips of four days or more, the Similan Islands. Longer charters to the Mergui Archipelago in Myanmar need advance permits.'
+  },
+  {
+    q: 'What is included in the charter price?',
+    a: 'The yacht with a crew of five, full board on overnight charters, snacks, fruit, soft drinks, local beer, a bottle of French rosé per day, transfers, kayaks, paddleboard, snorkelling gear, fishing rods, national park fees except the Similans, cleaning, insurance and local VAT. Wine, champagne, spirits, Similan park fees and crew gratuities are extra.'
+  },
+  {
+    q: 'When can we go to the Similan and Surin Islands?',
+    a: 'The Similan and Surin marine parks close every year during the south west monsoon. Outside that period they can be included in overnight charters of four days or more, at the Similan rate.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a }
+  }))
+};
+
 const onBoard = [
   "Air conditioning throughout",
   "WiFi & Bluetooth speakers",
@@ -167,8 +204,8 @@ const waterToys = [
 ---
 
 <Layout
-  title={`Classic Motor Yacht ${vesselName} Charter Phuket | Luna Diving`}
-  description="Charter Maha Bhetra, a 90ft Thai-crafted timber motor yacht designed by Aman architect Ed Tuttle: 3 identical cabins, 6 guests overnight or 12 by day, from Yacht Haven, Phuket."
+  title={`${vesselName} Yacht Charter Phuket | 90ft Classic Motor Yacht`}
+  description="Private yacht charter in Phuket on Maha Bhetra, a 90ft wooden motor yacht designed by Amanpuri architect Ed Tuttle. Day trips for 12, overnight for 6, Phang Nga Bay & Similans."
   image="/images/yacht/maha-bhetra/maha-bhetra-luxury-yacht-phang-nga-bay-side-view.webp"
 >
   <main class="pcom-wrapper">
@@ -222,70 +259,61 @@ const waterToys = [
 
     <section class="pcom-content-grid">
       <div class="content-main">
-        <h2 class="content-heading">The architect who drew Amanpuri drew one yacht. Then he kept her.</h2>
+        <h2 class="content-heading">Private Yacht Charter in Phuket aboard Maha Bhetra</h2>
         <div class="heading-line"></div>
         <p class="paragraph">
-          <strong>Ed Tuttle</strong> designed the iconic Aman resorts. He also designed <strong>Maha Bhetra</strong>, and he owned her until his death in 2020.
+          <strong>Maha Bhetra</strong> is a <strong>90ft (27.4 m) classic motor yacht</strong>, built by hand in Thailand with a timber hull and designed by <strong>Ed Tuttle</strong>, the architect behind Amanpuri and the Aman resorts. She is available for <strong>private day charters for up to 12 guests</strong> and <strong>overnight charters for up to 6 guests</strong>, departing from Phuket Yacht Haven Marina towards Phang Nga Bay, Krabi, Koh Phi Phi and the Similan Islands.
         </p>
         <p class="paragraph">
-          Ninety feet of Thai boatbuilding: a timber hull, three double cabins below, and an open-plan teak saloon that runs the full width of the top deck. Eight knots is her cruising speed, and that is the point of her. She was drawn for long, unhurried passages into the Andaman rather than fast hops between the same four beaches.
-        </p>
-        <p class="paragraph">
-          Thirty years in one family has left its mark on her. The Jim Thompson silks were specified by Tuttle himself, the eighteenth-century Southeast Asian antiques in the saloon are the originals, and the crew has been aboard for decades. She is not a reproduction of a classic yacht. She is one.
+          Tuttle drew only one yacht in his career and kept her for himself until his death in 2020. For thirty years she has stayed with the same family, cared for rather than rebuilt: the Jim Thompson silks he chose, the eighteenth-century Southeast Asian antiques in the saloon and the teak joinery are all original. This is a genuine classic yacht, not a modern copy of one.
         </p>
 
-        <h3 class="sub-heading">A wooden hull, built to wander</h3>
+        <h3 class="sub-heading">Designed by Ed Tuttle, the Architect of Amanpuri</h3>
         <p class="paragraph">
-          Maha Bhetra was built in Thailand to a design that borrows from the country's own working boats: a long, narrow timber hull with a fine entry, a deep forefoot and a shallow draft of two and a half metres. She carries her accommodation low and her living space high, which is the reverse of most modern charter yachts and the reason she feels like a house rather than a boat.
+          American architect and interior designer Edward Burnham Tuttle Jr. (1945 to 2020) studied at the University of Washington, was influenced by Frank Lloyd Wright and Mies van der Rohe, and opened his studio, Design Realization, in Paris in 1977. Over four decades he shaped the look of the Aman group, from Amanpuri in Phuket to Amanjena in Morocco, proving that restraint can be the purest form of luxury.
+        </p>
+        <p class="paragraph">
+          Maha Bhetra follows the same ideas as his resorts: Thai craftsmanship and local materials, spaces that open to the sea breeze and almost no decoration that does not have a purpose. The louvred cabinets, the proportions of the saloon and the stepped ceiling above the dining table are his design, and the exclusive Jim Thompson fabric he commissioned for her cushions is still aboard.
         </p>
 
+        <h3 class="sub-heading">A Thai Timber Hull Built for the Andaman Sea</h3>
         <p class="paragraph">
-          She has been in the same family for thirty years and has been maintained rather than restored, which is a different and better thing. The antiques, the joinery and the commissioned Jim Thompson silks are all original to her.
+          Her lines come from traditional Thai working boats: a long, slim wooden hull with a fine bow and a draft of 2.5 metres, shallow enough to anchor close to the beach. Guests sleep below and live on the upper deck, the opposite of most modern charter yachts, which is why Maha Bhetra feels more like a floating house than a boat.
+        </p>
+        <p class="paragraph">
+          As a displacement yacht she cruises at a steady 8 knots, uses little fuel and runs quietly enough to talk on the aft deck while under way. She is made for slow, relaxed island hopping in the Andaman Sea rather than rushing between crowded beaches.
         </p>
 
-        <h3 class="sub-heading">Eight Knots, and No Hurry</h3>
+        <h3 class="sub-heading">Open-Plan Teak Saloon and Bow Daybed</h3>
         <p class="paragraph">
-          A timber displacement hull does not plane and does not want to. She holds eight knots comfortably, burns very little doing it, and is quiet enough that conversation on the aft deck carries over the engines.
+          The entire upper deck is living space. Teak floors, a teak ceiling and sliding louvred panels turn the saloon and the aft deck into a single room that opens on three sides to the sea and the view. A round table seats all six overnight guests for dinner and a wide banquette wraps around the stern.
+        </p>
+        <p class="paragraph">
+          At the bow, a teak daybed for four sits under full-day shade, and in the evening the crew sets dinner on the foredeck facing the limestone karsts of Phang Nga Bay.
         </p>
 
-        <h3 class="sub-heading">The Architect: Ed Tuttle (1945 – 2020)</h3>
+        <h3 class="sub-heading">Three Identical 20 sqm Double Cabins</h3>
         <p class="paragraph">
-          Edward Burnham Tuttle Jr. was an American architect and interior designer whose work reset the standard for luxury hospitality. Educated at the University of Washington and shaped by Wright and Mies, he founded Design Realization in Paris in 1977 and spent four decades building the visual language of the Aman group: Amanpuri in Phuket, Amanjena in Morocco, and a long list of hotels and private houses that made restraint feel like luxury.
-        </p>
-        <p class="paragraph">
-          Maha Bhetra is the only yacht he designed. She carries the same thinking as the resorts: local craft and local materials handled with a very light touch, spaces that open to the weather, and almost no ornament that is not structural. The louvred cabinetry, the proportions of the saloon, and the way the deckhead steps down over the dining table are all his. He commissioned an exclusive Jim Thompson fabric for her cushions that remains aboard today.
+          Below deck there is no master cabin and no small cabin. All three double cabins measure 20 sqm, with two 140 x 200 cm berths, air conditioning, a vanity, two wardrobes in a dressing area and an en-suite bathroom with separate shower and WC. Every guest gets the same comfort, so choosing cabins is simply a matter of preference.
         </p>
 
-        <h3 class="sub-heading">The Top Deck: One Room, Open to the Weather</h3>
+        <h3 class="sub-heading">Thai Cuisine and Full Board</h3>
         <p class="paragraph">
-          The whole of the upper deck is given over to living space. Teak underfoot, teak overhead, and louvred panels that slide back until the saloon and the aft deck are the same room. The bow carries a teak daybed wide enough for four, with shade all day and a deckhead high enough to stand under. In the evening the table on the bow is set for dinner and the karsts do the rest.
-        </p>
-        <p class="paragraph">
-          Tuttle's saloon runs the full width of the deck and opens on three sides. The round table seats all six guests, the wrapping banquette takes the rest of the evening, and the louvred cabinets hide everything modern. Handwoven textures, warm teak and curated Southeast Asian pieces, most of them eighteenth century and all of them original to the yacht.
+          The cook buys fresh from the local market each morning. Thai cuisine is the crew's speciality and the dish most guests ask for again, but a continental breakfast or a seafood barbecue on the beach are just as easy. Overnight charters are full board, including snacks, fruit, drinking water, tea, coffee, soft drinks, local beer and one bottle of French rosé per day.
         </p>
 
-        <h3 class="sub-heading">Three Cabins, All the Same</h3>
+        <h3 class="sub-heading">An Experienced Thai Crew</h3>
         <p class="paragraph">
-          There is no master and no compromise cabin. Below are three identical double cabins of twenty square metres each, every one with a separate shower and WC (each 135 x 110 cm), a vanity, two berths of 140 x 200 cm, air conditioning and two wardrobes built into a dressing area. Nobody gets the small one, so guest allocation is a matter of preference rather than hierarchy. Day charter carries twelve guests; overnight charter sleeps six.
-        </p>
-
-        <h3 class="sub-heading">Dining & Life Aboard</h3>
-        <p class="paragraph">
-          The galley works from the market that morning. Authentic Thai food is what the crew cooks best and what most guests ask for twice, but the kitchen is equally happy with a continental breakfast or a seafood barbecue on the beach. Overnight charters are full board, with snacks, fruit, water, tea, coffee, soft drinks and local beer, and a bottle of French rosé for each day aboard.
-        </p>
-
-        <h3 class="sub-heading">The Crew: Five, and Most of Them for Life</h3>
-        <p class="paragraph">
-          Maha Bhetra carries a crew of five. Between the three senior hands there are more than seventy years aboard this one yacht. They know the islands, the anchorages that stay flat in a northerly, and every fishing mark on this coast. All three are keen fishermen, which is how most guests end up fishing too.
+          Maha Bhetra sails with a crew of five, and the three senior members have spent more than seventy years aboard between them. They know every quiet anchorage, which bays stay calm in a northerly wind and the best fishing spots along the coast. All three love fishing, and most guests end up joining them.
         </p>
         <ul class="toy-list">
           {crew.map(member => <li><strong>{member.name}</strong>, {member.role}. {member.note}</li>)}
         </ul>
-        <p class="paragraph" style="font-size: 13px; color: #4f5059;">Crew composition is subject to change; the current list is confirmed before departure.</p>
+        <p class="paragraph" style="font-size: 13px; color: #4f5059;">Crew composition may change; the current crew list is confirmed before departure.</p>
 
-        <h3 class="sub-heading">Water Toys & Exploration</h3>
+        <h3 class="sub-heading">Kayaks, Paddleboard and Snorkelling Included</h3>
         <p class="paragraph">
-          Because Maha Bhetra draws two and a half metres, she anchors close in. The tender runs the last hundred metres to beaches that day boats never reach, and the kayaks go further still, into the mangrove and the hongs. Everything below is aboard and included; nothing needs booking the night before.
+          Thanks to her 2.5 m draft, Maha Bhetra anchors close to shore. The tender takes you onto beaches that day-trip boats cannot reach, and the kayaks explore further into mangroves and the hidden lagoons (hongs) of Phang Nga Bay. All water toys are on board and included, with no need to book in advance.
         </p>
         <ul class="toy-list">
           {waterToys.map(toy => <li>{toy}</li>)}
@@ -299,7 +327,7 @@ const waterToys = [
       <div class="content-sidebar">
         <div class="booking-sticky-box">
           <h3 class="sidebar-heading">Ready to Charter?</h3>
-          <p class="sidebar-text">Inquire about availability for the classic 90ft motor yacht Maha Bhetra departing from Phuket Yacht Haven Marina.</p>
+          <p class="sidebar-text">Check availability for a private day or overnight charter on the 90ft classic motor yacht Maha Bhetra, departing from Phuket Yacht Haven Marina.</p>
           <a href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20interested%20in%20booking%20Maha%20Bhetra." target="_blank" rel="noopener noreferrer" class="pcom-btn-primary">
             Inquire via WhatsApp
           </a>
@@ -514,6 +542,23 @@ const waterToys = [
         Rates are quoted per charter, not per person, and are subject to availability at the time of booking. Charters are invoiced in Thai Baht. Itineraries are indicative: the captain may adjust the route for sea state, weather or national park access.
       </p>
     </section>
+
+    <section class="pcom-schedule-section">
+      <div class="pricing-header">
+        <h2 class="content-heading">Maha Bhetra Charter: Frequently Asked Questions</h2>
+        <div class="heading-line"></div>
+      </div>
+      <div class="faq-list">
+        {faqs.map((item) => (
+          <details class="faq-item">
+            <summary class="faq-question">{item.q}</summary>
+            <p class="paragraph faq-answer">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
     <a 
       href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20interested%20in%20booking%20the%20Maha%20Bhetra%20Yacht." 
@@ -1234,5 +1279,27 @@ const waterToys = [
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid var(--pcom-color-surface);
+    padding: 14px 0;
+  }
+
+  .faq-question {
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--pcom-color-primary);
+  }
+
+  .faq-question:focus-visible {
+    outline: 2px solid var(--pcom-color-accent);
+    outline-offset: 4px;
+  }
+
+  .faq-answer {
+    margin: 10px 0 0;
   }
 </style>
