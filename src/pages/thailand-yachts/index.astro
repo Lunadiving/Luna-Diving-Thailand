@@ -1,221 +1,328 @@
 ---
-import OptimizedImage from '../../components/OptimizedImage.astro';
 // src/pages/thailand-yachts/index.astro
-
+import OptimizedImage from '../../components/OptimizedImage.astro';
 import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 
-const fleet = [
+interface Yacht {
+  slug: string;
+  name: string;
+  image: string;
+  altText: string;
+  tags: string[];
+  specs: { val: string; desc: string }[];
+  price: string;
+  priceNote: string;
+  summary: string;
+}
+
+// Dati e prezzi allineati alle pagine dei singoli yacht (listini 2026)
+const fleet: Yacht[] = [
   {
-    slug: "song-of-songs",
-    name: "Song of Songs",
-    image: "/images/yacht/song-of-songs/song-of-songs-luxury-superyacht-stern-twilight.webp",
-    altText: "Song of Songs 42m superyacht at twilight off Phuket, Thailand",
-    tags: ["Superyacht", "6 Cabins", "Long Range"],
+    slug: 'song-of-songs',
+    name: 'Song of Songs',
+    image: '/images/yacht/song-of-songs/song-of-songs-luxury-superyacht-stern-twilight.webp',
+    altText: 'Song of Songs 42m superyacht at twilight off Phuket, Thailand',
+    tags: ['Superyacht', 'All Inclusive', 'Jacuzzi & Jet Skis'],
     specs: [
-      { val: "12-Guest", desc: "Overnight, 20 for Day Trips" },
-      { val: "42 Meters", desc: "Overall Length (LOA)" },
-      { val: "10 Knots", desc: "Cruising Speed" }
+      { val: '20 Guests', desc: 'Day, 12 overnight' },
+      { val: '42 Meters', desc: 'Heysea Asteria 142' },
+      { val: '6 Cabins', desc: 'Crew of 10' }
     ],
-    legal: "A 42-metre Heysea Asteria 142 motor yacht built for the long way between anchorages."
+    price: 'From USD 37,500',
+    priceNote: 'all-inclusive day charter',
+    summary: 'The largest yacht in our fleet: all-inclusive day charters and long-range cruises to Phang Nga Bay, the Similans and the Mergui Archipelago.'
   },
   {
-    slug: "aventure",
-    name: "Aventure",
-    image: "/images/yacht/aventure/aventure-sailing-yacht-under-full-sail.webp",
-    altText: "Classic ketch Aventure under full sail in the Andaman Sea",
-    tags: ["Classic Ketch", "Sailing Yacht", "Mergui Archipelago"],
+    slug: 'aventure',
+    name: 'Aventure',
+    image: '/images/yacht/aventure/aventure-sailing-yacht-under-full-sail.webp',
+    altText: 'Classic ketch Aventure under full sail in the Andaman Sea',
+    tags: ['Classic Sailing Yacht', 'Mergui Expeditions', 'Diving Gear Aboard'],
     specs: [
-      { val: "7-Guest", desc: "Overnight, 4 Cabins" },
-      { val: "29 Meters", desc: "Overall Length (LOA)" },
-      { val: "8 Knots", desc: "Cruising Speed" }
+      { val: '7 Guests', desc: 'Overnight, 4 cabins' },
+      { val: '29 Meters', desc: 'Classic ketch, 2011' },
+      { val: 'Crew of 4', desc: 'Including cook' }
     ],
-    legal: "A 29-metre classic ketch by Patrick Balta for the Andaman Sea and the Mergui Archipelago."
+    price: 'From THB 290,000',
+    priceNote: '2 days / 1 night charter',
+    summary: 'A Patrick Balta classic ketch for multi-day sailing charters in the Andaman Sea and expeditions to the Mergui Archipelago.'
   },
   {
-    slug: "maha-bhetra",
-    name: "Maha Bhetra",
-    image: "/images/yacht/maha-bhetra/maha-bhetra-luxury-yacht-phang-nga-bay-side-view.webp",
-    altText: "Classic wooden motor yacht Maha Bhetra anchored in Phang Nga Bay",
-    tags: ["Classic Motor Yacht", "Timber Hull", "Ed Tuttle Design"],
+    slug: 'maha-bhetra',
+    name: 'Maha Bhetra',
+    image: '/images/yacht/maha-bhetra/maha-bhetra-luxury-yacht-phang-nga-bay-side-view.webp',
+    altText: 'Classic wooden motor yacht Maha Bhetra anchored in Phang Nga Bay',
+    tags: ['Classic Motor Yacht', 'Designed by Ed Tuttle', 'Timber Hull'],
     specs: [
-      { val: "6-Guest", desc: "Overnight, 12 for Day Trips" },
-      { val: "27.4 Meters", desc: "Overall Length (LOA)" },
-      { val: "8 Knots", desc: "Cruising Speed" }
+      { val: '12 Guests', desc: 'Day, 6 overnight' },
+      { val: '27.4 Meters', desc: '90ft teak yacht' },
+      { val: '3 Cabins', desc: 'Identical 20 sqm doubles' }
     ],
-    legal: "A 90ft classic motor yacht designed by Aman architect Ed Tuttle for unhurried Andaman voyages."
+    price: 'From THB 202,000',
+    priceNote: 'day charter, up to 12 guests',
+    summary: 'A 90ft Thai-built motor yacht designed by Amanpuri architect Ed Tuttle, for slow, elegant cruises to Phang Nga Bay and the Similans.'
   },
   {
-    slug: "seascape-2",
-    name: "Seascape 2",
-    image: "/images/yacht/seascape-2/seascape-2-motor-yacht-stern-profile.webp",
-    altText: "Sunseeker flybridge motor yacht Seascape 2 in Phuket",
-    tags: ["Sunseeker", "Flybridge", "Refitted 2022"],
+    slug: 'seascape-2',
+    name: 'Seascape 2',
+    image: '/images/yacht/seascape-2/seascape-2-motor-yacht-stern-profile.webp',
+    altText: 'Sunseeker flybridge motor yacht Seascape 2 in Phuket',
+    tags: ['Sunseeker', 'Up to 20 Guests', 'Transfers Included'],
     specs: [
-      { val: "6-Guest", desc: "Overnight, 20 for Day Trips" },
-      { val: "19.6 Meters", desc: "Overall Length (LOA)" },
-      { val: "17 Knots", desc: "Cruising Speed" }
+      { val: '20 Guests', desc: 'Day, 6 overnight' },
+      { val: '19.6 Meters', desc: 'Flybridge, refit 2022' },
+      { val: '17 Knots', desc: 'Cruising speed' }
     ],
-    legal: "A nineteen metre flybridge, refitted in 2022, berthed twenty minutes from open water."
+    price: 'From THB 94,000',
+    priceNote: '4-hour charter to Naka Yai',
+    summary: 'A Sunseeker flybridge for larger groups and families, with hotel transfers included on day trips to Phang Nga Bay, Phi Phi and Racha.'
   },
   {
-    slug: "jawsss",
-    name: "JAWSSS",
-    image: "/images/yacht/jawsss/luxury-motor-yacht-jawsss-phuket.webp",
-    altText: "Activa 5800 flybridge motor yacht JAWSSS in Phuket",
-    tags: ["High Performance", "Sporty", "Speedy"],
+    slug: 'jawsss',
+    name: 'JAWSSS',
+    image: '/images/yacht/jawsss/luxury-motor-yacht-jawsss-phuket.webp',
+    altText: 'Activa 5800 flybridge motor yacht JAWSSS in Phuket',
+    tags: ['Flybridge', 'Teak Interiors', 'Similan Trips'],
     specs: [
-      { val: "12-Guest", desc: "Day Trips, 6 Overnight" },
-      { val: "18.6 Meters", desc: "Overall Length (LOA)" },
-      { val: "12 Knots", desc: "Cruising Speed" }
+      { val: '12 Guests', desc: 'Day, 6 overnight' },
+      { val: '18.6 Meters', desc: 'Activa 5800' },
+      { val: '12 Knots', desc: 'Cruising speed' }
     ],
-    legal: "A flybridge cruiser built for the Andaman Sea, and for the way a day on it ought to unfold."
+    price: 'From THB 94,400',
+    priceNote: '8-hour day charter',
+    summary: 'A comfortable flybridge cruiser with fine teak joinery, for day trips to Phang Nga Bay and Krabi and overnight trips up to the Similans.'
   },
   {
-    slug: "galeon-500-fly",
-    name: "Galeon 500 Fly",
-    image: "/images/yacht/galeon-500-fly/galeon-500-luxury-yacht-cruising-open-water.webp",
-    altText: "Luxury motor yacht cruising in the tropical waters of Thailand",
-    tags: ["Private Charter", "Luxury", "Full Service"],
+    slug: 'galeon-500-fly',
+    name: 'Galeon 500 Fly',
+    image: '/images/yacht/galeon-500-fly/galeon-500-luxury-yacht-cruising-open-water.webp',
+    altText: 'Galeon 500 Fly luxury motor yacht cruising in the waters of Thailand',
+    tags: ['Fast Flybridge', 'Water Toys Included', 'Day Trips'],
     specs: [
-      { val: "10-Guest", desc: "Day Trips, 6 Overnight" },
-      { val: "16.2 Meters", desc: "Overall Length (LOA)" },
-      { val: "20 Knots", desc: "Cruising Speed" }
+      { val: '10 Guests', desc: 'Day, 6 overnight' },
+      { val: '16.2 Meters', desc: 'Galeon, Poland' },
+      { val: '20 Knots', desc: 'Cruising speed' }
     ],
-    legal: "Includes captain, crew, and fuel for standard routes. Perfect for private celebrations and island hopping."
+    price: 'From THB 162,700',
+    priceNote: '8-hour day charter',
+    summary: 'A fast flybridge yacht with a big water toy collection, from wakeboard and water skis to a 12 ft trampoline, all included.'
   },
   {
-    slug: "mami-wata",
-    name: "Mami Wata",
-    image: "/images/yacht/mami-wata/mami-wata-classic-motor-yacht-aerial-anchored.webp",
-    altText: "Classic 1954 Halvorsen motor yacht Mami Wata at anchor, aerial view",
-    tags: ["Classic 1954 Halvorsen", "Timber", "Refit 2023"],
+    slug: 'mami-wata',
+    name: 'Mami Wata',
+    image: '/images/yacht/mami-wata/mami-wata-classic-motor-yacht-aerial-anchored.webp',
+    altText: 'Classic 1954 Halvorsen motor yacht Mami Wata at anchor, aerial view',
+    tags: ['Classic 1954 Halvorsen', 'Sunset Cruises', 'Proposals'],
     specs: [
-      { val: "12-Guest", desc: "Day Trips, 6 Overnight" },
-      { val: "15.3 Meters", desc: "Overall Length (LOA)" },
-      { val: "8-12 Knots", desc: "Cruising Speed" }
+      { val: '12 Guests', desc: 'Day, 6 overnight' },
+      { val: '15.3 Meters', desc: 'Timber, refit 2023' },
+      { val: '8-12 Knots', desc: 'Cruising speed' }
     ],
-    legal: "A 1954 Halvorsen, the Andaman coast, and nobody else aboard."
+    price: 'From THB 41,000',
+    priceNote: '3-hour sunset cruise',
+    summary: 'A classic wooden motor yacht for sunset cruises, romantic charters, proposals and relaxed day trips to Phang Nga Bay and Krabi.'
   },
   {
-    slug: "nimbus-t11",
-    name: "Nimbus T11",
-    image: "/images/yacht/nimbus-t11/nimbus-t11-motor-yacht-cruising-andaman-sea.webp",
-    altText: "Nimbus T11 motor yacht cruising in the Andaman Sea",
-    tags: ["Day Boat", "Fast", "Modern Design"],
+    slug: 'nimbus-t11',
+    name: 'Nimbus T11',
+    image: '/images/yacht/nimbus-t11/nimbus-t11-motor-yacht-cruising-andaman-sea.webp',
+    altText: 'Nimbus T11 speedboat cruising in the Andaman Sea',
+    tags: ['Speedboat', 'Fastest in Fleet', 'Day Boat'],
     specs: [
-      { val: "10-Guest", desc: "Day Charter, Sleeps 4" },
-      { val: "11.9 Meters", desc: "Overall Length (LOA)" },
-      { val: "20-40 Knots", desc: "Speed Range" }
+      { val: '10 Guests', desc: 'Day, 4 overnight' },
+      { val: '11.9 Meters', desc: 'Built 2022' },
+      { val: '20-40 Knots', desc: 'Speed range' }
     ],
-    legal: "A day boat built for the Andaman, and for the way a day at sea should actually feel."
+    price: 'From THB 115,000',
+    priceNote: '8-hour day charter',
+    summary: 'A premium Scandinavian day boat that reaches Phi Phi, Racha and Koh Haa quickly, leaving more time to swim and snorkel.'
   }
 ];
+
+const faqs = [
+  {
+    q: 'How much does it cost to charter a yacht in Phuket?',
+    a: 'Private yacht charters in Phuket start from THB 41,000 for a 3-hour sunset cruise on the classic yacht Mami Wata. Full-day charters range from THB 94,400 on JAWSSS to THB 202,000 on Maha Bhetra, and an all-inclusive day on the 42m superyacht Song of Songs costs USD 37,500. Prices are per boat, not per person.'
+  },
+  {
+    q: 'Which yacht is best for a large group?',
+    a: 'Seascape 2 and Song of Songs both take up to 20 guests on a day charter. Seascape 2 includes hotel transfers and is the more affordable option, while Song of Songs is an all-inclusive superyacht with a Jacuzzi, jet skis and a crew of ten.'
+  },
+  {
+    q: 'Can we stay overnight on the yacht?',
+    a: 'Yes. Most of our yachts offer overnight charters from 2 days and 1 night, usually for up to 6 guests. Song of Songs sleeps 12 guests, Aventure sleeps 7 and the Nimbus T11 sleeps 4. Longer trips can reach the Similan Islands or the Mergui Archipelago.'
+  },
+  {
+    q: 'Where do yacht charters depart from?',
+    a: 'Most yachts are based at Royal Phuket Marina, while Maha Bhetra and Aventure depart from Yacht Haven Marina in the north of Phuket and Song of Songs from Ao Po Grand Marina. Some yachts include hotel transfers; for others they can be added on request.'
+  },
+  {
+    q: 'Where can we go on a day charter from Phuket?',
+    a: 'Popular day trips include Phang Nga Bay and its limestone islands, Koh Hong and the Four Islands of Krabi, the Khai and Naka Islands, Phi Phi and the Racha Islands. Faster boats such as the Nimbus T11 can also reach Koh Haa or Koh Kradan in a day.'
+  },
+  {
+    q: 'Which yacht is best for a proposal or honeymoon?',
+    a: 'The classic yacht Mami Wata is a favourite for proposals, anniversaries and honeymoons, with sunset cruises from THB 41,000. For a bigger celebration, Song of Songs can host birthdays, weddings at sea and corporate events for up to 20 guests.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a }
+  }))
+};
+
+const whatsappUrl = `https://wa.me/66918233120?text=${encodeURIComponent("Hi Luna Diving! I'm interested in a private yacht charter.")}`;
 ---
 
 <Layout
-  title="Thailand Yacht Charters | Private Cruises | Luna Diving"
-  description="Private yacht charters from Phuket: superyachts, classic sailing and motor yachts, flybridge cruisers and fast day boats for the Andaman Sea, Phang Nga Bay and Mergui."
+  title="Yacht Charter Phuket | Compare 8 Private Yachts | Luna Diving"
+  description="Compare 8 private yacht charters in Phuket: superyacht, classic sailing and motor yachts, Sunseeker and speedboat. Sunset cruises from THB 41,000, day trips to Phang Nga Bay and Phi Phi."
   image="/images/yacht/song-of-songs/song-of-songs-luxury-superyacht-stern-twilight.webp"
 >
-  
   <div class="block w-full pt-24 md:pt-28">
-    
-    <header class="max-w-5xl mx-auto pt-16 px-6 text-center font-sans">
-      <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-[#1A1A1A] mb-12">
-        Thailand Yacht Charter Fleet
-      </h1>
-    </header>
 
     <main class="max-w-5xl mx-auto px-6 pb-16 font-sans">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-12">
-        {fleet.map((boat) => (
-          <article class="group flex flex-col justify-between bg-white border border-gray-200 p-6 rounded-[24px] shadow-sm transition-all duration-300 hover:shadow-md">
-            
-            <div>
-              <!-- LINK SULLA FOTO -->
-              <a 
-                href={`/thailand-yachts/${boat.slug}`} 
-                class="block w-full aspect-video bg-[#f8f8fa] overflow-hidden rounded-xl mb-6"
-                aria-label={`Explore ${boat.name} in detail`}
-              >              
-                <OptimizedImage 
-                  src={boat.image} 
-                  alt={boat.altText || boat.name} 
-                  class="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  loading="lazy"
-                  widths={[400, 800, 1200]}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </a>
+      <section class="pt-16 text-center max-w-3xl mx-auto mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-[#1A1A1A] mb-6">
+          Private Yacht Charter in Phuket
+        </h1>
+        <p class="text-[15px] text-[#4A4A4A] leading-relaxed">
+          Compare our eight private yachts for <strong>day charters, sunset cruises and overnight trips from Phuket</strong>.
+          From a 42-metre superyacht and two classic sailing and motor yachts to Sunseeker and Galeon flybridges and a fast Nimbus day boat,
+          every charter is private, with a professional crew and water toys on board, to <strong>Phang Nga Bay, Krabi, Phi Phi, the Racha Islands</strong> and beyond.
+        </p>
+      </section>
 
-              <div class="space-y-3">
-                <!-- LINK SUL NOME DELLA BARCA -->
-                <h3 class="text-xl font-bold tracking-tight text-[#1A1A1A]">
-                  <a 
-                    href={`/thailand-yachts/${boat.slug}`} 
-                    class="transition-colors hover:text-[#008EA7] group-hover:text-[#008EA7]"
-                  >
-                    {boat.name}
-                  </a>
-                </h3>
-                
-                <div class="flex flex-wrap gap-2">
-                  {boat.tags.map((tag) => (
-                    <span class="bg-[#008EA7]/10 text-[#008EA7] text-xs font-medium px-3 py-1 rounded-md border border-[#008EA7]/20">
-                      {tag}
-                    </span>
-                  ))}
+      <section aria-labelledby="fleet-title">
+        <h2 id="fleet-title" class="sr-only">Our yacht charter fleet</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-12">
+          {fleet.map((boat) => (
+            <article class="group relative flex flex-col justify-between bg-white border border-gray-200 p-6 rounded-[24px] shadow-sm transition-all duration-300 hover:shadow-md">
+              <div>
+                <a
+                  href={`/thailand-yachts/${boat.slug}`}
+                  class="block w-full aspect-video bg-[#f8f8fa] overflow-hidden rounded-xl mb-6"
+                  tabindex="-1"
+                  aria-hidden="true"
+                >
+                  <OptimizedImage
+                    src={boat.image}
+                    alt={boat.altText}
+                    class="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                    loading="lazy"
+                    widths={[400, 800, 1200]}
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                </a>
+
+                <div class="space-y-3">
+                  <h3 class="text-xl font-bold tracking-tight text-[#1A1A1A]">
+                    <a href={`/thailand-yachts/${boat.slug}`} class="transition-colors hover:text-[#008EA7] group-hover:text-[#008EA7]">
+                      {boat.name}
+                    </a>
+                  </h3>
+
+                  <div class="flex flex-wrap gap-2">
+                    {boat.tags.map((tag) => (
+                      <span class="bg-[#008EA7]/10 text-[#008EA7] text-xs font-medium px-3 py-1 rounded-md border border-[#008EA7]/20">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
+
+                <ul class="grid grid-cols-3 gap-4 my-6 py-4 border-t border-b border-gray-100" aria-label={`${boat.name} key facts`}>
+                  {boat.specs.map((spec) => (
+                    <li class="space-y-1">
+                      <div class="text-base font-semibold text-[#1A1A1A] tracking-tight leading-none">{spec.val}</div>
+                      <div class="text-[11px] text-[#706F6F] font-normal leading-tight">{spec.desc}</div>
+                    </li>
+                  ))}
+                </ul>
+
+                <p class="text-[14px] text-[#4A4A4A] font-normal leading-relaxed mb-6">{boat.summary}</p>
               </div>
 
-              <ul class="grid grid-cols-3 gap-4 my-6 py-4 border-t border-b border-gray-100" aria-label="Technical highlights">
-                {boat.specs.map((spec) => (
-                  <li class="space-y-1">
-                    <div class="text-base font-semibold text-[#1A1A1A] tracking-tight leading-none">
-                      {spec.val}
-                    </div>
-                    <div class="text-[11px] text-[#706F6F] font-normal leading-tight">
-                      {spec.desc}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-
-              <div class="mb-6">
-                <p class="text-[12px] text-[#706F6F] font-normal leading-relaxed">
-                  {boat.legal}
-                </p>
+              <div class="mt-auto pt-2 flex items-center justify-between gap-4">
+                <div>
+                  <div class="text-base font-bold text-[#1A1A1A] leading-tight">{boat.price}</div>
+                  <div class="text-[11px] text-[#706F6F]">{boat.priceNote}</div>
+                </div>
+                <a
+                  href={`/thailand-yachts/${boat.slug}`}
+                  class="shrink-0 flex items-center justify-center bg-[#1A1A1A] text-white text-xs font-medium py-3 px-6 rounded-full hover:bg-[#008EA7] transition-colors duration-300"
+                  aria-label={`View ${boat.name} details and charter rates`}
+                >
+                  View Details
+                </a>
               </div>
-            </div>
+            </article>
+          ))}
+        </div>
+      </section>
 
-            <div class="mt-auto pt-2">
-              <a 
-                href={`/thailand-yachts/${boat.slug}`} 
-                class="flex items-center justify-center bg-[#1A1A1A] text-white text-xs font-medium py-3 w-full rounded-full hover:bg-[#008EA7] transition-colors duration-300 text-center"
-              >
-                Explore in Detail
-              </a>
-            </div>
+      <section class="max-w-3xl mx-auto mt-20 text-left" aria-labelledby="choose-title">
+        <h2 id="choose-title" class="text-2xl md:text-3xl font-bold tracking-tight text-[#1A1A1A] mb-6">
+          How to Choose Your Phuket Yacht Charter
+        </h2>
+        <div class="space-y-4 text-[15px] text-[#4A4A4A] leading-relaxed">
+          <p>
+            <strong>A romantic sunset or proposal?</strong> Mami Wata, a classic 1954 Halvorsen, offers 3-hour sunset cruises from THB 41,000 and is a favourite for proposals and honeymoons.
+          </p>
+          <p>
+            <strong>A big group or family day out?</strong> Seascape 2 takes up to 20 guests with hotel transfers included, and JAWSSS and Galeon 500 Fly are great value flybridges for up to 12 and 10 guests.
+          </p>
+          <p>
+            <strong>Water sports and speed?</strong> Galeon 500 Fly carries wakeboard, water skis, towables and a water trampoline, while the Nimbus T11 speedboat reaches Phi Phi, Racha and Koh Haa fastest.
+          </p>
+          <p>
+            <strong>Classic character?</strong> Maha Bhetra, designed by Aman architect Ed Tuttle, and the sailing ketch Aventure offer a slower, more elegant way to explore the Andaman Sea.
+          </p>
+          <p>
+            <strong>The ultimate luxury?</strong> Song of Songs, a 42-metre superyacht with Jacuzzi, jet skis and a crew of ten, is offered as an all-inclusive day charter or on standard superyacht terms.
+          </p>
+        </div>
+      </section>
 
-          </article>
-        ))}
-      </div>
+      <section class="max-w-3xl mx-auto mt-20 text-left" aria-labelledby="faq-title">
+        <h2 id="faq-title" class="text-2xl md:text-3xl font-bold tracking-tight text-[#1A1A1A] mb-6">
+          Phuket Yacht Charter FAQ
+        </h2>
+        <div class="divide-y divide-gray-200 border-t border-b border-gray-200">
+          {faqs.map((item) => (
+            <details class="group/faq py-4">
+              <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-semibold text-[#1A1A1A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#008EA7] focus-visible:outline-offset-4">
+                {item.q}
+                <span class="text-[#008EA7] text-xl leading-none transition-transform group-open/faq:rotate-45" aria-hidden="true">+</span>
+              </summary>
+              <p class="mt-3 text-[15px] text-[#4A4A4A] leading-relaxed">{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
     </main>
 
   </div>
-</Layout>
 
-<div class="fixed bottom-6 right-6 z-[99999] pointer-events-auto">
-  <a 
-    href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20interested%20in%20a%20private%20yacht%20charter." 
-    target="_blank" 
-    rel="noopener noreferrer" 
-    class="flex items-center justify-center w-14 h-14 md:w-[60px] md:h-[60px] bg-[#25D366] text-white rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.25)] hover:scale-105 hover:bg-[#20ba5a] transition-all duration-300 ease-out"
-    aria-label="Chat on WhatsApp"
-  >
-    <svg class="w-7 h-7 md:w-8 md:h-8" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.454 5.709 1.455h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-  </a>
-</div>
+  <div class="fixed bottom-6 right-6 z-[99999] pointer-events-auto">
+    <a
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center justify-center w-14 h-14 md:w-[60px] md:h-[60px] bg-[#25D366] text-white rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.25)] hover:scale-105 hover:bg-[#20ba5a] transition-all duration-300 ease-out"
+      aria-label="Chat on WhatsApp"
+    >
+      <svg class="w-7 h-7 md:w-8 md:h-8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.454 5.709 1.455h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+    </a>
+  </div>
+</Layout>
