@@ -1,64 +1,143 @@
 ---
-import OptimizedImage from './OptimizedImage.astro';
 // src/components/Header.astro
-const navLinks = [
-  { href: '/', label: 'Home' },
-  { 
-    href: '/thailand-liveaboards', 
-    label: 'Liveaboard', 
+import OptimizedImage from './OptimizedImage.astro';
+
+interface NavLink {
+  href: string;
+  label: string;
+  subItems?: { href: string; label: string }[];
+}
+
+const navLinks: NavLink[] = [
+  {
+    href: '/thailand-liveaboards',
+    label: 'Liveaboards',
     subItems: [
-      { href: '/thailand-liveaboards/deep-andaman-queen', label: 'Deep Andaman Queen' }, 
-      { href: '/thailand-liveaboards/pawara', label: 'Pawara' }, 
-      { href: '/thailand-liveaboards/sawasdee-fasai', label: 'Sawasdee Fasai' }, 
-      { href: '/thailand-liveaboards/the-junk', label: 'The Junk' }, 
-      { href: '/thailand-liveaboards/thailand-master', label: 'Thailand Master' }
-    ] 
+      { href: '/thailand-liveaboards', label: 'All Liveaboards' },
+      { href: '/thailand-liveaboards/deep-andaman-queen', label: 'Deep Andaman Queen' },
+      { href: '/thailand-liveaboards/giamani', label: 'Giamani' },
+      { href: '/thailand-liveaboards/pawara', label: 'Pawara' },
+      { href: '/thailand-liveaboards/sawasdee-fasai', label: 'Sawasdee Fasai' },
+      { href: '/thailand-liveaboards/thailand-master', label: 'Thailand Master' },
+      { href: '/thailand-liveaboards/the-junk', label: 'The Junk' }
+    ]
   },
-  { 
-    href: '/thailand-yachts', 
-    label: 'Yachts', 
+  {
+    href: '/thailand-yachts',
+    label: 'Yachts',
     subItems: [
-      { href: '/thailand-yachts/galeon-500-fly', label: 'Galeon 500 fly' }, 
-      { href: '/thailand-yachts/jawsss', label: 'Jawsss' }
-    ] 
+      { href: '/thailand-yachts', label: 'All Yachts' },
+      { href: '/thailand-yachts/song-of-songs', label: 'Song of Songs' },
+      { href: '/thailand-yachts/aventure', label: 'Aventure' },
+      { href: '/thailand-yachts/maha-bhetra', label: 'Maha Bhetra' },
+      { href: '/thailand-yachts/seascape-2', label: 'Seascape 2' },
+      { href: '/thailand-yachts/jawsss', label: 'JAWSSS' },
+      { href: '/thailand-yachts/galeon-500-fly', label: 'Galeon 500 Fly' },
+      { href: '/thailand-yachts/mami-wata', label: 'Mami Wata' },
+      { href: '/thailand-yachts/nimbus-t11', label: 'Nimbus T11' }
+    ]
   },
-  { 
-    href: '/padi-scuba-diving-courses', 
-    label: 'Courses', 
+  {
+    href: '/padi-scuba-diving-courses',
+    label: 'Courses',
     subItems: [
-      { href: '/padi-scuba-diving-courses/padi-discover-scuba-diving', label: 'Discover' }, 
-      { href: '/padi-scuba-diving-courses/padi-open-water-diver', label: 'Open Water' }, 
-      { href: '/padi-scuba-diving-courses/padi-advanced-open-water-diver', label: 'Advanced' }, 
-      { href: '/padi-scuba-diving-courses/padi-rescue-diver', label: 'Rescue' }
-    ] 
+      { href: '/padi-scuba-diving-courses', label: 'All PADI Courses' },
+      { href: '/padi-scuba-diving-courses/padi-discover-scuba-diving', label: 'Discover Scuba Diving' },
+      { href: '/padi-scuba-diving-courses/padi-open-water-diver', label: 'Open Water Diver' },
+      { href: '/padi-scuba-diving-courses/padi-advanced-open-water-diver', label: 'Advanced Open Water' },
+      { href: '/padi-scuba-diving-courses/padi-rescue-diver', label: 'Rescue Diver' }
+    ]
   },
-  { href: '/day-trip-phuket', label: 'Day Trips' },
+  {
+    href: '/day-trip-phuket',
+    label: 'Day Trips',
+    subItems: [
+      { href: '/day-trip-phuket', label: 'Diving Day Trips Phuket' },
+      { href: '/day-trip-phuket/day-trip-similan', label: 'Similan & Richelieu Rock' }
+    ]
+  },
+  {
+    href: '/tour',
+    label: 'Tours',
+    subItems: [
+      { href: '/tour', label: 'All Island Tours' },
+      { href: '/tour/phi-phi-islands-tour-from-phuket', label: 'Phi Phi Islands' },
+      { href: '/tour/james-bond-island-tour-from-phuket', label: 'James Bond Island' },
+      { href: '/tour/krabi-4-islands-tour-from-phuket', label: 'Krabi 4 Islands' },
+      { href: '/tour/similan-islands-tour-from-phuket', label: 'Similan Islands' },
+      { href: '/tour/surin-islands-tour-from-phuket', label: 'Surin Islands' },
+      { href: '/tour/koh-rok-koh-haa-tour-from-phuket', label: 'Koh Rok & Koh Haa' },
+      { href: '/tour/koh-kradan-tour-from-phuket', label: 'Koh Kradan' }
+    ]
+  },
   { href: '/liveaboard-itinerary-thailand', label: 'Itinerary' },
   { href: '/dive-sites-thailand', label: 'Dive Sites' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/last-minute', label: 'Last Minute' },
+  { href: '/contact', label: 'Contact' }
 ];
+
+// Pagina attuale, per evidenziare la voce di menu
+const normalize = (path: string) => path.replace(/\/+$/, '') || '/';
+const currentPath = normalize(Astro.url.pathname);
+const isCurrent = (href: string) => normalize(href) === currentPath;
+const isInSection = (link: NavLink) =>
+  isCurrent(link.href) || (link.subItems?.some((sub) => isCurrent(sub.href)) ?? false);
 ---
 
 <header class="pcom-header">
   <div class="header-container">
-    <a href="/" class="header-logo"><OptimizedImage src={'/images/hero/logo-luna.webp'} alt="Luna Diving" class="logo-image" loading="eager" /></a>
-    <button id="menuToggle" class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mainNav"><span></span><span></span><span></span></button>
+    <a href="/" class="header-logo" aria-label="Luna Diving home">
+      <OptimizedImage src="/images/hero/logo-luna.webp" alt="Luna Diving" class="logo-image" loading="eager" />
+    </a>
+
+    <button
+      id="menuToggle"
+      class="menu-toggle"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mainNav"
+    >
+      <span></span><span></span><span></span>
+    </button>
 
     <nav id="mainNav" class="nav-menu" aria-label="Primary navigation">
       <ul class="nav-list">
-        {navLinks.map((link) => (
-          <li class="nav-item">
+        {navLinks.map((link, index) => (
+          <li class:list={['nav-item', { 'has-dropdown': link.subItems, 'is-active': isInSection(link) }]}>
             <div class="nav-item-row">
-              <a href={link.href} class="nav-link">{link.label}</a>
+              <a
+                href={link.href}
+                class="nav-link"
+                aria-current={isCurrent(link.href) ? 'page' : undefined}
+              >
+                {link.label}
+              </a>
               {link.subItems && (
-                <button type="button" class="nav-arrow" aria-label={`Toggle ${link.label} submenu`} aria-expanded="false">
-                  <span aria-hidden="true">▼</span>
+                <button
+                  type="button"
+                  class="nav-arrow"
+                  aria-label={`Show ${link.label} menu`}
+                  aria-expanded="false"
+                  aria-controls={`submenu-${index}`}
+                >
+                  <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
                 </button>
               )}
             </div>
             {link.subItems && (
-              <ul class="dropdown">
-                {link.subItems.map((sub) => <li><a href={sub.href} class="sub-link">{sub.label}</a></li>)}
+              <ul class="dropdown" id={`submenu-${index}`}>
+                {link.subItems.map((sub) => (
+                  <li>
+                    <a
+                      href={sub.href}
+                      class="sub-link"
+                      aria-current={isCurrent(sub.href) ? 'page' : undefined}
+                    >
+                      {sub.label}
+                    </a>
+                  </li>
+                ))}
               </ul>
             )}
           </li>
@@ -69,102 +148,238 @@ const navLinks = [
 </header>
 
 <script>
+  // Deve corrispondere al breakpoint del CSS (max-width: 1200px)
+  const MOBILE_QUERY = window.matchMedia('(max-width: 1200px)');
+
   const toggle = document.getElementById('menuToggle');
   const nav = document.getElementById('mainNav');
+  const items = document.querySelectorAll<HTMLLIElement>('.nav-item.has-dropdown');
 
-  const closeMenu = () => {
-    nav?.classList.remove('is-visible');
-    document.body.classList.remove('menu-open');
-    toggle?.setAttribute('aria-expanded', 'false');
+  const closeDropdowns = (except?: Element | null) => {
+    items.forEach((item) => {
+      if (item === except) return;
+      item.classList.remove('dropdown-open');
+      item.querySelector('.nav-arrow')?.setAttribute('aria-expanded', 'false');
+    });
+  };
+
+  const setMenu = (open: boolean) => {
+    nav?.classList.toggle('is-visible', open);
+    document.body.classList.toggle('menu-open', open);
+    toggle?.setAttribute('aria-expanded', String(open));
+    toggle?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (!open) closeDropdowns();
   };
 
   toggle?.addEventListener('click', () => {
-    const isOpen = !nav?.classList.contains('is-visible');
-    nav?.classList.toggle('is-visible', isOpen);
-    document.body.classList.toggle('menu-open', isOpen);
-    toggle.setAttribute('aria-expanded', String(isOpen));
+    setMenu(!nav?.classList.contains('is-visible'));
   });
 
-  document.querySelectorAll('.nav-link').forEach((link) => {
-    link.addEventListener('click', () => {
-      if (window.innerWidth <= 768) {
-        closeMenu();
-      }
-    });
-  });
-
-  document.querySelectorAll('.nav-arrow').forEach((arrow) => {
+  document.querySelectorAll<HTMLButtonElement>('.nav-arrow').forEach((arrow) => {
     arrow.addEventListener('click', (event) => {
-      event.preventDefault();
       event.stopPropagation();
-
       const item = arrow.closest('.nav-item');
-      const isOpen = item?.classList.toggle('dropdown-open');
+      const isOpen = !item?.classList.contains('dropdown-open');
+      // Un solo sottomenu aperto alla volta
+      closeDropdowns(item);
+      item?.classList.toggle('dropdown-open', isOpen);
       arrow.setAttribute('aria-expanded', String(isOpen));
-
-      if (window.innerWidth <= 768) {
-        item?.querySelector('.dropdown')?.classList.toggle('is-open', isOpen);
-      }
     });
   });
 
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-      closeMenu();
-      document.querySelectorAll('.nav-item').forEach((item) => {
-        item.classList.remove('dropdown-open');
-        item.querySelector('.dropdown')?.classList.remove('is-open');
-      });
+  // Chiude il menu quando si sceglie una pagina su mobile
+  nav?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      if (MOBILE_QUERY.matches) setMenu(false);
+    });
+  });
+
+  // Click fuori dal menu
+  document.addEventListener('click', (event) => {
+    if (!(event.target instanceof Node)) return;
+    if (nav?.contains(event.target) || toggle?.contains(event.target)) return;
+    if (MOBILE_QUERY.matches) {
+      setMenu(false);
+    } else {
+      closeDropdowns();
     }
   });
+
+  // Tasto Esc
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    if (nav?.classList.contains('is-visible')) {
+      setMenu(false);
+      toggle?.focus();
+    } else {
+      closeDropdowns();
+    }
+  });
+
+  // Passando da mobile a desktop il menu aperto non deve restare bloccato
+  MOBILE_QUERY.addEventListener('change', () => setMenu(false));
 </script>
 
 <style>
-  .pcom-header { position: fixed; top: 0; width: 100%; z-index: 9999; background: #fff; border-bottom: 1px solid #eee; }
-  .header-container { max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; position: relative; }
+  .pcom-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  .header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    position: relative;
+  }
+
+  .header-logo { display: flex; flex-shrink: 0; }
   .logo-image { width: 140px; height: auto; }
-  .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0; }
-  .menu-toggle span { display: block; width: 25px; height: 2px; background: #000; margin: 5px 0; }
 
-  .nav-list { list-style: none; padding: 0; margin: 0; display: flex; gap: 24px; }
-  .nav-item { position: relative; display: flex; flex-direction: column; align-items: center; }
-  .nav-item-row { display: flex; align-items: center; justify-content: center; gap: 6px; }
-  .nav-link { font-size: 13px; font-weight: 600; text-transform: uppercase; color: #010205; text-decoration: none; display: flex; align-items: center; }
-  .nav-arrow { font-size: 8px; cursor: pointer; padding: 4px 0 4px 4px; background: none; border: none; color: #010205; display: flex; align-items: center; }
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    margin: -8px;
+  }
 
-  @media (min-width: 769px) {
+  .menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: #000;
+    margin: 5px 0;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  /* Hamburger -> X */
+  .menu-toggle[aria-expanded='true'] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .menu-toggle[aria-expanded='true'] span:nth-child(2) { opacity: 0; }
+  .menu-toggle[aria-expanded='true'] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .nav-list { list-style: none; padding: 0; margin: 0; display: flex; gap: 22px; }
+  .nav-item { position: relative; }
+  .nav-item-row { display: flex; align-items: center; gap: 4px; }
+
+  .nav-link {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    color: #010205;
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 6px 0;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .nav-link:hover,
+  .nav-item.is-active > .nav-item-row .nav-link {
+    color: #008ea7;
+  }
+
+  .nav-link[aria-current='page'] { border-bottom-color: #008ea7; }
+
+  .nav-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #010205;
+  }
+
+  .nav-arrow svg { width: 10px; height: 6px; transition: transform 0.2s ease; }
+  .nav-item.dropdown-open .nav-arrow svg { transform: rotate(180deg); }
+
+  .sub-link {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .sub-link:hover { color: #008ea7; }
+  .sub-link[aria-current='page'] { color: #008ea7; font-weight: 700; }
+
+  .nav-link:focus-visible,
+  .sub-link:focus-visible,
+  .nav-arrow:focus-visible,
+  .menu-toggle:focus-visible,
+  .header-logo:focus-visible {
+    outline: 2px solid #008ea7;
+    outline-offset: 3px;
+  }
+
+  /* Desktop */
+  @media (min-width: 1201px) {
     .dropdown {
-      display: none;
       position: absolute;
-      top: calc(100% + 8px);
+      top: 100%;
       left: 50%;
-      transform: translateX(-50%);
+      min-width: 230px;
+      margin: 0;
+      padding: 10px 0;
+      list-style: none;
       background: #fff;
       border: 1px solid #eee;
-      min-width: 220px;
-      padding: 10px 0;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
-      list-style: none;
-      margin: 0;
+      border-radius: 8px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+      opacity: 0;
+      visibility: hidden;
+      transform: translate(-50%, 6px);
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    }
+
+    /* Ponte invisibile: il sottomenu non si chiude passando dal titolo alla lista */
+    .dropdown::before {
+      content: '';
+      position: absolute;
+      top: -12px;
+      left: 0;
+      right: 0;
+      height: 12px;
     }
 
     .nav-item:hover .dropdown,
+    .nav-item:focus-within .dropdown,
     .nav-item.dropdown-open .dropdown {
-      display: block;
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, 0);
     }
 
-    .sub-link {
-      display: block;
-      padding: 8px 20px;
-      font-size: 11px;
-      text-transform: uppercase;
-      color: #333;
-      text-decoration: none;
-      text-align: center;
-    }
+    .nav-item.has-dropdown { padding-bottom: 12px; margin-bottom: -12px; }
+
+    .sub-link { padding: 9px 22px; }
+    .sub-link:hover { background: #f5fafb; }
+
+    /* Prima voce "All ..." separata dalle altre */
+    .dropdown li:first-child .sub-link { font-weight: 700; color: #010205; }
+    .dropdown li:first-child { border-bottom: 1px solid #f0f0f0; margin-bottom: 4px; padding-bottom: 4px; }
   }
 
-  @media (max-width: 768px) {
+  /* Tablet e mobile */
+  @media (max-width: 1200px) {
     .menu-toggle { display: block; }
 
     .nav-menu {
@@ -173,56 +388,49 @@ const navLinks = [
       top: 100%;
       left: 0;
       width: 100%;
+      max-height: calc(100vh - 80px);
+      max-height: calc(100dvh - 80px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
       background: #fff;
-      padding: 20px 0;
       border-top: 1px solid #eee;
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
     }
 
     .nav-menu.is-visible { display: block; }
 
-    .nav-list {
-      flex-direction: column;
-      gap: 16px;
-      align-items: center;
-      width: 100%;
-    }
+    .nav-list { flex-direction: column; gap: 0; padding: 8px 0 16px; }
 
-    .nav-item {
-      width: 100%;
-      align-items: center;
-    }
+    .nav-item { border-bottom: 1px solid #f3f3f3; }
 
-    .nav-item-row {
-      justify-content: center;
-      width: 100%;
-    }
+    .nav-item-row { justify-content: space-between; padding: 0 24px; }
 
-    .nav-link {
-      justify-content: center;
-    }
+    .nav-link { flex: 1; padding: 14px 0; font-size: 14px; border-bottom: none; }
+    .nav-link[aria-current='page'] { color: #008ea7; }
+
+    .nav-arrow { width: 44px; height: 44px; margin-right: -12px; }
+    .nav-arrow svg { width: 12px; height: 8px; }
 
     .dropdown {
       display: none;
-      width: 100%;
-      margin-top: 8px;
-      padding: 0;
       list-style: none;
+      margin: 0;
+      padding: 0 0 10px;
+      background: #fafafa;
     }
 
-    .dropdown.is-open,
-    .nav-item.dropdown-open .dropdown {
-      display: block;
-    }
+    .nav-item.dropdown-open .dropdown { display: block; }
 
+    .sub-link { padding: 11px 36px; font-size: 12px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .menu-toggle span,
+    .nav-arrow svg,
+    .dropdown,
+    .nav-link,
     .sub-link {
-      display: block;
-      padding: 8px 0;
-      font-size: 11px;
-      text-transform: uppercase;
-      color: #333;
-      text-decoration: none;
-      text-align: center;
+      transition: none;
     }
   }
 </style>
