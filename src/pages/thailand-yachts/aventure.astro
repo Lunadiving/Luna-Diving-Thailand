@@ -4,7 +4,7 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
 import Layout from '../../layouts/Layout.astro';
 
 const vesselName = "Aventure";
-const tagline = "A 29-metre classic ketch for the Andaman Sea and the Mergui Archipelago";
+const tagline = "A 29m classic ketch for private sailing charters in the Andaman Sea and expeditions to the Mergui Archipelago";
 
 const slideshow = [
   { 
@@ -129,19 +129,56 @@ const waterToys = [
   "Fishing rods & tackle"
 ];
 
+const faqs = [
+  {
+    q: 'How many guests can sleep aboard Aventure?',
+    a: 'Aventure takes up to 7 guests overnight in three double cabins and one single cabin, each with its own bathroom. She sails with a crew of four, including a cook. Day charter capacity is confirmed at the time of enquiry.'
+  },
+  {
+    q: 'Where does the charter start?',
+    a: 'Charters start at Yacht Haven Marina in the north of Phuket, or at Koh Rang Yai with a transfer from Royal Phuket Marina. Return transfers from Phuket airport or any hotel in Phuket are included.'
+  },
+  {
+    q: 'How much does it cost to charter Aventure?',
+    a: 'Overnight charters start from THB 290,000 (about USD 8,910) for 2 days and 1 night, up to THB 1,088,000 (about USD 33,480) for 8 days and 7 nights. Rates are per charter, not per person, apply all year and include taxes and local VAT. Longer charters are available on request.'
+  },
+  {
+    q: 'Can we sail to the Mergui Archipelago in Myanmar?',
+    a: 'Yes. The best season is November to April, and we suggest a charter of at least 7 nights. Cross-border charters carry an extra relocation and administration fee of USD 6,000, and Myanmar cruising permits and clearance are arranged in advance as a supplement.'
+  },
+  {
+    q: 'Can we go scuba diving from Aventure?',
+    a: 'Yes. Diving equipment and a Bauer Junior air compressor are carried on board. A scuba diving instructor or certified dive guide can join the charter at an additional cost.'
+  },
+  {
+    q: 'What is included in the charter price?',
+    a: 'The yacht with a crew of four, full board with snacks, fruit, drinking water, tea, coffee, soft drinks, local beers and house wines, airport and hotel transfers, kayak, two paddleboards, snorkelling and diving equipment, fishing tackle, national park fees, cleaning, insurance, taxes and VAT. Fine wines, champagne, spirits, the dive instructor and crew gratuities are extra.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a }
+  }))
+};
+
 const whatsappUrl = `https://wa.me/66918233120?text=${encodeURIComponent("Hi Luna Diving! I'm interested in chartering the classic ketch Aventure.")}`;
 ---
 
 <Layout
-  title={`Classic Sailing Yacht ${vesselName} Charter | Luna Diving Phuket`}
-  description="Charter Aventure, a 29 m classic ketch built by Patrick Balta: 7 guests in 4 cabins, crew of 4, cruising the Andaman Sea and the Mergui Archipelago from Phuket."
+  title={`${vesselName} Sailing Yacht Charter Phuket | 29m Classic Ketch`}
+  description="Private sailing yacht charter from Phuket on Aventure, a 29m classic ketch for 7 guests: Andaman Sea cruises, Mergui expeditions and diving gear aboard."
   image="/images/yacht/aventure/aventure-sailing-yacht-under-full-sail.webp"
 >
   <main class="pcom-wrapper">
     
     <section class="pcom-hero">
       <span class="pcom-subtitle">Classic 29m Ketch</span>
-      <h1 class="pcom-title">{vesselName}</h1>
+      <h1 class="pcom-title">{vesselName} Sailing Yacht Charter Phuket</h1>
       <div class="pcom-divider"></div>
       <p class="pcom-tagline">{tagline}</p>
     </section>
@@ -188,56 +225,66 @@ const whatsappUrl = `https://wa.me/66918233120?text=${encodeURIComponent("Hi Lun
 
     <section class="pcom-content-grid">
       <div class="content-main">
-        <h2 class="content-heading">Some coastlines are still worth the long passage north.</h2>
+        <h2 class="content-heading">Private Sailing Yacht Charter from Phuket</h2>
         <div class="heading-line"></div>
         <p class="paragraph">
-          A few days' sail from Phuket, beyond the Similans and the Surins, the <strong>Mergui Archipelago</strong> lies scattered along the Tanintharyi coast of Myanmar: eight hundred islands, closed to outsiders for half a century and still visited by only a handful of yachts each season. <strong>Aventure</strong> was built for this coast.
+          <strong>Aventure</strong> is a <strong>29-metre (95 ft) classic ketch</strong> available for <strong>private sailing charters from Phuket</strong>. With room for <strong>7 guests in four cabins</strong> and a crew of four, she sails all year across the Andaman Sea, from Phang Nga Bay to the Similan and Surin Islands, and from November to April she makes the longer voyage north to the remote <strong>Mergui Archipelago</strong> in Myanmar.
         </p>
         <p class="paragraph">
-          She is a classic ketch of 29 metres, launched in 2011 by <strong>Patrick Balta</strong>, the French shipwright whose Thai yard has built some of the finest traditional yachts sailing in Asia. Long overhangs, a raked transom, varnished teak and a working spread of canvas on two masts.
-        </p>
-        <p class="paragraph">
-          Freshly renovated and sailing year round from Phuket, she is at her best from November to April, when the northeast monsoon opens the passage into Myanmar.
+          Recently renovated, she combines the look and feel of a traditional sailing yacht, with two masts, varnished teak and long, elegant overhangs, with the space, comfort and full board service of a private charter yacht.
         </p>
 
-        <h3 class="sub-heading">A Proper Sea Boat</h3>
+        <h3 class="sub-heading">Built by Patrick Balta in 2011</h3>
         <p class="paragraph">
-          Ketch rig, generous displacement and a single 400 hp MAN engine for the calms. She cruises at eight knots and carries 6,500 litres of fuel and 1,000 litres of water, which gives her the range for the run north to Myanmar and back.
+          Aventure was launched in 2011 by Patrick Balta, a French shipwright whose yard in Thailand is known for some of the most beautiful traditional yachts sailing in Asian waters. Her raked transom, long overhangs and generous sail plan on two masts are the work of a builder who knows traditional yachts.
         </p>
 
-        <h3 class="sub-heading">On Deck: Teak, Canvas & Shade</h3>
+        <h3 class="sub-heading">A True Sailing Yacht for the Andaman Sea</h3>
         <p class="paragraph">
-          The deck is the reason to charter a boat like this one: wide side decks, a long clear foredeck to lie out on, and shade rigged wherever the sun finds you. Aft of the mizzen, the deck opens into a shaded cockpit built around the wheel. Breakfast happens here, the fishing rods live here, and this is where most guests end up staying. A full awning covers the cockpit at anchor and comes down when the wind gets up.
+          With her ketch rig and generous displacement, Aventure is a proper sea boat. When the wind drops, a single 400 hp MAN engine keeps her moving at a cruising speed of 8 knots, and with 6,500 litres of fuel and 1,000 litres of fresh water on board she has the range for multi-day passages far from the nearest marina.
         </p>
 
-        <h3 class="sub-heading">The Saloon & Galley</h3>
+        <h3 class="sub-heading">Mergui Archipelago Sailing Expeditions</h3>
         <p class="paragraph">
-          Below she is quiet and cool. The saloon runs the full width of the yacht, with skylights along the coachroof, panelled bulkheads and a sole of varnished teak: dining below when the weather turns, on deck when it does not. The galley is laid out for a cook feeding seven guests three meals a day, several days from the nearest market, and the chart table is manned on every passage.
+          North of the Surin Islands, along the Tanintharyi coast of southern Myanmar, the Mergui Archipelago counts around eight hundred islands. Closed to foreign visitors for about fifty years, it is still one of the least visited cruising grounds in Asia: granite headlands, empty white beaches, Moken sea-nomad villages and reefs that day-trip boats never reach.
+        </p>
+        <p class="paragraph">
+          The voyage from Phuket runs via the Similan and Surin Islands to Kawthaung, then on to Lampi Island and the northern island groups. The season runs from November to April, when the northeast monsoon opens the passage into Myanmar, and we recommend at least seven nights. Myanmar permits and border clearance are organised before departure.
+        </p>
+
+        <h3 class="sub-heading">Teak Decks and a Shaded Cockpit</h3>
+        <p class="paragraph">
+          Life on board happens outside. Wide side decks and a long, clear foredeck give plenty of room to sunbathe, while awnings provide shade wherever it is needed. Behind the mizzen mast, the cockpit around the wheel is the heart of the yacht: breakfast is served here, the fishing rods are kept here, and most guests spend their days here. At anchor a full awning covers the cockpit, and it is stowed when the wind picks up.
+        </p>
+
+        <h3 class="sub-heading">Saloon, Galley and Navigation</h3>
+        <p class="paragraph">
+          Below deck the atmosphere is calm and cool. The saloon spans the full width of the yacht, lit by skylights along the coachroof and finished in hardwood panelling with a varnished teak floor, a comfortable place to eat when the weather turns. The galley is equipped for a cook to prepare three meals a day for seven guests during long passages, and the chart table is staffed on every voyage.
         </p>
 
         <h3 class="sub-heading">Four Cabins for Seven Guests</h3>
         <p class="paragraph">
-          The master cabin has a double berth beneath opening skylights, hanging lockers on either side, drawers beneath the berth and a private bathroom. Two further double cabins and a single complete the accommodation, each panelled in hardwood with storage, reading lights and a bathroom. Fresh flowers, cotton linen and turndown are part of the service, not an extra.
+          Aventure has three double cabins and one single cabin, all panelled in hardwood and each with storage, reading lights and its own bathroom. The master cabin has a double berth under opening skylights, hanging lockers on both sides, drawers beneath the bed and a private en-suite bathroom. Fresh flowers, cotton linen and an evening turndown are part of the service.
         </p>
 
-        <h3 class="sub-heading">Photography & Brand Shoots</h3>
+        <h3 class="sub-heading">Diving, Snorkelling and Water Toys</h3>
         <p class="paragraph">
-          Aventure is also a working platform for photography. Fashion houses and luxury brands charter her for campaign and editorial shoots, for the rig, the teak and the light as much as for the anchorages.
-        </p>
-
-        <h3 class="sub-heading">Water Toys & Exploration</h3>
-        <p class="paragraph">
-          In the Mergui Archipelago the tender lands you on empty white sand beaches, near Moken villages and reefs no day boat has ever reached. Diving with certified guides is available as a supplement.
+          As a dive centre, we especially like that Aventure carries her own diving equipment and a Bauer Junior air compressor, so you can dive the Similans, the Surins or the untouched reefs of Mergui straight from the yacht. A scuba instructor or certified dive guide can join the charter at extra cost. Snorkelling gear, paddleboards and a kayak are included for everyone else.
         </p>
         <ul class="toy-list">
           {waterToys.map(toy => <li>{toy}</li>)}
         </ul>
+
+        <h3 class="sub-heading">Photo, Fashion and Brand Shoots</h3>
+        <p class="paragraph">
+          Aventure is also chartered by fashion houses and luxury brands as a location for advertising campaigns and editorial photo shoots. Her rig, her teak and the light of the Andaman Sea are as much of a draw as the anchorages.
+        </p>
       </div>
 
       <div class="content-sidebar">
         <div class="booking-sticky-box">
           <h3 class="sidebar-heading">Ready to Charter?</h3>
-          <p class="sidebar-text">Inquire about availability for the 29m classic ketch Aventure, departing from Yacht Haven Marina, Phuket.</p>
+          <p class="sidebar-text">Check availability for a private sailing charter or a Mergui expedition on the 29m classic ketch Aventure, departing from Yacht Haven Marina, Phuket.</p>
           <a href="/contact?vessel=Aventure" class="pcom-btn-primary">
             Inquire via Email
           </a>
@@ -389,6 +436,23 @@ const whatsappUrl = `https://wa.me/66918233120?text=${encodeURIComponent("Hi Lun
         </table>
       </div>
     </section>
+
+    <section class="pcom-schedule-section">
+      <div class="pricing-header">
+        <h2 class="content-heading">Aventure Charter: Frequently Asked Questions</h2>
+        <div class="heading-line"></div>
+      </div>
+      <div class="faq-list">
+        {faqs.map((item) => (
+          <details class="faq-item">
+            <summary class="faq-question">{item.q}</summary>
+            <p class="paragraph faq-answer">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
     <a 
       href={whatsappUrl} 
@@ -1107,5 +1171,27 @@ const whatsappUrl = `https://wa.me/66918233120?text=${encodeURIComponent("Hi Lun
   .pcom-whatsapp-float svg {
     width: 32px;
     height: 32px;
+  }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid var(--pcom-color-surface);
+    padding: 14px 0;
+  }
+
+  .faq-question {
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--pcom-color-primary);
+  }
+
+  .faq-question:focus-visible {
+    outline: 2px solid var(--pcom-color-accent);
+    outline-offset: 4px;
+  }
+
+  .faq-answer {
+    margin: 10px 0 0;
   }
 </style>
