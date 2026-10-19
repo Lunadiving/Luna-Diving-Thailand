@@ -4,7 +4,7 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
 import Layout from '../../layouts/Layout.astro';
 
 const vesselName = "Maha Bhetra";
-const tagline = "90ft Ed Tuttle Designed Classic Motor Yacht for Andaman Voyages";
+const tagline = "Ninety feet of Thai-crafted motor yacht, designed by Aman architect Ed Tuttle for unhurried Andaman voyages";
 
 const slideshow = [
   { 
@@ -25,11 +25,11 @@ const slideshow = [
   },
   { 
     img: '/images/yacht/maha-bhetra/maha-bhetra-yacht-master-cabin-king-bed.webp', 
-    text: 'Spacious wooden master cabin suite with king bed and shuttered windows on luxury yacht Maha Bhetra.' 
+    text: 'One of three identical 20 sqm double cabins on Maha Bhetra, with louvred teak shutters and two 140 x 200 cm berths.' 
   },
   { 
     img: '/images/yacht/maha-bhetra/maha-bhetra-yacht-twin-guest-cabin.webp', 
-    text: 'Guest cabin accommodation with twin beds and teak shuttered windows on yacht Maha Bhetra.' 
+    text: 'Double cabin with berths side by side, brass reading lights and louvred cabinetry in the same hand as the saloon.' 
   },
   { 
     img: '/images/yacht/maha-bhetra/maha-bhetra-yacht-en-suite-bathroom.webp', 
@@ -63,9 +63,12 @@ const technicalSpecs = [
   { label: 'Length Overall', value: '27.4 m / 90 ft' },
   { label: 'Beam / Draft', value: '5.70 m / 2.50 m' },
   { label: 'Cruising Speed', value: '8 Knots' },
-  { label: 'Capacity', value: '12 Day / 6 Overnight' },
-  { label: 'Cabins', value: '3 Identical Double Suites (20 sqm)' },
-  { label: 'Crew', value: '5 (Experienced Decades Onboard)' },
+  { label: 'Guests', value: '12 Day / 6 Overnight' },
+  { label: 'Cabins', value: '3 Identical Doubles, 20 sqm Each' },
+  { label: 'Berths', value: '2 per Cabin, 140 x 200 cm' },
+  { label: 'Bathrooms', value: '3 En Suite, Separate Shower & WC' },
+  { label: 'Air Conditioning', value: 'Throughout' },
+  { label: 'Crew', value: '5' },
   { label: 'Interiors', value: 'Jim Thompson Silks & 18th C. Antiques' },
   { label: 'Cruising Grounds', value: 'Andaman Sea & Mergui' },
   { label: 'Home Port', value: 'Phuket Yacht Haven Marina' }
@@ -105,7 +108,7 @@ const includedItems = [
 
 const notIncludedItems = [
   { text: 'Wine, champagne and spirits', highlight: 'Available on request' },
-  { text: 'Similan national park fees', highlight: 'As applicable' },
+  { text: 'Similan national park fees', highlight: 'Not included' },
   { text: 'Activities or services on request', highlight: 'Supplement' },
   { text: 'Crew gratuities', highlight: 'Discretionary' }
 ];
@@ -113,35 +116,65 @@ const notIncludedItems = [
 const schedule = [
   { dates: "Daily Departure", itinerary: "Day Charter (12 Guests Max)", route: "Yacht Haven / Phang Nga Bay / Koh Yao", type: "Day Trip" },
   { dates: "Custom Dates", itinerary: "Andaman Islands Overnight (6 Guests)", route: "Phang Nga / Krabi / Phi Phi / Racha", type: "Overnight" },
-  { dates: "November to April", itinerary: "Mergui Archipelago & Similans", route: "Similans / Surin / Mergui", type: "Expedition" }
+  { dates: "4 Days or More", itinerary: "Similan Islands (Similan Rate)", route: "Similans / Surin, closed in the south west monsoon", type: "Overnight" },
+  { dates: "On Request", itinerary: "Mergui Archipelago, Myanmar", route: "Advance permits and a longer charter required", type: "Expedition" }
 ];
 
+// Tempi di navigazione dalla brochure 2026, a 8 nodi da Yacht Haven
 const cruisingDistances = [
-  { destination: "Koh Yao Noi", distance: "Approx. 16 nm", time: "2 hours" },
-  { destination: "Phang Nga Bay", distance: "Approx. 20 nm", time: "2 h 30 min" },
-  { destination: "Koh Hong, Krabi", distance: "Approx. 30 nm", time: "3 h 45 min" },
-  { destination: "Koh Phi Phi", distance: "Approx. 40 nm", time: "5 hours" },
-  { destination: "Racha Islands", distance: "Approx. 44 nm", time: "5 h 30 min" },
-  { destination: "Similan Islands", distance: "Approx. 56 nm", time: "7 hours" },
-  { destination: "Surin Islands", distance: "Approx. 88 nm", time: "11 hours" },
-  { destination: "Koh Lipe & Butangs", distance: "Approx. 152 nm", time: "19 hours" }
+  { destination: "Koh Yao Noi", time: "2 hours" },
+  { destination: "Phang Nga Bay", time: "2 h 30 min" },
+  { destination: "Koh Hong, Krabi", time: "3 h 45 min" },
+  { destination: "Koh Phi Phi", time: "5 hours" },
+  { destination: "Racha Islands", time: "5 h 30 min" },
+  { destination: "Similan Islands", time: "7 hours" },
+  { destination: "Surin Islands", time: "11 hours" },
+  { destination: "Koh Lipe & the Butangs", time: "19 hours" }
+];
+
+const charterConditions = [
+  { label: 'Embarkation', value: 'Phuket Yacht Haven Marina' },
+  { label: 'Check In', value: '10:00 on the first day' },
+  { label: 'Check Out', value: 'After sunset on the last day' },
+  { label: 'Transfers', value: 'Return, from any hotel in Phuket or the airport' },
+  { label: 'Cruising Area', value: 'Northern and southern Andaman Sea' },
+  { label: 'Peak Season', value: '20 December to 10 January' },
+  { label: 'Currency', value: 'Thai Baht, local VAT included' }
+];
+
+const crew = [
+  { name: 'Khun Lim', role: 'Captain', note: 'Thirty years at sea, fifteen of them aboard.' },
+  { name: 'Khun Dam', role: 'Steward', note: 'Nearly thirty years aboard.' },
+  { name: 'Khun Len', role: 'Engineer', note: 'Nearly twenty-five years aboard.' }
+];
+
+const onBoard = [
+  "Air conditioning throughout",
+  "WiFi & Bluetooth speakers",
+  "Board games",
+  "BBQ & grill",
+  "Medical kit, safety equipment & life jackets"
 ];
 
 const waterToys = [
-  "Tender with outboard motor",
-  "2 Sea Kayaks",
+  "Tender",
+  "2 Kayaks",
   "Stand-up paddleboard (SUP)",
-  "Snorkelling equipment for all guests",
-  "Fishing rods & tackle",
-  "Beach games & lounge setup"
+  "Snorkelling equipment",
+  "Fishing rods",
+  "Beach games"
 ];
 ---
 
-<Layout title={`Luxury Motor Yacht ${vesselName} Charter | Luna Diving Phuket`}>
+<Layout
+  title={`Classic Motor Yacht ${vesselName} Charter Phuket | Luna Diving`}
+  description="Charter Maha Bhetra, a 90ft Thai-crafted timber motor yacht designed by Aman architect Ed Tuttle: 3 identical cabins, 6 guests overnight or 12 by day, from Yacht Haven, Phuket."
+  image="/images/yacht/maha-bhetra/maha-bhetra-luxury-yacht-phang-nga-bay-side-view.webp"
+>
   <main class="pcom-wrapper">
     
     <section class="pcom-hero">
-      <span class="pcom-subtitle">Classic 90ft Motor Yacht</span>
+      <span class="pcom-subtitle">90ft Thai-Crafted Motor Yacht</span>
       <h1 class="pcom-title">{vesselName}</h1>
       <div class="pcom-divider"></div>
       <p class="pcom-tagline">{tagline}</p>
@@ -206,35 +239,60 @@ const waterToys = [
           Maha Bhetra was built in Thailand to a design that borrows from the country's own working boats: a long, narrow timber hull with a fine entry, a deep forefoot and a shallow draft of two and a half metres. She carries her accommodation low and her living space high, which is the reverse of most modern charter yachts and the reason she feels like a house rather than a boat.
         </p>
 
+        <p class="paragraph">
+          She has been in the same family for thirty years and has been maintained rather than restored, which is a different and better thing. The antiques, the joinery and the commissioned Jim Thompson silks are all original to her.
+        </p>
+
+        <h3 class="sub-heading">Eight Knots, and No Hurry</h3>
+        <p class="paragraph">
+          A timber displacement hull does not plane and does not want to. She holds eight knots comfortably, burns very little doing it, and is quiet enough that conversation on the aft deck carries over the engines.
+        </p>
+
         <h3 class="sub-heading">The Architect: Ed Tuttle (1945 – 2020)</h3>
         <p class="paragraph">
-          Edward Burnham Tuttle Jr. was an American architect and interior designer whose work reset the standard for luxury hospitality. Educated at the University of Washington and shaped by Wright and Mies, he founded Design Realization in Paris in 1977 and spent four decades building the visual language of the Aman group: Amanpuri in Phuket, Amanjena in Morocco, and a long list of hotels that made restraint feel like luxury.
+          Edward Burnham Tuttle Jr. was an American architect and interior designer whose work reset the standard for luxury hospitality. Educated at the University of Washington and shaped by Wright and Mies, he founded Design Realization in Paris in 1977 and spent four decades building the visual language of the Aman group: Amanpuri in Phuket, Amanjena in Morocco, and a long list of hotels and private houses that made restraint feel like luxury.
         </p>
         <p class="paragraph">
           Maha Bhetra is the only yacht he designed. She carries the same thinking as the resorts: local craft and local materials handled with a very light touch, spaces that open to the weather, and almost no ornament that is not structural. The louvred cabinetry, the proportions of the saloon, and the way the deckhead steps down over the dining table are all his. He commissioned an exclusive Jim Thompson fabric for her cushions that remains aboard today.
         </p>
 
-        <h3 class="sub-heading">The Top Deck & Saloon</h3>
+        <h3 class="sub-heading">The Top Deck: One Room, Open to the Weather</h3>
         <p class="paragraph">
-          The top deck is one open room. Teak underfoot, teak overhead, and louvred panels that slide back so the saloon and the aft deck become a single seamless space. A round dining table sits at the centre, while the wrapping banquette at the after end takes all six guests at once. The bow carries a teak daybed wide enough for four, under shade that lasts all day.
+          The whole of the upper deck is given over to living space. Teak underfoot, teak overhead, and louvred panels that slide back until the saloon and the aft deck are the same room. The bow carries a teak daybed wide enough for four, with shade all day and a deckhead high enough to stand under. In the evening the table on the bow is set for dinner and the karsts do the rest.
+        </p>
+        <p class="paragraph">
+          Tuttle's saloon runs the full width of the deck and opens on three sides. The round table seats all six guests, the wrapping banquette takes the rest of the evening, and the louvred cabinets hide everything modern. Handwoven textures, warm teak and curated Southeast Asian pieces, most of them eighteenth century and all of them original to the yacht.
         </p>
 
         <h3 class="sub-heading">Three Cabins, All the Same</h3>
         <p class="paragraph">
-          There is no master and no compromise cabin. Below are three identical double cabins of twenty square metres each, every one with a separate shower and WC, a vanity, and wardrobes built into a dressing area. Nobody gets the small room. Day charter carries twelve guests; overnight charter sleeps six.
+          There is no master and no compromise cabin. Below are three identical double cabins of twenty square metres each, every one with a separate shower and WC (each 135 x 110 cm), a vanity, two berths of 140 x 200 cm, air conditioning and two wardrobes built into a dressing area. Nobody gets the small one, so guest allocation is a matter of preference rather than hierarchy. Day charter carries twelve guests; overnight charter sleeps six.
         </p>
 
         <h3 class="sub-heading">Dining & Life Aboard</h3>
         <p class="paragraph">
-          The galley works from the market that morning. Authentic Thai food is what the crew cooks best and what most guests ask for twice, but the kitchen is equally happy with a continental breakfast or a seafood barbecue on the beach.
+          The galley works from the market that morning. Authentic Thai food is what the crew cooks best and what most guests ask for twice, but the kitchen is equally happy with a continental breakfast or a seafood barbecue on the beach. Overnight charters are full board, with snacks, fruit, water, tea, coffee, soft drinks and local beer, and a bottle of French rosé for each day aboard.
         </p>
+
+        <h3 class="sub-heading">The Crew: Five, and Most of Them for Life</h3>
+        <p class="paragraph">
+          Maha Bhetra carries a crew of five. Between the three senior hands there are more than seventy years aboard this one yacht. They know the islands, the anchorages that stay flat in a northerly, and every fishing mark on this coast. All three are keen fishermen, which is how most guests end up fishing too.
+        </p>
+        <ul class="toy-list">
+          {crew.map(member => <li><strong>{member.name}</strong>, {member.role}. {member.note}</li>)}
+        </ul>
+        <p class="paragraph" style="font-size: 13px; color: #4f5059;">Crew composition is subject to change; the current list is confirmed before departure.</p>
 
         <h3 class="sub-heading">Water Toys & Exploration</h3>
         <p class="paragraph">
-          Because Maha Bhetra draws two and a half metres, she anchors close in. The tender runs the last hundred metres to beaches that day boats never reach, and the kayaks go further into mangroves and hongs.
+          Because Maha Bhetra draws two and a half metres, she anchors close in. The tender runs the last hundred metres to beaches that day boats never reach, and the kayaks go further still, into the mangrove and the hongs. Everything below is aboard and included; nothing needs booking the night before.
         </p>
         <ul class="toy-list">
           {waterToys.map(toy => <li>{toy}</li>)}
+        </ul>
+        <h3 class="sub-heading">On Board</h3>
+        <ul class="toy-list">
+          {onBoard.map(item => <li>{item}</li>)}
         </ul>
       </div>
 
@@ -379,8 +437,8 @@ const waterToys = [
 
     <section class="pcom-schedule-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Cruising Grounds & Passage Times</h2>
-        <p class="paragraph" style="margin-bottom: 12px;">Approximate passage times at 8 knots from Phuket Yacht Haven Marina (Indicative dependent on sea state and tide).</p>
+        <h2 class="content-heading">From Yacht Haven, North or South</h2>
+        <p class="paragraph" style="margin-bottom: 12px;">Approximate passage times at 8 knots from Phuket Yacht Haven Marina. Times are indicative only: actual passages depend on sea state, tide and the route the captain chooses on the day. Overnight passages are normally run while guests sleep. The Similan and Surin marine parks close each year during the south west monsoon.</p>
         <div class="heading-line"></div>
       </div>
 
@@ -389,7 +447,6 @@ const waterToys = [
           <thead>
             <tr>
               <th>Destination</th>
-              <th>Distance</th>
               <th>Cruising Time</th>
             </tr>
           </thead>
@@ -397,7 +454,6 @@ const waterToys = [
             {cruisingDistances.map((row) => (
               <tr>
                 <td class="td-dates">{row.destination}</td>
-                <td class="td-itinerary"><span class="itinerary-text">{row.distance}</span></td>
                 <td class="td-route">{row.time}</td>
               </tr>
             ))}
@@ -443,6 +499,20 @@ const waterToys = [
           </tbody>
         </table>
       </div>
+    </section>
+
+    <section class="pcom-specs-container">
+      <div class="pcom-specs-grid">
+        {charterConditions.map((item) => (
+          <div class="spec-item">
+            <span class="spec-label">{item.label}</span>
+            <span class="spec-value">{item.value}</span>
+          </div>
+        ))}
+      </div>
+      <p class="table-note-text" style="margin-top: 12px; font-size: 12px; color: #4f5059; line-height: 1.5;">
+        Rates are quoted per charter, not per person, and are subject to availability at the time of booking. Charters are invoiced in Thai Baht. Itineraries are indicative: the captain may adjust the route for sea state, weather or national park access.
+      </p>
     </section>
 
     <a 
