@@ -285,7 +285,7 @@ const whatsappUrl = `https://wa.me/66918233120?text=${encodeURIComponent("Hi Lun
         <div class="booking-sticky-box">
           <h3 class="sidebar-heading">Ready to Dive?</h3>
           <p class="sidebar-text">Check cabin availability on MV Pawara. Peak season departures from December to April book up first.</p>
-          <a href="/contact?vessel=MV%20Pawara" class="pcom-btn-primary">
+          <a href="/contact/?vessel=MV%20Pawara" class="pcom-btn-primary">
             Check Availability
           </a>
         </div>
@@ -387,7 +387,7 @@ const whatsappUrl = `https://wa.me/66918233120?text=${encodeURIComponent("Hi Lun
                 </td>
                 <td class="td-route">{row.route}</td>
                 <td class="td-action">
-                  <a href={`/contact?vessel=${encodeURIComponent(vesselName)}&date=${encodeURIComponent(row.dates)}`} class="table-book-btn" aria-label={`Book ${row.itinerary} departing ${row.dates}`}>
+                  <a href={`/contact/?vessel=${encodeURIComponent(vesselName)}&date=${encodeURIComponent(row.dates)}`} class="table-book-btn" aria-label={`Book ${row.itinerary} departing ${row.dates}`}>
                     Book
                   </a>
                 </td>

@@ -210,7 +210,7 @@ const whatsappUrl = `https://wa.me/66918233120?text=${encodeURIComponent("Hi Lun
         <div class="booking-sticky-box" style="background: #fafafa; border: 1px solid var(--pcom-color-surface); padding: 32px 24px; border-radius: 6px; text-align: left;">
           <h3 class="sidebar-heading" style="font-size: 16px; font-weight: 700; text-transform: uppercase; margin: 0 0 12px 0;">Ready to Charter?</h3>
           <p class="sidebar-text" style="font-size: 13.5px; color: var(--pcom-color-text-muted); line-height: 1.5; margin: 0 0 20px 0;">MV Giamani is priced for the whole boat, for up to 10 guests (divers or non-divers). Tell us your dates and group size for a quote.</p>
-          <a href="/contact?vessel=MV%20Giamani" class="pcom-btn-primary" style="display: block; text-align: center; background: var(--pcom-color-primary); color: #fff; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 12px; border-radius: 4px; text-decoration: none;">
+          <a href="/contact/?vessel=MV%20Giamani" class="pcom-btn-primary" style="display: block; text-align: center; background: var(--pcom-color-primary); color: #fff; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 12px; border-radius: 4px; text-decoration: none;">
             Request a Charter Quote
           </a>
         </div>
@@ -317,7 +317,7 @@ const whatsappUrl = `https://wa.me/66918233120?text=${encodeURIComponent("Hi Lun
                 </td>
                 <td class="td-route">{row.route}</td>
                 <td class="td-action">
-                  <a href={`/contact?vessel=${encodeURIComponent(vesselName)}&date=${encodeURIComponent(row.dates)}`} class="table-book-btn" aria-label={`Inquire about ${row.itinerary}`}>
+                  <a href={`/contact/?vessel=${encodeURIComponent(vesselName)}&date=${encodeURIComponent(row.dates)}`} class="table-book-btn" aria-label={`Inquire about ${row.itinerary}`}>
                     Inquire
                   </a>
                 </td>

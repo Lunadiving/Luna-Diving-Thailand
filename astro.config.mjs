@@ -8,6 +8,8 @@ import partytown from '@astrojs/partytown';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://luna-diving-thailand.com',
+  // Tutti gli URL finiscono con lo slash (es. /thailand-liveaboards/pawara/)
+  trailingSlash: 'always',
   build: {
     format: 'directory'
   },

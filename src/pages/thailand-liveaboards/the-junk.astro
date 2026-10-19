@@ -272,7 +272,7 @@ const faqSchema = {
         <div class="booking-sticky-box">
           <h3 class="sidebar-heading">Ready to Dive?</h3>
           <p class="sidebar-text">With only 18 places per trip, The Junk fills up quickly in peak season. Check availability for your dates.</p>
-          <a href="/contact?vessel=The%20Junk" class="pcom-btn-primary">
+          <a href="/contact/?vessel=The%20Junk" class="pcom-btn-primary">
             Check Availability
           </a>
         </div>
@@ -377,7 +377,7 @@ const faqSchema = {
                   {row.isSoldOut ? (
                     <span class="table-soldout-btn">Sold Out</span>
                   ) : (
-                    <a href={`/contact?vessel=${encodeURIComponent(vesselName)}&date=${encodeURIComponent(row.dates)}`} class="table-book-btn" aria-label={`Book ${row.itinerary} departing ${row.dates}`}>
+                    <a href={`/contact/?vessel=${encodeURIComponent(vesselName)}&date=${encodeURIComponent(row.dates)}`} class="table-book-btn" aria-label={`Book ${row.itinerary} departing ${row.dates}`}>
                       Book
                     </a>
                   )}
