@@ -4,7 +4,7 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
 import Layout from '../../layouts/Layout.astro';
 
 const vesselName = "Nimbus T11";
-const tagline = "A day boat built for the Andaman, and for the way a day at sea should actually feel.";
+const tagline = "A fast 2022 Nimbus day boat for private speedboat charters from Royal Phuket Marina to Phang Nga Bay, Phi Phi and Koh Haa";
 
 const slideshow = [
   { 
@@ -59,18 +59,19 @@ const slideshow = [
 ];
 
 const technicalSpecs = [
-  { label: 'Length Overall', value: '11.88 m' },
-  { label: 'Beam', value: '3.49 m' },
-  { label: 'Draft', value: '0.81 m' },
+  { label: 'Builder / Model', value: 'Nimbus Boats / T11' },
+  { label: 'Year of Build', value: '2022' },
+  { label: 'Type', value: 'Day Boat' },
+  { label: 'Length Overall', value: '11.88 m / 39 ft' },
+  { label: 'Beam / Draft', value: '3.49 m / 0.81 m' },
   { label: 'Engines', value: '2 x 350 hp Mercury Verado' },
-  { label: 'Speed', value: '20 to 40 knots' },
-  { label: 'Fuel Capacity', value: '850 L' },
-  { label: 'Water Capacity', value: '135 L' },
-  { label: 'Cabins', value: '2 (Sleeps 4)' },
-  { label: 'Day Charter', value: '10 Guests' },
+  { label: 'Speed', value: '20 to 40 Knots' },
+  { label: 'Fuel / Water', value: '850 L / 135 L' },
+  { label: 'Cabins / Berths', value: '2 Cabins / 4 Berths' },
+  { label: 'Guests', value: '10 Day / 4 Overnight' },
   { label: 'Crew', value: '3 (Skipper, Deckhand, Hostess)' },
-  { label: 'Home Port', value: 'Royal Phuket Marina' },
-  { label: 'Interior Design', value: 'Joacim Gustavsson' }
+  { label: 'Interior Design', value: 'Joacim Gustavsson' },
+  { label: 'Home Port', value: 'Royal Phuket Marina' }
 ];
 
 const dayCharterRates = [
@@ -101,37 +102,87 @@ const includedItems = [
 ];
 
 const notIncludedItems = [
-  { text: 'Alcoholic beverages beyond those listed', highlight: 'On request' },
-  { text: 'Special catering, therapist, massage and photographer', highlight: 'Supplement' },
-  { text: 'National park fees where applicable', highlight: 'Direct payment' },
-  { text: 'Cancellation, curtailment & liability insurance', highlight: 'Optional' },
-  { text: 'Crew gratuities', highlight: 'Discretionary' },
-  { text: 'Transfer to and from accommodation', highlight: 'Supplement' }
+  { text: 'Alcoholic beverages beyond those listed', highlight: 'Supplement' },
+  { text: 'Special catering, massage therapist or photographer', highlight: 'On request' },
+  { text: 'National park fees', highlight: 'Where applicable' },
+  { text: 'Cancellation, curtailment & charterer liability insurance', highlight: 'Not included' },
+  { text: 'Crew gratuities', highlight: "At the guests' discretion" },
+  { text: 'Transfer by regular car', highlight: 'From THB 3,210 / USD 100' },
+  { text: 'Transfer by luxury van', highlight: 'From THB 6,000 / USD 180' }
 ];
 
 const cruisingDistances = [
-  { destination: "Phang Nga Bay", distance: "Day Charter", time: "Morning run" },
-  { destination: "Krabi 4 Islands", distance: "Day Charter", time: "Full day" },
-  { destination: "Phi Phi Islands", distance: "Day Charter", time: "Comfortable day trip" },
-  { destination: "Racha Islands", distance: "Day Charter", time: "Comfortable day trip" },
-  { destination: "Koh Haa", distance: "Day Charter", time: "Comfortable day trip" },
-  { destination: "Koh Kradan & Koh Mook", distance: "Day Charter", time: "Full day range" }
+  { destination: "Phang Nga Bay", type: "Day charter", rate: "From THB 115,000" },
+  { destination: "Krabi 4 Islands", type: "Day charter", rate: "From THB 115,000" },
+  { destination: "Phi Phi Islands", type: "Day charter", rate: "From THB 125,000" },
+  { destination: "Racha Islands", type: "Day charter", rate: "From THB 125,000" },
+  { destination: "Koh Haa", type: "Day charter", rate: "From THB 136,000" },
+  { destination: "Koh Kradan and Koh Mook", type: "Day charter", rate: "From THB 146,000" },
+  { destination: "Combined island itineraries", type: "2 to 5 days", rate: "From THB 272,000" }
 ];
 
 const waterToys = [
   "Snorkelling equipment",
-  "Stand up paddleboard (SUP)",
-  "Kayak",
-  "Towed tube"
+  "Stand-up paddleboard (SUP)",
+  "Kayak"
 ];
+
+const onBoard = [
+  "Gourmet lunch on day charters, full board overnight",
+  "Water, soft drinks, local beer and a bottle of wine",
+  "Welcome fruit plate and fresh towels",
+  "Hardtop shade over the cockpit",
+  "Teak table that converts into a sunbed"
+];
+
+const faqs = [
+  {
+    q: 'How much does a Nimbus T11 day charter cost?',
+    a: 'An 8-hour private day charter starts from THB 115,000 (about USD 3,480) for Phang Nga Bay or the Krabi 4 Islands, up to THB 146,000 (about USD 4,420) for Koh Kradan and Koh Mook. Peak season rates apply from 20 December to 10 January. Rates are per boat, not per person, and include local VAT.'
+  },
+  {
+    q: 'How many guests can come on board?',
+    a: 'Up to 10 guests on a day charter and up to 4 guests overnight, in two cabins. The boat is run by a crew of three: skipper, deckhand and hostess.'
+  },
+  {
+    q: 'How fast is the Nimbus T11?',
+    a: 'Twin 350 hp Mercury Verado outboards give her a working speed of 20 to 40 knots, so the Phi Phi Islands, the Racha Islands and Koh Haa are all comfortable day trips from Royal Phuket Marina, and Phang Nga Bay can be reached within the morning.'
+  },
+  {
+    q: 'Which islands can we visit?',
+    a: 'Day charters go to Phang Nga Bay, the Krabi 4 Islands, Phi Phi, the Racha Islands, Koh Haa, or Koh Kradan and Koh Mook. Overnight itineraries of two to five days combine these anchorages.'
+  },
+  {
+    q: 'What time does the charter start?',
+    a: 'Day charters last eight hours with a 09:00 or 10:00 start. Overnight charters check in at 10:00 on the first day and check out at 17:00 on the last. Transfers from your accommodation are available from THB 3,210 by car or THB 6,000 by luxury van.'
+  },
+  {
+    q: 'What is included in the price?',
+    a: 'Crew, a gourmet lunch on day charters or full board overnight, water, soft drinks, local beer, a bottle of wine, a welcome fruit plate, fresh towels, snorkelling gear, paddleboard, kayak, yacht and travel insurance and local VAT.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a }
+  }))
+};
 ---
 
-<Layout title={`Nimbus T11 Motor Yacht Charter Phuket | Luna Diving`}>
+<Layout
+  title="Nimbus T11 Speedboat Charter Phuket | Private Day Boat"
+  description="Private speedboat charter in Phuket on the Nimbus T11: 20-40 knots, up to 10 guests, lunch included. Phang Nga Bay, Phi Phi, Racha and Koh Haa from THB 115,000."
+  image="/images/yacht/nimbus-t11/nimbus-t11-motor-yacht-cruising-andaman-sea.webp"
+>
   <main class="pcom-wrapper">
     
     <section class="pcom-hero">
-      <span class="pcom-subtitle">Modern Luxury Motor Yacht</span>
-      <h1 class="pcom-title">{vesselName}</h1>
+      <span class="pcom-subtitle">Nimbus T11 · 2022 Premium Day Boat</span>
+      <h1 class="pcom-title">{vesselName} Speedboat Charter Phuket</h1>
       <div class="pcom-divider"></div>
       <p class="pcom-tagline">{tagline}</p>
     </section>
@@ -178,51 +229,56 @@ const waterToys = [
 
     <section class="pcom-content-grid">
       <div class="content-main">
-        <h2 class="content-heading">A day boat built for the Andaman, and for the way a day at sea should actually feel.</h2>
+        <h2 class="content-heading">Private Speedboat Charter in Phuket</h2>
         <div class="heading-line"></div>
         <p class="paragraph">
-          Eleven point eight eight metres, ten guests, three crew and a single level of deck from the bathing platform to the bow. She runs out to Phang Nga Bay or the Phi Phi group at speed, then stops where the water turns clear and stays there for the afternoon.
+          The <strong>Nimbus T11</strong> is a <strong>premium 11.9-metre day boat</strong> built in 2022 and based at <strong>Royal Phuket Marina</strong>. With a speed of 20 to 40 knots, room for <strong>up to 10 guests</strong> and a crew of three, she is one of the fastest and most comfortable ways to reach <strong>Phang Nga Bay, the Phi Phi Islands, the Racha Islands and Koh Haa</strong> on a private day trip.
+        </p>
+        <p class="paragraph">
+          The idea is simple: get to the islands quickly, then drop anchor in clear water and spend the afternoon swimming, snorkelling and relaxing. Two cabins below also make short overnight trips possible for up to four guests.
         </p>
 
-        <h3 class="sub-heading">Nimbus T11</h3>
+        <h3 class="sub-heading">A Premium Day Boat by Nimbus</h3>
         <p class="paragraph">
-          Nimbus builds the T11 as the ultimate day boat, and the idea survives contact with the Andaman Sea. Eleven point eight eight metres overall, a beam of three point four nine, and a draft of eighty one centimetres, which is what matters when the anchorage is shallow and the beach is the reason the guests came.
-        </p>
-        <p class="paragraph">
-          The deck is the argument. One level runs the length of her, with adjustable seating, sunbeds fore and aft, a bar counter and stowage for the toys, so nobody spends the day climbing over anybody. The hardtop gives real shade at anchor and the windscreen keeps the cockpit civil at cruising speed.
-        </p>
-        <p class="paragraph">
-          Below, two cabins sleep four. A fast day charter out of Royal Phuket Marina, or three and four night itineraries when the charter calls for them.
+          Nimbus designed the T11 as the ultimate day boat, and it suits the Andaman Sea perfectly. With a draft of only 81 centimetres she can anchor in shallow bays close to the beach, exactly where most guests want to be. The interior is by designer Joacim Gustavsson.
         </p>
 
-        <h3 class="sub-heading">Performance: Twin 350s, and the sea room to use them</h3>
+        <h3 class="sub-heading">Twin Mercury Verado Engines: 20 to 40 Knots</h3>
         <p class="paragraph">
-          Two 350 horsepower Mercury Verado outboards, 850 litres of fuel and a working speed of twenty to forty knots. Phang Nga Bay is a morning. The Phi Phi group, the Racha Islands and Koh Haa are all comfortable day charters rather than passages.
+          Two 350 hp Mercury Verado outboards and 850 litres of fuel give the T11 a working speed of 20 to 40 knots. Phang Nga Bay is reached within the morning, while the Phi Phi Islands, the Racha Islands and Koh Haa become easy day trips instead of long passages. Even at cruising speed the engines are quiet enough to talk across the cockpit.
         </p>
 
-        <h3 class="sub-heading">On Deck: The Aft Cockpit & Helm</h3>
+        <h3 class="sub-heading">One Open Deck from Bow to Swim Platform</h3>
         <p class="paragraph">
-          The cockpit is where the charter actually happens. The teak table drops to make a sunbed, the backrests fold away, and the hardtop covers the whole of it once the sun means business. Lunch is served at anchor, with the transom door open onto the bathing platform.
-        </p>
-        <p class="paragraph">
-          At the helm, three sprung seats face a clear windscreen, with the skipper to starboard. Guests who want the wind get it without leaving the seating, and the ones who do not stay in the shade. Twin Mercury Verado 350 engines remain quiet enough at cruising speed to hold a conversation across the cockpit.
+          The whole deck is on a single level, from the bathing platform to the bow, so moving around is easy for everyone. There are adjustable seats, sunbeds at the front and back, a bar counter and storage for the water toys. A hardtop provides proper shade at anchor, and the windscreen keeps the cockpit comfortable while under way.
         </p>
 
-        <h3 class="sub-heading">Below: Two Cabins, Four Berths</h3>
+        <h3 class="sub-heading">Aft Cockpit and Lunch at Anchor</h3>
         <p class="paragraph">
-          The forward cabin takes a double berth between hull windows, with hatches above for air. Linen, towels and the welcome package are aboard before the guests are. Overnight charters check in at ten and release at five on the final day.
+          The aft cockpit is the heart of the day. The teak table lowers to become a sunbed, the backrests fold away and the hardtop shades the whole area. Lunch is prepared on board and served at anchor with the transom door open to the swim platform, and it is included in every day charter.
+        </p>
+        <p class="paragraph">
+          At the helm, three sprung seats sit behind a clear windscreen, with the skipper on the starboard side. Guests who enjoy the breeze can feel it from their seat, while others stay in the shade.
         </p>
 
-        <h3 class="sub-heading">Water Toys & Amenities</h3>
+        <h3 class="sub-heading">Two Cabins for Overnight Trips</h3>
+        <p class="paragraph">
+          Below deck, the forward cabin has a double berth between the hull windows, with hatches above for fresh air, and a second cabin brings the total to four berths. Linen, towels and the welcome package are ready before you arrive. Overnight charters of two to five days are full board.
+        </p>
+
+        <h3 class="sub-heading">Water Toys and Amenities</h3>
         <ul class="toy-list">
           {waterToys.map(toy => <li>{toy}</li>)}
+        </ul>
+        <ul class="toy-list">
+          {onBoard.map(item => <li>{item}</li>)}
         </ul>
       </div>
 
       <div class="content-sidebar">
         <div class="booking-sticky-box">
           <h3 class="sidebar-heading">Inquire for Nimbus T11</h3>
-          <p class="sidebar-text">Charter the ultimate modern day boat out of Royal Phuket Marina for high-speed island excursions.</p>
+          <p class="sidebar-text">Check availability for a private speedboat day trip or a short overnight charter on the Nimbus T11, from Royal Phuket Marina.</p>
           <a href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20interested%20in%20chartering%20Nimbus%20T11." target="_blank" rel="noopener noreferrer" class="pcom-btn-primary">
             Inquire via WhatsApp
           </a>
@@ -233,8 +289,8 @@ const waterToys = [
     <!-- Day Charter Pricing Section -->
     <section class="pcom-schedule-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Day Charter Rates</h2>
-        <p class="paragraph" style="margin-bottom: 8px;">Per Day, Eight Hours (Thai Baht & US Dollar)</p>
+        <h2 class="content-heading">Nimbus T11 Day Charter Rates 2026</h2>
+        <p class="paragraph" style="margin-bottom: 8px;">Per boat for an eight-hour day, up to 10 guests, local VAT included.</p>
         <div class="heading-line"></div>
       </div>
 
@@ -281,8 +337,8 @@ const waterToys = [
     <!-- Overnight Charter Pricing Section -->
     <section class="pcom-schedule-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Overnight Charter Rates</h2>
-        <p class="paragraph" style="margin-bottom: 8px;">Per Charter (Thai Baht & US Dollar)</p>
+        <h2 class="content-heading">Nimbus T11 Overnight Charter Rates 2026</h2>
+        <p class="paragraph" style="margin-bottom: 8px;">Per charter, up to 4 guests in 2 cabins, full board, local VAT included.</p>
         <div class="heading-line"></div>
       </div>
 
@@ -319,7 +375,7 @@ const waterToys = [
         </table>
       </div>
       <p class="table-note-text" style="margin-top: 12px; font-size: 12px; color: #4f5059; line-height: 1.5;">
-        * Maximum four guests overnight, in two cabins.
+        * Check in 10:00 on the first day, check out 17:00 on the last. Peak season runs from 20 December to 10 January. Rates are subject to availability and confirmation at the time of booking.
       </p>
     </section>
 
@@ -368,8 +424,8 @@ const waterToys = [
     <!-- Cruising Grounds Table -->
     <section class="pcom-schedule-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Cruising Grounds & Range</h2>
-        <p class="paragraph" style="margin-bottom: 12px;">Operating out of Royal Phuket Marina across the Andaman Sea.</p>
+        <h2 class="content-heading">Day Trip Destinations from Royal Phuket Marina</h2>
+        <p class="paragraph" style="margin-bottom: 12px;">The whole Andaman day charter map is within her range. Running times are confirmed on request.</p>
         <div class="heading-line"></div>
       </div>
 
@@ -378,22 +434,39 @@ const waterToys = [
           <thead>
             <tr>
               <th>Destination</th>
-              <th>Type</th>
-              <th>Notes</th>
+              <th>Charter</th>
+              <th>All-Year Rate</th>
             </tr>
           </thead>
           <tbody>
             {cruisingDistances.map((row) => (
               <tr>
                 <td class="td-dates">{row.destination}</td>
-                <td class="td-itinerary"><span class="itinerary-text">{row.distance}</span></td>
-                <td class="td-route">{row.time}</td>
+                <td class="td-itinerary"><span class="itinerary-text">{row.type}</span></td>
+                <td class="td-route">{row.rate}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
     </section>
+
+    <section class="pcom-schedule-section">
+      <div class="pricing-header">
+        <h2 class="content-heading">Nimbus T11 Charter: Frequently Asked Questions</h2>
+        <div class="heading-line"></div>
+      </div>
+      <div class="faq-list">
+        {faqs.map((item) => (
+          <details class="faq-item">
+            <summary class="faq-question">{item.q}</summary>
+            <p class="paragraph faq-answer">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
     <a 
       href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20interested%20in%20booking%20the%20Nimbus%20T11%20Yacht." 
@@ -1016,5 +1089,27 @@ const waterToys = [
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid var(--pcom-color-surface);
+    padding: 14px 0;
+  }
+
+  .faq-question {
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--pcom-color-primary);
+  }
+
+  .faq-question:focus-visible {
+    outline: 2px solid var(--pcom-color-accent);
+    outline-offset: 4px;
+  }
+
+  .faq-answer {
+    margin: 10px 0 0;
   }
 </style>
