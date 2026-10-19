@@ -3,28 +3,34 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
 import Layout from '../../layouts/Layout.astro';
 
 const vesselName = "MV Pawara";
-const tagline = "Premium Steel-Hull Cruise to the Similan Islands & Richelieu Rock";
+const tagline = "A 35m steel liveaboard with free nitrox, running 5-day Similan Islands and Richelieu Rock dive trips from Khao Lak";
 
 const slideshow = [
-  { img: '/images/liveaboard/pawara/pawara-liveaboard.webp', text: 'Premium twin-engine steel vessel cruising the crystal waters of the Andaman Sea.' },
-  { img: '/images/liveaboard/pawara/pawara-master-cabin.webp', text: 'Spacious Master Cabin on the main deck featuring a private en-suite bathroom.' },
-  { img: '/images/liveaboard/pawara/pawara-double-master-cabin.webp', text: 'Comfortable Double Master Cabin layout with panoramic window views and air conditioning.' },
-  { img: '/images/liveaboard/pawara/pawara-deluxe-cabin.webp', text: 'Deluxe Cabin configuration on the main deck, optimized for guest comfort.' },
-  { img: '/images/liveaboard/pawara/pawara-twin-deluxe-cabin.webp', text: 'Deluxe Twin Cabin with bunk beds, private bathroom, and ample storage space.' },
-  { img: '/images/liveaboard/pawara/pawara-double-standard-cabin.webp', text: 'Standard Cabin on the lower deck featuring a double bed and private ensuite.' },
-  { img: '/images/liveaboard/pawara/pawara-twin-standard-cabin.webp', text: 'Standard Twin Cabin with two single beds, fully air-conditioned with private bathroom.' },
-  { img: '/images/liveaboard/pawara/pawara-budget-cabin.webp', text: 'Budget Cabin option with bunk beds, perfect for smart travelers looking for top-tier diving.' },
-  { img: '/images/liveaboard/pawara/pawara-saloon.webp', text: 'Air-conditioned main dining saloon and indoor lounge area for delicious buffet meals.' },
-  { img: '/images/liveaboard/pawara/pawara-main-deck.webp', text: 'Spacious main deck and dive station area, optimized for easy prep and gear storage.' },
-  { img: '/images/liveaboard/pawara/pawara-top-deck.webp', text: 'Massive open sun deck with comfortable loungers for relaxing between dives.' },
-  { img: '/images/liveaboard/pawara/pawara-liveaboard-similan-islands.webp', text: 'MV Pawara cruising across the pristine waters of the Similan Islands.' }
+  { img: '/images/liveaboard/pawara/pawara-liveaboard.webp', text: 'MV Pawara, a 35-metre steel-hull dive liveaboard with three decks and a covered sun deck.' },
+  { img: '/images/liveaboard/pawara/pawara-liveaboard-similan-islands.webp', text: 'MV Pawara at anchor in the clear waters of the Similan Islands, with the dive platform at the stern.' },
+  { img: '/images/liveaboard/pawara/pawara-main-deck.webp', text: 'Outdoor dining tables on the shaded main deck, where buffet meals are served between dives.' },
+  { img: '/images/liveaboard/pawara/pawara-saloon.webp', text: 'Air-conditioned saloon with sofas, TV and a library of books and magazines for relaxing between dives.' },
+  { img: '/images/liveaboard/pawara/pawara-top-deck.webp', text: 'Sun deck with loungers under a blue canopy, open to the sea breeze on all sides.' },
+  { img: '/images/liveaboard/pawara/pawara-master-cabin.webp', text: 'Master cabin on the main deck with a queen-size bed, panoramic windows, safe and private bathroom.' },
+  { img: '/images/liveaboard/pawara/pawara-double-master-cabin.webp', text: 'Second master cabin with a double bed, Thai wood carvings and a row of panoramic windows.' },
+  { img: '/images/liveaboard/pawara/pawara-deluxe-cabin.webp', text: 'Deluxe cabin on the main deck with bunk beds, a desk and a large panoramic window.' },
+  { img: '/images/liveaboard/pawara/pawara-twin-deluxe-cabin.webp', text: 'Deluxe twin cabin with bunk beds, reading lights and private bathroom.' },
+  { img: '/images/liveaboard/pawara/pawara-double-standard-cabin.webp', text: 'Standard cabin on the lower deck with a double bed, air conditioning and en-suite bathroom.' },
+  { img: '/images/liveaboard/pawara/pawara-twin-standard-cabin.webp', text: 'Standard twin cabin with two single beds and portholes, fully air-conditioned.' },
+  { img: '/images/liveaboard/pawara/pawara-budget-cabin.webp', text: 'Budget cabin with bunk beds and shared bathroom, the most affordable way to dive the Similans.' }
 ];
 
 const technicalSpecs = [
+  { label: 'Type', value: 'Dive Liveaboard' },
   { label: 'Length Overall', value: '35 Meters' },
-  { label: 'Max Capacity', value: '24 Guests / 12 Cabins' }, 
+  { label: 'Hull', value: 'Steel' },
   { label: 'Cruising Speed', value: '12 Knots' },
-  { label: 'Hull Material', value: 'Steel Hull' }
+  { label: 'Guests', value: 'Up to 24 Divers' },
+  { label: 'Cabin Categories', value: 'Master, Deluxe, Standard, Budget' },
+  { label: 'Nitrox', value: 'Free for Certified Divers' },
+  { label: 'Dive Guide Ratio', value: '1:4' },
+  { label: 'Departure Port', value: 'Tab Lamu, Khao Lak' },
+  { label: 'Trip', value: '5 Days / 4 Nights, 14 Dives' }
 ];
 
 const cabins = [
@@ -66,17 +72,17 @@ const includedItems = [
   'Towels and hot drinks after each dive',
   '14 Dives',
   'Scuba cylinders, weights and belt',
-  'FREE Nitrox for certified divers',
+  'Free nitrox for certified nitrox divers',
   'English Speaking Dive Guide – Ratio 4:1'
 ];
 
 const notIncludedItems = [
   { text: 'Diving Accident Insurance', highlight: 'Compulsory' },
-  { text: 'Alcoholic beverages', highlight: '' },
+  { text: 'Alcoholic beverages', highlight: 'Available on board' },
   { text: 'Marine Park Fees', highlight: '2,500 THB / diver cash on board' },
   { text: 'Rental diving equipment', highlight: '600 THB / day' },
-  { text: 'Dive Torch Rental', highlight: '' },
-  { text: 'Dive Computer Rental', highlight: '' }
+  { text: 'Dive torch rental', highlight: 'On request' },
+  { text: 'Dive computer rental', highlight: 'On request' }
 ];
 
 const schedule = [
@@ -124,14 +130,71 @@ const schedule = [
   { dates: "06 May - 10 May 27", itinerary: "5D/4N Similan", route: "Tablamu / Tablamu", type: "Similan" },
   { dates: "11 May - 15 May 27", itinerary: "5D/4N Similan", route: "Tablamu / Tablamu", type: "Similan" }
 ];
+
+// Nasconde le partenze già passate (aggiornato a ogni build)
+const MONTHS: Record<string, number> = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11 };
+const departureDate = (dates: string) => {
+  const [start, end] = dates.split(' - ');
+  const [startDay, startMonth] = start.split(' ');
+  const [, endMonth, endYear] = end.split(' ');
+  let year = 2000 + Number(endYear);
+  if (MONTHS[startMonth] > MONTHS[endMonth]) year -= 1;
+  return new Date(year, MONTHS[startMonth], Number(startDay));
+};
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+const upcomingSchedule = schedule.filter((row) => departureDate(row.dates) >= today);
+
+const faqs = [
+  {
+    q: 'How much does an MV Pawara liveaboard trip cost?',
+    a: 'A 5-day, 4-night Similan Islands liveaboard with 14 dives costs THB 26,700 per person in a budget cabin, THB 30,700 in a standard cabin, THB 34,700 in a deluxe cabin and THB 37,700 in a master cabin. Marine park fees of THB 2,500 per diver are paid in cash on board.'
+  },
+  {
+    q: 'Is nitrox included on MV Pawara?',
+    a: 'Yes. Nitrox is free for certified nitrox divers on every trip, which means longer bottom times and shorter surface intervals on the deeper sites such as Koh Bon and Richelieu Rock. If you are not yet certified, Luna Diving can help you take the PADI Enriched Air Diver course before your trip.'
+  },
+  {
+    q: 'Where does MV Pawara depart from?',
+    a: 'All trips start and finish at Tab Lamu pier in Khao Lak. Return transfers from your hotel in Phuket or Khao Lak to the boat are included in the price.'
+  },
+  {
+    q: 'Which dive sites does MV Pawara visit?',
+    a: 'The 5-day trip covers the Similan Islands, Koh Bon, Koh Tachai and Richelieu Rock, the best-known dive sites of the North Andaman Sea, with 14 dives over four days.'
+  },
+  {
+    q: 'When does MV Pawara run Similan trips?',
+    a: 'Trips run during the Similan National Park season, from mid-October to mid-May, with a departure roughly every five days. See the schedule above for upcoming dates and contact us to check cabin availability.'
+  },
+  {
+    q: 'What is included in the price?',
+    a: 'Hotel transfers from Phuket or Khao Lak, a private or shared air-conditioned cabin, all meals, water, tea, coffee, snacks and soft drinks, towels and hot drinks after each dive, 14 dives, tanks, weights and belt, free nitrox and an English-speaking dive guide with a maximum of four divers. Dive insurance, marine park fees and rental equipment are extra.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a }
+  }))
+};
+
+const whatsappUrl = `https://wa.me/66918233120?text=${encodeURIComponent("Hi Luna Diving! I'm interested in booking the MV Pawara liveaboard.")}`;
 ---
 
-<Layout title={`${vesselName} Liveaboard | Luna Diving Phuket`}>
+<Layout
+  title="MV Pawara Liveaboard | Similan Islands with Free Nitrox"
+  description="5-day Similan Islands and Richelieu Rock liveaboard on MV Pawara from Khao Lak: 14 dives, free nitrox, hotel transfers included. Cabins from THB 26,700 per person."
+  image="/images/liveaboard/pawara/pawara-liveaboard-similan-islands.webp"
+>
   <main class="pcom-wrapper">
     
     <section class="pcom-hero">
-      <span class="pcom-subtitle">M/Y {vesselName}</span>
-      <h1 class="pcom-title">{vesselName}</h1>
+      <span class="pcom-subtitle">Similan Islands Dive Liveaboard</span>
+      <h1 class="pcom-title">{vesselName} Similan Liveaboard</h1>
       <div class="pcom-divider"></div>
       <p class="pcom-tagline">{tagline}</p>
     </section>
@@ -177,9 +240,58 @@ const schedule = [
       </div>
     </section>
 
+    <section class="pcom-content-grid">
+      <div class="content-main">
+        <h2 class="content-heading">Similan Islands Liveaboard with Free Nitrox</h2>
+        <div class="heading-line"></div>
+        <p class="paragraph">
+          <strong>MV Pawara</strong> is a <strong>35-metre steel-hull dive liveaboard</strong> for up to <strong>24 divers</strong>, running <strong>5-day, 4-night Similan Islands liveaboard trips</strong> from Khao Lak throughout the season. Each trip includes <strong>14 dives</strong> at the Similan Islands, Koh Bon, Koh Tachai and <strong>Richelieu Rock</strong>, with <strong>free nitrox</strong> for certified divers and hotel transfers from Phuket or Khao Lak.
+        </p>
+        <p class="paragraph">
+          With cabins from budget bunks to master cabins with panoramic windows, Pawara is an affordable way to dive the Similans without giving up comfort or dive time.
+        </p>
+
+        <h3 class="sub-heading">Free Nitrox and Up to 14 Dives</h3>
+        <p class="paragraph">
+          Nitrox is included at no extra cost for certified divers, so you can enjoy longer bottom times and shorter surface intervals on deeper sites like Koh Bon and Richelieu Rock. Tanks, weights and belts are included, rental equipment is available on board, and every group dives with an English-speaking guide, with a maximum of four divers per guide.
+        </p>
+
+        <h3 class="sub-heading">A Spacious Dive Deck</h3>
+        <p class="paragraph">
+          The dive deck is laid out to avoid congestion when everyone is gearing up at the same time, and a wide platform at the stern makes entries and exits easy. After every dive you are welcomed back with a towel and a hot drink.
+        </p>
+
+        <h3 class="sub-heading">Saloon, Dining Deck and Sun Deck</h3>
+        <p class="paragraph">
+          The air-conditioned saloon has comfortable sofas, a TV and a library of books and magazines. Buffet meals with Thai and international dishes are served at the outdoor tables on the shaded main deck, and the top sun deck has loungers under a canopy, open to the breeze on all sides.
+        </p>
+
+        <h3 class="sub-heading">Four Cabin Categories for Every Budget</h3>
+        <p class="paragraph">
+          All cabins are air-conditioned with hot showers. The two master cabins on the main deck have a queen or double bed and panoramic windows, the deluxe cabins on the main deck have bunk beds and a panoramic window, and the standard cabins on the lower deck offer a double or twin beds, all with private en-suite bathrooms. Budget cabins have bunk beds and a shared bathroom, ideal for solo divers and those diving on a budget.
+        </p>
+
+        <h3 class="sub-heading">Departures from Khao Lak</h3>
+        <p class="paragraph">
+          Every trip starts and ends at Tab Lamu pier in Khao Lak, the closest port to the Similan Islands, with transfers included from hotels in Phuket and Khao Lak. Departures run roughly every five days from October to May.
+        </p>
+      </div>
+
+      <div class="content-sidebar">
+        <div class="booking-sticky-box">
+          <h3 class="sidebar-heading">Ready to Dive?</h3>
+          <p class="sidebar-text">Check cabin availability on MV Pawara. Peak season departures from December to April book up first.</p>
+          <a href="/contact?vessel=MV%20Pawara" class="pcom-btn-primary">
+            Check Availability
+          </a>
+        </div>
+      </div>
+    </section>
+
     <section class="pcom-pricing-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Cabin Options & Rates</h2>
+        <h2 class="content-heading">MV Pawara Prices 2026/27</h2>
+        <p class="paragraph" style="margin-bottom: 12px;">Prices per person for the 5-day, 4-night Similan Islands trip with 14 dives and free nitrox.</p>
         <div class="heading-line"></div>
       </div>
       
@@ -244,7 +356,8 @@ const schedule = [
 
     <section class="pcom-schedule-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Cruise Schedule & Availability</h2>
+        <h2 class="content-heading">MV Pawara Schedule 2026/27</h2>
+        <p class="paragraph" style="margin-bottom: 12px;">Upcoming departures. All trips start and finish at Tab Lamu (Tablamu) pier in Khao Lak.</p>
         <div class="heading-line"></div>
       </div>
 
@@ -259,18 +372,18 @@ const schedule = [
             </tr>
           </thead>
           <tbody>
-            {schedule.map((row) => (
+            {upcomingSchedule.map((row) => (
               <tr>
                 <td class="td-dates">{row.dates}</td>
                 <td class="td-itinerary">
                   <span class="itinerary-text">{row.itinerary}</span>
-                  <span class={`type-badge badge-${row.type.toLowerCase().replace(' ', '-')}`}>
+                  <span class={`type-badge badge-${row.type.toLowerCase().replace(/\s+/g, '-')}`}>
                     {row.type}
                   </span>
                 </td>
                 <td class="td-route">{row.route}</td>
                 <td class="td-action">
-                  <a href={`/contact?vessel=${vesselName}&date=${encodeURIComponent(row.dates)}`} class="table-book-btn">
+                  <a href={`/contact?vessel=${encodeURIComponent(vesselName)}&date=${encodeURIComponent(row.dates)}`} class="table-book-btn" aria-label={`Book ${row.itinerary} departing ${row.dates}`}>
                     Book
                   </a>
                 </td>
@@ -281,31 +394,26 @@ const schedule = [
       </div>
     </section>
 
-    <section class="pcom-content-grid">
-      <div class="content-main">
-        <h2 class="content-heading">Vessel Profile</h2>
-        <div class="heading-line"></div>
-        <p class="paragraph">
-          The <strong>MV Pawara</strong> is a premier steel-hulled liveaboard purposely built to offer top-tier diving expeditions to the world-famous <strong>Similan Islands, Koh Bon, Koh Tachai, and Richelieu Rock</strong>. Catering to up to 24 guests across 12 beautifully designed cabins, this spacious vessel ensures smooth cruising and a fantastic balance between maximum comfort and outdoor adventure in the Andaman Sea.
-        </p>
-        <p class="paragraph">
-          One of the standout features of the MV Pawara is the spacious dive deck, layout-engineered to avoid congestion during prep times. Additionally, certified divers can take advantage of <strong>Free Nitrox</strong> on board, maximizing safety and bottom times across the typical 14-dive itinerary. Between dives, guests can enjoy hearty buffet meals matching local Thai and international flavors, relax in the cozy air-conditioned main saloon, or enjoy the massive open sun deck.
-        </p>
-      </div>
 
-      <div class="content-sidebar">
-        <div class="booking-sticky-box">
-          <h3 class="sidebar-heading">Ready to Dive?</h3>
-          <p class="sidebar-text">Plan your trip aboard the MV Pawara. Slots fill up quickly during the peak diving season.</p>
-          <a href="/contact" class="pcom-btn-primary">
-            Inquire This Liveaboard
-          </a>
-        </div>
+    <section class="pcom-schedule-section">
+      <div class="pricing-header">
+        <h2 class="content-heading">MV Pawara: Frequently Asked Questions</h2>
+        <div class="heading-line"></div>
+      </div>
+      <div class="faq-list">
+        {faqs.map((item) => (
+          <details class="faq-item">
+            <summary class="faq-question">{item.q}</summary>
+            <p class="paragraph faq-answer">{item.a}</p>
+          </details>
+        ))}
       </div>
     </section>
 
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
   </main> <a 
-    href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20interested%20in%20booking%20the%20Pawara%20liveaboard." 
+    href={whatsappUrl} 
     target="_blank" 
     rel="noopener noreferrer" 
     class="pcom-whatsapp-float"
@@ -1030,5 +1138,27 @@ const schedule = [
       width: 28px;
       height: 28px;
     }
+  }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid var(--pcom-color-surface);
+    padding: 14px 0;
+  }
+
+  .faq-question {
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--pcom-color-primary);
+  }
+
+  .faq-question:focus-visible {
+    outline: 2px solid var(--pcom-color-accent);
+    outline-offset: 4px;
+  }
+
+  .faq-answer {
+    margin: 10px 0 0;
   }
 </style>
