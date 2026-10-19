@@ -3,7 +3,7 @@ import OptimizedImage from '../../components/OptimizedImage.astro';
 import Layout from '../../layouts/Layout.astro';
 
 const vesselName = "Galeon 500 Fly";
-const tagline = "Twenty knots to the islands, and no reason to hurry back.";
+const tagline = "A 16m flybridge motor yacht for private day trips and overnight charters from Royal Phuket Marina";
 
 const slideshow = [
   { img: '/images/yacht/galeon-500-fly/galeon-500-luxury-yacht-cruising-open-water.webp', text: 'Galeon 500 luxury yacht cruising in open waters with a white hull and flybridge.' },
@@ -12,7 +12,7 @@ const slideshow = [
   { img: '/images/yacht/galeon-500-fly/woman-relaxing-bow-sunpad-yacht.webp', text: 'Woman in a red bikini relaxing on the bow sunpad of the luxury yacht from an overhead view.' },
   { img: '/images/yacht/galeon-500-fly/modern-luxury-yacht-bathroom-shower.webp', text: 'Modern and bright yacht bathroom with a glass shower enclosure and a designer basin.' },
   { img: '/images/yacht/galeon-500-fly/woman-standing-spacious-yacht-cabin.webp', text: 'Woman in a white dress standing inside the spacious cabin of a luxury yacht.' },
-  { img: '/images/yacht/galeon-500-fly/chef-cooking-stern-galley-yacht.webp', text: 'Private chef cooking in the open-plan stern galley of a luxury yacht.' },
+  { img: '/images/yacht/galeon-500-fly/chef-cooking-stern-galley-yacht.webp', text: 'Crew member plating lunch in the galley, with the aft bar counter opening onto the deck.' },
   { img: '/images/yacht/galeon-500-fly/couple-dining-panoramic-yacht-salon.webp', text: 'Couple enjoying lunch and dining together inside the panoramic main deck salon of a yacht.' },
   { img: '/images/yacht/galeon-500-fly/couple-relaxing-bow-deck-thailand.webp', text: 'Couple relaxing on the bow sun deck of the yacht with scenic island views in Thailand.' },
   { img: '/images/yacht/galeon-500-fly/profile-view-luxury-yacht-aft-bar.webp', text: 'Profile view of the luxury yacht with a couple sitting at the aft deck bar during a charter cruise.' },
@@ -20,59 +20,72 @@ const slideshow = [
   { img: '/images/yacht/galeon-500-fly/yacht-galley-kitchen-island-ocean-view.webp', text: 'Modern yacht galley kitchen featuring a cooktop and large windows with tropical island views.' }
 ];
 const technicalSpecs = [
-  { label: 'Builder', value: 'Galeon Yachts, Poland' },
-  { label: 'Length Overall', value: '16.2 Meters' },
-  { label: 'Beam', value: '4.42 Meters' },
-  { label: 'Cruising Speed', value: '20 Knots (Max 28)' },
+  { label: 'Builder / Model', value: 'Galeon Yachts, Poland / 500 Fly' },
+  { label: 'Length Overall', value: '16.2 m / 53 ft' },
+  { label: 'Beam', value: '4.42 m' },
+  { label: 'Cruising Speed', value: '20 Knots' },
+  { label: 'Maximum Speed', value: '28 Knots' },
   { label: 'Range', value: '220 Nautical Miles' },
-  { label: 'Capacity', value: '10 Day / 6 Night' },
+  { label: 'Guests', value: '10 Day / 6 Overnight' },
+  { label: 'Cabins / Berths', value: '3 Cabins / 6 Berths' },
   { label: 'Crew', value: '3 (Captain, Deckhand, Hostess)' },
+  { label: 'Tender', value: 'Williams Jet Tender' },
+  { label: 'Air Conditioning', value: 'Throughout' },
   { label: 'Home Port', value: 'Royal Phuket Marina' }
 ];
 
+// Tariffe 2026 per charter, IVA 7% inclusa, valide tutto l'anno (USD indicativi a 33 THB)
 const cabins = [
   {
     name: 'Day Charter (8 Hours)',
-    price: '162,700 ฿',
-    location: 'Up to 6 guests included (Max 10)',
-    details: 'Full use of yacht, captain, deckhand, hostess, tender, and water toys.',
+    price: 'THB 162,700',
+    usd: 'approx. USD 4,930',
+    location: '6 guests included, up to 10 (THB 2,500 / USD 75 per additional guest)',
+    details: 'Khai & Naka Islands, Phang Nga Bay, Krabi Four Islands, Phi Phi or Racha Islands. Crew, Set A lunch, drinks, 500 L of fuel and all water toys included.',
     trip: 'Day Trip'
   },
   {
     name: '2 Days / 1 Night',
-    price: '419,800 ฿',
-    location: 'Sleeps 6 guests',
-    details: 'Full overnight charter package with crew, fuel allowance, and full amenities.',
+    price: 'THB 419,800',
+    usd: 'approx. USD 12,720',
+    location: 'Sleeps 6 guests in 3 cabins',
+    details: 'Private overnight charter in the Andaman Sea with captain, deckhand and hostess, water toys and a night at anchor.',
     trip: 'Overnight'
   },
   {
     name: '3 Days / 2 Nights',
-    price: '577,200 ฿',
-    location: 'Sleeps 6 guests',
-    details: 'Extended cruising program through the Andaman islands with full crew service.',
+    price: 'THB 577,200',
+    usd: 'approx. USD 17,490',
+    location: 'Sleeps 6 guests in 3 cabins',
+    details: 'Two nights of island hopping between Phang Nga Bay, Krabi and Phi Phi at your own pace.',
     trip: 'Overnight'
   }
 ];
 
 const includedItems = [
-  'Full use of yacht, captain, deckhand, and hostess',
-  'Set A lunch, soft drinks, ice, and 24 bottles of beer',
-  'Full water toy inventory, Williams jet tender, and snorkelling gear',
-  'Fuel (500 litres) & 7% VAT included',
-  'Bath towels, beach kit, and safety gear'
+  'Full use of the yacht with captain, deckhand and hostess',
+  'Set A lunch, fruit and snacks',
+  'Soft drinks, ice and 24 bottles of beer',
+  'Towels and air conditioning throughout',
+  'Williams jet tender, kayak, stand-up paddleboard & snorkelling equipment',
+  'Two Airhead towables, 12 ft water trampoline, wakeboard & water skis',
+  'Life jackets and insurance',
+  'Fuel (500 litres) and 7% VAT'
 ];
 
 const notIncludedItems = [
-  { text: 'Lunch Upgrade Set B (Barbecue)', highlight: 'THB 5,000 supplement' },
-  { text: 'Lunch Upgrade Set C (Plated Menu)', highlight: 'THB 8,000 supplement' },
-  { text: 'National Park Fees & Dockage', highlight: 'As applicable' },
-  { text: 'Premium alcoholic beverages & spirits', highlight: 'Available on request' }
+  { text: 'Lunch Upgrade Set B (Barbecue)', highlight: 'THB 5,000 / USD 150' },
+  { text: 'Lunch Upgrade Set C (Individual Plated Menu)', highlight: 'THB 8,000 / USD 240' },
+  { text: 'Return transfers, hotel to marina', highlight: 'On request' },
+  { text: 'National park fees', highlight: 'Where charged' },
+  { text: 'Alcohol beyond the beer allowance', highlight: 'On request' },
+  { text: 'Special catering, therapist, massage or photographer', highlight: 'On request' }
 ];
 
 const schedule = [
-  { dates: "Daily Departure", itinerary: "Day Charter (8 Hours)", route: "Royal Phuket Marina / Phang Nga / Phi Phi", type: "Day Trip" },
-  { dates: "Custom Dates", itinerary: "2 Days / 1 Night", route: "Andaman Islands", type: "Overnight" },
-  { dates: "Custom Dates", itinerary: "3 Days / 2 Nights", route: "Andaman Islands", type: "Overnight" }
+  { dates: "All Year", itinerary: "Day Charter (8 Hours)", route: "Khai & Naka / Phang Nga Bay / Krabi Four Islands / Phi Phi / Racha", type: "Day Trip" },
+  { dates: "All Year", itinerary: "2 Days / 1 Night", route: "Andaman Sea islands from Royal Phuket Marina", type: "Overnight" },
+  { dates: "All Year", itinerary: "3 Days / 2 Nights", route: "Andaman Sea islands from Royal Phuket Marina", type: "Overnight" }
 ];
 
 const cruisingDistances = [
@@ -95,14 +108,64 @@ const waterToys = [
   "O'Brien Celebrity water skis",
   "Snorkelling equipment (for 10)"
 ];
+
+const onBoard = [
+  "Williams jet tender",
+  "Air conditioning throughout",
+  "BBQ & grill",
+  "WiFi & Bluetooth audio",
+  "Towels & beach kit",
+  "Life jackets, safety gear & medical kit"
+];
+
+const faqs = [
+  {
+    q: 'How much does a Galeon 500 Fly day charter cost?',
+    a: 'An 8-hour private day charter costs THB 162,700 (about USD 4,930) for up to 6 guests, with THB 2,500 (about USD 75) for each additional guest up to a maximum of 10. Rates are per charter, include 7% VAT and apply all year.'
+  },
+  {
+    q: 'How many guests can join the charter?',
+    a: 'Up to 10 guests on a day charter and up to 6 guests overnight, in three cabins with six berths. The yacht is run by a crew of three: captain, deckhand and hostess.'
+  },
+  {
+    q: 'Where does the yacht depart from?',
+    a: 'All charters depart from Royal Phuket Marina on the east coast of Phuket. Return transfers between your hotel and the marina can be arranged at extra cost.'
+  },
+  {
+    q: 'Which islands can we visit on a day trip?',
+    a: 'Day charters can visit Khai and Naka Islands, Phang Nga Bay, the Four Islands of Krabi, Phi Phi or the Racha Islands. At a cruising speed of 20 knots, Phang Nga Bay is about 1 hour 10 minutes away and Phi Phi just under 2 hours.'
+  },
+  {
+    q: 'What is included in the price?',
+    a: 'The yacht with crew, Set A lunch, fruit, snacks, soft drinks, ice, 24 bottles of beer, towels, 500 litres of fuel, insurance, 7% VAT and the full water toy inventory: jet tender, kayak, paddleboard, snorkelling gear, two towables, water trampoline, wakeboard and water skis.'
+  },
+  {
+    q: 'Can we upgrade the lunch on board?',
+    a: 'Yes. Set A lunch is included. Set B adds a barbecue for THB 5,000 (about USD 150) and Set C is an individual plated menu for THB 8,000 (about USD 240). Please share any dietary requirements when booking.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a }
+  }))
+};
 ---
 
-<Layout title={`M/Y ${vesselName} Yacht Charter | Luna Diving Phuket`}>
+<Layout
+  title={`${vesselName} Yacht Charter Phuket | Flybridge Day Trips`}
+  description="Private yacht charter in Phuket on the Galeon 500 Fly: 16m flybridge, up to 10 guests by day or 6 overnight, water toys included. Phang Nga Bay, Phi Phi, Krabi."
+  image="/images/yacht/galeon-500-fly/galeon-500-luxury-yacht-cruising-open-water.webp"
+>
   <main class="pcom-wrapper">
     
     <section class="pcom-hero">
-      <span class="pcom-subtitle">M/Y {vesselName}</span>
-      <h1 class="pcom-title">{vesselName}</h1>
+      <span class="pcom-subtitle">16m Flybridge Motor Yacht</span>
+      <h1 class="pcom-title">{vesselName} Yacht Charter Phuket</h1>
       <div class="pcom-divider"></div>
       <p class="pcom-tagline">{tagline}</p>
     </section>
@@ -149,60 +212,57 @@ const waterToys = [
 
     <section class="pcom-content-grid">
       <div class="content-main">
-        <h2 class="content-heading">Sixteen metres that behave like more</h2>
+        <h2 class="content-heading">Private Yacht Charter in Phuket on the Galeon 500 Fly</h2>
         <div class="heading-line"></div>
         <p class="paragraph">
-          Galeon build in Gdansk, and the <strong>500 Fly</strong> is the yard at its most useful. A flybridge deep enough to seat everybody, a hull that holds twenty knots without complaint, and a saloon that does not send anyone below.
+          The <strong>Galeon 500 Fly</strong> is a <strong>16-metre flybridge motor yacht</strong> based at <strong>Royal Phuket Marina</strong>, available for <strong>private day trips for up to 10 guests</strong> and <strong>overnight charters for up to 6 guests</strong>. With a cruising speed of 20 knots, she reaches Phang Nga Bay, the Four Islands of Krabi and Phi Phi in a fraction of the time of a classic yacht, leaving more hours for swimming, snorkelling and water sports.
         </p>
         <p class="paragraph">
-          She works two ways. By day she takes ten guests to Phang Nga or Phi Phi and back inside eight hours, tender in the water and the toys off the platform. By night she sleeps six across three cabins.
-        </p>
-        <p class="paragraph">
-          The layout is honest about what fifty feet should be. Galley and dinette share the saloon, so nobody is shut away from the view. The helm sits semi open, a step up and forward. The master takes the full beam amidships. Three crew run her: captain, deckhand and hostess.
+          Built by Galeon Yachts in Gdansk, Poland, the 500 Fly packs the space of a larger yacht into 16 metres: a big flybridge with room for the whole group, a bright main saloon on deck level and three cabins below. A professional crew of three, a captain, a deckhand and a hostess, looks after everything on board.
         </p>
 
-        <h3 class="sub-heading">Twenty knots, and quiet with it</h3>
+        <h3 class="sub-heading">Fast Island Hopping from Royal Phuket Marina</h3>
         <p class="paragraph">
-          Twin diesels put her cruise at twenty knots and her top end at twenty eight, which on the Andaman means Phang Nga is a little over an hour and Phi Phi is under two. Range is better than two hundred miles, so fuel is never the reason a plan changes.
+          Twin diesel engines give the Galeon a cruising speed of 20 knots and a top speed of 28 knots, with a range of more than 200 nautical miles. From the marina, Koh Naka Yai is about 25 minutes away, Phang Nga Bay a little over an hour and Phi Phi just under two hours, so an eight-hour day charter still leaves plenty of time at anchor.
         </p>
 
-        <h3 class="sub-heading">The Flybridge</h3>
+        <h3 class="sub-heading">A Flybridge Made for Groups</h3>
         <p class="paragraph">
-          Everything social happens up here. Lounge seating, a proper dining table and a wet bar, under an awning that makes the middle of the day usable. Shade over the table all day and open to the breeze on three sides. The helm repeats up here, so the captain stays part of the conversation.
+          The flybridge is the social centre of the yacht, with lounge seating, a full dining table and a wet bar under a sun awning. It stays shaded all day and open to the breeze on three sides, and a second helm station up here keeps the captain close to the group.
         </p>
 
-        <h3 class="sub-heading">The Aft Deck & Bow</h3>
+        <h3 class="sub-heading">Aft Deck, Swim Platform and Bow Sunpad</h3>
         <p class="paragraph">
-          One step from the saloon, one step from the water. This is where the day ends, tender alongside and the sun going down behind the island. The bathing platform drops to swimming height, so guests get in and out of the water without the ladder scramble that spoils a swim stop.
-        </p>
-        <p class="paragraph">
-          The forward sunpad is the quiet end of the boat. Two people can disappear up here for an hour while the rest of the charter carries on aft. It is cushioned across the full beam, with a filler that closes the walkway and a removable table for drinks, plus shade rigs for the middle of the day.
+          The aft deck links the saloon directly to the sea and is the best place to watch the sunset with the tender tied alongside. The bathing platform lowers to swimming height, so getting in and out for a swim is easy for everyone. At the bow, a cushioned sunpad across the full width of the yacht, with a removable drinks table and optional shade, offers a quieter spot to relax away from the action.
         </p>
 
-        <h3 class="sub-heading">Saloon, Cabins & Dining</h3>
+        <h3 class="sub-heading">Air-Conditioned Saloon and Three Cabins</h3>
         <p class="paragraph">
-          Galley, dinette and helm share one bright room, air conditioned throughout, so nobody is sent below to cook or shut out of the view. Windows run almost the full length of both sides.
-        </p>
-        <p class="paragraph">
-          Three cabins sleep six aboard, while day charters carry up to ten, so the accommodation is sized for the overnight programme, not the guest count. The master takes the full beam amidships with its own ensuite and an overhead hatch, while two further cabins take the remaining four guests.
-        </p>
-        <p class="paragraph">
-          Catering is by Suay, who cook ashore in Phuket and plate aboard. Set menus run to three tiers, and the galley handles anything the hostess is briefed on.
+          On the main deck, the galley, dinette and helm share one open, air-conditioned saloon with windows along almost the full length of both sides, so the view is never lost, even if the weather sends lunch indoors. Below deck, the full-beam master cabin sits amidships with its own en-suite bathroom and an overhead hatch, and two more cabins sleep the remaining four overnight guests.
         </p>
 
-        <h3 class="sub-heading">On the Water & Toys</h3>
+        <h3 class="sub-heading">Lunch on Board</h3>
         <p class="paragraph">
-          The toy inventory is the reason this boat gets rebooked. Everything comes out of the lazarette and goes back in without cutting into the day. Equipment includes:
+          Meals are prepared by Suay, a Phuket catering kitchen, and served on board by the hostess. Set A lunch is included in every charter; you can upgrade to Set B with a barbecue or Set C with an individual plated menu. Special dietary needs are easily handled when shared at the time of booking.
+        </p>
+
+        <h3 class="sub-heading">Water Toys for the Whole Family</h3>
+        <p class="paragraph">
+          The water toy collection is one of the main reasons guests book this yacht again. From towables and a 12 ft water trampoline to a wakeboard and water skis, everything is stored in the lazarette, ready to go as soon as you drop anchor, and all of it is included in the charter price.
         </p>
         <ul class="toy-list">
           {waterToys.map(toy => <li>{toy}</li>)}
+        </ul>
+        <h3 class="sub-heading">On Board</h3>
+        <ul class="toy-list">
+          {onBoard.map(item => <li>{item}</li>)}
         </ul>
       </div>
 
       <div class="content-sidebar">
         <div class="booking-sticky-box">
           <h3 class="sidebar-heading">Ready to Charter?</h3>
-          <p class="sidebar-text">Inquire about availability for the Galeon 500 Fly departing from Royal Phuket Marina.</p>
+          <p class="sidebar-text">Check availability for a private day trip or overnight charter on the Galeon 500 Fly, departing from Royal Phuket Marina.</p>
           <a href="/contact" class="pcom-btn-primary">
             Inquire via Email
           </a>
@@ -212,7 +272,8 @@ const waterToys = [
 
     <section class="pcom-pricing-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Charter Rates & Packages</h2>
+        <h2 class="content-heading">Galeon 500 Fly Charter Rates 2026</h2>
+        <p class="paragraph" style="margin-bottom: 12px;">Rates are in Thai baht per charter, not per person, include 7% VAT and apply throughout the year. US dollar amounts are indicative (THB 33 = USD 1); charters are contracted and paid in Thai baht, subject to availability and confirmation at the time of booking.</p>
         <div class="heading-line"></div>
       </div>
       
@@ -227,7 +288,8 @@ const waterToys = [
             </div>
             <div class="cabin-price-zone">
               <span class="price-amount">{cabin.price}</span>
-              <span class="price-label">Package Rate</span>
+              <span class="price-label">{cabin.usd}</span>
+              <span class="price-label">Per charter, 7% VAT incl.</span>
             </div>
           </div>
         ))}
@@ -277,8 +339,8 @@ const waterToys = [
 
     <section class="pcom-schedule-section">
       <div class="pricing-header">
-        <h2 class="content-heading">Cruising Grounds & Distances</h2>
-        <p class="paragraph" style="margin-bottom: 12px;">From Royal Phuket Marina (Times are at twenty knots in settled conditions and exclude national park formalities).</p>
+        <h2 class="content-heading">Distances from Royal Phuket Marina</h2>
+        <p class="paragraph" style="margin-bottom: 12px;">Times are at 20 knots in settled conditions and exclude national park formalities. Day charters run eight hours from the marina.</p>
         <div class="heading-line"></div>
       </div>
 
@@ -342,6 +404,24 @@ const waterToys = [
         </table>
       </div>
     </section>
+
+
+    <section class="pcom-schedule-section">
+      <div class="pricing-header">
+        <h2 class="content-heading">Galeon 500 Fly Charter: Frequently Asked Questions</h2>
+        <div class="heading-line"></div>
+      </div>
+      <div class="faq-list">
+        {faqs.map((item) => (
+          <details class="faq-item">
+            <summary class="faq-question">{item.q}</summary>
+            <p class="paragraph faq-answer">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
     <a 
       href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20interested%20in%20booking%20the%20Galeon%20500%20Fly%20Yacht." 
@@ -1064,5 +1144,27 @@ const waterToys = [
   .pcom-whatsapp-float svg {
     width: 32px;
     height: 32px;
+  }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid var(--pcom-color-surface);
+    padding: 14px 0;
+  }
+
+  .faq-question {
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--pcom-color-primary);
+  }
+
+  .faq-question:focus-visible {
+    outline: 2px solid var(--pcom-color-accent);
+    outline-offset: 4px;
+  }
+
+  .faq-answer {
+    margin: 10px 0 0;
   }
 </style>
