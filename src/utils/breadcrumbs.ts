@@ -59,18 +59,33 @@ const fallbackLabel = (segment: string) =>
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 
-/** Dati strutturati BreadcrumbList; null per la homepage. */
-export function breadcrumbSchema(pathname: string, site: URL | undefined) {
-  const segments = pathname.split('/').filter(Boolean);
-  if (segments.length === 0) return null;
+export interface BreadcrumbItem {
+  name: string;
+  /** URL completo con slash finale, es. https://luna-diving-thailand.com/thailand-liveaboards/ */
+  url: string;
+}
 
-  const items = [{ name: 'Home', path: '/' }];
+/**
+ * Elementi del breadcrumb (Home › Sezione › Pagina) ricavati dall'URL.
+ * Usati sia dal breadcrumb visibile (Breadcrumb.astro) sia dal JSON-LD (Layout),
+ * così i due coincidono sempre.
+ */
+export function getBreadcrumbItems(pathname: string, site: URL | undefined): BreadcrumbItem[] {
+  const segments = pathname.split('/').filter(Boolean);
+  const items: BreadcrumbItem[] = [{ name: 'Home', url: new URL('/', site).href }];
   segments.forEach((segment, index) => {
     items.push({
       name: LABELS[segment] ?? fallbackLabel(segment),
-      path: `/${segments.slice(0, index + 1).join('/')}/`,
+      url: new URL(`/${segments.slice(0, index + 1).join('/')}/`, site).href,
     });
   });
+  return items;
+}
+
+/** Dati strutturati BreadcrumbList; null per la homepage. */
+export function breadcrumbSchema(pathname: string, site: URL | undefined) {
+  const items = getBreadcrumbItems(pathname, site);
+  if (items.length < 2) return null;
 
   return {
     '@context': 'https://schema.org',
@@ -79,7 +94,7 @@ export function breadcrumbSchema(pathname: string, site: URL | undefined) {
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      item: new URL(item.path, site).href,
+      item: item.url,
     })),
   };
 }

@@ -1,0 +1,98 @@
+---
+// src/components/Breadcrumb.astro
+// Breadcrumb visibile (Home › Sezione › Pagina). Usa gli stessi dati del JSON-LD
+// BreadcrumbList generato nel Layout, quindi i due coincidono sempre.
+import { getBreadcrumbItems } from '../utils/breadcrumbs';
+
+interface Props {
+  /** false nelle pagine il cui contenitore ha già il margine laterale (es. tour) */
+  padded?: boolean;
+}
+
+const { padded = true } = Astro.props;
+
+const items = getBreadcrumbItems(Astro.url.pathname, Astro.site);
+const lastIndex = items.length - 1;
+---
+
+{items.length > 1 && (
+  <nav class:list={['breadcrumb', { 'breadcrumb-flush': !padded }]} aria-label="Breadcrumb">
+    <ol class="breadcrumb-list">
+      {items.map((item, index) => (
+        <li class="breadcrumb-item">
+          {index < lastIndex ? (
+            <a href={new URL(item.url).pathname} class="breadcrumb-link">{item.name}</a>
+          ) : (
+            <span class="breadcrumb-current" aria-current="page">{item.name}</span>
+          )}
+          {index < lastIndex && <span class="breadcrumb-separator" aria-hidden="true">›</span>}
+        </li>
+      ))}
+    </ol>
+  </nav>
+)}
+
+<style>
+  .breadcrumb {
+    width: 100%;
+    max-width: 820px;
+    margin: 0 auto 20px;
+    padding: 0 16px;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    text-align: left;
+  }
+
+  .breadcrumb-flush {
+    max-width: none;
+    padding: 0;
+  }
+
+  .breadcrumb-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #706f6f;
+  }
+
+  .breadcrumb-item {
+    display: inline-flex;
+    align-items: center;
+    min-width: 0;
+  }
+
+  .breadcrumb-link {
+    color: #706f6f;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .breadcrumb-link:hover {
+    color: #008ea7;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .breadcrumb-link:focus-visible {
+    outline: 2px solid #008ea7;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  .breadcrumb-separator {
+    margin: 0 8px;
+    color: #b0b0b0;
+  }
+
+  .breadcrumb-current {
+    color: #1a1a1a;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+</style>
