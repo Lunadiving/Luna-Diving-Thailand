@@ -1,86 +1,231 @@
 ---
-// Clean slate for PADI Courses Page
-import Layout from '../../layouts/Layout.astro'; // Nota: usa '../../' se sei dentro una cartella, o '../' se è un file singolo
+// src/pages/padi-scuba-diving-courses/index.astro
+import Layout from '../../layouts/Layout.astro';
 
+// Dati allineati alle pagine dei singoli corsi
 const courses = [
   {
-    title: "PADI Open Water Diver",
-    level: "Beginner",
-    duration: "3 Days",
-    price: "16,900 THB",
-    description: "The perfect starting point. Learn the basics of scuba diving, essential theory, and complete your first 4 open water dives surrounded by a tropical coral reef.",
-    features: ["Premium equipment included", "PADI Touch e-learning materials", "International certification (up to 18m)", "Logistics and transfers included"]
+    title: 'PADI Discover Scuba Diving',
+    slug: 'padi-discover-scuba-diving',
+    level: 'Try Diving · No Experience',
+    duration: '1 Day',
+    price: 'THB 4,900',
+    facts: ['Age 10+', 'Max 12 m', '2 boat dives'],
+    description: 'Try scuba diving for the first time with a private PADI instructor. After a short briefing you make two easy boat dives at the Racha Islands, with no certification needed.',
+    features: ['Private PADI instructor', 'Full set of diving gear', '2 introductory boat dives at Racha Yai & Racha Noi', 'Boat insurance']
   },
   {
-    title: "PADI Advanced Open Water",
-    level: "Advanced",
-    duration: "2 Days",
-    price: "13,500 THB",
-    description: "Extend your limits and explore new adventures. This course certifies you to dive down to 30 meters, refining your buoyancy and underwater navigation skills.",
-    features: ["5 specialty boat dives", "Deep and Navigation dives included", "Lunches and drinks on board", "No final exam required"]
+    title: 'PADI Open Water Diver',
+    slug: 'padi-open-water-diver',
+    level: 'Beginner · First Certification',
+    duration: '4 Days',
+    price: 'THB 16,900',
+    facts: ['Age 10+', 'Max 18 m', '6 boat dives'],
+    description: 'The world\'s most popular scuba course. Learn the theory and skills, then complete your open water dives from the boat and earn a certification recognised all over the world.',
+    features: ['Private instructor for 4 days', 'PADI book, materials and certification fee', 'All rental equipment and logbook', '6 open water boat dives']
   },
   {
-    title: "PADI Rescue Diver",
-    level: "Intermediate",
-    duration: "2-3 Days",
-    price: "15,000 THB",
-    description: "Learn to prevent and manage problems in the water, becoming a safer and more confident dive buddy. A dynamic, serious, yet incredibly fun course.",
-    features: ["Realistic rescue scenarios", "Stress management & first aid", "Development of dive leadership", "Intensive practical sessions"]
+    title: 'PADI Advanced Open Water Diver',
+    slug: 'padi-advanced-open-water-diver',
+    level: 'Next Step · Certified Divers',
+    duration: '2 Days',
+    price: 'THB 13,900',
+    facts: ['Age 12+', 'Max 30 m', '6 boat dives'],
+    description: 'Build confidence and experience with adventure dives such as deep and navigation. Certified to 30 metres, you can dive the deeper sites of the Similans and Richelieu Rock.',
+    features: ['Private instructor for 2 days', 'PADI book, materials and certification fee', '6 boat dives', 'Meals, snacks and drinks on board']
+  },
+  {
+    title: 'PADI Rescue Diver',
+    slug: 'padi-rescue-diver',
+    level: 'Safety · Experienced Divers',
+    duration: '3 Days',
+    price: 'THB 16,900',
+    facts: ['Age 12+', 'Max 18 m', '6 boat dives'],
+    description: 'Learn to prevent and manage problems underwater and at the surface. A challenging and rewarding course that makes you a safer, more confident dive buddy.',
+    features: ['Private instructor for 3 days', 'PADI book, materials and certification fee', '6 open water boat dives', 'Requires Adventure Diver and EFR within 24 months']
   }
 ];
+
+const faqs = [
+  {
+    q: 'How much does a PADI Open Water course cost in Phuket?',
+    a: 'The PADI Open Water Diver course with Luna Diving costs THB 16,900. It includes a private instructor for 4 days, the PADI book and learning materials, the certification fee, all rental equipment, a logbook and 6 open water boat dives.'
+  },
+  {
+    q: 'Can I try scuba diving without a certification?',
+    a: 'Yes. The PADI Discover Scuba Diving experience costs THB 4,900 and is open to anyone aged 10 or older who can swim. You make two boat dives to a maximum of 12 metres at the Racha Islands with a private PADI instructor.'
+  },
+  {
+    q: 'How long does it take to get scuba certified?',
+    a: 'The PADI Open Water Diver course takes a minimum of 4 days. You can then continue with the PADI Advanced Open Water Diver course in 2 days and the PADI Rescue Diver course in 3 days.'
+  },
+  {
+    q: 'What is the minimum age for PADI courses?',
+    a: 'Children can join PADI Discover Scuba Diving and PADI Open Water Diver from 10 years old. The Advanced Open Water Diver and Rescue Diver courses are available from 12 years old.'
+  },
+  {
+    q: 'Do I need Advanced Open Water to dive the Similan Islands?',
+    a: 'No, an Open Water certification is enough for many Similan dive sites. The Advanced Open Water course certifies you to 30 metres and is recommended for deeper sites such as Koh Bon and Richelieu Rock, so many divers take it in Phuket before joining a liveaboard.'
+  },
+  {
+    q: 'Are the courses private?',
+    a: 'Yes. Our Open Water, Advanced Open Water and Rescue Diver courses include a private instructor for the whole course, and Discover Scuba Diving is also led by a private PADI instructor, so the pace is set around you.'
+  }
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'PADI scuba diving courses in Phuket',
+    itemListElement: courses.map((course, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Course',
+        name: course.title,
+        description: course.description,
+        url: `https://luna-diving-thailand.com/padi-scuba-diving-courses/${course.slug}/`,
+        provider: {
+          '@type': 'Organization',
+          name: 'Luna Diving Thailand',
+          sameAs: 'https://luna-diving-thailand.com/'
+        }
+      }
+    }))
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a }
+    }))
+  }
+];
+
+const whatsappUrl = `https://wa.me/66918233120?text=${encodeURIComponent("Hi Luna Diving! I'd like information about your PADI scuba diving courses in Phuket.")}`;
 ---
 
-<Layout title="PADI Scuba Diving Courses Phuket & Similan | Luna Diving">
+<Layout
+  title="PADI Diving Courses Phuket | Private Instructor | Luna Diving"
+  description="PADI scuba diving courses in Phuket with a private instructor: Discover Scuba from THB 4,900, Open Water Diver THB 16,900, Advanced Open Water and Rescue Diver."
+>
   <main class="courses-page">
-    
+
     <section class="hero-section">
       <div class="container">
-        <span class="subtitle">PADI EDUCATION</span>
-        <h1>Premium Scuba Diving Courses in Thailand</h1>
+        <span class="subtitle">PADI Education in Phuket</span>
+        <h1>PADI Scuba Diving Courses in Phuket</h1>
         <p class="hero-text">
-          From your very first breaths underwater to advanced certifications. Discover our PADI courses with dedicated instructors, top-tier equipment, and small groups to ensure maximum safety and comfort.
+          Learn to dive or take the next step with a <strong>private PADI instructor</strong>. From a first try with Discover Scuba Diving
+          to your Open Water, Advanced Open Water and Rescue Diver certifications, every course runs at your pace,
+          with boat dives in the warm, clear water of the Andaman Sea.
         </p>
       </div>
     </section>
 
-    <section class="courses-section">
+    <section class="courses-section" aria-labelledby="courses-title">
       <div class="container">
+        <h2 id="courses-title" class="sr-only">Our PADI courses</h2>
         <div class="courses-grid">
-          {courses.map(course => (
-            <div class="course-card">
+          {courses.map((course) => (
+            <article class="course-card">
               <div class="card-header">
                 <span class="course-level">{course.level}</span>
-                <h2 class="course-title">{course.title}</h2>
+                <h3 class="course-title">
+                  <a href={`/padi-scuba-diving-courses/${course.slug}/`}>{course.title}</a>
+                </h3>
                 <div class="course-meta">
-                  <span class="meta-item">⏱️ {course.duration}</span>
+                  <span class="meta-item">{course.duration}</span>
                   <span class="meta-item price">{course.price}</span>
                 </div>
+                <ul class="course-facts" aria-label={`${course.title} key facts`}>
+                  {course.facts.map((fact) => <li>{fact}</li>)}
+                </ul>
               </div>
-              
+
               <div class="card-body">
                 <p class="course-desc">{course.description}</p>
                 <ul class="features-list">
-                  {course.features.map(feature => (
-                    <li>✨ {feature}</li>
-                  ))}
+                  {course.features.map((feature) => <li>{feature}</li>)}
                 </ul>
               </div>
-              
+
               <div class="card-footer">
-                <a href="/contact/" class="btn-primary">Inquire Now</a>
+                <a href={`/padi-scuba-diving-courses/${course.slug}/`} class="btn-primary" aria-label={`View ${course.title} details`}>
+                  View Course Details
+                </a>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>
     </section>
 
+    <section class="content-section" aria-labelledby="path-title">
+      <div class="container narrow">
+        <h2 id="path-title">Your PADI Path: From First Dive to Rescue Diver</h2>
+        <p>
+          PADI is the world's largest scuba diving training organisation, and a PADI certification is recognised by dive centres
+          everywhere. Most divers follow the same path. If you have never dived before, <a href="/padi-scuba-diving-courses/padi-discover-scuba-diving/">Discover Scuba Diving</a>
+          lets you try in a single day. The <a href="/padi-scuba-diving-courses/padi-open-water-diver/">Open Water Diver course</a> is your
+          first full certification, allowing you to dive to 18 metres with a buddy anywhere in the world.
+        </p>
+        <p>
+          With the <a href="/padi-scuba-diving-courses/padi-advanced-open-water-diver/">Advanced Open Water Diver course</a> you gain
+          experience with deep and navigation dives and can dive to 30 metres, ideal before a liveaboard to the Similan Islands.
+          The <a href="/padi-scuba-diving-courses/padi-rescue-diver/">Rescue Diver course</a> then teaches you to prevent and handle
+          problems, and is the step many divers take before going professional.
+        </p>
+
+        <h2>Why Learn to Dive in Phuket</h2>
+        <p>
+          Phuket has warm water all year, a wide choice of dive sites within a short boat ride and some of the best diving in
+          Southeast Asia on its doorstep. Training dives take place from the boat at sites such as the Racha Islands, so even
+          your first dives are real ocean dives with coral reefs and tropical fish, not just a swimming pool.
+        </p>
+        <p>
+          With a private instructor, you never wait for a group: the lessons follow your rhythm, there is time for extra
+          practice, and the instructor's attention stays on you. It is the most comfortable way to learn, especially for
+          nervous beginners, couples and families.
+        </p>
+
+        <h2>From Your Course to the Similan Islands</h2>
+        <p>
+          Once certified, the Andaman Sea is yours to explore. Join our <a href="/day-trip-phuket/">diving day trips from Phuket</a>
+          to Phi Phi and the Racha Islands, or step up to a <a href="/thailand-liveaboards/">Similan Islands liveaboard</a>
+          with dives at Koh Bon, Koh Tachai and Richelieu Rock. You can complete your Advanced Open Water course in Phuket
+          and join a liveaboard in the same holiday.
+        </p>
+      </div>
+    </section>
+
+    <section class="content-section" aria-labelledby="faq-title">
+      <div class="container narrow">
+        <h2 id="faq-title">PADI Courses in Phuket: FAQ</h2>
+        <div class="faq-list">
+          {faqs.map((item) => (
+            <details class="faq-item">
+              <summary class="faq-question">{item.q}</summary>
+              <p class="faq-answer">{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {structuredData.map((data) => (
+      <script type="application/ld+json" set:html={JSON.stringify(data)} />
+    ))}
+
     <section class="cta-section">
       <div class="container">
         <div class="cta-box">
-          <h2>Ready to start your adventure?</h2>
-          <p>All our courses include flexible sessions and e-learning options, allowing you to study the theory comfortably from home before arriving in Phuket.</p>
-          <a href="/contact/" class="btn-secondary">Contact us on WhatsApp</a>
+          <h2>Ready to Start Diving?</h2>
+          <p>Tell us which course you are interested in and your dates, and we will check instructor availability and answer all your questions.</p>
+          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn-secondary">Contact us on WhatsApp</a>
         </div>
       </div>
     </section>
@@ -93,7 +238,7 @@ const courses = [
     padding-top: clamp(120px, 10vw, 160px);
     background-color: #fbfbfc;
     color: #010205;
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
 
   .container {
@@ -139,7 +284,7 @@ const courses = [
 
   .courses-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
     gap: 32px;
   }
 
@@ -265,6 +410,117 @@ const courses = [
   .btn-secondary:hover {
     background-color: #008EA7;
     color: #ffffff;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .course-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .course-title a:hover,
+  .course-title a:focus-visible {
+    color: #008EA7;
+  }
+
+  .course-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 20px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .course-facts li {
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(0, 142, 167, 0.08);
+    color: #008EA7;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .features-list li {
+    position: relative;
+    padding-left: 22px;
+  }
+
+  .features-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #008EA7;
+    font-weight: 700;
+  }
+
+  .content-section {
+    padding-bottom: 72px;
+  }
+
+  .container.narrow {
+    max-width: 800px;
+  }
+
+  .content-section h2 {
+    margin: 40px 0 16px;
+    font-size: clamp(22px, 3vw, 28px);
+    line-height: 1.25;
+  }
+
+  .content-section h2:first-child {
+    margin-top: 0;
+  }
+
+  .content-section p {
+    margin: 0 0 16px;
+    color: #40444b;
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .content-section a {
+    color: #008EA7;
+    font-weight: 600;
+    text-underline-offset: 3px;
+  }
+
+  .faq-list {
+    border-top: 1px solid #e6e8eb;
+  }
+
+  .faq-item {
+    padding: 16px 0;
+    border-bottom: 1px solid #e6e8eb;
+  }
+
+  .faq-question {
+    cursor: pointer;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  .faq-answer {
+    margin: 12px 0 0 !important;
+  }
+
+  .btn-primary:focus-visible,
+  .btn-secondary:focus-visible,
+  .faq-question:focus-visible,
+  .content-section a:focus-visible {
+    outline: 2px solid #008EA7;
+    outline-offset: 3px;
   }
 
   @media (max-width: 768px) {
