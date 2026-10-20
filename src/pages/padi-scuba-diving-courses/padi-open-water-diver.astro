@@ -1,14 +1,18 @@
 ---
-import Breadcrumb from '../../components/Breadcrumb.astro';
-// src/pages/padi-open-water-diver/index.astro
-
+// src/pages/padi-scuba-diving-courses/padi-open-water-diver.astro
 import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import OptimizedImage from '../../components/OptimizedImage.astro';
+
+// Immagine provvisoria (illustrazione): sostituire con una foto reale quando disponibile
+const heroImage = '/images/courses/padi-open-water-diver-phuket.webp';
 
 const programSpecs = [
   { title: "Duration", value: "3 Days Minimum" },
   { title: "Max Depth", value: "18 Meters / 60 Feet" },
-  { title: "Prerequisites", value: "10+ Years Old", sub: "Able to swim, no experience required" }
+  { title: "Prerequisites", value: "10+ Years Old", sub: "Able to swim, no experience required" },
+  { title: "Price", value: "16,900 THB", sub: "Private instructor" }
 ];
 
 const inclusions = [
@@ -20,9 +24,74 @@ const inclusions = [
   "All necessary scuba diving rental equipment",
   "Full boat insurance"
 ];
+
+const faqs = [
+  {
+    q: 'How long does the PADI Open Water course take in Phuket?',
+    a: 'The PADI Open Water Diver course with Luna Diving takes a minimum of 3 days with a private instructor. It combines knowledge development, confined water training to practise the core skills, and 6 open water boat dives.'
+  },
+  {
+    q: 'How much does the Open Water course cost?',
+    a: 'The course costs 16,900 THB. The price includes your private instructor for 3 days, the PADI book and learning materials, the PADI certification fee, an official logbook, all rental equipment, 6 open water boat dives and boat insurance. Hotel transfers and meals are not included.'
+  },
+  {
+    q: 'Do I need any diving experience?',
+    a: 'No experience is needed. You must be at least 10 years old, able to swim and in good health. Before diving you complete a medical questionnaire. If you are not sure diving is for you, you can start with a PADI Discover Scuba Diving experience.'
+  },
+  {
+    q: 'What can I do after the Open Water course?',
+    a: 'Your PADI Open Water Diver certification lets you dive to 18 metres (60 feet) with a buddy anywhere in the world. You can then continue with the PADI Advanced Open Water Diver course, join diving day trips from Phuket or a Similan Islands liveaboard.'
+  },
+  {
+    q: 'Is the PADI certification valid worldwide?',
+    a: 'Yes. PADI is the largest scuba diving training organisation in the world, and your Open Water Diver certification is recognised by dive centres all over the world.'
+  },
+  {
+    q: 'Can children take the Open Water course?',
+    a: 'Yes, children from 10 years old can take the PADI Open Water Diver course. A parent or legal guardian makes the booking and signs the forms on their behalf.'
+  }
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: 'PADI Open Water Diver Course in Phuket',
+    description: 'Private 3-day PADI Open Water Diver course in Phuket for beginners aged 10+, with 6 open water boat dives and an internationally recognised certification to 18 metres.',
+    url: 'https://luna-diving-thailand.com/padi-scuba-diving-courses/padi-open-water-diver/',
+    provider: {
+      '@type': 'Organization',
+      name: 'Luna Diving Thailand',
+      sameAs: 'https://luna-diving-thailand.com/'
+    },
+    offers: {
+      '@type': 'Offer',
+      price: '16900',
+      priceCurrency: 'THB',
+      category: 'Paid',
+      url: 'https://luna-diving-thailand.com/padi-scuba-diving-courses/padi-open-water-diver/'
+    }
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a }
+    }))
+  }
+];
+
+const whatsappBook = `https://wa.me/66918233120?text=${encodeURIComponent("Hi Luna Diving! I'm interested in booking the PADI Open Water Diver course (16,900 THB).")}`;
+const whatsappInfo = `https://wa.me/66918233120?text=${encodeURIComponent("Hi Luna Diving! I'm interested in the PADI Open Water Diver course.")}`;
 ---
 
-<Layout title="PADI Open Water Diver Course Phuket | Get Certified | Luna Diving">
+<Layout
+  title="PADI Open Water Course Phuket | Private, 3 Days | 16,900 THB"
+  description="Get scuba certified in Phuket: private PADI Open Water Diver course in 3 days, 6 boat dives, equipment and certification included. Age 10+, 16,900 THB."
+  image={heroImage}
+>
   
   <div class="block w-full pt-24 md:pt-32 font-sans bg-[#fbfbfc]">
   
@@ -34,16 +103,31 @@ const inclusions = [
         PADI Certification Course
       </span>
       <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-[#1A1A1A] mb-6 leading-tight">
-        Become a Certified Diver <br class="hidden md:inline"/>with PADI Open Water in Phuket
+        PADI Open Water Diver Course <br class="hidden md:inline"/>in Phuket
       </h1>
       <p class="text-base md:text-lg text-[#50555c] leading-relaxed max-w-2xl mx-auto">
-        Ready to take the plunge and start your underwater adventure? Our private PADI Open Water Diver course is the perfect way to learn everything you need to know to become a confident, competent, and globally recognized scuba diver.
+        Get your first scuba diving certification in Phuket with a <strong>private PADI instructor</strong>.
+        In <strong>3 days</strong> you learn the theory and skills and make <strong>6 open water boat dives</strong>,
+        then dive to 18 metres with a buddy anywhere in the world.
       </p>
     </header>
 
+    <!-- Hero Image (illustrazione provvisoria) -->
+    <section class="max-w-5xl mx-auto px-6 mb-12">
+      <OptimizedImage
+        src={heroImage}
+        alt="Illustration of a PADI instructor and student diver swimming together over a coral reef"
+        class="w-full h-auto rounded-[24px] shadow-sm"
+        loading="eager"
+        fetchpriority="high"
+        widths={[480, 800, 1200]}
+        sizes="(max-width: 1024px) 100vw, 976px"
+      />
+    </section>
+
     <!-- Quick Specs Grid -->
     <section class="max-w-5xl mx-auto px-6 mb-16">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
         {programSpecs.map((spec) => (
           <div class="bg-white border border-gray-100 p-6 rounded-[20px] shadow-sm text-center flex flex-col items-center justify-center">
             <h3 class="text-xs font-bold text-[#706F6F] uppercase tracking-wider mb-1">{spec.title}</h3>
@@ -63,12 +147,17 @@ const inclusions = [
           
           <!-- Course Overview -->
           <div class="bg-white border border-gray-200 p-8 rounded-[24px] shadow-sm">
-            <h2 class="text-xl font-bold text-[#1A1A1A] mb-4">Your Private Diving Journey</h2>
+            <h2 class="text-xl font-bold text-[#1A1A1A] mb-4">Learn to Dive with a Private Instructor</h2>
             <p class="text-[15px] text-[#40444b] leading-relaxed mb-4">
-              The PADI Open Water Diver course covers essential diving skills, including equipment operation, dive planning, and standard safety procedures. With our private classes, you will receive personalized attention and tailored guidance from your instructor, ensuring you feel completely secure and relaxed every step of the way.
+              The PADI Open Water Diver course is the world's most popular scuba course and your first full diving
+              certification. You learn how to use the equipment, plan your dives and follow the standard safety
+              procedures. Because the course is private, your instructor works only with you, at your pace, with
+              time for extra practice whenever you need it.
             </p>
             <p class="text-[15px] text-[#40444b] leading-relaxed mb-6">
-              Phuket features some of the most beautiful dive sites in Thailand, boasting crystal-clear waters and an abundance of marine life. Upon successful completion, you will receive a worldwide recognized certification that allows you to dive independently with a buddy anywhere on the planet.
+              Your training dives take place from the boat in the warm, clear water around Phuket. When you complete the
+              course you receive a PADI certification recognised worldwide, which allows you to dive to 18 metres
+              (60 feet) with a buddy anywhere on the planet.
             </p>
             
             <h3 class="text-sm font-bold text-[#1A1A1A] uppercase tracking-wide mb-3">Course Content Includes:</h3>
@@ -132,6 +221,42 @@ const inclusions = [
             </div>
           </div>
 
+          <!-- SEO content -->
+          <div class="bg-white border border-gray-200 p-8 rounded-[24px] shadow-sm space-y-4">
+            <h2 class="text-xl font-bold text-[#1A1A1A]">Why Get Certified in Phuket?</h2>
+            <p class="text-[15px] text-[#40444b] leading-relaxed">
+              Phuket has warm water all year, a short boat ride to reefs full of tropical fish, and some of Thailand's
+              best diving on its doorstep. Learning here means your first open water dives are real ocean dives, and once
+              certified you are only a step away from the Similan Islands and Richelieu Rock.
+            </p>
+            <h2 class="text-xl font-bold text-[#1A1A1A] pt-2">After Your Open Water Course</h2>
+            <p class="text-[15px] text-[#40444b] leading-relaxed">
+              Build experience and dive deeper with the
+              <a href="/padi-scuba-diving-courses/padi-advanced-open-water-diver/" class="text-[#008EA7] font-semibold underline underline-offset-2">PADI Advanced Open Water Diver course</a>,
+              join our <a href="/day-trip-phuket/" class="text-[#008EA7] font-semibold underline underline-offset-2">diving day trips from Phuket</a>,
+              or book a <a href="/thailand-liveaboards/" class="text-[#008EA7] font-semibold underline underline-offset-2">Similan Islands liveaboard</a>.
+              Not sure yet? Try one day of diving first with
+              <a href="/padi-scuba-diving-courses/padi-discover-scuba-diving/" class="text-[#008EA7] font-semibold underline underline-offset-2">PADI Discover Scuba Diving</a>,
+              or compare all our <a href="/padi-scuba-diving-courses/" class="text-[#008EA7] font-semibold underline underline-offset-2">PADI courses in Phuket</a>.
+            </p>
+          </div>
+
+          <!-- FAQ -->
+          <div class="space-y-4">
+            <h2 class="text-xl font-bold text-[#1A1A1A] px-2">PADI Open Water Course FAQ</h2>
+            <div class="bg-white border border-gray-200 rounded-[20px] shadow-sm divide-y divide-gray-100">
+              {faqs.map((item) => (
+                <details class="group px-6 py-4">
+                  <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-semibold text-[15px] text-[#1A1A1A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#008EA7] focus-visible:outline-offset-4">
+                    {item.q}
+                    <span class="text-[#008EA7] text-xl leading-none transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+                  </summary>
+                  <p class="mt-3 text-sm text-[#40444b] leading-relaxed">{item.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+
         </div>
 
         <!-- Right Column: Pricing & Booking Card -->
@@ -172,7 +297,7 @@ const inclusions = [
             <!-- CTA Buttons -->
             <div class="space-y-3">
               <a 
-                href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20interested%20in%20booking%20the%20PADI%20Open%20Water%20Diver%20course%20for%2016,900%20THB."
+                href={whatsappBook}
                 target="_blank"
                 rel="noopener noreferrer"
                 class="flex items-center justify-center bg-[#25D366] hover:bg-[#20ba5a] text-white text-sm font-bold py-3.5 w-full rounded-full transition-all duration-300 text-center shadow-md"
@@ -180,7 +305,7 @@ const inclusions = [
                 Book via WhatsApp
               </a>
               <a 
-                href="/contact/" 
+                href="/contact/?vessel=PADI%20Open%20Water%20Diver" 
                 class="flex items-center justify-center bg-white/10 hover:bg-white/20 text-white text-sm font-medium py-3.5 w-full rounded-full transition-all duration-300 text-center"
               >
                 Inquire via Email
@@ -194,19 +319,23 @@ const inclusions = [
     </section>
 
   </div>
-</Layout>
 
-<!-- Floating WhatsApp Button -->
-<div class="fixed bottom-6 right-6 z-[99999] pointer-events-auto">
-  <a 
-    href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20interested%20in%20the%20PADI%20Open%20Water%20Diver%20course." 
-    target="_blank" 
-    rel="noopener noreferrer" 
-    class="flex items-center justify-center w-14 h-14 md:w-[60px] md:h-[60px] bg-[#25D366] text-white rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.25)] hover:scale-105 hover:bg-[#20ba5a] transition-all duration-300 ease-out"
-    aria-label="Chat on WhatsApp"
-  >
-    <svg class="w-7 h-7 md:w-8 md:h-8" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.454 5.709 1.455h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-  </a>
-</div>
+  {structuredData.map((data) => (
+    <script type="application/ld+json" set:html={JSON.stringify(data)} />
+  ))}
+
+  <!-- Floating WhatsApp Button -->
+  <div class="fixed bottom-6 right-6 z-[99999] pointer-events-auto">
+    <a
+      href={whatsappInfo}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center justify-center w-14 h-14 md:w-[60px] md:h-[60px] bg-[#25D366] text-white rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.25)] hover:scale-105 hover:bg-[#20ba5a] transition-all duration-300 ease-out"
+      aria-label="Chat on WhatsApp"
+    >
+      <svg class="w-7 h-7 md:w-8 md:h-8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.454 5.709 1.455h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+    </a>
+  </div>
+</Layout>
