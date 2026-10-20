@@ -2,6 +2,7 @@
 // src/layouts/Layout.astro
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import CookieConsent from '../components/CookieConsent.astro';
 import { getImage } from 'astro:assets';
 import { resolveImage } from '../utils/images';
 interface Props {
@@ -50,15 +51,7 @@ const imageURL = new URL(ogImage.src, Astro.site);
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Playfair+Display:ital@1&display=swap"
     />
 
-    <!-- Google tag (gtag.js) via Partytown -->
-    <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-JTVKL5Z7ER"></script>
-    <script type="text/partytown">
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-JTVKL5Z7ER');
-    </script>
+    <!-- Google Analytics (G-JTVKL5Z7ER) viene caricato da CookieConsent solo dopo il consenso -->
   </head>
   <body>
     <!-- L'Header viene inserito qui e rimarrà fisso in alto su tutte le pagine -->
@@ -69,6 +62,9 @@ const imageURL = new URL(ogImage.src, Astro.site);
 
     <!-- Il Footer viene inserito qui in fondo a tutte le pagine -->
     <Footer />
+
+    <!-- Banner cookie: carica Google Analytics solo dopo "Accept" -->
+    <CookieConsent />
   </body>
 </html>
 

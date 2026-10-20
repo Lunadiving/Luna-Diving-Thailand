@@ -1,0 +1,225 @@
+---
+// src/components/CookieConsent.astro
+// Banner dei cookie: Google Analytics viene caricato solo dopo "Accept".
+// La scelta resta salvata nel browser per 12 mesi; "Cookie settings" nel footer riapre il banner.
+---
+
+<div
+  id="cookie-banner"
+  class="cookie-banner"
+  role="dialog"
+  aria-live="polite"
+  aria-label="Cookie consent"
+  aria-describedby="cookie-banner-text"
+  hidden
+>
+  <div class="cookie-inner">
+    <p id="cookie-banner-text" class="cookie-text">
+      We use cookies for Google Analytics to understand how visitors use our website. Analytics cookies are set only if
+      you accept them. Read our <a href="/privacy-policy/#cookies">Privacy Policy</a>.
+    </p>
+    <div class="cookie-actions">
+      <button type="button" class="cookie-btn cookie-btn-secondary" data-cookie-choice="denied">Reject</button>
+      <button type="button" class="cookie-btn cookie-btn-primary" data-cookie-choice="granted">Accept</button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    var GA_ID = 'G-JTVKL5Z7ER';
+    var STORAGE_KEY = 'luna-cookie-consent';
+    var MAX_AGE = 365 * 24 * 60 * 60 * 1000; // 12 mesi
+    var banner = document.getElementById('cookie-banner');
+    var gaLoaded = false;
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+
+    function readChoice() {
+      try {
+        var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+        if (saved && (saved.value === 'granted' || saved.value === 'denied') && Date.now() - saved.date < MAX_AGE) {
+          return saved.value;
+        }
+      } catch (e) {}
+      return null;
+    }
+
+    function saveChoice(value) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({ value: value, date: Date.now() }));
+      } catch (e) {}
+    }
+
+    function loadAnalytics() {
+      if (gaLoaded) return;
+      gaLoaded = true;
+      window.gtag('consent', 'update', { analytics_storage: 'granted' });
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+      document.head.appendChild(script);
+      window.gtag('js', new Date());
+      window.gtag('config', GA_ID);
+    }
+
+    function deleteAnalyticsCookies() {
+      var host = location.hostname.replace(/^www\./, '');
+      document.cookie.split(';').forEach(function (cookie) {
+        var name = cookie.split('=')[0].trim();
+        if (name === '_ga' || name.indexOf('_ga_') === 0 || name === '_gid') {
+          ['', '; domain=' + host, '; domain=.' + host].forEach(function (domain) {
+            document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/' + domain;
+          });
+        }
+      });
+    }
+
+    function showBanner() { banner.hidden = false; }
+    function hideBanner() { banner.hidden = true; }
+
+    // Consent Mode: tutto negato finché il visitatore non sceglie
+    window.gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+
+    var choice = readChoice();
+    if (choice === 'granted') {
+      loadAnalytics();
+    } else if (choice === null) {
+      showBanner();
+    }
+
+    banner.addEventListener('click', function (event) {
+      var button = event.target.closest('[data-cookie-choice]');
+      if (!button) return;
+      var value = button.getAttribute('data-cookie-choice');
+      saveChoice(value);
+      hideBanner();
+      if (value === 'granted') {
+        loadAnalytics();
+      } else {
+        window.gtag('consent', 'update', { analytics_storage: 'denied' });
+        deleteAnalyticsCookies();
+        // Analytics già caricato in questa pagina: ricarica per fermarlo del tutto
+        if (gaLoaded) location.reload();
+      }
+    });
+
+    // Link "Cookie settings" nel footer
+    document.addEventListener('click', function (event) {
+      var trigger = event.target.closest('[data-cookie-settings]');
+      if (!trigger) return;
+      event.preventDefault();
+      showBanner();
+      var first = banner.querySelector('.cookie-btn');
+      if (first) first.focus();
+    });
+  })();
+</script>
+
+<style>
+  .cookie-banner {
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    z-index: 100000;
+    max-width: 960px;
+    margin: 0 auto;
+    background: #ffffff;
+    color: #1a1a1a;
+    border: 1px solid #e5e5e5;
+    border-radius: 16px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  .cookie-banner[hidden] {
+    display: none;
+  }
+
+  .cookie-inner {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 20px 24px;
+  }
+
+  .cookie-text {
+    flex: 1;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #3a3a3a;
+  }
+
+  .cookie-text a {
+    color: #008ea7;
+    font-weight: 600;
+    text-underline-offset: 3px;
+  }
+
+  .cookie-actions {
+    display: flex;
+    flex-shrink: 0;
+    gap: 10px;
+  }
+
+  .cookie-btn {
+    min-width: 104px;
+    padding: 11px 20px;
+    border-radius: 999px;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+
+  /* Stessa evidenza per Accept e Reject: nessuna scelta "spinta" */
+  .cookie-btn-primary {
+    background: #1a1a1a;
+    color: #ffffff;
+    border: 1px solid #1a1a1a;
+  }
+
+  .cookie-btn-primary:hover {
+    background: #008ea7;
+    border-color: #008ea7;
+  }
+
+  .cookie-btn-secondary {
+    background: #ffffff;
+    color: #1a1a1a;
+    border: 1px solid #1a1a1a;
+  }
+
+  .cookie-btn-secondary:hover {
+    background: #f3f3f3;
+  }
+
+  .cookie-btn:focus-visible,
+  .cookie-text a:focus-visible {
+    outline: 2px solid #008ea7;
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 640px) {
+    .cookie-inner {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 16px;
+      padding: 18px;
+    }
+
+    .cookie-actions .cookie-btn {
+      flex: 1;
+    }
+  }
+</style>
