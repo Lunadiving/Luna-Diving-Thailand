@@ -1,0 +1,292 @@
+---
+// src/pages/privacy-policy.astro
+import Layout from '../layouts/Layout.astro';
+
+const legalBases = [
+  { purpose: 'Answering your enquiries and sending quotes', basis: 'Steps taken at your request before entering into a contract' },
+  { purpose: 'Making and managing your booking with us and with boat operators', basis: 'Performance of a contract' },
+  { purpose: 'Ensuring your safety (certification checks, medical questionnaire, emergency contacts)', basis: 'Performance of a contract; explicit consent for health data; protection of vital interests in an emergency' },
+  { purpose: 'Processing payments, invoicing and accounting', basis: 'Performance of a contract; legal obligation' },
+  { purpose: 'Complying with Thai law, national park rules and authority requests', basis: 'Legal obligation' },
+  { purpose: 'Analysing and improving our website', basis: 'Your consent (analytics cookies)' },
+  { purpose: 'Sending news and special offers, if you ask to receive them', basis: 'Your consent, which you can withdraw at any time' }
+];
+---
+
+<Layout
+  title="Privacy Policy | Luna Diving Thailand"
+  description="How Luna Diving collects, uses, shares and protects your personal data under the Thai PDPA and the GDPR, including cookies, your rights and how to contact us."
+>
+  <main class="legal-page">
+    <article class="legal-content">
+      <h1>Privacy Policy</h1>
+      <p class="legal-updated"><em>Last updated: October 2026</em></p>
+
+      <p>
+        This Privacy Policy explains how <strong>Luna Diving Limited Partnership</strong> ("Luna Diving", "we", "us")
+        collects, uses, shares and protects your personal data when you visit luna-diving-thailand.com, contact us or
+        book a trip or service with us.
+      </p>
+      <p>
+        We process personal data in accordance with the Thai <strong>Personal Data Protection Act B.E. 2562 (2019)
+        (PDPA)</strong> and, for visitors and customers in the European Economic Area, the United Kingdom and Switzerland,
+        the <strong>EU General Data Protection Regulation (GDPR)</strong> and the UK GDPR.
+      </p>
+
+      <h2>1. Who We Are (Data Controller)</h2>
+      <address class="legal-contact">
+        Luna Diving Limited Partnership<br />
+        27/15 Soi Pattana, Moo 4, Rawai, Phuket 83130, Thailand<br />
+        TAT License No. 32/00034<br />
+        Email: <a href="mailto:info@luna-diving-thailand.com">info@luna-diving-thailand.com</a><br />
+        WhatsApp: <a href="https://wa.me/66918233120" target="_blank" rel="noopener noreferrer">+66 91 823 3120</a>
+      </address>
+      <p>
+        For any question about this Privacy Policy or your personal data, contact us at
+        <strong><a href="mailto:info@luna-diving-thailand.com">info@luna-diving-thailand.com</a></strong>.
+      </p>
+
+      <h2>2. Personal Data We Collect</h2>
+      <p><strong>Data you give us when you contact us or book:</strong></p>
+      <ul>
+        <li>Name, email address, phone or WhatsApp number, country of residence</li>
+        <li>Travel details: preferred dates, number of guests, hotel or pick-up location, arrival and departure information</li>
+        <li>Diving information: certification level and agency, number of logged dives, date of last dive</li>
+        <li>Identity information when required for a trip: date of birth, nationality, passport details (for example for national park permits or trips to Myanmar)</li>
+        <li>Health information: the diving medical questionnaire and any medical condition you declare, dietary requirements or allergies</li>
+        <li>Insurance details: dive and travel insurance provider and policy number</li>
+        <li>Payment information: bank transfer details and payment records (we do not store credit card numbers)</li>
+        <li>Any other information you choose to share in your messages</li>
+      </ul>
+      <p>
+        Health information is sensitive personal data. We collect it only with your explicit consent and only to ensure
+        your safety while diving.
+      </p>
+      <p><strong>Data collected automatically when you visit our website:</strong></p>
+      <ul>
+        <li>Technical data such as IP address, browser type, device type, operating system, pages visited, time spent on pages and the website that referred you</li>
+        <li>This data is collected through cookies and similar technologies (see <a href="#cookies">section 8</a>)</li>
+      </ul>
+
+      <h2>3. How We Use Your Personal Data and Legal Bases</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Purpose</th>
+              <th scope="col">Legal basis</th>
+            </tr>
+          </thead>
+          <tbody>
+            {legalBases.map((row) => (
+              <tr>
+                <td>{row.purpose}</td>
+                <td>{row.basis}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p>
+        We do not sell your personal data, and we do not use it for automated decision-making or profiling that has legal
+        effects on you.
+      </p>
+
+      <h2>4. Who We Share Your Data With</h2>
+      <p>We share your personal data only when necessary and only with:</p>
+      <ul>
+        <li><strong>Boat operators and service partners</strong> (liveaboards, yacht charters, dive and tour operators, transfer providers) who deliver the services you booked</li>
+        <li><strong>Thai national park authorities, port authorities and immigration</strong>, when required for permits or trips to Myanmar</li>
+        <li><strong>Training agencies such as PADI</strong>, to process your certification if you take a course</li>
+        <li><strong>Service providers</strong> who support our business, such as our website hosting provider, email and messaging services (including WhatsApp), and website analytics (Google Analytics)</li>
+        <li><strong>Banks and accountants</strong>, for payments and legal accounting requirements</li>
+        <li><strong>Authorities, emergency and medical services</strong>, when required by law or to protect your vital interests</li>
+      </ul>
+      <p>These recipients may only use your data for the purposes described above.</p>
+
+      <h2>5. International Data Transfers</h2>
+      <p>
+        We are based in Thailand, and some of our service providers (for example Google and Meta/WhatsApp) store data in
+        other countries, including the United States. When personal data from the European Economic Area or the UK is
+        transferred outside these regions, we rely on appropriate safeguards, such as the European Commission's Standard
+        Contractual Clauses or adequacy decisions, or on the transfer being necessary to perform the contract you
+        requested with us.
+      </p>
+
+      <h2>6. How Long We Keep Your Data</h2>
+      <ul>
+        <li><strong>Enquiries that do not lead to a booking:</strong> up to 2 years after our last contact</li>
+        <li><strong>Booking, payment and accounting records:</strong> as long as required by Thai tax and accounting law (generally up to 10 years)</li>
+        <li><strong>Medical questionnaires and liability forms:</strong> for the period required to handle any possible claim, and then deleted</li>
+        <li><strong>Analytics data:</strong> according to the retention settings of Google Analytics (maximum 14 months)</li>
+        <li><strong>Newsletter data:</strong> until you unsubscribe</li>
+      </ul>
+      <p>After these periods, we delete or anonymise your data.</p>
+
+      <h2>7. Your Rights</h2>
+      <p>Depending on where you live, you have the right to:</p>
+      <ul>
+        <li><strong>Access</strong> the personal data we hold about you and receive a copy</li>
+        <li><strong>Correct</strong> inaccurate or incomplete data</li>
+        <li><strong>Delete</strong> your data when it is no longer needed or when you withdraw consent</li>
+        <li><strong>Restrict</strong> or <strong>object to</strong> certain processing</li>
+        <li><strong>Data portability</strong>: receive your data in a structured, commonly used format</li>
+        <li><strong>Withdraw your consent</strong> at any time, without affecting processing carried out before the withdrawal</li>
+        <li><strong>Lodge a complaint</strong> with a data protection authority: in Thailand, the Personal Data Protection Committee (PDPC); in the EU, the supervisory authority of your country of residence</li>
+      </ul>
+      <p>
+        To exercise your rights, email <strong><a href="mailto:info@luna-diving-thailand.com">info@luna-diving-thailand.com</a></strong>.
+        We will reply within 30 days. We may ask you to confirm your identity before handling your request.
+      </p>
+
+      <h2 id="cookies">8. Cookies</h2>
+      <p>Our website uses:</p>
+      <ul>
+        <li><strong>Strictly necessary cookies</strong>, required for the website to work. These do not need your consent.</li>
+        <li><strong>Analytics cookies</strong> (Google Analytics), which help us understand how visitors use the website. These are set only if you accept them in the cookie banner.</li>
+      </ul>
+      <p>
+        You can change your choice at any time through the cookie settings on our website, or by deleting cookies in your
+        browser settings. Blocking cookies does not prevent you from using the website.
+      </p>
+
+      <h2>9. Links to Other Websites and Services</h2>
+      <p>
+        Our website contains links to WhatsApp, Facebook, Instagram, YouTube and the websites of our partners. These
+        services have their own privacy policies, and we are not responsible for how they process your data.
+      </p>
+
+      <h2>10. Data Security</h2>
+      <p>
+        We use appropriate technical and organisational measures to protect your personal data, including HTTPS
+        encryption on our website and restricted access to booking and medical information. No method of transmission
+        over the internet is completely secure, but we work to protect your data against loss, misuse and unauthorised
+        access.
+      </p>
+
+      <h2>11. Children</h2>
+      <p>
+        Our services for minors (for example PADI courses for young divers) are booked by a parent or legal guardian, who
+        provides the personal data of the child and gives consent on their behalf. We do not knowingly collect personal
+        data directly from children under 16 without the consent of a parent or guardian.
+      </p>
+
+      <h2>12. Changes to This Privacy Policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time. The latest version is always available on this page, with
+        the date of the last update shown at the top.
+      </p>
+
+      <h2>Contact</h2>
+      <address class="legal-contact">
+        Luna Diving Limited Partnership<br />
+        27/15 Soi Pattana, Moo 4, Rawai, Phuket 83130, Thailand<br />
+        Email: <a href="mailto:info@luna-diving-thailand.com">info@luna-diving-thailand.com</a><br />
+        WhatsApp: <a href="https://wa.me/66918233120" target="_blank" rel="noopener noreferrer">+66 91 823 3120</a>
+      </address>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  .legal-page {
+    width: 100%;
+    box-sizing: border-box;
+    padding: clamp(110px, 12vw, 150px) 20px 80px;
+    background: #ffffff;
+    color: #1a1a1a;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  .legal-content {
+    max-width: 760px;
+    margin: 0 auto;
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  h1 {
+    margin: 0 0 8px;
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    line-height: 1.2;
+  }
+
+  .legal-updated {
+    margin: 0 0 32px;
+    color: #706f6f;
+    font-size: 14px;
+  }
+
+  h2 {
+    margin: 40px 0 12px;
+    font-size: 1.3rem;
+    line-height: 1.3;
+    scroll-margin-top: 110px;
+  }
+
+  p {
+    margin: 0 0 14px;
+    color: #3a3a3a;
+  }
+
+  ul {
+    margin: 0 0 16px;
+    padding-left: 22px;
+    color: #3a3a3a;
+  }
+
+  li {
+    margin-bottom: 6px;
+  }
+
+  a {
+    color: #008ea7;
+    text-underline-offset: 3px;
+  }
+
+  a:focus-visible {
+    outline: 2px solid #008ea7;
+    outline-offset: 3px;
+  }
+
+  .legal-contact {
+    margin: 0 0 14px;
+    font-style: normal;
+    color: #3a3a3a;
+  }
+
+  .table-wrapper {
+    margin: 0 0 16px;
+    overflow-x: auto;
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  th,
+  td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #eeeeee;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th {
+    background: #f6f9fa;
+    font-weight: 700;
+  }
+
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  td:first-child {
+    width: 50%;
+  }
+</style>
