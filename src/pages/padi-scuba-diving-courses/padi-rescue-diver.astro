@@ -1,14 +1,18 @@
 ---
-import Breadcrumb from '../../components/Breadcrumb.astro';
-// src/pages/padi-rescue-diver/index.astro
-
+// src/pages/padi-scuba-diving-courses/padi-rescue-diver.astro
 import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import OptimizedImage from '../../components/OptimizedImage.astro';
+
+// Immagine provvisoria (illustrazione): sostituire con una foto reale quando disponibile
+const heroImage = '/images/courses/padi-rescue-diver-phuket.webp';
 
 const programSpecs = [
   { title: "Duration", value: "3 Days Minimum" },
   { title: "Max Depth", value: "18 Meters / 60 Feet" },
-  { title: "Prerequisites", value: "12+ Years Old", sub: "Adventure Diver & EFR within 24 months" }
+  { title: "Prerequisites", value: "12+ Years Old", sub: "Adventure Diver & EFR within 24 months" },
+  { title: "Price", value: "16,900 THB", sub: "Private instructor" }
 ];
 
 const inclusions = [
@@ -18,9 +22,74 @@ const inclusions = [
   "6 open water boat dives",
   "Full boat insurance"
 ];
+
+const faqs = [
+  {
+    q: 'What is the PADI Rescue Diver course?',
+    a: 'It is the PADI course that teaches you to prevent problems underwater and at the surface, and to manage them if they happen. You learn self-rescue, how to recognise and handle stress in other divers, and how to help tired, panicked or unresponsive divers.'
+  },
+  {
+    q: 'What are the requirements for the Rescue Diver course?',
+    a: 'You must be at least 12 years old, hold a PADI Adventure Diver certification or equivalent, and have Emergency First Response (EFR) primary and secondary care training completed within the last 24 months.'
+  },
+  {
+    q: 'How long does the Rescue Diver course take?',
+    a: 'A minimum of 3 days with a private instructor. The course combines knowledge development, confined water practice of the rescue skills and open water rescue scenarios during 6 boat dives.'
+  },
+  {
+    q: 'How much does the Rescue Diver course cost in Phuket?',
+    a: 'The course costs 16,900 THB. It includes your private instructor for 3 days, the PADI book and learning materials, the PADI certification fee, 6 open water boat dives and boat insurance. Hotel transfers and meals are not included.'
+  },
+  {
+    q: 'Is the Rescue Diver course difficult?',
+    a: 'It is challenging but also one of the most rewarding courses. The scenarios are physical and require concentration, but your private instructor builds each skill step by step, and most divers finish the course feeling far more confident in the water.'
+  },
+  {
+    q: 'What comes after Rescue Diver?',
+    a: 'Rescue Diver is the last recreational step before professional training, so many divers continue towards PADI Divemaster. You will also be a safer, more aware buddy on every dive, from day trips in Phuket to liveaboards in the Similan Islands.'
+  }
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: 'PADI Rescue Diver Course in Phuket',
+    description: 'Private 3-day PADI Rescue Diver course in Phuket: self-rescue, managing stress and emergencies, rescue scenarios during 6 boat dives. Age 12+, EFR within 24 months.',
+    url: 'https://luna-diving-thailand.com/padi-scuba-diving-courses/padi-rescue-diver/',
+    provider: {
+      '@type': 'Organization',
+      name: 'Luna Diving Thailand',
+      sameAs: 'https://luna-diving-thailand.com/'
+    },
+    offers: {
+      '@type': 'Offer',
+      price: '16900',
+      priceCurrency: 'THB',
+      category: 'Paid',
+      url: 'https://luna-diving-thailand.com/padi-scuba-diving-courses/padi-rescue-diver/'
+    }
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a }
+    }))
+  }
+];
+
+const whatsappBook = `https://wa.me/66918233120?text=${encodeURIComponent("Hi Luna Diving! I'm interested in booking the PADI Rescue Diver course (16,900 THB).")}`;
+const whatsappInfo = `https://wa.me/66918233120?text=${encodeURIComponent("Hi Luna Diving! I'm interested in the PADI Rescue Diver course.")}`;
 ---
 
-<Layout title="PADI Rescue Diver Course Phuket | Become a Safer Diver | Luna Diving">
+<Layout
+  title="PADI Rescue Diver Course Phuket | Private, 3 Days | 16,900 THB"
+  description="Private PADI Rescue Diver course in Phuket: 3 days, self-rescue and emergency skills, rescue scenarios on 6 boat dives. Age 12+, EFR within 24 months, 16,900 THB."
+  image={heroImage}
+>
   
   <div class="block w-full pt-24 md:pt-32 font-sans bg-[#fbfbfc]">
   
@@ -32,17 +101,31 @@ const inclusions = [
         PADI Safety & Emergency Course
       </span>
       <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-[#1A1A1A] mb-6 leading-tight">
-         there is no translation for this part of instructions, it's just code generation based on user prompt.
-        Prevent and Manage Emergencies <br class="hidden md:inline"/>with PADI Rescue Diver in Phuket
+        PADI Rescue Diver Course <br class="hidden md:inline"/>in Phuket
       </h1>
       <p class="text-base md:text-lg text-[#50555c] leading-relaxed max-w-2xl mx-auto">
-        Take your scuba diving skills to the next level. This course is designed to teach you the vital skills and techniques needed to handle emergency situations, look after your buddy, and become a significantly more confident and competent diver.
+        Learn to prevent and manage problems in the water with a <strong>private PADI instructor</strong>. In <strong>3 days</strong>
+        you practise self-rescue and real rescue scenarios during <strong>6 boat dives</strong>, and become a safer, more
+        confident dive buddy.
       </p>
     </header>
 
+    <!-- Hero Image (illustrazione provvisoria) -->
+    <section class="max-w-5xl mx-auto px-6 mb-12">
+      <OptimizedImage
+        src={heroImage}
+        alt="Illustration of a rescue diver assisting another diver towards the surface and a lifebuoy"
+        class="w-full h-auto rounded-[24px] shadow-sm"
+        loading="eager"
+        fetchpriority="high"
+        widths={[480, 800, 1200]}
+        sizes="(max-width: 1024px) 100vw, 976px"
+      />
+    </section>
+
     <!-- Quick Specs Grid -->
     <section class="max-w-5xl mx-auto px-6 mb-16">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
         {programSpecs.map((spec) => (
           <div class="bg-white border border-gray-100 p-6 rounded-[20px] shadow-sm text-center flex flex-col items-center justify-center">
             <h3 class="text-xs font-bold text-[#706F6F] uppercase tracking-wider mb-1">{spec.title}</h3>
@@ -67,7 +150,9 @@ const inclusions = [
               As a Rescue Diver, you will learn how to look beyond yourself and consider the safety and well-being of other divers. Through hands-on practice, you will learn how to anticipate, prevent, and manage diving-related accidents, as well as how to effectively assist other divers in distress.
             </p>
             <p class="text-[15px] text-[#40444b] leading-relaxed mb-6">
-              Our experienced and certified instructors provide dedicated private attention, ensuring you feel entirely comfortable with every drill. Phuket offers pristine ocean training environments where you can apply these crucial rescue methodologies realistically.
+              Your private instructor works with you on every skill until you feel confident, then puts it together in
+              realistic scenarios at sea. Practising rescues in the open water around Phuket, rather than only in a
+              classroom, is what makes the skills stick.
             </p>
             
             <h3 class="text-sm font-bold text-[#1A1A1A] uppercase tracking-wide mb-3">Essential Skills Covered:</h3>
@@ -78,7 +163,7 @@ const inclusions = [
               </li>
               <li class="flex items-start gap-3">
                 <span class="w-1.5 h-1.5 rounded-full bg-[#008EA7] mt-2 shrink-0"></span>
-                <span>Emergency logistics, equipment handling, and surface missing diver protocols</span>
+                <span>Emergency management and equipment, and missing diver procedures</span>
               </li>
               <li class="flex items-start gap-3">
                 <span class="w-1.5 h-1.5 rounded-full bg-[#008EA7] mt-2 shrink-0"></span>
@@ -86,7 +171,7 @@ const inclusions = [
               </li>
               <li class="flex items-start gap-3">
                 <span class="w-1.5 h-1.5 rounded-full bg-[#008EA7] mt-2 shrink-0"></span>
-                <span>Developing a deeper theoretical understanding of diving physics and physiology</span>
+                <span>Recognising and managing stress in yourself and other divers</span>
               </li>
             </ul>
           </div>
@@ -129,9 +214,46 @@ const inclusions = [
               <div>
                 <h3 class="font-bold text-base text-[#1A1A1A] mb-1">Phase 3 – Rescue Water Dives</h3>
                 <p class="text-sm text-[#706F6F] leading-relaxed">
-                  Participate in at least 5 realistic open water scenario practices. You will role-play with your instructor and classmates to manage situations like solving a leg cramp, securing tired divers, and executing complex rescue problems across 6 boat dives.
+                  Put everything together in realistic rescue scenarios during 6 open water boat dives: from releasing a
+                  cramp and helping a tired diver to searching for a missing diver and bringing an unresponsive diver to
+                  the surface. Your instructor plays the diver in trouble.
                 </p>
               </div>
+            </div>
+          </div>
+
+          <!-- SEO content -->
+          <div class="bg-white border border-gray-200 p-8 rounded-[24px] shadow-sm space-y-4">
+            <h2 class="text-xl font-bold text-[#1A1A1A]">Why Become a Rescue Diver?</h2>
+            <p class="text-[15px] text-[#40444b] leading-relaxed">
+              Rescue Diver changes the way you dive. You learn to spot small problems before they become big ones, to look
+              after your buddy and to stay calm when something goes wrong. It is often described as one of the most rewarding
+              diving courses, and it is the natural step before professional PADI training.
+            </p>
+            <h2 class="text-xl font-bold text-[#1A1A1A] pt-2">Before and After Your Rescue Course</h2>
+            <p class="text-[15px] text-[#40444b] leading-relaxed">
+              Rescue Diver requires Adventure Diver or higher: if you still need it, start with the
+              <a href="/padi-scuba-diving-courses/padi-advanced-open-water-diver/" class="text-[#008EA7] font-semibold underline underline-offset-2">PADI Advanced Open Water Diver course</a>.
+              Once certified, put your skills to use on our
+              <a href="/day-trip-phuket/" class="text-[#008EA7] font-semibold underline underline-offset-2">diving day trips from Phuket</a> or a
+              <a href="/thailand-liveaboards/" class="text-[#008EA7] font-semibold underline underline-offset-2">Similan Islands liveaboard</a>,
+              or compare all our <a href="/padi-scuba-diving-courses/" class="text-[#008EA7] font-semibold underline underline-offset-2">PADI courses in Phuket</a>.
+            </p>
+          </div>
+
+          <!-- FAQ -->
+          <div class="space-y-4">
+            <h2 class="text-xl font-bold text-[#1A1A1A] px-2">PADI Rescue Diver FAQ</h2>
+            <div class="bg-white border border-gray-200 rounded-[20px] shadow-sm divide-y divide-gray-100">
+              {faqs.map((item) => (
+                <details class="group px-6 py-4">
+                  <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-semibold text-[15px] text-[#1A1A1A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#008EA7] focus-visible:outline-offset-4">
+                    {item.q}
+                    <span class="text-[#008EA7] text-xl leading-none transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+                  </summary>
+                  <p class="mt-3 text-sm text-[#40444b] leading-relaxed">{item.a}</p>
+                </details>
+              ))}
             </div>
           </div>
 
@@ -175,7 +297,7 @@ const inclusions = [
             <!-- CTA Buttons -->
             <div class="space-y-3">
               <a 
-                href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20interested%20in%20booking%20the%20PADI%20Rescue%20Diver%20course%20for%2016,900%20THB."
+                href={whatsappBook}
                 target="_blank"
                 rel="noopener noreferrer"
                 class="flex items-center justify-center bg-[#25D366] hover:bg-[#20ba5a] text-white text-sm font-bold py-3.5 w-full rounded-full transition-all duration-300 text-center shadow-md"
@@ -183,7 +305,7 @@ const inclusions = [
                 Book via WhatsApp
               </a>
               <a 
-                href="/contact/" 
+                href="/contact/?vessel=PADI%20Rescue%20Diver" 
                 class="flex items-center justify-center bg-white/10 hover:bg-white/20 text-white text-sm font-medium py-3.5 w-full rounded-full transition-all duration-300 text-center"
               >
                 Inquire via Email
@@ -197,19 +319,23 @@ const inclusions = [
     </section>
 
   </div>
-</Layout>
 
-<!-- Floating WhatsApp Button -->
-<div class="fixed bottom-6 right-6 z-[99999] pointer-events-auto">
-  <a 
-    href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20interested%20in%20the%20PADI%20Rescue%20Diver%20course." 
-    target="_blank" 
-    rel="noopener noreferrer" 
-    class="flex items-center justify-center w-14 h-14 md:w-[60px] md:h-[60px] bg-[#25D366] text-white rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.25)] hover:scale-105 hover:bg-[#20ba5a] transition-all duration-300 ease-out"
-    aria-label="Chat on WhatsApp"
-  >
-    <svg class="w-7 h-7 md:w-8 md:h-8" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.454 5.709 1.455h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-  </a>
-</div>
+  {structuredData.map((data) => (
+    <script type="application/ld+json" set:html={JSON.stringify(data)} />
+  ))}
+
+  <!-- Floating WhatsApp Button -->
+  <div class="fixed bottom-6 right-6 z-[99999] pointer-events-auto">
+    <a
+      href={whatsappInfo}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center justify-center w-14 h-14 md:w-[60px] md:h-[60px] bg-[#25D366] text-white rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.25)] hover:scale-105 hover:bg-[#20ba5a] transition-all duration-300 ease-out"
+      aria-label="Chat on WhatsApp"
+    >
+      <svg class="w-7 h-7 md:w-8 md:h-8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.454 5.709 1.455h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+    </a>
+  </div>
+</Layout>
