@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 import { getImage } from 'astro:assets';
 import { resolveImage } from '../utils/images';
+import { breadcrumbSchema } from '../utils/breadcrumbs';
 interface Props {
   title?: string;
   description?: string;
@@ -21,6 +22,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 // Anteprima social: JPG 1200px, il formato più compatibile con Facebook, WhatsApp ecc.
 const ogImage = await getImage({ src: resolveImage(image), width: 1200, format: 'jpg' });
 const imageURL = new URL(ogImage.src, Astro.site);
+
+// Breadcrumb per Google (Home › Sezione › Pagina), generati dall'URL
+const breadcrumbs = breadcrumbSchema(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -52,6 +56,8 @@ const imageURL = new URL(ogImage.src, Astro.site);
     />
 
     <!-- Google Analytics (G-JTVKL5Z7ER) viene caricato da CookieConsent solo dopo il consenso -->
+
+    {breadcrumbs && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbs)} />}
   </head>
   <body>
     <!-- L'Header viene inserito qui e rimarrà fisso in alto su tutte le pagine -->
