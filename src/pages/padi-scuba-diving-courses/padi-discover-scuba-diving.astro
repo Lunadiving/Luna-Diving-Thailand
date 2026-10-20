@@ -1,14 +1,18 @@
 ---
-import Breadcrumb from '../../components/Breadcrumb.astro';
-// src/pages/padi-discover-scuba-diving/index.astro
-
+// src/pages/padi-scuba-diving-courses/padi-discover-scuba-diving.astro
 import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import OptimizedImage from '../../components/OptimizedImage.astro';
+
+// Immagine provvisoria (illustrazione): sostituire con una foto reale quando disponibile
+const heroImage = '/images/courses/discover-scuba-diving-phuket.webp';
 
 const programSpecs = [
   { title: "Duration", value: "1 Day" },
   { title: "Max Depth", value: "12 Meters / 40 Feet" },
-  { title: "Who Can Join?", value: "10+ Years Old", sub: "Able to swim" }
+  { title: "Who Can Join?", value: "10+ Years Old", sub: "Able to swim" },
+  { title: "Price", value: "4,900 THB", sub: "Private instructor" }
 ];
 
 const inclusions = [
@@ -18,9 +22,75 @@ const inclusions = [
   "Racha Noi & Racha Yai Islands destinations",
   "Full boat insurance"
 ];
+
+const faqs = [
+  {
+    q: 'Do I need any experience to try scuba diving?',
+    a: 'No. PADI Discover Scuba Diving is designed for complete beginners. You only need to be at least 10 years old, able to swim and in good health. Your private PADI instructor explains everything step by step before you go in the water.'
+  },
+  {
+    q: 'How much does Discover Scuba Diving cost in Phuket?',
+    a: 'The PADI Discover Scuba Diving experience with Luna Diving costs 4,900 THB. The price includes a private PADI instructor, a full set of diving equipment, 2 introductory boat dives at the Racha Islands and boat insurance.'
+  },
+  {
+    q: 'How deep will I dive?',
+    a: 'On a Discover Scuba Diving experience you stay with your instructor at all times and dive to a maximum depth of 12 metres (40 feet), which is deep enough to see coral reefs and tropical fish up close.'
+  },
+  {
+    q: 'Is it safe for beginners?',
+    a: 'Yes. You dive with a private PADI-certified instructor who stays next to you during both dives. Before diving you complete a short medical questionnaire, and the itinerary can be adjusted to the weather and sea conditions to keep everyone safe.'
+  },
+  {
+    q: 'Can children do Discover Scuba Diving?',
+    a: 'Yes, children aged 10 and over can join, as long as they can swim and feel comfortable in the water. A parent or legal guardian makes the booking and signs the forms on their behalf.'
+  },
+  {
+    q: 'What comes after Discover Scuba Diving?',
+    a: 'If you enjoy your first dives, the next step is the PADI Open Water Diver course, your first full scuba certification. It takes 3 days with a private instructor and lets you dive to 18 metres anywhere in the world.'
+  }
+];
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: 'PADI Discover Scuba Diving in Phuket',
+    description: 'A one-day introduction to scuba diving for beginners aged 10+, with a private PADI instructor and 2 boat dives at the Racha Islands, Phuket.',
+    url: 'https://luna-diving-thailand.com/padi-scuba-diving-courses/padi-discover-scuba-diving/',
+    provider: {
+      '@type': 'Organization',
+      name: 'Luna Diving Thailand',
+      sameAs: 'https://luna-diving-thailand.com/'
+    },
+    offers: {
+      '@type': 'Offer',
+      price: '4900',
+      priceCurrency: 'THB',
+      category: 'Paid',
+      url: 'https://luna-diving-thailand.com/padi-scuba-diving-courses/padi-discover-scuba-diving/'
+    }
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a }
+    }))
+  }
+];
+
+const whatsappBook = `https://wa.me/66918233120?text=${encodeURIComponent("Hi Luna Diving! I'm interested in booking the PADI Discover Scuba Diving experience (4,900 THB).")}`;
+const whatsappInfo = `https://wa.me/66918233120?text=${encodeURIComponent("Hi Luna Diving! I'm interested in the PADI Discover Scuba Diving experience.")}`;
+
 ---
 
-<Layout title="PADI Discover Scuba Diving Phuket | No Experience Needed | Luna Diving">
+<Layout
+  title="Discover Scuba Diving Phuket | Try Diving from 4,900 THB"
+  description="Try scuba diving in Phuket with no experience: PADI Discover Scuba Diving with a private instructor, 2 boat dives at the Racha Islands, age 10+, 4,900 THB."
+  image={heroImage}
+>
   
   <div class="block w-full pt-24 md:pt-32 font-sans bg-[#fbfbfc]">
   
@@ -32,16 +102,31 @@ const inclusions = [
         PADI First Experience
       </span>
       <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-[#1A1A1A] mb-6 leading-tight">
-        Discover Scuba Diving in Phuket <br class="hidden md:inline"/>– No Experience Needed!
+        PADI Discover Scuba Diving <br class="hidden md:inline"/>in Phuket – No Experience Needed
       </h1>
       <p class="text-base md:text-lg text-[#50555c] leading-relaxed max-w-2xl mx-auto">
-        Are you curious about scuba diving but not quite ready to commit to a full certification course? Our PADI Discover Scuba Diving program is the perfect way to dip your toes in and experience the magic of the underwater world!
+        Curious about scuba diving but not ready for a full course? <strong>PADI Discover Scuba Diving</strong> lets you try
+        scuba diving in Phuket in a single day, with a <strong>private PADI instructor</strong> and <strong>2 boat dives at the Racha Islands</strong>.
+        No certification and no experience needed.
       </p>
     </header>
 
+    <!-- Hero Image (illustrazione provvisoria) -->
+    <section class="max-w-5xl mx-auto px-6 mb-12">
+      <OptimizedImage
+        src={heroImage}
+        alt="Illustration of a beginner scuba diver swimming over a coral reef in clear blue water"
+        class="w-full h-auto rounded-[24px] shadow-sm"
+        loading="eager"
+        fetchpriority="high"
+        widths={[480, 800, 1200]}
+        sizes="(max-width: 1024px) 100vw, 976px"
+      />
+    </section>
+
     <!-- Quick Specs Grid -->
     <section class="max-w-5xl mx-auto px-6 mb-16">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
         {programSpecs.map((spec) => (
           <div class="bg-white border border-gray-100 p-6 rounded-[20px] shadow-sm text-center flex flex-col items-center justify-center">
             <h3 class="text-xs font-bold text-[#706F6F] uppercase tracking-wider mb-1">{spec.title}</h3>
@@ -61,9 +146,16 @@ const inclusions = [
           
           <!-- Experience Overview -->
           <div class="bg-white border border-gray-200 p-8 rounded-[24px] shadow-sm">
-            <h2 class="text-xl font-bold text-[#1A1A1A] mb-4">What You Will Experience</h2>
+            <h2 class="text-xl font-bold text-[#1A1A1A] mb-4">Try Scuba Diving in Phuket</h2>
+            <p class="text-[15px] text-[#40444b] leading-relaxed mb-4">
+              PADI Discover Scuba Diving is the easiest way to find out what it feels like to breathe underwater. It is
+              made for complete beginners: you do not need a certification, only to be 10 years or older, able to swim
+              and in good health.
+            </p>
             <p class="text-[15px] text-[#40444b] leading-relaxed mb-6">
-              Phuket is home to some of the most beautiful dive sites in Thailand, featuring crystal-clear waters and vibrant marine life. Our experienced and certified instructors will guide you step by step, ensuring you feel safe and comfortable throughout the experience.
+              Your private PADI instructor stays with you from the first briefing to the last minute underwater, so the
+              pace is always yours. The Racha Islands, south of Phuket, have clear water, coral reefs and colourful fish
+              at shallow depths, ideal for a first dive.
             </p>
             <h3 class="text-sm font-bold text-[#1A1A1A] uppercase tracking-wide mb-3">You will learn:</h3>
             <ul class="space-y-3 text-[15px] text-[#40444b]">
@@ -113,6 +205,40 @@ const inclusions = [
             </div>
           </div>
 
+          <!-- SEO content -->
+          <div class="bg-white border border-gray-200 p-8 rounded-[24px] shadow-sm space-y-4">
+            <h2 class="text-xl font-bold text-[#1A1A1A]">Who Is Discover Scuba Diving For?</h2>
+            <p class="text-[15px] text-[#40444b] leading-relaxed">
+              It is perfect for holidaymakers who want to try diving before committing to a full course, for couples and
+              families looking for a shared adventure, and for anyone who has always been curious about the underwater
+              world. Children can join from 10 years old with a parent or guardian.
+            </p>
+            <h2 class="text-xl font-bold text-[#1A1A1A] pt-2">After Your First Dives</h2>
+            <p class="text-[15px] text-[#40444b] leading-relaxed">
+              Loved it? The next step is the <a href="/padi-scuba-diving-courses/padi-open-water-diver/" class="text-[#008EA7] font-semibold underline underline-offset-2">PADI Open Water Diver course</a>,
+              your first full certification, which takes 3 days with a private instructor. Once certified you can join our
+              <a href="/day-trip-phuket/" class="text-[#008EA7] font-semibold underline underline-offset-2">diving day trips from Phuket</a> or a
+              <a href="/thailand-liveaboards/" class="text-[#008EA7] font-semibold underline underline-offset-2">Similan Islands liveaboard</a>.
+              See all our <a href="/padi-scuba-diving-courses/" class="text-[#008EA7] font-semibold underline underline-offset-2">PADI courses in Phuket</a>.
+            </p>
+          </div>
+
+          <!-- FAQ -->
+          <div class="space-y-4">
+            <h2 class="text-xl font-bold text-[#1A1A1A] px-2">Discover Scuba Diving FAQ</h2>
+            <div class="bg-white border border-gray-200 rounded-[20px] shadow-sm divide-y divide-gray-100">
+              {faqs.map((item) => (
+                <details class="group px-6 py-4">
+                  <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-semibold text-[15px] text-[#1A1A1A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#008EA7] focus-visible:outline-offset-4">
+                    {item.q}
+                    <span class="text-[#008EA7] text-xl leading-none transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+                  </summary>
+                  <p class="mt-3 text-sm text-[#40444b] leading-relaxed">{item.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+
         </div>
 
         <!-- Right Column: Pricing & Booking Card -->
@@ -144,7 +270,7 @@ const inclusions = [
             <!-- CTA Buttons -->
             <div class="space-y-3">
               <a 
-                href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20interested%20in%20booking%20the%20PADI%20Discover%20Scuba%20Diving%20program%20for%204,900%20THB."
+                href={whatsappBook}
                 target="_blank"
                 rel="noopener noreferrer"
                 class="flex items-center justify-center bg-[#25D366] hover:bg-[#20ba5a] text-white text-sm font-bold py-3.5 w-full rounded-full transition-all duration-300 text-center shadow-md"
@@ -152,7 +278,7 @@ const inclusions = [
                 Book via WhatsApp
               </a>
               <a 
-                href="/contact/" 
+                href="/contact/?vessel=PADI%20Discover%20Scuba%20Diving" 
                 class="flex items-center justify-center bg-white/10 hover:bg-white/20 text-white text-sm font-medium py-3.5 w-full rounded-full transition-all duration-300 text-center"
               >
                 Inquire via Email
@@ -171,19 +297,23 @@ const inclusions = [
     </section>
 
   </div>
-</Layout>
 
-<!-- Floating WhatsApp Button (Icona SVG tecnica mantenuta per usabilità dell'app) -->
-<div class="fixed bottom-6 right-6 z-[99999] pointer-events-auto">
-  <a 
-    href="https://wa.me/66918233120?text=Hi%20Luna%20Diving!%20I'm%20interested%20in%20the%20PADI%20Discover%20Scuba%20Diving%20experience." 
-    target="_blank" 
-    rel="noopener noreferrer" 
-    class="flex items-center justify-center w-14 h-14 md:w-[60px] md:h-[60px] bg-[#25D366] text-white rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.25)] hover:scale-105 hover:bg-[#20ba5a] transition-all duration-300 ease-out"
-    aria-label="Chat on WhatsApp"
-  >
-    <svg class="w-7 h-7 md:w-8 md:h-8" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.454 5.709 1.455h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-  </a>
-</div>
+  {structuredData.map((data) => (
+    <script type="application/ld+json" set:html={JSON.stringify(data)} />
+  ))}
+
+  <!-- Floating WhatsApp Button -->
+  <div class="fixed bottom-6 right-6 z-[99999] pointer-events-auto">
+    <a
+      href={whatsappInfo}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center justify-center w-14 h-14 md:w-[60px] md:h-[60px] bg-[#25D366] text-white rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.25)] hover:scale-105 hover:bg-[#20ba5a] transition-all duration-300 ease-out"
+      aria-label="Chat on WhatsApp"
+    >
+      <svg class="w-7 h-7 md:w-8 md:h-8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.454 5.709 1.455h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+    </a>
+  </div>
+</Layout>
